@@ -4,7 +4,7 @@
 **Students, welcome to Code Platoon!** Be prepared to push yourself and to work hard towards your new career. We are happy you are here and are here to support you. If you need anything, please don't hesitate to ask. There are many resources available to you on your journey!
 
 ## Getting Started
-You can view our cohort's [curriculum calendar](https://docs.google.com/spreadsheets/d/1KPElYOwA36KPMAbElPN5ZxZXB-l0faKHQECsIoiPcFk/edit?usp=sharing), which is broken down by weeks and days.
+You can view our cohort's [curriculum calendar](https://docs.google.com/spreadsheets/d/1lz6tc9RM6mBs7Ngq8gWezNM6K2ywbdeD3gwmbNG6eZc/edit#gid=0), which is broken down by weeks and days.
 
 ![Fullstack Development](./page-resources/cp_fullstack_development.png)
 
@@ -16,7 +16,7 @@ Questions should be asked in the #questions Slack channel using proper [formatti
 Your questions should be pointed (not "Can someone help me?"), show that you’ve read through the code/error, should contain your thought process / some potential solutions, and should not be anything that is easily Google-able. Once you ask a question and find a solution, please update your question thread so that other students can benefit from seeing the question and answer.
 
 ## Daily Check-ins
-It is important for you to have a place to talk about how you are feeling and how you feel you are progressing. Every morning before class starts, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfZjxwlNH-f2mEMfrqPkO062Y58GeiGqNW8jdd_Ujvq31ZGDQ/viewform?usp=sf_link).
+It is important for you to have a place to talk about how you are feeling and how you feel you are progressing. Every morning before class starts, please fill out [this form](https://forms.gle/dMtTTxQWoFH1ojPP7).
 
 ## What should I do if I finish everything on any given day?
 1. Help those around you. Teaching solidifies learning.
