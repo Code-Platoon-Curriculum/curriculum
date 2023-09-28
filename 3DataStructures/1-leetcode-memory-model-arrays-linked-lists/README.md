@@ -20,13 +20,13 @@
 
 It is important to contextualize this week's material a little bit as it can feel somewhat out of place with respect to the rest of the course. Most of what we cover in this course fits into the topic of 'software development' - i.e. the practical dicipline of creating useful software. In the first two weeks you skill up in the main language we work with, Python, and then Week 4 through 10 we learn all the practical tools necessary for fullstack web development, things like:
 
-- Week 4: HTML/CSS/JS for building a basic (minimally-interactive) frontend
-- Week 5: SQL for databases
-- Week 6-8: Django for building a 'backend' web server and API
-- Week 9: React for building a modern (highly-interactive) frontend
-- Week 10: Deployment
+- HTML/CSS/JS for building a basic (minimally-interactive) frontend
+- React for building a modern (highly-interactive) frontend
+- SQL for databases
+- Django for building a 'backend' web server and API
+- Deployment
 
-So what is Week 3 - **Data Structures** all about?
+So what is **Data Structures** all about?
 
 Unlike the other weeks in which we are really teaching _software development_, **Data Structures** is much more of a pure _computer science_ topic. That means it can seem somewhat technical and seeming impractical. So why are we learning it then?
 
