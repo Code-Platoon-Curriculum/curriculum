@@ -1,8 +1,16 @@
 # Intro to Data Structures
 
-## Module Topics
+## Lessons
 
-- [Why Data Structures, Intro to Tech Interviews & Leetcode, The Memory Model, Arrays and Linked Lists](./1-leetcode-memory-model-arrays-linked-lists/README.md)
+1. [Why Data Structures, The Computer Memory Model, Arrays and Linked Lists, Intro to Leetcode Problems & Pseudocoding](./1-leetcode-memory-model-arrays-linked-lists/README.md)
+
+2. Whiteboarding Problem Practice, Big-O & Time Complexity, Stacks, and Queues
+
+3. Recursion and the Call Stack, Intro to Binary Trees & Binary Search
+
+4. Trees!
+
+5. More Trees and Practice
 
 - Data Structures
 - Recursion
@@ -22,3 +30,4 @@
 1. Understand the basics of Data Structures and complexity analysis
 2. Ability to use Recursions to solve challenges
 3. An understanding of the Leetcode platform and how it can be used to practice for tech interviews.
+4. Use the pseudocoding technique and some other "whiteboard problem" techniques to help you solve basic leetcode problems.
