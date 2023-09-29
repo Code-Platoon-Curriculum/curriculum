@@ -19,19 +19,30 @@ You will learn some of the fundamental building blocks (data structures, algorit
 
 ### Why is it important?
 
-These skills and concepts are important to succeed in technical interviews, and, to understand on a deeper level how computers and programs work.
+Unlike the other weeks in which we are really teaching _software development_, **Data Structures** is much more of a pure _computer science_ topic. That means it can seem somewhat technical and seeming impractical. So why are we learning it?
 
-Data Structures is the field of 'solved' computer science related problems. We understand how different ways of structuring data can have different performance benefits, and this common ground knowledge tends to be relevant in the tech interview specifically.
+1. These skills and concepts are important to succeed in technical interviews, and, to understand on a deeper level how computers and programs work.
 
-Recursion is important because it is often the most natural way to model or solve certain problems that would otherwise be practically unobtainable with an imperative approach. Recursion allows us to define a structure or algorithm in terms of itself, which mimics a kind of 'optimal substructure' some ways of modeling data have naturally, like trees.
+2. Data Structures is the field of 'solved' computer science related problems. We understand how different ways of structuring data can have different performance benefits, and this common ground knowledge tends to be relevant in the tech interview specifically.
+
+3. Recursion is important because it is often the most natural way to model or solve certain problems that would otherwise be practically unobtainable with an imperative approach. Recursion allows us to define a structure or algorithm in terms of itself, which mimics a kind of 'optimal substructure' some ways of modeling data have naturally, like trees.
+
+#### A note on the tech interview
+
+An interview for a software development position will inevitably involved some kind of _technical interview_. This can take a few different forms, sometimes you will merely be asked to talk about a topic ('What is class inheritance in OOP and why is it useful?') and sometimes this will be a practical coding assignment ('Build a navbar in React').
+
+The most classic kind of tech interview however is an example of a 'data structures & algorithms' problem. In such a problem you will be given a self contained prompt and some input => output examples, and asked to program a solution in the language of your choice. Sometimes this is done in person, and in the most extreme cases (read: only Google at this point) you will be asked to solve the problem on a standard whiteboard with no access to a physical computer. So why is it done this way at all?
+
+The answer is that these kinds of interview questions are popular because they are both language-agnostic and domain-agnostic, meaning if you are applying to a role as a game developer working in C++, but you only have experience as a web develop using Python and JavaScript, the same kind of question can be asked, and answered in the language of your choice, while proving some kind of essential technical ability.
 
 ### What you'll be able to accomplish after this topic?
 
 1. Understand the basics of Data Structures and complexity analysis.
 2. Understand and be able to write recursive algorithms and do complexity analysis of them.
 3. Ability to do complexity analysis of basic data structures and algorithms and discuss the tradeoffs involved.
+4. Practice more of the kinds of programming problems you may see in your technical interviews.
 
-## Lessons
+## Module Topics
 
 1. [The Computer Memory Model & Arrays, Big-O](./1-computer-memory-big-o/README.md)
 
@@ -42,3 +53,7 @@ Recursion is important because it is often the most natural way to model or solv
 4. [Intro to Sorting & Searching Algorithms](./4-intro-sorting-searching-algos/README.md)
 
 5. [Linked Lists](./5-linked-lists/README.md)
+
+## Notes on Jargon
+
+- The terms **complexity analysis**, **runtime complexity**, and **Big-O** (pronounced "big oh") are often used interchangeably.
