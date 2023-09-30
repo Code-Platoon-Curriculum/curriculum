@@ -1,35 +1,55 @@
 # Complexity Analysis: Time and Space
 
+---
+
 ## An embarassment of riches - modern computing
 
 These days computers are very powerful - they have lots of processing power and lots of memory (space for data). For most of the programs you write in this class your computer will be so powerful that it would be difficult to detect a difference between an extremely efficient program and an inefficient one (both doing the same thing).
 
+---
+
 It wasn't always this way. For decades, programmers always had to work against the limitations of processor power and memory.
 
 And, as a professional software engineer these concerns are still relevant:
+
+---
 
 - Web app load times over low-bandwidth connections (which is a large percentage of the world).
 - Applications or data at scale (Google processes over 99,000 searches *per second*).
 - Embedded systems (IoT devices, etc).
 - Energy efficiency.
 
+---
+
 ## What is complexity analysis?
 
+---
+
 *Complexity analysis* is the term for how programmers think about the **perfomance** of a program:
+
+---
 
 1. How long (how much processing power, how many CPU cycles) does it take to run?
 2. How much space (memory) does it take up?
 
 In other words ...
 
+---
+
 1. Time
 2. Space
 
 ![time and space](./page-resources/time-and-space.jpg)
 
+---
+
 ### Things we care about - worst case perfomance
 
+---
+
 Programmers usually care about the **worst-case performance** of their programs, as that is when possible problems (like running out of memory!) can occur. We will discuss Big-O later but it encapsulates this idea of using worst-case performance to evaluate and compare programs.
+
+---
 
 ### Things we don't care about - real numbers and details
 
