@@ -4,6 +4,8 @@
 
 ## An embarassment of riches - modern computing
 
+---
+
 These days computers are very powerful - they have lots of processing power and lots of memory (space for data). For most of the programs you write in this class your computer will be so powerful that it would be difficult to detect a difference between an extremely efficient program and an inefficient one (both doing the same thing).
 
 ---
@@ -262,11 +264,19 @@ Given an array *arr* of integers of length *n*, write a program that will return
 
 Before we get started ...
 
+---
+
 #### Question: How long does it take to print every element in the array, printing each element twice?
+
+---
 
 #### Answer - *n*
 
+---
+
 For our array (such as [3,4,0,5,2] with length 5 so *n=5*) of length *n* it takes *n* steps to iterate through the array and print out each item. This implementation:
+
+---
 
 ```python
 def print_elements_twice(arr):
@@ -280,6 +290,8 @@ print(print_elements_twice(arr))
 ```
 
 ... this implementation takes *n* steps - we count both print statements as a single step. Soon we will discuss why in more depth.
+
+---
 
 Back to our problem!
 
