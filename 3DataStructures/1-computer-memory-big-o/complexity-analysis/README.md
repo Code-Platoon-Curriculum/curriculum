@@ -476,4 +476,4 @@ print(contains_duplicate_sort(arr))  # True
 
 For now let's just declare that the sorting takes `s` steps, and that `s < n`. It doesn't take as long to sort the array as it does to iterate through the whole thing. Our time complexity is then: `s * n` -- how long it took to sort, times the length of the array, as we know that with a sorted array we'll only have to loop through it once to find the dupe and there's no nested array anymore.
 
-We will dig into this more in our next lesson - when we talk about ... Big O!
+We will dig into this more soon - when we talk about ... Big O!
