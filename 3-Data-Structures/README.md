@@ -8,6 +8,19 @@ This module focuses on teaching and reinforcing basic complexity analysis (Big-O
 
 The code in this module should be kept as simple as possible to focus on concepts and only use classes/objects when absolutely necessary.
 
+## Module Topics
+
+1. [The Computer Memory Model & Arrays, Big-O](./1-computer-memory-big-o/README.md)
+
+2. [Recursion](./2-recursion-the-call-stack/README.md)
+
+3. [Stacks and Queues](./3-stacks-and-queues/README.md)
+
+4. [Intro to Sorting & Searching Algorithms](./4-intro-sorting-searching-algos/README.md)
+
+5. [Linked Lists](./5-linked-lists/README.md)
+
+
 ## What are we trying to accomplish?
 
 You will learn the basics of complexity analysis (Big-O). You will learn the concepts and terms programmers use to evaluate and compare different ways of writing programs (one algorithm versus another, one data structure versus another), and understand the basic tradeoffs involved in making these choices of how you build and design your code.
@@ -41,18 +54,6 @@ The answer is that these kinds of interview questions are popular because they a
 2. Understand and be able to write recursive algorithms and do complexity analysis of them.
 3. Ability to do complexity analysis of basic data structures and algorithms and discuss the tradeoffs involved.
 4. Practice more of the kinds of programming problems you may see in your technical interviews.
-
-## Module Topics
-
-1. [The Computer Memory Model & Arrays, Big-O](./1-computer-memory-big-o/README.md)
-
-2. [Recursion](./2-recursion-the-call-stack/README.md)
-
-3. [Stacks and Queues](./3-stacks-and-queues/README.md)
-
-4. [Intro to Sorting & Searching Algorithms](./4-intro-sorting-searching-algos/README.md)
-
-5. [Linked Lists](./5-linked-lists/README.md)
 
 ## Notes on Jargon
 
