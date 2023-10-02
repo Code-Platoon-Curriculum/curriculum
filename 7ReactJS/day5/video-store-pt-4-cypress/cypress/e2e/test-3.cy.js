@@ -1,6 +1,6 @@
 describe("Test 3", () => {
   it("Test navigation", () => {
-    cy.visit("http://localhost:5173/film/tt10151854");
+    cy.visit("/film/tt10151854");
 
     cy.wait(1000);
 

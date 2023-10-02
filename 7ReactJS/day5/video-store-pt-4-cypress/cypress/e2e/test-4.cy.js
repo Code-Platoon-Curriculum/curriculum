@@ -1,6 +1,6 @@
-describe("Test 3", () => {
+describe("Test 4", () => {
   it("Test navigation", () => {
-    cy.visit("http://localhost:5173/");
+    cy.visit("/");
 
     cy.wait(1000);
 
@@ -21,7 +21,7 @@ describe("Test 3", () => {
 
     // check home page reflects the changes
     // [href='/'] is an attribute selector (all selectors are standard css, not unique to cypress)
-    cy.get("[href='/'").click();
+    cy.get("[href='/']").click();
 
     cy.get(".inventory-item:first .num-available").should("contain.text", "4");
   });
