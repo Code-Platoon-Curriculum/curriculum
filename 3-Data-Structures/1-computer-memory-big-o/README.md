@@ -1,6 +1,6 @@
 # How Computer Memory Works, Arrays, and Big-O
 
-## What are we trying to accomplish
+## What are we trying to accomplish?
 
 Today we are introducing concepts - how computer memory works, Arrays, complexity analysis and Big-O - that we will return to throughout the module. The concepts you learn today you will continue to use in this module to evaluate different kinds of programs and their performance tradeoffs.
 
