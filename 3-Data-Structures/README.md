@@ -48,7 +48,7 @@ The most classic kind of tech interview however is an example of a 'data structu
 
 The answer is that these kinds of interview questions are popular because they are both language-agnostic and domain-agnostic, meaning if you are applying to a role as a game developer working in C++, but you only have experience as a web develop using Python and JavaScript, the same kind of question can be asked, and answered in the language of your choice, while proving some kind of essential technical ability.
 
-### What you'll be able to accomplish after this topic?
+### What you'll be able to accomplish after this modules?
 
 1. Understand the basics of Data Structures and complexity analysis.
 2. Understand and be able to write recursive algorithms and do complexity analysis of them.
