@@ -54,5 +54,6 @@ What might be an optimal guessing strategy for such a game? How does this relate
 
 ## Assignments
 
+- [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) (you did this yesterday, but can now solve it with the `O(log n))` solution)
 - [Binary Tree - Maximum Depth](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
   - the main idea here is that you can 'descend' the tree to the bottom using recursion and 'bubble up' the answer using return statements
