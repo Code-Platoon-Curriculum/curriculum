@@ -1,4 +1,4 @@
-# Recursion
+# Recursion Tutorial: get_max
 
 Recursion is a tool for solving certain kinds of problems.  It's different than how we've typically approached things and can be tough to wrap your head around, so give it some time.
 
@@ -99,11 +99,3 @@ def get_max_recursive(nums):
 ```
 
 > ...the strategy of a recursively defined function is to break down the problem at hand into smaller problems of the same kind and then try to solve those subproblems, breaking them down further if necessary.  Eventually we reach the _base case_ (or base cases) of the problem, which can't be broken down any more...
-
-
-## Challenges
-- [Recursive Loop](https://github.com/echoplatoonew/recursive-loop)
-- [Recursion](https://github.com/echoplatoonew/recursion)
-
-> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
-

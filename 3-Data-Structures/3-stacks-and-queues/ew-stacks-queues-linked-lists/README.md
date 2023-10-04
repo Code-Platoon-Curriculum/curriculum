@@ -179,9 +179,5 @@ class LinkedList:
 
 `search` could be implemented either iteratively or recursively.  In either case, a search will have to start at the `head` and continue until either the appropriate node is found, or the end of the linked list is reached.
 
-
-
-
-
 ## Challenges
-[Data Structures I](https://github.com/echoplatoonew/data-structures-I) 
+[Data Structures I](https://github.com/code-platoon-assignments/data-structures-I)

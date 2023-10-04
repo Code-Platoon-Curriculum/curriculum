@@ -20,7 +20,7 @@ Runtime analysis (Big O) of various recursively implemented algorithms is a comm
 
 ## Lectures & Assignments
 
-## Lectures
+### Lectures
 
 1. [Intro to Recursion & the Call Stack](./intro-recursion-the-call-stack.md)
 
@@ -31,6 +31,12 @@ Runtime analysis (Big O) of various recursively implemented algorithms is a comm
 3. Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges). *Note: these may take some time!*
 
 *Stretch Goal -- in leetcode, do the [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) problem again recursively, and, in leetcode implement [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) recursively - this solution should have a O(log n) runtime complexity.*
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+
+### Tutorials
+
+1. [Implement get_max recursively & recursive algorithm design](./tutorial-get-max-recursive.md)
 
 ## TLO's (Testable Learning Objectives)
 
