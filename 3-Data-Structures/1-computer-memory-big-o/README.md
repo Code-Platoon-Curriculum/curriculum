@@ -22,9 +22,11 @@ Lastly, these foundations will set you up to continue learning about computing a
 
 ## Lectures & Assignments
 
-1. [Lesson: How computer memory works & arrays](./1-how-memory-works-arrays/README.md)
-2. [Lesson: Intro to Complexity Analysis: time complexity, space complexity](./2-intro-complexity-analysis/README.md)
-3. [Lesson: Intro to Big-O](./3-intro-big-o/README.md)
+### Lectures
+
+1. [How computer memory works & arrays](./1-how-memory-works-arrays/README.md)
+2. [Intro to Complexity Analysis: time complexity, space complexity](./2-intro-complexity-analysis/README.md)
+3. [Intro to Big-O](./3-intro-big-o/README.md)
 
 ## Topics Covered
 
