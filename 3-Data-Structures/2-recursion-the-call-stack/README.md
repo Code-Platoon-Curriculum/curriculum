@@ -6,6 +6,8 @@ Students should be familiar with the basics of the computer memory model. Studen
 
 The "recursion challenges" are good problems to find time to walk through good solutions of (from students or instructors) with the class.
 
+**The tutorials can be done in-class, given as stretch assignments, or used later for demo-review purposes at the instructor's discretion.**
+
 ## What are we trying to accomplish?
 
 You will become familiar with recursion and able to implement basic recursive algorithms. This will prepare you to succeed in technical interviews and give you important fundamental knowledge of how computing works.
