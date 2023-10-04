@@ -25,17 +25,36 @@ Lastly, these foundations will set you up to continue learning about computing a
 
 ## TLO's (Testable Learning Objectives)
 
+### Complexity Analysis
+
 - Able to analyze Big-O of simple programs using arrays and other primitive data structures for:
   - O(n) programs
   - O(n^2) programs
   - O(1) programs
 
+
 ## ELO's (Elective Learning Objectives)
+
+### Complexity Analysis
 
 - Able to explain the basic idea of complexity analysis: Time complexity, space complexity.
 - Able to explain what Big-O is and why it matters.
+
+### Recursion
+
+- Able to explain what recursion is and what a base case is.
+- Able to explain what the call stack is.
+
+### Data Structures
+
+#### Computer Memory
 - Able to explain the basics of how computers store things in memory.
 - Able to explain what an Array is, and explain to them why a JS array is not a real Array.
+
+#### Trees
+- Able to give at least one real-world use case of a Tree data structure.
+- Able to explain the difference between a Tree and a Binary Tree.
+- Some familiarity with implementing a Binary Tree.
 
 
 

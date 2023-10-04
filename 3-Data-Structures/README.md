@@ -20,7 +20,6 @@ The code in this module should be kept as simple as possible to focus on concept
 
 5. [Linked Lists](./5-linked-lists/README.md)
 
-
 ## What are we trying to accomplish?
 
 You will learn the basics of complexity analysis (Big-O). You will learn the concepts and terms programmers use to evaluate and compare different ways of writing programs (one algorithm versus another, one data structure versus another), and understand the basic tradeoffs involved in making these choices of how you build and design your code.
