@@ -126,5 +126,4 @@ Below is a graph of the time complexities we have covered as well as a few we ha
 ![This is a description of the different time complexities.](./complexities.png "Time Complexities Illustrated")
 
 ## Challenges
-* [Big O Problems 1](https://github.com/echoplatoonew/big-o)
-* [Big O Problems 2](https://github.com/echoplatoonew/big-o-II)
+* [Big O Problems](https://github.com/echoplatoonew/big-o)
