@@ -4,7 +4,20 @@
 
 ## What are we trying to accomplish?
 
-## Lessons & Assignments
+## Lectures & Assignments
+
+### Assignments
+
+#### Recursion
+
+1. Do the [recursive loop](https://github.com/Code-Platoon-Assignments/recursive-loop) problem.
+2. Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges).
+
+*Stretch Goal -- in leetcode, do the 
+[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) problem again recursively, and, in leetcode implement 
+[Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) recursively - this solution should have a O(log n) runtime complexity.* 
+
+2. 
 
 ## TLO's (Testable Learning Objectives)
 
