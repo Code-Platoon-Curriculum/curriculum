@@ -16,6 +16,10 @@ Lastly, these foundations will set you up to continue learning about computing a
 
 "Intro to Big O" is intended to be a solid introduction to Big O along with practical examples and should be the focus and culmination of the lesson; it should probably take about half of the total time. The other lectures are intended to be preambles for it.
 
+### Slidedeck
+
+[Data Structures Slides](https://docs.google.com/presentation/d/1Ua5oUr6mXy04ADOAZFOfy6MTAqNcqbfoOjl7fQG-M6Q/edit?usp=sharing)
+
 ## Lectures & Assignments
 
 1. [Lesson: How computer memory works & arrays](./1-how-memory-works-arrays/README.md)
@@ -52,17 +56,3 @@ Lastly, these foundations will set you up to continue learning about computing a
 
 - Able to explain the basic idea of complexity analysis: Time complexity, space complexity.
 - Able to explain what Big-O is and why it matters.
-
-### Slidedeck
-
-[Data Structures Slides](https://docs.google.com/presentation/d/1Ua5oUr6mXy04ADOAZFOfy6MTAqNcqbfoOjl7fQG-M6Q/edit?usp=sharing)
-
-### (Meta) What is the purpose of Data Structures week for Code Platoon students?
-
-It is important to contextualize this module's material a little bit as it can feel somewhat out of place with respect to the rest of the course. Most of what we cover in this course fits into the topic of 'software development' - i.e. the practical dicipline of creating useful software. In the first two weeks you skill up in the main language we work with, Python, and then Week 4 through 10 we learn all the practical tools necessary for fullstack web development, things like:
-
-- HTML/CSS/JS for building a basic (minimally-interactive) frontend
-- React for building a modern (highly-interactive) frontend
-- SQL for databases
-- Django for building a 'backend' web server and API
-- Deployment
