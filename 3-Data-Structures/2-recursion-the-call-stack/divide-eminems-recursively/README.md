@@ -93,13 +93,3 @@ def prepare_mms(number_of_mms):
         half = number_of_mms // 2 # we are using floor division to get our cut
         return [["(*)" * half]] + prepare_mms(half)
 ```
-
-## Team Challenge
-- [Flatten List](https://github.com/echoplatoonew/FlattenList)
-
-## Challenges
-- [Recursion](https://github.com/echoplatoonew/recursion)
-- [Smallest Node](https://github.com/echoplatoonew/smallest-node)
-- [Binary Search](https://github.com/echoplatoonew/binary-search)
-
-> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!

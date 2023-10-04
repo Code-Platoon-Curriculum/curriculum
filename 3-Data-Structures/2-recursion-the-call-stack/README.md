@@ -32,13 +32,23 @@ Runtime analysis (Big O) of various recursively implemented algorithms is a comm
 2. Put your "recursive loop" solution into [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit) and step through it.
 3. Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges). *Note: these may take some time!*
 
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+
+### Stretch / Bonus Challenges
+
+These get progressively harder. Consider doing the non-leetcode problems as a group.
+
 *Stretch Goal -- in leetcode, do the [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) problem again recursively, and, in leetcode implement [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) recursively - this solution should have a O(log n) runtime complexity.*
 
-> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+- [Flatten List](https://github.com/echoplatoonew/FlattenList)
+- [Smallest Node](https://github.com/echoplatoonew/smallest-node)
+- [Binary Search](https://github.com/echoplatoonew/binary-search)
+
 
 ### Tutorials
 
 1. [Implement get_max recursively & recursive algorithm design](./tutorial-get-max-recursive.md)
+2. [Divide up the M&Ms - recursively! More recursive algorithm design](./divide-eminems-recursively/README.md)
 
 ## TLO's (Testable Learning Objectives)
 
