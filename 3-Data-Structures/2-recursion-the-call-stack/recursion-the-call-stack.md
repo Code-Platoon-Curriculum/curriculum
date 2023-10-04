@@ -174,9 +174,15 @@ We hit our base case, great! Now the stack will collapse
 
 And we're done, now we can return the result!
 
+### Let's visualize it again with PythonTutor
+
+[PythonTutor](https://pythontutor.com/visualize.html#mode=edit) is a great interactive website that lets you run Python code and visualize the call stack.
+
+Let's put our factorial program in there and step through it again!
+
 ### Stack Overflow
 
-But here's something to think about: what would happen if we didn't ever hit our base case? The call stack can grow but, importantly, **it cannot grow forever** - the call stack size has a hard limit! This is why the base case is so important, because without it we get a kind of error known as a _stack overflow_ (yes, that's where the tech help forum gets it's name from!).
+Here's something to think about: what would happen if we didn't ever hit our base case? The call stack can grow but, importantly, **it cannot grow forever** - the call stack size has a hard limit! This is why the base case is so important, because without it we get a kind of error known as a _stack overflow_ (yes, that's where the tech help forum gets it's name from!).
 
 So here's what does happen if you were to run the code in `code-examples/stack_overflow.js`:
 
