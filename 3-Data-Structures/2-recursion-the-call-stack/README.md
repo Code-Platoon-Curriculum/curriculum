@@ -2,29 +2,44 @@
 
 ## Instructor Notes & Prerequesites
 
+Students should be familiar with the basics of the computer memory model. Students should already have been somewhat introduced to complexity analysis/Big O.
+
+The "recursion challenges" are good problems to find time to walk through good solutions of (from students or instructors) with the class.
+
 ## What are we trying to accomplish?
+
+You will become familiar with recursion and able to implement basic recursive algorithms. This will prepare you to succeed in technical interviews and give you important fundamental knowledge of how computing works.
+
+Recursion is a core computer science concept that all professional software developers are expected to have familiarity with, even if we don't use it all the time.
+
+It is core to how computers and programming languages work (the call stack).
+
+Many algorithms that come up in technical interviews, or that are used to sort, search, or traverse various data structures, are often implemented recursively.
+
+Runtime analysis (Big O) of various recursively implemented algorithms is a common part of most "Intro to Data Structures & Algorithms" courses.
 
 ## Lectures & Assignments
 
 ### Assignments
 
-#### Recursion
+1. Do the [recursive loop](https://github.com/Code-Platoon-Assignments/recursive-loop) problem.  
+2. Put your "recursive loop" solution into [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit) and step through it.
+3. Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges). *Note: these may take some time!*
 
-1. Do the [recursive loop](https://github.com/Code-Platoon-Assignments/recursive-loop) problem.
-2. Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges).
-
-*Stretch Goal -- in leetcode, do the 
-[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) problem again recursively, and, in leetcode implement 
-[Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) recursively - this solution should have a O(log n) runtime complexity.* 
-
-2. 
+*Stretch Goal -- in leetcode, do the [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) problem again recursively, and, in leetcode implement [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) recursively - this solution should have a O(log n) runtime complexity.*
 
 ## TLO's (Testable Learning Objectives)
 
-- Able to implement a basic recursive algorithm such as "99 bottles", calculating a factorial).
+- Able to implement a basic recursive algorithm such as "99 bottles", calculating a factorial, etc (see the "recursive challenges" problem).
+  - Able to identify base case / recursive case in order to build the algorithm.
 
 ## ELO's (Elective Learning Objectives)
 
 - Be able to explain what recursion is.
 - Be able to explain what a base case is.
 - Basic familiarity with the "call stack".
+
+## External Resources
+
+- [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit)
+  - This tool breaks down code step by step, allowing you to see the Call Stack in real-time.

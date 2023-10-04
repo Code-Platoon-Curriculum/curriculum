@@ -191,14 +191,3 @@ RangeError: Maximum call stack size exceeded
 ```
 
 See! There is a limit! It's a very large number (and you can make it larger if need be), but if you ever see this error, chances are you are simply never hitting your base case!
-
-## External Resources
-
-- [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit)
-
-  - This tool breaks down code step by step, allowing you to see the Call Stack in real-time.
-
-## Assignments
-
-- [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)
-- [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) (you did this yesterday, but can now solve it with the `O(log n))` solution)
