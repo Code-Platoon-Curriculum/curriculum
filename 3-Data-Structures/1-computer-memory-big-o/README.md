@@ -17,9 +17,8 @@ Lastly, these foundations will set you up to continue learning about computing a
 "Intro to Big O" is intended to be a solid introduction to Big O along with practical examples and should be the focus and culmination of the lesson; it should probably take about half of the total time. The other lectures are intended to be preambles for it.
 
 ### Slidedeck
-
-[Data Structures Slides](https://docs.google.com/presentation/d/1Ua5oUr6mXy04ADOAZFOfy6MTAqNcqbfoOjl7fQG-M6Q/edit?usp=sharing)
-
+ 
+[How Memory Works & Arrays](https://docs.google.com/presentation/d/1KChsMlbIBOfxeHu2QZQ-DLPH2rzCAO813XMKISYEl84/edit?usp=sharing)
 ## Lectures & Assignments
 
 ### Lectures

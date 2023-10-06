@@ -2,7 +2,7 @@
 
 ## Resources & Notes
 
-[Data Structures Slides](https://docs.google.com/presentation/d/1Ua5oUr6mXy04ADOAZFOfy6MTAqNcqbfoOjl7fQG-M6Q/edit?usp=sharing)
+[How Memory Works & Arrays](https://docs.google.com/presentation/d/1KChsMlbIBOfxeHu2QZQ-DLPH2rzCAO813XMKISYEl84/edit?usp=sharing)
 
 ## How Computer Memory is Organized
 
