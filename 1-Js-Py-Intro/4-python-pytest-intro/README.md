@@ -6,13 +6,13 @@ By the end of this lecture you'll learn how to utilize `Pythons` elegant syntax 
 
 ## Lectures & Assignment
 
-1. [Intro to Python](./1-python-intro-to-intermediate.md)
+1. [Intro to Python](./1-intro-to-python.md)
 
     - [99 Bottles](https://github.com/Code-Platoon-Assignments/algo-99-bottles-py.git) in Python
     - [Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial-py.git) in Python
     - [Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci-py.git) in Python
 
-2. [TDD with Pytest](./2-pytest.md)
+2. [TDD with Pytest](./2-tdd-with-pytest.md)
 
     - [Test my Calculator](https://github.com/Code-Platoon-Assignments/intro-to-pytest.git)
     - [Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numeral-py.git) in Python
