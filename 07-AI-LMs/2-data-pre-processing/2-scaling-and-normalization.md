@@ -20,7 +20,7 @@ For instance, in gradient-based optimization algorithms like stochastic gradient
 
 #### Visualizing the problem
 
-We are working with the [water potability](water_potability.csv) dataset where we have a collection of attributes in regards to water. Seems simple enough since we are working with numbers and turning them into tensors could be pretty simple. Lets place our data in a multi-line chart to see the difference between our attributes.
+We are working with the [water potability](./resources/water_potability.csv) dataset where we have a collection of attributes in regards to water. Seems simple enough since we are working with numbers and turning them into tensors could be pretty simple. Lets place our data in a multi-line chart to see the difference between our attributes.
 
 ![graph-one](./resources/data-graph-1.png)
 
@@ -99,8 +99,8 @@ Finally we will need to ensure that our testing and training data are turned int
 ```python
 features_train = tensor(features_train, dtype=torch.float32)
 features_test = tensor(features_test, dtype=torch.float32)
-labels_train = tensor(lables_train, dtype=torch.float32)
-labels_test = tensor(lables_test, dtype=torch.float32)
+labels_train = tensor(labels_train, dtype=torch.float32)
+labels_test = tensor(labels_test, dtype=torch.float32)
 ```
 
 Our data is now Scaled and Standardized making it ready for training and evaluating our future Learning Models.
