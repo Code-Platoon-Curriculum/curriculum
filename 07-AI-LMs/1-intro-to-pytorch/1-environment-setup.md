@@ -1,10 +1,10 @@
-# Introduction to Learning Models
+# Environment Set-Up
 
 ## Introduction
 
-In today's web development landscape, learning models, particularly neural networks, are extensively used in a variety of applications such as natural language processing, image recognition, recommendation systems, and more. These models enable computers to make predictions, understand human language, and recognize patterns in data, leading to more intelligent and responsive applications. By the end of this lecture, you will have a foundational understanding of how neural networks are structured and be able to set up binary and multi-class classification models.
+In this lesson, we will guide you through the essential steps to create a robust and organized development environment for building Learning Models with PyTorch. We'll start by setting up a Python virtual environment (venv), which allows you to manage dependencies and project-specific packages in isolation. Next, we'll walk you through selecting the appropriate Python interpreter in Visual Studio Code (VSCode), ensuring your projects run smoothly. Following that, you'll learn how to install and run Jupyter Notebooks directly within VSCode, providing a powerful interactive interface for coding, testing, and visualizing your models. Finally, we'll cover the installation of PyTorch, one of the most popular libraries for deep learning, equipping you with the tools needed to start creating and experimenting with neural networks. By the end of this lesson, you'll have a fully functional environment tailored for your machine learning journey.
 
-## Lesson Content
+## Lesson
 
 ### What are Learning Models?
 
@@ -82,6 +82,25 @@ Here are the steps to create a Python virtual environment on a Linux terminal:
 - `lib/`: Contains the site-packages directory where all the installed libraries are stored.
 - `include/`: Contains C headers that are needed to build Python packages.
 - `pyvenv.cfg`: A configuration file for the virtual environment.
+
+### Selecting a Python Interpreter in VSCode
+
+Once you start using Virtual Environments within your projects you'll need to ensure VSCode is utilizing the Virtual Environments Python3 interpreter rather than the Python3 interpreter within your local machine.
+
+1. Open the VSCode command pallet:
+
+    ```text
+    command + shift + P
+    ⌘+⬆︎+P
+    ```
+
+2. Select the option named `Python: Select Interpreter`
+
+3. Select the option named `Enter Interpreter Path`
+
+4. Insert the path to your Virtual Environments Python3 Interpreter
+
+Now your VSCode will be able to reference the correct Python Interpreter within your code.
 
 ### Installing PyTorch
 
