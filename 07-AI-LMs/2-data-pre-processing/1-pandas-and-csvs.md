@@ -70,7 +70,7 @@ from PIL import Image
 import torchvision.transforms as transforms
 
 # Example: Preprocessing an image
-image = Image.open('image.jpg')
+image = Image.open('./resources/image.jpg')
 transform = transforms.Compose([
     transforms.Resize((128, 128)), #128px x 128px
     transforms.ToTensor(),  # Convert the image to a tensor
@@ -111,7 +111,7 @@ The `read_csv` function loads the CSV file into a DataFrame, and `df.head()` pro
 You can see how our data is being analyzed and printed onto our JupyterNotebook file almost as if it were the return statement of an SQL query. Well, just like in SQL we can select specific columns utilizing the header of the column we want to grab.
 
 ```python
-df['<header'] # grabs a column
+df['Hardness'] # grabs a column
 df.iloc[<num_row>] #grabs the row matching said num
 df.iloc[<from_row>:<to_row>] # returns a slice of rows
 ```
@@ -151,7 +151,7 @@ You can easily select, rename, and create new columns in a Pandas DataFrame.
 
 ```python
 # Example: Creating a new column and renaming existing ones
-df['new_column'] = df['sulfate'] * 2
+df['new_column'] = df['Sulfate'] * 2
 df.rename(columns={'new_column': 'sulfate_doubled'}, inplace=True)
 print(df.head())
 ```
