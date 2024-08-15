@@ -1,26 +1,35 @@
-# Use an official Node.js image as the base image
-FROM node:latest
+# Stage 1: Build React app
+FROM node:latest as build
 
-# Set the working directory within the container
-WORKDIR /front_end
+# Set the working directory
+WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
+# Copy package.json and package-lock.json to the container
 COPY package*.json ./
 
 # Install project dependencies
 RUN npm install
 
-# Copy the rest of the application code to the container
+# Copy the entire project to the container
 COPY . .
 
-# Build the Vite React application
+# Build the React app
 RUN npm run build
 
-# Expose port 5173 for the application
-EXPOSE 5173
+# Stage 2: Setup Nginx to serve the React app
+FROM nginx:alpine
 
-# Environment variable to specify the Django backend URL
-ENV REACT_APP_BACKEND_URL=http://api:8000
+# Copy the Nginx configuration file
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Command to start the application
-CMD ["npm", "run", "dev"]
+# Remove default Nginx static files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy React build output to Nginx static files directory
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
