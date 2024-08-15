@@ -4,7 +4,7 @@
 
 ## Lectures and Assignments
 
-* [Lesson - Intro to Docker and Django]()
+* [Lesson - Intro to Docker and Django](./2-intro-to-docker-and-django.md)
 
 ## TLO's(Terminal Learning Objectives)
 
