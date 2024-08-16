@@ -94,7 +94,7 @@ class LinkedList:
             self.head = new_node
     ```
 
-2. **Inset at the End:**
+2. **Insert at the End:**
   
     ```python
         def insert_at_end(self, data):
