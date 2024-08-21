@@ -6,7 +6,7 @@ In this lesson, we aim to containerize a Vite + React.js application using Docke
 
 ## Lectures and Assignments
 
-* [Lesson - Vite, React, Nginx in Docker](./3-vite-react-in-Docker.md)
+* [Lesson - Vite, React, Nginx in Docker](./1-vite-react-nginx-in-Docker.md)
 
 ## TLO's(Terminal Learning Objectives)
 
