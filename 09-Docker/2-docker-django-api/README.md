@@ -6,7 +6,7 @@ In this lesson, we aim to leverage the power of Docker to streamline the develop
 
 ## Lectures and Assignments
 
-* [Lesson - Intro to Docker and Django](./2-intro-to-docker-and-django.md)
+* [Lesson - Intro to Docker and Django](./1-intro-to-docker-and-django.md)
 
 ## TLO's(Terminal Learning Objectives)
 
