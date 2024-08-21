@@ -2,6 +2,8 @@
 
 ## What are we Trying to Accomplish?
 
+In this lesson, we aim to leverage the power of Docker to streamline the development and deployment of a Django API. By the end of this lesson, you'll be able to containerize a Django project, ensuring that your development environment is consistent and easily reproducible. You'll also learn how to connect your Django API container to a PostgreSQL database container, making your web application both scalable and portable.
+
 ## Lectures and Assignments
 
 * [Lesson - Intro to Docker and Django](./2-intro-to-docker-and-django.md)
