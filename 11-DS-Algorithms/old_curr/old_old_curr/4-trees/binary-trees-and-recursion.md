@@ -13,7 +13,7 @@
 
 ### Optimal Sub-Structure
 
-Questin -- when is recursion _actually_ useful 'in the wild', so to speak? Well, recursive algorithms tend to be a natural fit when working with recursive data structures. What does it mean for a data structure to be recursive? This brings us to the concept of **optimal sub-structure**.
+Question -- when is recursion _actually_ useful 'in the wild', so to speak? Well, recursive algorithms tend to be a natural fit when working with recursive data structures. What does it mean for a data structure to be recursive? This brings us to the concept of **optimal sub-structure**.
 
 Optimal sub-structure is a quality some data structures have in that they can be _defined in terms of themselves_. The canonical example is a Binary Tree!
 

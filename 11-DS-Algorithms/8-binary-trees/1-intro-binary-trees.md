@@ -73,3 +73,10 @@ This means a tree can be defined *in terms of smaller instances of itself.* It i
 3. **Base Case:** The recursion terminates at the base case, which is typically the empty tree or a tree with a single node (leaf node).
 
 Because of this recursive algorithms often are a good choice for working with trees.
+
+### Creating a Binary Search Tree
+#### Inserting nodes
+
+- Searching a binary tree
+    - Depth-first search (DFS)
+    - Breadth-first search (BFS)
