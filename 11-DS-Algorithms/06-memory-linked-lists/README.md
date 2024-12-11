@@ -12,8 +12,8 @@ The Linked list data structure offers a flexible alternative to traditional arra
 
 - [Lesson - Computer Memory](./1-computer-memory.md)
   - [Assignment - Leet Code - Two Sum](https://leetcode.com/problems/two-sum/)
-- [Assigned Reading - How computer memory works](https://web.archive.org/web/20240807213625/https://medium.com/analytics-vidhya/understanding-computer-memory-system-7e4c9f1017ef)
-- [Assigned Reading - "Computer Systems: A Programmer's Perspective" section "1.4.1 Hardware Organization of a System" pg. 44- 47](https://drive.google.com/file/d/1eCqUAtit3bJdqgLhfN8DWumq-gPf2Mic/view?usp=drive_link)
+  - [Assigned Reading - How computer memory works](https://web.archive.org/web/20240807213625/https://medium.com/analytics-vidhya/understanding-computer-memory-system-7e4c9f1017ef)
+  - [Assigned Reading - "Computer Systems: A Programmer's Perspective" section "1.4.1 Hardware Organization of a System" pg. 44- 47](https://drive.google.com/file/d/1eCqUAtit3bJdqgLhfN8DWumq-gPf2Mic/view?usp=drive_link)
 - [Lesson - Linked Lists](./2-linked-list.md)
   - [Sort a linked list](https://leetcode.com/problems/sort-list/)
   - [Remove nodes from LL](https://leetcode.com/problems/remove-nodes-from-linked-list/)
