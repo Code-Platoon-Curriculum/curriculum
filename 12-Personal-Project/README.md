@@ -19,7 +19,7 @@ For this assessment you must:
 
 This project will be graded on a presentation basis. Meaning you will present your project as in a technical conference format while instructors grade your application.
 
-[Here is an example script for **Personal Project Presentations**](../optional_lessons/script.md)
+[Here is an example script for **Personal Project Presentations**](../optional_lessons/personal-project/script.md)
 
 ## Getting Started
 
