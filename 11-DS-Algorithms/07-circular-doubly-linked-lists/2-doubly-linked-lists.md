@@ -1,155 +1,10 @@
-# Advanced Linked Lists: Circular and Doubly Linked Lists
+# Doubly Linked Lists
 
-## Introduction
+## Intro
 
-Previously, we explored singly linked lists - a linear data structure where each node points to the next node in the sequence, eventually reaching a null reference that marks the end. Today, we'll explore two important variations: circular linked lists and doubly linked lists. These structures build upon the basic linked list concept but offer unique properties that make them better suited for certain problems.
+We've seen regular Linked Lists - let's explore a variation! A Doubly Linked List is a linked list where each node points to the node **before** and **after** it in the list. You can traverse both 'left' and 'right' in the list!
 
-## Circular Linked Lists
-
-### What is a Circular Linked List?
-
-A circular linked list is a variation of a linked list where the last node points back to the first node, creating a circle. This means there is no null reference at the end - every node has a valid next pointer.
-
-Regular Linked List:
-
-```mermaid
-graph LR
-    A1(A) --> B1(B)
-    B1 --> C1(C)
-    C1 --> D1(D)
-    D1 --> N1(null)
-```
-
-Circular Linked List:
-
-```mermaid
-graph LR
-    A2(A) --> B2(B)
-    B2 --> C2(C)
-    C2 --> D2(D)
-    D2 --> A2
-```
-
-The same diagrams in plain markdown:
-
-```
-Regular Linked List:    A -> B -> C -> D -> null
-Circular Linked List:   A -> B -> C -> D -┐
-                       ^                   |
-                       └-------------------┘
-```
-
-### Circular Linked List Implementation
-
-Let's implement a basic circular linked list in Python.
-
-There are two possible 'states' our Linked List can be in when we insert a new node:
-
-1. We are inserting a node into an *empty list.*
-
-2. We are inserting a node into a *non-empty list.*
-
-Our insertion code must handle for both scenarios.
-
-We also need to make sure the last node in the list points to the *head* of the list. This means we need to keep track of the *head* of the list, and, when we insert a new node at the tail (end) of the list, have it point to the *head*.
-
-Now that we have a plan, lets write our code:
-
-```python
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-class CircularLinkedList:
-    def __init__(self):
-        self.head = None
-    
-    def append(self, data):
-        new_node = Node(data)
-        
-        # If list is empty, make new node the head
-        if not self.head:
-            self.head = new_node
-            new_node.next = self.head  # Point to itself
-            return
-            
-        # Find the last node
-        current = self.head
-        while current.next != self.head:
-            current = current.next
-            
-        # Add the new node and make it circular
-        current.next = new_node
-        new_node.next = self.head
-    
-    def print_list(self):
-        if not self.head:
-            return
-            
-        current = self.head
-        while True:
-            print(current.data, end=" -> ")
-            current = current.next
-            if current == self.head:
-                break
-        print("(back to start)")
-
-# Lets run our code:
-my_list = CircularLinkedList()
-
-my_list.append("hello")
-my_list.append("world")
-my_list.append("its")
-my_list.append("sunny")
-
-my_list.print_list()
-```
-
-### Key Properties and Use Cases for Circular Linked Lists
-
-Some key properties:
-
-1. No null termination: The list never "ends" - you can keep traversing indefinitely
-2. Natural for circular buffers: Perfect for round-robin scheduling or circular queues
-3. Memory efficiency: No need to store null references
-4. Requires careful traversal: Must check for returning to head to avoid infinite loops
-
-Some use-case examples:
-
-- Music players with repeat functionality
-- Round-robin scheduling in operating systems
-- Circular buffers in memory management
-- Game loops where elements cycle continuously
-
-### Challenge: Detecting Cycles
-
-Here's a challenging problem: Write a function that determines whether a linked list is circular. This is a common interview question that helps understand both types of lists we've covered.
-
-```python
-def has_cycle(head):
-    if not head or not head.next:
-        return False
-        
-    slow = head
-    fast = head.next
-    
-    while fast and fast.next:
-        if slow == fast:
-            return True
-        slow = slow.next
-        fast = fast.next.next
-    
-    return False
-```
-
-This solution uses the "Floyd's Cycle-Finding Algorithm" or "Tortoise and Hare Algorithm". Can you explain how it works?
-
-## Doubly Linked Lists
-
-### What is a Doubly Linked List?
-
-A doubly linked list extends the regular linked list by adding a reference to the previous node. Each node now has two pointers: one to the next node and one to the previous node.
+To reiteriate, a doubly linked list extends the regular linked list by adding a reference to the previous node. Each node now has two pointers: one to the next node and one to the previous node.
 
 Visualization:
 
@@ -179,15 +34,81 @@ Singly Linked List:     A -> B -> C -> D
 Doubly Linked List:     A ⟷ B ⟷ C ⟷ D
 ```
 
-### Doubly Linked List Implementation
+## Key Properties and Use Cases for Doubly Linked Lists
 
-Again, our code for inserting a node in a doubly linked list must handle:
+Some key properties of Doubly Linked Lists are:
+
+1. Bidirectional Traversal: Can move both forward and backward through the list
+2. Efficient Deletions: No need to traverse to find the previous node
+3. Quick Insertions: Can insert before or after a node in O(1) time
+4. Memory Trade-off: Uses more memory per node but enables more efficient operations
+
+Some use-case examples are:
+
+- Browser history (forward/backward navigation)
+- Text editors (undo/redo functionality)
+- LRU (Least Recently Used) caches
+- Music players (next/previous track)
+
+## Time Complexity Comparison
+
+Let's look at the different time complexities for common linked list operations for singly, circular, and doubly linked lists:
+
+Operation | Singly Linked | Circular | Doubly Linked
+----------|---------------|----------|---------------
+Insert at beginning | O(1) | O(1) | O(1)
+Insert at end | O(n) | O(n) | O(1)*
+Delete at beginning | O(1) | O(1) | O(1)
+Delete at end | O(n) | O(n) | O(1)*
+Forward traversal | O(n) | O(n) | O(n)
+Backward traversal | O(n) | O(n) | O(n)
+
+*With tail pointer
+
+Doubly Linked Lists aren't that much more efficient than Singly or Circular Linked Lists for common operations. But -- If we give the doubly linked list a "tail pointer", inserting or deleting at the end of the list becomes O(1) because we can use the tail pointer to go directly to the end of the list.
+
+Singly linked lists nodes don't have a pointer to the "previous" node, so even with a tail pointer deleting/adding at the end of the list still requires us to traverse the list to find the second-to-last-node.
+
+## Designing A Doubly Linked List
+
+Our code for inserting a node in a doubly linked list must handle:
 
 1. We are inserting a node into an *empty list.*
 
 2. We are inserting a node into a *non-empty list.*
 
 And when adding a new node we must *connect it and the previous node to each other.*
+
+Our pseudocode would look something like:
+
+- Create 'Node' class
+  - data
+  - prev
+  - next
+- Create main 'DoublyLinkedList' class
+  - Holds pointer to HEAD, set to None in init() method
+- Create DoublyLinkedList.append() to insert at end of list
+  - new_node.next = None
+  - Handle inserting into empty list
+    - Update HEAD
+  - Handle inserting into existing list
+    - last_node.next = new_node
+    - new_node.prev = last_node
+- Create DoublyLinkedList.insert_after() to insert after a *specific* node
+  - Find the target_node we are going to insert after
+  - Make sure we add the new node in without breaking the chain:
+     - Connect new node to next node:
+       - target_node.next.prev  = new_node
+       - new_node.next = target_node.next.prev
+     - Connect new node to target node:
+       - target_node.next = new_node
+       - new_node.prev = target_node
+- Create DoublyLinkedList.print()
+  - loop thru and print until current_node.next is None
+
+  Why is the order of operations important for `insert_after()`? What could go wrong if we change the order we connect the target, new, and next nodes?
+
+## How Does It Work? Implementing A Doubly Linked List
 
 ```python
 class Node:
@@ -264,37 +185,32 @@ class DoublyLinkedList:
             print(current.data, end=" ⟷ ")
             current = current.prev
         print("None")
+
+my_list = DoublyLinkedList()
+my_list.append("hello")
+my_list.append("world")
+my_list.append("its")
+my_list.append("sunny")
+my_list.insert_after(my_list.head.next, ",) # insert after "hello", "world"
+
+my_list.print_forwards() # hello world, its sunny
 ```
 
-### Key Properties and Advantages of Doubly Linked Lists
+## Challenge: Create `insert_at_beginning`
 
-Some key properties are:
+Here is some pseudo code for creating a method to insert a node at the beginning of the list:
 
-1. Bidirectional Traversal: Can move both forward and backward through the list
-2. Efficient Deletions: No need to traverse to find the previous node
-3. Quick Insertions: Can insert before or after a node in O(1) time
-4. Memory Trade-off: Uses more memory per node but enables more efficient operations
+- Create DoublyLinkedList.before() to insert at beginning of list
+  - new_node.next = None
+  - Handle inserting into empty list
+    - Update HEAD
+  - Handle inserting into existing list
+    - new_node.next = HEAD
+    - HEAD.prev = new_node
+    - HEAD = new_node
 
-Some use-case examples are:
-
-- Browser history (forward/backward navigation)
-- Text editors (undo/redo functionality)
-- LRU (Least Recently Used) caches
-- Music players (next/previous track)
-
-## Time Complexity Comparison
-
-Let's look at the different time complexities for common linked list operations for singly, circular, and doubly linked lists:
-
-Operation | Singly Linked | Circular | Doubly Linked
-----------|---------------|----------|---------------
-Insert at beginning | O(1) | O(1) | O(1)
-Insert at end | O(n) | O(n) | O(1)*
-Delete at beginning | O(1) | O(1) | O(1)
-Delete at end | O(n) | O(n) | O(1)*
-Forward traversal | O(n) | O(n) | O(n)
-Backward traversal | O(n) | O(n) | O(n)
-
-*With tail pointer
+Can you use it to write an implementation?
 
 ## Conclusion
+
+In this lesson, we explored Doubly Linked Lists, where each node points to both its previous and next nodes. We learned how this structure, while using more memory per node, enables efficient bidirectional traversal and O(1) operations at both ends when using a tail pointer. We implemented core operations and saw how this data structure is particularly useful for applications like browser history and music players where backwards/forwards navigation is needed. We've added another tool to our data structures toolbox! 🚀
