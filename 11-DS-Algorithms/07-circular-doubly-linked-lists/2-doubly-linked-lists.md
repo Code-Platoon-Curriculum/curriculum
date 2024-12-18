@@ -297,11 +297,4 @@ Backward traversal | O(n) | O(n) | O(n)
 
 *With tail pointer
 
-## Practice Problems
-
-1. Add a `delete_node()` method to the circular linked list class
-2. Add a `delete_node()` method to the doubly linked list class
-3. Add a `reverse_list()` method to the doubly linked list class
-4. Create a music playlist program with repeat functionality using a circular linked list
-5. Implement a browser history program using a doubly linked list
-6. Implement a circular queue using a circular linked list
+## Conclusion
