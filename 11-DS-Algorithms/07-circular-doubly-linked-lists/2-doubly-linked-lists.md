@@ -21,6 +21,7 @@ graph  LR
 Doubly Linked List:
 
 ```mermaid
+graph LR
     %% Doubly Linked List with bidirectional arrows
     A2(A) <--> B2(B)
     B2 <--> C2(C)
