@@ -9,6 +9,8 @@ This will deepen your data structures & algorithms knowledge. It will also impro
 
 ## Lectures & Assignments
 
+[SLIDE DECK](https://docs.google.com/presentation/d/13-9UXwkemU-jMcJbFqkE6fIODzxOKnw-oo344Nlznn4/edit#slide=id.g27fd771933b_0_9)
+
 - [Lesson - Circular Linked Lists](./1-circular-linked-lists.md)
   - *Assignment:* Add a `delete_node()` method to the circular linked list class
   - *Assignment:* Create a music playlist program with repeat functionality using a circular linked list
