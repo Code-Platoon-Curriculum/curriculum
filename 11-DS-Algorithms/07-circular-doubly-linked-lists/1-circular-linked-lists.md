@@ -187,8 +187,7 @@ print(has_cycle(my_list.head)) # True
 
 This solution uses the "Floyd's Cycle-Finding Algorithm" or "Tortoise and Hare Algorithm". Can you explain how it works?
 
-
 ## Conclusion
 
-Circular Linked Lists give you another tool in your toolbox. Plus, we've learned how to detect 'cycles' in a Linked List with FLoyd's Algorithm. 
+Circular Linked Lists give you another tool in your toolbox. Plus, we've learned how to detect 'cycles' in a Linked List with FLoyd's Algorithm and explored common use cases such as tracking player turns in a multiplayer game. 🚀 
 
