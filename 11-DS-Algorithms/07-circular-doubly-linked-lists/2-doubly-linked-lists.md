@@ -191,9 +191,10 @@ my_list.append("hello")
 my_list.append("world")
 my_list.append("its")
 my_list.append("sunny")
-my_list.insert_after(my_list.head.next, ",) # insert after "hello", "world"
+my_list.insert_after(my_list.head.next, ",") # insert after "hello", "world"
 
-my_list.print_forwards() # hello world, its sunny
+my_list.print_forward() # hello world, its sunny
+my_list.print_backward() # sunny its , world hello
 ```
 
 ## Challenge: Create `insert_at_beginning`
