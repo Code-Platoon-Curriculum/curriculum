@@ -24,18 +24,18 @@ class DoublyLinkedList:
         self.tail.next = new_node
         self.tail = new_node
     
-    def insert_after(self, ref_node, data):
-        if not ref_node:
+    def insert_after(self, target_node, data):
+        if not target_node:
             return
             
         new_node = Node(data)
         
         # Update next pointers
-        new_node.next = ref_node.next
-        ref_node.next = new_node
+        new_node.next = target_node.next
+        target_node.next = new_node
         
         # Update prev pointers
-        new_node.prev = ref_node
+        new_node.prev = target_node
         if new_node.next:
             new_node.next.prev = new_node
         else:
