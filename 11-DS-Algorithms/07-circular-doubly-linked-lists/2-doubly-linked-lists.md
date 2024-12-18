@@ -155,24 +155,6 @@ class DoublyLinkedList:
         else:
             self.tail = new_node
     
-    def delete(self, node):
-        if not node:
-            return
-            
-        # Update head if needed
-        if node == self.head:
-            self.head = node.next
-            
-        # Update tail if needed
-        if node == self.tail:
-            self.tail = node.prev
-            
-        # Update surrounding nodes
-        if node.prev:
-            node.prev.next = node.next
-        if node.next:
-            node.next.prev = node.prev
-
     def print_forward(self):
         current = self.head
         while current:
