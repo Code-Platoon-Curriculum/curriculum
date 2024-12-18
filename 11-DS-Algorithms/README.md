@@ -10,14 +10,14 @@ You will learn some of the fundamental building blocks (data structures, algorit
 
 ## Lessons
 
-1. [Searching Algorithms: Linear Search and Binary Search](./1-intro-data-structures/)
-2. [Understanding Big-O](./2-big-o/)
-3. [Sorting Algorithms & Algorithm Analysis: Bubble Sort, Insertion Sort, Merge Sort](./3-sorting-algos/README.md)
+1. [Searching Algorithms: Linear Search and Binary Search](./01-intro-algos/)
+2. [Understanding Big-O](./02-big-o/)
+3. [Sorting Algorithms & Algorithm Analysis: Bubble Sort, Insertion Sort, Merge Sort](./03-sorting-algos/)
 4. Divide and Conquer Algorithms
-5. [Recursion and Divide & Conquer Revisited](./4-recursion/README.md)
-6. [Stacks & Queues Data Structures](./5-stacks-and-queues/README.md)
-7. [Intro to Computer Memory & Linked Lists Data Structure](./6-memory-linked-lists/README.md)
-8. [Doubly and Circular Linked Lists](./7-doubly-linked-lists/)
+5. [Recursion and Divide & Conquer Revisited](./04-recursion/)
+6. [Stacks & Queues Data Structures](./05-stacks-and-queues/)
+7. [Intro to Computer Memory & Linked Lists Data Structure](./06-memory-linked-lists/)
+8. [Doubly and Circular Linked Lists](./07-circular-doubly-linked-lists/)
 9. Binary Trees
 10. Hash Table
 11. [Technical Interview Strategies & Demo](./11-technical-interview-demo/README.md)
