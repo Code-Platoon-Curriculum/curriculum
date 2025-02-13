@@ -11,6 +11,7 @@ By learning about language models (LMs), their utilities, and familiarizing your
 - [Lecture - Pytorch Tensors](./2-pytorch-tensors.md)
   - [Reading Assignment - Deep Learning Overview](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8372231/)
   - [Reading Assignment - Deep Learning w/PyTorch: Ch.1&2](https://drive.google.com/file/d/1I0qk8Y4ELSCod47kTB-RK6KI_Vrjxykq/view?usp=sharing)
+    - [Deep Learning w/Pytorch Github - Code that goes along with the book](https://github.com/deep-learning-with-pytorch/dlwpt-code/tree/master)
 
 ## Terminal Learning Objectives
 
