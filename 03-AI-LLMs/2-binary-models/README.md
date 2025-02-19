@@ -7,7 +7,6 @@ By learning to build PyTorch binary classification models and process data with 
 ## Lectures & Assignments
 
 - [Lecture - Building a Binary Model](./1-binary-models.md)
-- [Lecture - Working with Data](./2-working-with-data.md)
 
 ## TLO's (Terminal Learning Objectives)
 
