@@ -22,6 +22,16 @@ You will learn some of the fundamental building blocks (data structures, algorit
 10. Hash Table
 11. [Technical Interview Strategies & Demo](./11-technical-interview-demo/README.md)
 
+## Daily Algos
+
+Coding problems we will do a couple of each week.
+
+- [The Most Common Letter](https://github.com/Code-Platoon-Assignments/algos-the-most-common-letter)
+- [Vowel Encoder](https://github.com/Code-Platoon-Assignments/algos-vowel-encoder/settings)
+- [Highest Scoring Word](https://github.com/Code-Platoon-Assignments/algos-highest-scoring-word)
+- [Four Letter Anagrams](https://github.com/Code-Platoon-Assignments/algos-four-letter-anagrams)
+- [Sort The Odds](https://github.com/Code-Platoon-Assignments/algo-sort-the-odds)
+
 ## Module Topics
 
 - Sorting Algorithms
