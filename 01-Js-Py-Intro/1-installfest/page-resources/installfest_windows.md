@@ -420,3 +420,5 @@ Live Share is another official Microsoft extension that will allow us as instruc
 Live Server is an extension that makes it simple to spin up a server to work with a website using HTML/CSS/JS without having to write your own basic server in Python/Django. This is useful when learning frontend.
 
 Because Live Server will be running inside the WSL2 Virtual Machine you should install the [VS Code Live Server (Five Server)](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server) extension, which will allow Live Server to communicate from inside your virtual machine with your browser outside the virtual machine. 
+
+If that doesn't work for some reason try installing the [VS Code Remote Development Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
