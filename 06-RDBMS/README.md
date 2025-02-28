@@ -9,8 +9,7 @@ By learning about relational databases using PostgreSQL, you aim to acquire a co
 1. [Schema Design](./1-schemadesign/README.md)
 2. [Constraints and Relationships](./2-constraints-relationships/README.md)
 3. [SQL Queries](./3-queries/README.md)
-4. [Review](./4-review/README.md)
-5. [Flask + PostgreSQL](./5-flask-server/README.md)
+
 
 ## Module Topics
 
