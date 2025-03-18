@@ -109,7 +109,13 @@ So, in summary, the `COPY` command is used to copy data from a CSV file (`'path/
 After copying data from a csv file, you'll notice that if you try to `INSERT` a new entry into your database you'll receive an error relating Primary Keys already existing. We copied data into a specific table, but PostgreSQL is utilizing a separate table typically named `<table>_id_sequence` to track the next value to generate for ID's... but this table was never updated to match the highest value from the CSV data. To fix this we will utilize the following command:
 
 ```sql
-SELECT setval('<table>_id_sequence', (SELECT MAX(id) FROM <table>));
+SELECT setval('<table>_id_seq', (SELECT MAX(id) FROM <table>));
+```
+
+For example, the SQL command to fix this for the `games` table is:
+
+```sql
+SELECT setval('games_id_seq', (SELECT MAX(id) FROM games));
 ```
 
 This `setval` function within PostgreSQL expects two parameters: The table to set a value to, and the value that will be set. In the command above we will set the highest `id` value within our table as the `last_value` within the `<table>_id_sequence` table. Now any future entries through the insert command will generate the ID automatically without causing a problem.
