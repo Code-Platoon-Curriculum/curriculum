@@ -166,7 +166,7 @@ Recursion and iteration are two fundamental approaches to problem-solving in pro
   ```python
   # Recursive approach
   def factorial_recursive(n):
-      if n == 0 or n == 1:
+      if n == 0:
           return 1
       else:
           return n * factorial_recursive(n-1)
