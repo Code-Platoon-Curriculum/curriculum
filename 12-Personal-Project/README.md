@@ -15,6 +15,8 @@ For this assessment you must:
 - Implement proper styling, presentation, and site navigation
 - Implement a feature-rich application demonstrating proper web design principles
 
+[Grading Rubric](https://docs.google.com/document/d/1y-UO0wtxQm7DYXOxxzmxHBzvVEMFW-AUyLUXrE2TfRc/edit?tab=t.0#heading=h.7tlltg1x6ra)
+
 ## Grading Standards
 
 This project will be graded on a presentation basis. Meaning you will present your project as in a technical conference format while instructors grade your application.
