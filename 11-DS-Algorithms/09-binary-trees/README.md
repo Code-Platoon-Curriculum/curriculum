@@ -4,7 +4,11 @@
 
 From the DOM tree to filesystems, trees are one of the most important and most used data structures in computer science. You will learn about the different kinds of trees, and, in particulary about *binary trees*.
 
-Binary trees are important because they can be used to build data structures that can be efficiently searched.
+Binary trees are important because they can be used to build data structures that can be efficiently searched, and serve as building blocks for more complex tree data structures.
+
+## Lessons and Assignments
+
+- [Intro to Binary Trees](./1-binary-trees.md)
 
 ## TLO's (Terminal Learning Objectives)
 
@@ -12,13 +16,8 @@ N/A - please note that although this will not be assessed within Code Platoon it
 
 ## ELO's (Enabling Learning Objectives)
 
-- Different Kinds of Trees
-- Explain and identify subtrees
-- Understand what makes a binary tree special
-- Explain the difference between a Binary Tree and a Binary Search Tree (BST)
-- Explain common use-cases for binary trees
-- Explain the difference between breadth-first and depth-first traversal of a BST
-- Implement a binary search tree
-- Implement depth-first traversal
-- IMplement breadth-first traversal
-- Implement in-order, pre-order, and post-order traversal
+- Understand different types of binary trees and their properties
+- Implement a simple binary tree in Python
+- Understand the fundamentals of binary search trees (BSTs)
+- Implement search algorithms for binary search trees
+- Understand the time complexity of binary tree operations
