@@ -284,39 +284,6 @@ source ~/.zshrc
 export TERM="xterm-256color"
 ```
 
-## Quiz
-
-1. What file do you need to edit to change your Oh-My-Zsh theme?
-   a) ~/.zsh
-   b) ~/.zshrc
-   c) ~/.oh-my-zsh/config
-   d) ~/.bash_profile
-
-2. What are Powerline fonts used for in shell customization?
-   a) To make text appear larger
-   b) To render special characters and symbols used by themes
-   c) To improve terminal performance
-   d) To change the color of the terminal background
-
-3. After changing your theme in the configuration file, what command should you run to apply changes?
-   a) zsh --reload
-   b) source ~/.zshrc
-   c) oh-my-zsh update
-   d) restart terminal
-
-4. Which Oh-My-Zsh theme is known for its high customizability and performance?
-   a) Agnoster
-   b) Robbyrussell
-   c) Powerlevel10k
-   d) Spaceship
-
-**Answers:**
-
-1. b) ~/.zshrc
-2. b) To render special characters and symbols used by themes
-3. b) source ~/.zshrc
-4. c) Powerlevel10k
-
 ## Resources
 
 - [Oh-My-Zsh GitHub Repository](https://github.com/ohmyzsh/ohmyzsh)
