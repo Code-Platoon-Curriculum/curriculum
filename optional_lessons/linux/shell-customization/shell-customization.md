@@ -45,13 +45,84 @@ ZSH_THEME="robbyrussell"
 4. Change "robbyrussell" to the name of your preferred theme (without the .zsh-theme extension)
 
 ```bash
-ZSH_THEME="agnoster"
+ZSH_THEME="gentoo"
 ```
 
 5. Save the file and apply changes:
 
 ```bash
 source ~/.zshrc
+```
+
+## Customizing the Prompt
+
+Your prompt can display various useful information:
+
+- Current user: `%n`
+- Hostname: `%m`
+- Current directory: `%~` (full path) or `%c` (just the current folder)
+- Git branch: Using the git plugin
+- Time: `%*` (24h) or `%T` (12h)
+- Return status of last command: `%?`
+
+### Example Prompt Customization
+
+If you want to create a custom prompt without using a pre-built theme:
+
+1. Edit your `.zshrc`:
+
+```bash
+nano ~/.zshrc
+```
+
+2. Add a custom PROMPT:
+
+```bash
+PROMPT='%F{green}%n@%m%f %F{blue}%~%f $(git_prompt_info) %# '
+```
+
+3. Customize colors:
+
+```bash
+# Syntax: %F{color}text%f
+# color can be: black, red, green, yellow, blue, magenta, cyan, white
+PROMPT='%F{cyan}%n%f@%F{yellow}%m%f %F{green}%~%f $(git_prompt_info) %# '
+```
+
+### Practical Examples
+
+#### Server Admin Prompt
+
+Highlights user, hostname, and path for server administration:
+
+```bash
+# Add to your .zshrc file
+PROMPT='%F{red}%n@%m%f %F{yellow}%~%f %# '
+```
+
+This creates a prompt that looks like:
+
+```bash
+root@server-name /var/log #
+```
+
+#### Developer Prompt
+
+Shows project directory, Git branch, and time:
+
+```bash
+# Add to your .zshrc file
+# Requires the git plugin to be enabled
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '%b'
+PROMPT='%F{blue}%~%f %F{green}${vcs_info_msg_0_}%f %F{cyan}%*%f %# '
+```
+
+This creates a prompt that looks like:
+
+```bash
+~/dev/project feature-branch 14:42 $
 ```
 
 ## Popular Oh-My-Zsh Themes
@@ -106,41 +177,6 @@ rm -rf fonts
 
    - Open your terminal preferences
    - Select a font that ends with "for Powerline" (e.g., "DejaVu Sans Mono for Powerline")
-
-## Customizing the Prompt
-
-Your prompt can display various useful information:
-
-- Current user: `%n`
-- Hostname: `%m`
-- Current directory: `%~` (full path) or `%c` (just the current folder)
-- Git branch: Using the git plugin
-- Time: `%*` (24h) or `%T` (12h)
-- Return status of last command: `%?`
-
-### Example Prompt Customization
-
-If you want to create a custom prompt without using a pre-built theme:
-
-1. Edit your `.zshrc`:
-
-```bash
-nano ~/.zshrc
-```
-
-2. Add a custom PROMPT:
-
-```bash
-PROMPT='%F{green}%n@%m%f %F{blue}%~%f $(git_prompt_info) %# '
-```
-
-3. Customize colors:
-
-```bash
-# Syntax: %F{color}text%f
-# color can be: black, red, green, yellow, blue, magenta, cyan, white
-PROMPT='%F{cyan}%n%f@%F{yellow}%m%f %F{green}%~%f $(git_prompt_info) %# '
-```
 
 ## Installing and Configuring Powerlevel10k
 
@@ -246,40 +282,6 @@ source ~/.zshrc
 
 ```bash
 export TERM="xterm-256color"
-```
-
-## Practical Examples
-
-### Git-Enhanced Prompt
-
-Shows the current branch and status:
-
-```mermaid
-graph LR
-    A[~ projects] --> B[master ✓]
-    B --> C[$]
-```
-
-### Server Admin Prompt
-
-Highlights user, hostname, and path for server administration:
-
-```mermaid
-graph LR
-    A[root@] --> B[server-name]
-    B --> C[/var/log]
-    C --> D[#]
-```
-
-### Developer Prompt
-
-Shows project directory, Git branch, and time:
-
-```mermaid
-graph LR
-    A[~/dev/project] --> B[feature-branch]
-    B --> C[14:42]
-    C --> D[$]
 ```
 
 ## Quiz
