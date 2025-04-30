@@ -8,7 +8,7 @@ Binary trees are important because they can be used to build data structures tha
 
 ## Lessons and Assignments
 
-- [Intro to Binary Trees](./1-binary-trees.md)
+- [Intro to Binary Trees](./1-intro-binary-trees.md)
 
 ## TLO's (Terminal Learning Objectives)
 
@@ -16,8 +16,10 @@ N/A - please note that although this will not be assessed within Code Platoon it
 
 ## ELO's (Enabling Learning Objectives)
 
+- Define what a binary tree is and explain its structural properties
 - Understand different types of binary trees and their properties
 - Implement a simple binary tree in Python
+- Code basic traversal algorithms (pre-order, in-order, post-order, level-order)
 - Understand the fundamentals of binary search trees (BSTs)
 - Implement search algorithms for binary search trees
 - Understand the time complexity of binary tree operations
