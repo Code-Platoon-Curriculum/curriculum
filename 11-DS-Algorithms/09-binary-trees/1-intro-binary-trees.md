@@ -1,5 +1,22 @@
 # Binary Trees: Implementation and Operations
 
+## What are we trying to accomplish?
+
+By learning about binary trees, you'll gain understanding of a fundamental hierarchical data structure used throughout computer science. Binary trees are essential for organizing data in ways that allow for efficient operations and serve as building blocks for more complex tree structures.
+
+This knowledge will enhance your problem-solving toolkit and provide insight into how many algorithms and systems efficiently manage and process data.
+
+## TLO's (Terminal Learning Objectives)
+
+## ELO's (Enabling Learning Objectives)
+
+- Define what a binary tree is and explain its structural properties
+- Distinguish between different types of binary trees (general, full, complete, perfect, BST)
+- Code basic traversal algorithms (pre-order, in-order, post-order, level-order)
+- Implement binary tree insertion using breadth-first search
+- Implement binary search tree operations (insert, search) 
+- Explain the binary search tree property and its performance advantages
+
 ## What is a Binary Tree?
 
 A binary tree is a hierarchical data structure where each node has at most two children, called the left child and the right child. Unlike arrays or linked lists which are linear data structures, trees are non-linear, allowing for more complex relationships between data elements.
@@ -584,6 +601,46 @@ graph TD
     user1 --> pics["pictures"]
     end
 ```
+
+## Quiz
+
+1. What is the maximum number of children a node can have in a binary tree?
+   - a) 1
+   - b) 2
+   - c) 3
+   - d) Unlimited
+
+2. Which traversal method visits the root node first?
+   - a) In-order traversal
+   - b) Pre-order traversal
+   - c) Post-order traversal
+   - d) Level-order traversal
+
+3. In a binary search tree, where are values greater than the root stored?
+   - a) Left subtree
+   - b) Right subtree
+   - c) Either subtree
+   - d) In the parent node
+
+4. What is the time complexity of searching in a balanced binary search tree?
+   - a) O(1)
+   - b) O(log n)
+   - c) O(n)
+   - d) O(n²)
+
+5. Which of these tree traversal algorithms is a breadth-first search?
+   - a) Pre-order
+   - b) In-order
+   - c) Post-order
+   - d) Level-order
+
+**Answers:**
+1. b) 2
+2. b) Pre-order traversal
+3. b) Right subtree
+4. b) O(log n)
+5. d) Level-order
+
 ## Summary
 
 We've learned:
