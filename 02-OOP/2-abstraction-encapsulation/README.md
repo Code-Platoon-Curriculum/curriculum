@@ -11,7 +11,6 @@ Learning the difference between class and instance attributes, as well as unders
 
 2. [Lecture - Class, Instance, and Static Methods](./2-methods-static-cls-self.md)
     - [Assignment - App Users II](https://github.com/Code-Platoon-Assignments/oop-app-users-ii.git) in Python
-    - [Assignment - Contact List](https://github.com/Code-Platoon-Assignments/oop-contact-list.git) in Python
     - [Reading Assignment - POODR Chapter 2: "Designing Classes With A Single Responsibility](https://drive.google.com/file/d/1UX9o6CZp949vEQcpsdlALx73nG8RX-ZE/view?usp=drive_link)
 
 3. Stretch Exercises
