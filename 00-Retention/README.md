@@ -74,3 +74,6 @@
 ### DS and Algos Lessons
 
 - [How to pass the technical interview](../optional_lessons/whiteboarding_problems_how_to_succeed.md)
+
+## Curriculum Overview
+For an overview of the curriculum structure, including where to find lectures, assignments, and useful resources, please refer to [Curriculum Structure](../optional_lessons/curriculum_structure.md)
