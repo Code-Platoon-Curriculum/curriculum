@@ -74,7 +74,13 @@ Let's write a simple test using the pytest framework to check if a function work
    ```bash
    pytest test_example.py
    ```
+    - If you have issues with pathing in pytest, you may need to edit the `.pytest.ini` to include the following. This ensures it correctly looks for tests in your current directory.
+   ```
+   [pytest]
+   addopts = -ra
+   testpaths = .
 
+   ```
    - Now that you've seen a test failure, lets take some time and talk about the common errors you'll encounter in `pytest`:
 
       - **Assertion Errors** is one of the most common errors you'll encounter in testing. It occurs when an assertion made within a test function fails. An assertion is a statement that checks whether a condition is true. If the condition is false, the AssertionError is raised, indicating that the expected behavior doesn't match the actual result.
