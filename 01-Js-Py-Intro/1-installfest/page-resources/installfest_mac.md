@@ -20,7 +20,7 @@ We are going to install everything that you will need for this course. Please do
 4. Python
 5. Node
 6. Git
-7. Alisases
+7. Aliases
 8. PostgreSQL
 9. VSCode Extensions
 
@@ -258,7 +258,7 @@ This will install that repo in your current directory. Assuming this is successf
 rm -rf lodash
 ```
 
-## Alisases
+## Aliases
 
 We are going to modify `~/.zshrc` again so that we don't need to type `python3` but just `python` to invoke the correct program. This is a small change but it's a way of making it clear what your 'default' version is on a platform, and also an opportunity to discuss the concept of aliases.
 
