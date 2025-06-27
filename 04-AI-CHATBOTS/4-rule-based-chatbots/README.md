@@ -1,0 +1,2 @@
+- Lecture: [Intro to Text Pre-processing and Tokenization](./1-text-preprocessing-tokenization.md)
+- Lecture: [Text Pre-processing Normalization](./2-text-preprocessing-normalization.md)
