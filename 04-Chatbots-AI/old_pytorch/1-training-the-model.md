@@ -6,40 +6,6 @@ In this lecture, we'll delve into the process of training a neural network to ma
 
 ## Lecture
 
-### Creating DataSets
-
-To begin, we need to structure our data for efficient loading and batching. PyTorch provides the `Dataset` and `DataLoader` classes to facilitate this process. Here's how we can create datasets from our preprocessed data and use data loaders to handle batching:
-
-```python
-from torch.utils.data import DataLoader, TensorDataset
-from sklearn.model_selection import train_test_split
-
-# Create the data Split for Training and Testing
-training_features, testing_features, training_labels, testing_labels = train_test_split(scaled_features, target, test_size=0.2, random_state=42)
-
-# Create TensorDatasets
-train_dataset = TensorDataset(training_features, training_labels)
-test_dataset = TensorDataset(testing_features, testing_labels)
-
-# Create DataLoaders
-train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
-```
-
-- **TensorDataset** : Creates a tensor of 2 indexed tensors
-  - `index 0`: holds the features for said sample
-  - `index 1`: holds the label for said sample
-  
-  ```python
-    [
-        [[features], [labels]],
-        [[features], [labels]],
-        [[features], [labels]],
-    ]
-  ```
-
-- **DataLoader** : Creates an iterable object that takes in the original TensorDataset and "shuffles" the nested samples every time it's called.
-
 ### The Training Loop
 
 #### How does training a model work?
@@ -58,26 +24,6 @@ for epoch in range(num_of_epochs):
     for features, labels in train_loader:
         output = model(features.float())
 ```
-
-#### Optimizers
-
-Optimizers are crucial for training neural networks. They update the model's parameters to minimize the loss function. The optimal minimum refers to the point where the loss is the smallest. Learning rate and momentum are key parameters that affect this process:
-
-- **Learning Rate**: Controls the step size of the parameter updates. A high learning rate can lead to overshooting the minimum, while a low learning rate can result in slow convergence.
-- **Momentum**: Helps accelerate gradients vectors in the right directions, thus leading to faster converging.
-
-We'll use the `optim.Adam` optimizer, which combines the advantages of two other extensions of stochastic gradient descent.
-
-```python
-optimizer = optim.Adam(model.parameters(), lr=0.01)
-```
-
-#### Backward Step (BackPropagation)
-
-The backward step, or backpropagation, is a crucial phase in training neural networks. During backpropagation, the model adjusts its weights based on the error calculated in the forward pass. This is how the model "learns" to make better predictions.
-
-- **Forward Step**: Passes the input data through the model to get the output.
-- **Backward Step**: Computes the gradient of the loss with respect to each parameter, allowing the optimizer to update the model's weights.
 
 We use `nn.BCELoss()` as the loss function for our binary classification model:
 

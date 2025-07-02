@@ -30,22 +30,11 @@ import torch
 import torch.nn as nn
 ```
 
-#### What is `torch.nn`?
-
-`torch.nn` is a module in PyTorch that provides classes and functions to build neural networks. It includes layers, loss functions, and other tools necessary for building and training models.
-
 #### Building the Model
 
 Let's build a simple binary classification model using linear layers and the sigmoid activation function.
 
 #### NN Tools Breakdown
-
-- **`nn.Linear`**: This layer applies a linear transformation to the input data. It is defined as `nn.Linear(in_features, out_features)`, where `in_features` is the number of input features and `out_features` is the number of output features. It has parameters (weights and biases) that are learned during training.
-  - **Capabilities**: Linear transformation of input data.
-  - **Limitations**: Cannot capture non-linear relationships in the data.
-  - **Weaknesses**: Limited in modeling complex patterns without activation functions.
-  - **Type**: It is a hidden layer when placed between input and output layers.
-  - **Data Transfer**: It transforms data through a weighted sum and adds a bias.
 
 - **`nn.Sigmoid`**: The sigmoid activation function maps input values to a range between 0 and 1. It is defined as `nn.Sigmoid()`.
   - **Why Sigmoid?**: It is used for binary classification as it outputs a probability value.
@@ -123,19 +112,6 @@ model = nn.Sequential(
 output = model(input_tensor)
 print(output)
 ```
-
-#### Viewing Weights and Biases
-
-Weights and biases are parameters of the linear layer that are learned during training. You can inspect them as follows:
-
-```python
-# View weights and biases
-for name, param in model.named_parameters():
-    if param.requires_grad:
-        print(name, param.data)
-```
-
-In a neural network, weights and biases are the learnable parameters that are adjusted during training to minimize the loss function and improve the model's predictions. Here's a breakdown of what they do and how they are applied within your model:
 
 ##### Weights
 
@@ -268,30 +244,6 @@ Although not recommended, there may be a time where you'll need to set your weig
 ```python
   model[0].weight = nn.Parameter(torch.tensor([[-0.5, 0.2, 0.1], [0.4, -0.1, -0.3]]))
 ```
-
-#### Defining a Model with `nn.Module`
-
-We just went in depth into building our Learning Model utilizing the built in `Sequential` method. It was great, but it has some limitations that we may not be able to work around depending on the model we are building. Let's turn this model into a Python class for more complex models, it is better to define a custom neural network class by extending `nn.Module`.
-
-```python
-class BinaryModel(nn.Module):
-    def __init__(self):
-        super(BinaryModel, self).__init__()
-        self.linear1 = nn.Linear(3, 2)
-        self.linear2 = nn.Linear(2, 1)
-        self.sigmoid = nn.Sigmoid()
-    
-    def forward(self, x):
-        x = self.linear1(x)
-        x = self.linear2(x)
-        x = self.sigmoid(x)
-        return x
-
-# Create an instance of the model
-model = BinaryModel()
-```
-
-- **`super(BinaryModel, self).__init__()`**: This initializes the parent class `nn.Module`. It is a way to call the constructor of the parent class and ensure that all necessary initialization is done.
 
 ### Expand your knowledge
 

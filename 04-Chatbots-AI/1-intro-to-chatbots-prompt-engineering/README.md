@@ -6,10 +6,11 @@ By learning about prompt engineering as a full stack software engineer, you aim 
 
 ## Lessons and Assignments
 
+- Lecture: [Intro to Chatbots](./1-intro-to-chatbots.md)
+  - [What is a Chatbot](https://youtu.be/o9-ObGgfpEk?si=HVEozSh6HG9kU2OP)
+  - [NLP Chatbots](https://www.geeksforgeeks.org/nlp/what-is-natural-language-processing-nlp-chatbots/)
 - [Lesson - Intro to Prompt Engineering](./1-intro-pe.md)
-- [Lesson - Applying Prompt Engineering](2-applying-pe.md)
   - [Assignment - Tic Tac Toe](https://github.com/Code-Platoon-Assignments/prompt-eng-tic-tac-toe) Create a Tic Tac Toe Terminal game in Python by utilizing prompt engineering concepts to generate a series of prompts that will allow you to accomplish this task.
-  - [Reading Assignment - Python Crash Course CH.9 pgs. 157 - 167](https://drive.google.com/file/d/1M0UbipX2AKpooG98OdJklhcKMwikmV8L/view?usp=drive_link)
 
 ## TLO's (Terminal Learning Objectives)
 
