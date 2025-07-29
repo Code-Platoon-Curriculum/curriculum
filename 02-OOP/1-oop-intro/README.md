@@ -13,8 +13,8 @@ Everything in programming is interpreted as a class/object at it's most basic le
   - [Assignment - Student Registry](https://github.com/Code-Platoon-Assignments/oop-student-registry.git)
   - [Reading Assignment - Python Crash Course CH.9 pgs. 167 - 173](https://drive.google.com/file/d/1M0UbipX2AKpooG98OdJklhcKMwikmV8L/view?usp=drive_link)
 - Stretch Exercise
-  - [Assignment - CSV Reader 1](https://github.com/Code-Platoon-Assignments/oop-budget.git)
-  - [Assignment - CSV Reader 2](https://github.com/Code-Platoon-Assignments/csv-reader.git)
+  - [Assignment - OOP Budget](https://github.com/Code-Platoon-Assignments/oop-budget.git)
+  - [Assignment - CSV Reader](https://github.com/Code-Platoon-Assignments/csv-reader.git)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
