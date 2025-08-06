@@ -151,6 +151,15 @@ sudo apt install libpq-dev
 # Install Nginx web server (core components)
 sudo apt install nginx-core
 
+# Install python-venv
+sudo apt install python3-venv
+
+# Create python virtual environment
+python3 -m venv venv
+
+# Activate the python virtual environment
+source venv/bin/activate
+
 # Install Python dependencies from requirements.txt
 pip install -r requirements.txt
 
