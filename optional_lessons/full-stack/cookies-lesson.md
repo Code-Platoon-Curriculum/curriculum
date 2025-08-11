@@ -1,18 +1,10 @@
----
-marp: true
----
-
 # HTTP Cookies
-
----
 
 ## TLOs (Terminal Learning Objectives)
 
 - Implement cookie-based authentication and session management in web applications
 - Apply security best practices to protect cookies from common vulnerabilities
 - Choose the appropriate storage mechanism (cookies vs localStorage vs sessionStorage) for different use cases
-
----
 
 ## ELOs (Enabling Learning Objectives)
 
@@ -28,11 +20,7 @@ marp: true
 
 **Cookies** are small pieces of data that websites store on your browser. They help websites remember information about your visit, like login status, preferences, or items in a shopping cart.
 
----
-
 ## How Cookies Work
-
----
 
 When you visit a website, the server can send cookies to your browser through HTTP headers. Your browser stores these cookies and sends them back with every request to that same server.
 
@@ -56,11 +44,7 @@ sequenceDiagram
     S->>B: Response<br/>(May set new cookies)
 ```
 
----
-
 ### Setting Cookies from the Server
-
----
 
 Here's how servers set cookies (Python examples assume Flask and standard libraries are imported):
 
@@ -79,8 +63,6 @@ def profile():
     return "Please login first"
 ```
 
----
-
 When handling sensitive data, always use security attributes:
 
 ```python
@@ -93,13 +75,9 @@ response.set_cookie(
 )
 ```
 
----
+**Note:** These examples are simplified for learning. Production applications require additional security measures.
 
-### Javascript and Cookies
-
-You can use JS in the browser to create, read, update, and delete cookies. Unless the cookie is **http-only.**
-
----
+### Setting Cookies from JavaScript
 
 ```javascript
 // Setting a cookie with expiration date
@@ -123,8 +101,6 @@ function getCookie(name) {
     return null;
 }
 
----
-
 // How to "delete" a cookie (you're actually expiring it)
 // IMPORTANT: path must match exactly how the cookie was set
 function deleteCookie(name, path = '/') {
@@ -144,10 +120,7 @@ function setCookie(name, value, days) {
 }
 ```
 
----
-
 **Important Cookie Deletion Facts:**
-
 - JavaScript can't directly delete cookies - it expires them by setting `max-age=0` or an past `expires` date
 - You must use the exact same `path` (and `domain` if set) that was used when creating the cookie
 - If you don't know the original path/domain, you can't delete the cookie from JavaScript
@@ -160,11 +133,7 @@ Cookies.set('name', 'value', { expires: 7 });
 Cookies.remove('name'); // Library handles the path/domain for you
 ```
 
----
-
 ## Essential Cookie Attributes
-
----
 
 | Attribute | Description | Example |
 |-----------|-------------|---------|
@@ -176,11 +145,7 @@ Cookies.remove('name'); // Library handles the path/domain for you
 
 **Note:** There are other attributes like Domain and SameSite, but these five are the most commonly used.
 
----
-
 ### Secure Cookie Example
-
----
 
 When handling sensitive data, always use security attributes:
 
@@ -198,11 +163,7 @@ response.set_cookie(
 - `secure=True` to enforce https so sensitive data is encrypted
 - `httponly=True` so that if the website JS code has been hacked the malicious JS cannot access the cookie.
 
----
-
 ## Types of Cookies
-
----
 
 ### Session Cookies
 
@@ -215,8 +176,6 @@ response.set_cookie(
 response.set_cookie('session_id', 'abc123')
 ```
 
----
-
 ### Persistent Cookies
 
 - Have an expiration date
@@ -228,11 +187,7 @@ response.set_cookie('session_id', 'abc123')
 response.set_cookie('remember_me', 'true', max_age=60*60*24*30)
 ```
 
----
-
 ## Common Use Cases
-
----
 
 ### 1. Authentication
 
@@ -259,10 +214,7 @@ def logout():
     return response
 ```
 
----
-
 ### 2. User Preferences
-
 Remember user settings:
 
 ```javascript
@@ -279,10 +231,7 @@ window.onload = function() {
 }
 ```
 
----
-
 ### 3. Shopping Cart
-
 Store cart items between visits:
 
 ```python
@@ -303,34 +252,21 @@ def add_to_cart(item_id):
     return response
 ```
 
----
-
 ## Security Considerations
-
----
 
 ### Key Security Attributes
 
----
-
 **HttpOnly:** Prevents JavaScript access, protecting against XSS attacks
-
 ```python
 response.set_cookie('auth_token', token, httponly=True)
 ```
 
----
-
 **Secure:** Ensures cookies are only sent over HTTPS
-
 ```python
 response.set_cookie('sensitive_data', value, secure=True)
 ```
 
----
-
 **SameSite:** Protects against CSRF attacks
-
 ```python
 # Strict - Never sent with cross-site requests
 response.set_cookie('csrf_token', token, samesite='Strict')
@@ -339,37 +275,24 @@ response.set_cookie('csrf_token', token, samesite='Strict')
 response.set_cookie('session', session_id, samesite='Lax')
 ```
 
----
-
 **Remember:** Never store passwords or unencrypted sensitive data in cookies!
 
----
-
 ## Authentication: Cookies vs Authorization Headers
-
----
 
 Modern web apps use two main approaches for authentication:
 
 ### Cookie-Based Authentication
-
 Server stores a session ID in a cookie:
-
 ```python
 response.set_cookie('session_id', 'abc123', httponly=True, secure=True)
 ```
-
 - ✅ Browser automatically sends with every request
 - ✅ Can use HttpOnly (prevents JavaScript access)
 - ❌ Vulnerable to CSRF attacks
 - ❌ Only works on same domain
 
----
-
 ### Token-Based Authentication
-
 Client sends a token in the Authorization header:
-
 ```javascript
 // Client must manually add to each request
 fetch('/api/data', {
@@ -378,35 +301,26 @@ fetch('/api/data', {
     }
 })
 ```
-
 - ✅ Not vulnerable to CSRF (not automatic)
 - ✅ Works across different domains
 - ❌ Must manually add to every request
 - ❌ Need to store token somewhere (localStorage or memory)
 
----
-
 ### Which Should You Use?
 
 **Use Cookies for:**
-
 - Traditional web applications
 - Server-rendered pages (Django, Flask, Rails)
 - Simple authentication needs
 
 **Use Authorization Headers for:**
-
 - Single Page Applications (React, Vue)
 - Mobile applications
 - APIs that serve multiple clients
 
 **Note:** HTTP Basic Auth (sending username:password) exists but is outdated - avoid it in production.
 
----
-
 ## Cookies vs Other Storage Methods
-
----
 
 | Feature | Cookies | localStorage | sessionStorage |
 |---------|---------|--------------|----------------|
@@ -417,39 +331,27 @@ fetch('/api/data', {
 | **Scope** | Domain/Path specific | Origin specific | Tab specific |
 | **Use Case** | Auth, server needs | Large client data | Temporary tab data |
 
----
-
 ### When to Use Each
 
----
-
 **Use Cookies when:**
-
 - Server needs the data (authentication tokens, session IDs)
 - Need automatic expiration
 - Supporting older browsers
 
 **Use localStorage when:**
-
 - Storing large amounts of client-side data
 - Data only needed by JavaScript
 - Building offline-capable apps
 
 **Use sessionStorage when:**
-
 - Data should not persist between tabs
 - Storing temporary form data
 
 **Avoid Cookies when:**
-
 - Data is only needed client-side (unnecessary server overhead)
 - You need complex data structures (cookies only store strings)
 
----
-
 ## Best Practices
-
----
 
 1. **Use HTTPS** - Always set `Secure` flag in production
 2. **Set HttpOnly** - For authentication cookies that don't need JavaScript access
@@ -458,11 +360,7 @@ fetch('/api/data', {
 5. **Use consistent paths** - Usually just use `path=/` for simplicity
 6. **Consider alternatives** - Use localStorage for large client-only data
 
----
-
 ## Quiz
-
----
 
 1. **What is the maximum size of a single cookie?**
    - a) 1KB
@@ -470,15 +368,11 @@ fetch('/api/data', {
    - c) 10MB
    - d) Unlimited
 
----
-
 2. **Which cookie attribute prevents JavaScript from accessing the cookie?**
    - a) Secure
    - b) SameSite
    - c) HttpOnly
    - d) Path
-
----
 
 3. **When are session cookies deleted?**
    - a) After 30 days
@@ -486,19 +380,13 @@ fetch('/api/data', {
    - c) Never
    - d) After 1 hour
 
----
-
 4. **What happens to an existing cookie when you set it again with max_age=0?**
    - a) Cookie never expires
    - b) Cookie expires in 1 second
    - c) Cookie is deleted immediately
    - d) Cookie becomes a session cookie
 
----
-
 **Answers:** 1-b, 2-c, 3-b, 4-c
-
----
 
 ## Additional Resources
 
