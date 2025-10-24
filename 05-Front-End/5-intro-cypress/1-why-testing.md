@@ -33,7 +33,6 @@ Testing in software development is the process of evaluating a software applicat
 You should write tests for various aspects of your software, including:
 
 - **Functional Logic:** Test individual functions to ensure they perform their tasks correctly.
-- **API Endpoints:** Test API endpoints for correct behavior, data validation, and security.
 - **User Interfaces:** Use E2E tests to verify that your application's user interface functions as expected.
 - **Edge Cases:** Test unusual or extreme scenarios that your code may encounter.
 - **Regression Testing:** Re-run tests after making changes to ensure existing functionality remains intact.

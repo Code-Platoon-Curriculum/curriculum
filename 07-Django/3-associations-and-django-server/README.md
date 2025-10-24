@@ -10,7 +10,6 @@ By mastering Django model associations, understanding how to manage these relati
   - [School API](https://github.com/Code-Platoon-Assignments/django-school-api-V)
 - [Lesson - Django Server](./2-intro-to-django-server.md)
   - [Hello Django](https://github.com/Code-Platoon-Assignments/hello-django)
-  - [Django Associations - CARS](https://github.com/uniformplatoon-assignments/Val_Associations_assignments)
   - [Django Associations](https://github.com/Code-Platoon-Assignments/django-associations)
 
 ## TLO's (Testable Learning Objectives)
