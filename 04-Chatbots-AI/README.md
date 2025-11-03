@@ -6,10 +6,10 @@ In this module, you will build a comprehensive understanding of how conversation
 
 ## Lessons
 
-1. [Intro to Chatbots + Prompt Engineering](./1-intro-to-Chatbots-and-prompt-engineering/)
-2. [Regex + Rule Based Chatbots](./2-regex-and-rule-based-Chatbots/)
-3. [Text Preprocessing and Language Parsing](./3-text-preprocessing-language-pathing/)
-4. [Retrieval Based Chatbots](./4-retrieval-based-Chatbots/)
-5. [Deep Learning with PyTorch ￼](./5-deep-learning/)
+1. [Intro to Chatbots + Prompt Engineering](./1-intro-to-chatbots-prompt-engineering/)
+2. [Regex + Rule Based Chatbots](./2-regex-rule-based-chatbots/)
+3. [Text Preprocessing and Language Parsing](./3-text-preprocessing-language-parsing/)
+4. [Retrieval Based Chatbots]
+5. [Deep Learning with PyTorch](./5-deep-learning/)
 
 ## Module Topics
