@@ -1,38 +1,48 @@
-# Building a Retrieval-Based Chatbot with Word Embeddings
+# Building a Deep Learning Retrieval-Based Chatbot with BERT and FAISS
 
 ## Introduction
 
-In this lecture, you will **build a fully functional retrieval-based chatbot** using Python, spaCy’s pretrained word embeddings (`en_core_web_md`), and a small dataset of intents stored in a JSON file.  
+In this lecture, you will build a deep-learning retrieval-based chatbot using:
+
+Sentence-BERT (SBERT) – to generate contextual sentence embeddings
+
+FAISS (Facebook AI Similarity Search) – to perform fast similarity search among stored responses
+
+A small intents dataset stored in JSON format
 
 By the end, your chatbot will:
 
-* Process user input
-* Match it to the **closest intent** in the dataset using semantic similarity
-* Retrieve and return the appropriate response
+✅ Understand the meaning of a user’s message (not just keywords)
+✅ Retrieve the most semantically relevant response
+✅ Perform similarity search efficiently using FAISS
 
-We'll also touch on **next-step improvements** using similarity scoring and ranking for more advanced chatbots.
-
----
+We’ll also discuss how this approach forms the foundation of modern retrieval-augmented chatbots (RAG systems).
 
 ## Prepare the Dataset
 
-For this lecture, we will use a small `intents.json` file containing `tag`, `patterns`, and `responses`. Just like we did in our *Rule Based Chatbot*, we must have a key to utilize for returning responses that correspond to dictated intents. 
+Just as before, we’ll use a small intents.json file containing:
 
-You'll notice this file is a `json` file, but it can be read within a Python environment and it is not uncommon for data to be stored and/or shared within `json` formats.
+
+- `tag` → the intent category
+
+- `patterns` → example user inputs
+
+- `responses` → possible chatbot replies
 
 ```python
 import json
+
 # Load intents.json
 with open("./resources/intents.json", "r") as f:
     intents = json.load(f)
 
-# Check the data
+# Quick check
 print(intents["intents"][0])
 ```
 
-**Should Output:**
+**Expected Output:**
 
-```python
+```json
 {
   "tag": "greeting",
   "patterns": ["hello", "hi there", "hey", "good morning", "good evening"],
@@ -40,46 +50,41 @@ print(intents["intents"][0])
 }
 ```
 
----
+## Installing Dependencies
 
-## Loading Libraries and spaCy Model
+We’ll need three major packages:
 
-We'll use **spaCy** to create embeddings for our patterns and user input.
+- sentence-transformers → for deep contextual embeddings
+- faiss-cpu → for efficient similarity search
+- numpy → for vector operations
 
-### What is **spaCy** and how does it help us?
-
-In the context of word embedding techniques, `spaCy`’s `en_core_web_md` is a pre-trained English language model that provides dense vector representations (word embeddings) for words, phrases, and documents. These embeddings capture semantic meaning by positioning words with similar contexts closer together in a multi-dimensional vector space, enabling operations like measuring similarity between words, phrases, or entire texts. Unlike simple one-hot encodings, which are sparse and do not capture semantic relationships, `en_core_web_md` leverages pre-trained word vectors to encode nuanced linguistic information, allowing applications such as similarity-based retrieval, clustering, and more sophisticated natural language understanding tasks.
-
-### Installing `spaCy`
-
-Ensure your Python Virtual Environment is activated and connected to your development environment before executing the following commands **individually** within your terminal:
+Run these commands in your terminal or Jupyter environment:
 
 ```bash
-pip install -U pip setuptools wheel
-
-pip install -U spacy
-
-python -m spacy download en_core_web_sm
+pip install -U sentence-transformers faiss-cpu numpy
 ```
 
-Now within a Python script and/or JupyterNotebook, execute this codeblock to ensure your installment was successful
+## Load the BERT-Based Model
+
+**BERT (Bidirectional Encoder Representations from Transformers)** is a deep learning model developed by Google that understands the meaning of words in context by processing text bidirectionally—that is, considering both the left and right surroundings of each word. Unlike earlier models that read text in one direction, BERT captures nuanced semantic relationships, enabling it to generate rich, contextualized embeddings that reflect sentence meaning rather than just word similarity. In **retrieval-based chatbots**, using BERT (or its optimized variants like Sentence-BERT) is considered best practice because it allows the system to retrieve responses based on semantic relevance rather than exact keyword overlap—meaning the chatbot can recognize that “How’s it going?” and “How are you?” express the same intent, leading to more natural, intelligent, and user-aligned responses.
+
+We’ll use a lightweight Sentence-BERT variant called MiniLM (small but powerful).
 
 ```python
-import spacy
+from sentence_transformers import SentenceTransformer
 
-# Load spaCy medium English model
-nlp = spacy.load("en_core_web_md")
+# Load pretrained Sentence-BERT model
+model = SentenceTransformer('all-MiniLM-L6-v2')
 ```
 
----
+> This model maps sentences to 768-dimensional embeddings that capture semantic meaning, not just word overlap.
 
-## Preprocess Patterns
 
-We'll create a **list of all patterns** and associate them with their intent tag.
-We’ll convert each pattern to a **spaCy vector** for semantic comparison.
+## Flatten and Encode All Patterns
+
+We’ll create a list of all patterns (possible user phrases) and encode them into embeddings.
 
 ```python
-# Flatten patterns and keep track of their tags
 pattern_texts = []
 pattern_tags = []
 
@@ -88,77 +93,92 @@ for intent in intents["intents"]:
         pattern_texts.append(pattern)
         pattern_tags.append(intent["tag"])
 
-# Convert all patterns into spaCy vectors
-pattern_vectors = [nlp(pattern).vector for pattern in pattern_texts]
+# Convert patterns to embeddings
+pattern_embeddings = model.encode(pattern_texts, convert_to_numpy=True, normalize_embeddings=True)
 ```
 
----
+> normalize_embeddings=True ensures cosine similarity ≈ dot product.
 
-## Create a Retrieval Function
+Each `pattern_text` now has a semantic vector (deep contextual meaning).
 
-Now we’ll implement a function that:
+## Building a FAISS Similarity Index
 
-1. Takes **user input**
-2. Converts it to a **vector** using spaCy embeddings
-3. Computes **similarity** between the input and all patterns
-4. Returns the **response** from the closest pattern’s intent
+Now we’ll store all embeddings in a FAISS index, which enables instant nearest-neighbor search.
 
 ```python
+import faiss
 import numpy as np
+
+# Determine embedding dimension
+embedding_dim = pattern_embeddings.shape[1]
+
+# Create FAISS index (L2 distance, cosine works similarly since we normalized)
+index = faiss.IndexFlatIP(embedding_dim)  # IP = Inner Product
+index.add(pattern_embeddings)
+
+print(f"Indexed {index.ntotal} patterns for retrieval.")
+```
+
+FAISS allows us to search for the most similar embeddings in O(log N) time — far faster than manually looping through vectors.
+
+## Implementing the Retrieval Function
+
+By accomplishing the following, we will be able to take in user input and return an appropriate response for the correct intent:
+
+1. Encode the user input into an embedding
+2. Query FAISS for the most similar patterns
+3. Retrieve the corresponding intent and response
+
+```python
 import random
 
-def retrieve_response(user_input):
-    user_vector = nlp(user_input).vector
-    similarities = [np.dot(user_vector, pattern_vec) / (np.linalg.norm(user_vector) * np.linalg.norm(pattern_vec))
-                    for pattern_vec in pattern_vectors]
+def retrieve_response(user_input, top_k=3):
+    # Step 1: Encode input into embedding
+    user_emb = model.encode([user_input], convert_to_numpy=True, normalize_embeddings=True)
     
-    # Find the index of the highest similarity
-    best_idx = np.argmax(similarities)
+    # Step 2: Search for top-k most similar patterns
+    distances, indices = index.search(user_emb, top_k)
     
-    # Get the corresponding intent tag
+    # Step 3: Retrieve the best matching intent
+    best_idx = indices[0][0]
     best_tag = pattern_tags[best_idx]
     
-    # Retrieve a random response for that intent
+    # Step 4: Retrieve a random response from that intent
     for intent in intents["intents"]:
         if intent["tag"] == best_tag:
             return random.choice(intent["responses"])
 ```
 
-**Notes:**
+Notes:
 
-* Here we use **cosine similarity** conceptually: `dot(A, B) / (||A|| * ||B||)`.
-* The function currently **returns the best single response**.
-* Later, this can be extended to **rank multiple responses** for richer interaction.
+- FAISS returns the indices of the most similar embeddings.
+- You can adjust top_k to analyze multiple potential matches.
 
----
-
-## Test the Chatbot
+Let’s try a few examples.
 
 ```python
-# Example interactions
-print(retrieve_response("hello!"))
+print(retrieve_response("hey there"))
 print(retrieve_response("good night"))
-print(retrieve_response("thanks a lot"))
-print(retrieve_response("what is your name"))
+print(retrieve_response("thanks!"))
+print(retrieve_response("who are you"))
 ```
 
-**Expected Output (will vary due to random choice among responses):**
 
-```
+Example Output:
+
+```bash
 Hello! How can I help you today?
 Goodbye! Have a wonderful day!
 You're very welcome!
 I'm your friendly retrieval-based chatbot!
 ```
 
----
+Even if the user says “hey there!” instead of “hi”, SBERT understands the meaning — semantic similarity, not word matching.
 
-## Create a Chat Loop 
-
-To make the chatbot interactive:
+## Creating an Interactive Chat Loop
 
 ```python
-print("Start chatting with the chatbot (type 'quit' to stop)")
+print("Chatbot is ready! Type 'quit' to exit.\n")
 
 while True:
     user_input = input("You: ")
@@ -169,34 +189,64 @@ while True:
     print(f"Chatbot: {response}")
 ```
 
----
+✅ Try paraphrasing phrases — you’ll see that Sentence-BERT still retrieves correct intents even with different wording.
 
-## Next Steps
+### Conceptual Diagram
 
-While our chatbot now retrieves the **single most similar pattern**, there are ways to **improve it**:
+```bash
+User Input
+   ↓
+Sentence-BERT
+   ↓
+[User Embedding]
+   ↓
+FAISS Index ───→ [Pattern Embeddings]
+   ↓
+Retrieve Most Similar Pattern
+   ↓
+Get Corresponding Intent
+   ↓
+Return Response
+```
 
-* **Similarity scoring techniques:**
+## Next-Step Improvements
 
-  * Rank the top N similar patterns and pick the most confident response
-  * Set thresholds to detect “unknown” queries
-* **Embeddings enhancements:**
+To evolve this into a production-grade chatbot, you can:
 
-  * Use **sentence embeddings** (`sentence-transformers`) for better semantic understanding
-  * Fine-tune embeddings on domain-specific data
-* **Context awareness:**
+- **Add Confidence Thresholds**
 
-  * Use conversation history to select responses more intelligently
+If the similarity score is below a threshold, respond with a fallback:
 
----
+```python
+if distances[0][0] < 0.5:
+    return "I'm not sure I understand. Could you rephrase that?"
+```
 
-## 🧾 Summary
+- **Re-Rank with a Cross-Encoder**
+
+Use a cross-encoder model to re-score top results for more precision.
+
+- **Store in a Vector Database**
+
+Move FAISS into a persistent vector DB like:
+
+- Pinecone
+- Weaviate
+- Qdrant
+
+- **Retrieval-Augmented Generation (RAG)**
+
+Combine this retriever with an LLM generator (like GPT or LLaMA):
+
+- Retrieve top 3 results with FAISS
+- Feed them as context to an LLM to generate a contextualized response
+
+## Summary
 
 In this lecture, you:
 
-* Loaded a **realistic JSON intents dataset**
-* Converted text patterns and user input to **spaCy vectors**
-* Built a **retrieval-based chatbot** that matches user queries to the closest intent
-* Implemented a **chat loop** to interact with the chatbot in Jupyter
-* Discussed **next-step improvements** for similarity scoring and embeddings
-
-By the end, you now have a **working retrieval-based chatbot** powered by pretrained word embeddings that can be extended to more complex, semantic-aware chatbots.
+✅ Built a retrieval-based chatbot powered by deep contextual embeddings
+✅ Used Sentence-BERT to transform text into semantic vectors
+✅ Integrated FAISS for fast similarity search
+✅ Implemented a clean retrieval + response pipeline
+✅ Learned how to upgrade spaCy-based bots into deep-learning systems
