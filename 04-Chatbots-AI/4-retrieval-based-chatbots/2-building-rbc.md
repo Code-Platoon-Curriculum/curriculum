@@ -12,9 +12,9 @@ A small intents dataset stored in JSON format
 
 By the end, your chatbot will:
 
-✅ Understand the meaning of a user’s message (not just keywords)
-✅ Retrieve the most semantically relevant response
-✅ Perform similarity search efficiently using FAISS
+- ✅ Understand the meaning of a user’s message (not just keywords)
+- ✅ Retrieve the most semantically relevant response
+- ✅ Perform similarity search efficiently using FAISS
 
 We’ll also discuss how this approach forms the foundation of modern retrieval-augmented chatbots (RAG systems).
 
