@@ -8,7 +8,7 @@ Specifically we will write some **unit tests**, tests that test a specific *unit
 
 ## Intermediate JavaScript
 
-Many of the JS features we will explore today are what is referred to as 'syntactic sugar'. The ideas presented in part 1 are the core of the language. Syntactic sugar on the other hand just provides a way for a programmer to more neatly and concisely express an idea that was already possible without it, but was perhaps unecessarily verbose or otherwise inconvenient.
+Many of the JS features we will explore today are what is referred to as 'syntactic sugar'. The ideas presented in part 1 are the core of the language. Syntactic sugar on the other hand just provides a way for a programmer to more neatly and concisely express an idea that was already possible without it, but was perhaps unnecessarily verbose or otherwise inconvenient.
 
 ### 'Arrow' functions
 
@@ -26,7 +26,7 @@ This seems about identical but note that:
 2. The function itself is anonymous - it has no name. To name it, you need to store it in a variable.
 3. the return statement was implicit, perfect for one-liners. (arrow functions can also have full bodies but this is the default behavior)
 
-This is incredibly useful when using a 'higher order function', ie a function that takes another function as a paremeter. The classic example is `map`, an Array method that allows you to create a new array based on the original with the help of a 'mapper' function. Like so:
+This is incredibly useful when using a 'higher order function', ie a function that takes another function as a parameter. The classic example is `map`, an Array method that allows you to create a new array based on the original with the help of a 'mapper' function. Like so:
 
 ```js
 const nums = [1, 2, 3];
@@ -76,7 +76,7 @@ const [x, y, z] = ["x", "y", "z"];
 const { a, b, c } = { a: 45, b: "hello", c: true };
 ```
 
-Anywhere you would normally use a single variable to capture some value (a variable decleration, a function parameter, etc) you can use destructuring. Let's reconsider the `Object.entries` example from part 1:
+Anywhere you would normally use a single variable to capture some value (a variable declaration, a function parameter, etc) you can use destructuring. Let's reconsider the `Object.entries` example from part 1:
 
 ```js
 const database = {
@@ -158,7 +158,7 @@ function factorial(num) {
 factorial(4);
 ```
 
-This won't work because `runner.js` is totally unaware of a function called factorial, which lives in a completely seperate file. Let's fix this with Node's `exports/require` syntax:
+This won't work because `runner.js` is totally unaware of a function called factorial, which lives in a completely separate file. Let's fix this with Node's `exports/require` syntax:
 
 - factorial.js
 
@@ -234,7 +234,7 @@ Now we want to download Jest. We do this with:
 npm install --save jest
 ```
 
-> The `--save` with update `package.json` with a new field called `dependencies`. This keeps track of what dependencies your project requires, which is useful for other people who share your could who can then just type `npm install` to download all the necessary dependencies.
+> The `--save` will update `package.json` with a new field called `dependencies`. This keeps track of what dependencies your project requires, which is useful for other people who share your code who can then just type `npm install` to download all the necessary dependencies.
 
 Now try typing `jest` into your command line to see `jest` run (even though we don't have any tests yet). Not recognized, right?! That's because `jest` only exists for our project, not for the entire computer. To get around this, we can run it by modifying part of the `package.json`. `package.json` has a field called `scripts`, replace it with:
 
@@ -331,7 +331,7 @@ test("tests factorial(3) = 6", () => {
 });
 ```
 
-This works, but there's a way to 'group' tests that is sometimes useful for describing a whole bunch of tests you want to pass to consider that 'test group' succesful. We can 'group' tests with the `describe` keyword.
+This works, but there's a way to 'group' tests that is sometimes useful for describing a whole bunch of tests you want to pass to consider that 'test group' successful. We can 'group' tests with the `describe` keyword.
 
 ```js
 const factorial = require("./factorial.js");
@@ -369,7 +369,7 @@ describe("tests factorial for large numbers", () => {
 });
 ```
 
-`describe` takes a description as it's first argument and the second is a callback function with a number of tests. Jest understands `describe` as well and will print things nicely to reflect that this is a group. `describe` blocks can even be nested, so you can have groups within groups within groups if desired.
+`describe` takes a description as its first argument and the second is a callback function with a number of tests. Jest understands `describe` as well and will print things nicely to reflect that this is a group. `describe` blocks can even be nested, so you can have groups within groups within groups if desired.
 
 ### Skipping tests
 
