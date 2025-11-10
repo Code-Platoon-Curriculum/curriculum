@@ -2,7 +2,7 @@
 
 ## What are we trying to accomplish?
 
-By the end of this lecture you'll understand how to use the command-line program Git (`git`) to manage changes to a project in a way that allows you to keep track of those changes and roll them back if necessary - a process known as _version control_. Additionally, you'll learn how to integrate Git with the website Github so they changes will be backed up on the internet for the sake of posterity and making it easier to visually explore your project.
+By the end of this lecture you'll understand how to use the command-line program Git (`git`) to manage changes to a project in a way that allows you to keep track of those changes and roll them back if necessary - a process known as _version control_. Additionally, you'll learn how to integrate Git with the website Github so the changes will be backed up on the internet for the sake of posterity and making it easier to visually explore your project.
 
 *Version control software* is critically important for modern software development. In addition to tracking changes and safely being able to "undo" work, it also lets you safely collaborate on the same codebase with others without causing problems (or "conflicts") for each other, and manage and share different variations of your codebase.
 

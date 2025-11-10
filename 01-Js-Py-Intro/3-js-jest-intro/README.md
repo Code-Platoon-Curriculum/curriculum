@@ -2,7 +2,7 @@
 
 ## What are we trying to accomplish?
 
-By the end of this lecture you'll learn how to utilize JavaScript to solve programming tasks and some of the features and syntax unique to the language. Additionally, you'll learn how to utilize the `jest`, a JavaScript testing framework that allows us to test our code for correctness.
+By the end of this lecture you'll learn how to utilize JavaScript to solve programming tasks and some of the features and syntax unique to the language. Additionally, you'll learn how to utilize `jest`, a JavaScript testing framework that allows us to test our code for correctness.
 
 ## Lectures & Assignment
 

@@ -98,7 +98,7 @@ In an ER Diagram Entities are represented with rectangles, as we'll see momentar
 
 Attributes are properties of entities *or* relationships. Entities have two types of properties: identifying attributes and descriptive attributes. In an ER Diagram Attributes are represented with ovals.
 
-Let's examine this ER Diagram of a **Student Entity** and it's Attributes.
+Let's examine this ER Diagram of a **Student Entity** and its Attributes.
 
 ![er diagram student entity and attributes](./page-resources/er-diagram-student-attributes.png)
 

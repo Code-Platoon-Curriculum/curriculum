@@ -73,7 +73,7 @@ const insertNewElement = () => {
 
 The `addEventListener()` method takes in two parameters: 1) The event name, and 2) The event listener function.
 
-Notice that the event listener function takes in one parameter (that we have named `evt`). This is the event object that is _automatically_ passed to our event listener from the browser. This event object contains a bunch of information about the event that occured, including the element that triggered the event (`evt.target`). In the example able, we are also choosing to use the x-position of the mouse (`evt.x`), which is another piece of information available to us from the event object. You can read up more about all of the information stored in the event object [here](https://www.w3schools.com/jsref/obj_event.asp)
+Notice that the event listener function takes in one parameter (that we have named `evt`). This is the event object that is _automatically_ passed to our event listener from the browser. This event object contains a bunch of information about the event that occurred, including the element that triggered the event (`evt.target`). In the example above, we are also choosing to use the x-position of the mouse (`evt.x`), which is another piece of information available to us from the event object. You can read up more about all of the information stored in the event object [here](https://www.w3schools.com/jsref/obj_event.asp)
 
 There are also some methods that can be called on the event object, if needed:
 
@@ -91,7 +91,7 @@ Let's try this example:
 
 First... add a bunch of new div elements using our button, and then try to hit the <spacebar> key. Notice that your page scrolls, because the browser had a default behavior for handling this particular event.
 
-Next... let's add in an event listener to intercept this event, and block it's processing by the browser.
+Next... let's add in an event listener to intercept this event, and block its processing by the browser.
 
 ```javascript
 scripts.js;
@@ -152,7 +152,7 @@ const sayHello = (evt) => {
 
 Notice how the behavior changes now when you click on the first nested div element. You should only see "hi (inner)" printed out to the console, when clicking on the first nested div element. Clicking on any of the other divs, however, continues to print out "hello (outer)"
 
-To summarize the difference: `preventDefault()` prevents the browser from doing it's default behavior based on an event, whereas `stopPropagation()` prevents other elements in the DOM from processing an event.
+To summarize the difference: `preventDefault()` prevents the browser from doing its default behavior based on an event, whereas `stopPropagation()` prevents other elements in the DOM from processing an event.
 
 ### Working with HTML Forms
 

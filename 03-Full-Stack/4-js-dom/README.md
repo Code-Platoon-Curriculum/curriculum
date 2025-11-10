@@ -7,7 +7,7 @@ By learning about the Document Object Model (DOM) and how to manipulate it with 
 ## Lectures & Assignments
 
 - [Lesson - Intro to the DOM](./1-intro-dom.md)
-  - [Assignment - MDN Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events) and work through it's [Simple Example DOM Events tutorial](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#a_simple_example). Read: 
+  - [Assignment - MDN Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events) and work through its [Simple Example DOM Events tutorial](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#a_simple_example). Read: 
     - What is An Event
     - Using `addEventListener()`
     - Other event listener mechanism

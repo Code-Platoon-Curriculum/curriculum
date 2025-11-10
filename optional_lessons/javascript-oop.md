@@ -135,7 +135,7 @@ class Dog extends Animal {
 Main differences being:
 
 - `class Dog(Animal):` -> `class Dog extends Animal { ... }`
-- `super()` returns the parent instance -> `super` returns the parent instance, `super()` calls it's constructor
+- `super()` returns the parent instance -> `super` returns the parent instance, `super()` calls its constructor
 
 For the most part this suffices to explain the differences between the two, i.e. its just syntax, they otherwise function identically.
 
@@ -147,7 +147,7 @@ In JS, we initially didn't have proper OOP classes like in most programming lang
 
 ### The `this` keyword
 
-Before learning about prototypes in JS, first we need to understand how the `this` keyword _really_ works in JS. Unlike `self` in Python, `this` in JS is not specific to classes, and it's meaning is determined in an odd way known as 'dynamic scoping', in which the value of `this` isn't determined by where it is written in the code (like `self` is in Python) but rather by _where_ it is ran, i.e. it's 'context'. This is a confusing concept, but we will do our best to explain it simply. An important point to note however is that this behavior will differ depending on whether you use the regular function (`function() { }`) syntax, or the arrow function syntax (`()=>{}`).
+Before learning about prototypes in JS, first we need to understand how the `this` keyword _really_ works in JS. Unlike `self` in Python, `this` in JS is not specific to classes, and its meaning is determined in an odd way known as 'dynamic scoping', in which the value of `this` isn't determined by where it is written in the code (like `self` is in Python) but rather by _where_ it is ran, i.e. its 'context'. This is a confusing concept, but we will do our best to explain it simply. An important point to note however is that this behavior will differ depending on whether you use the regular function (`function() { }`) syntax, or the arrow function syntax (`()=>{}`).
 
 ```js
 // `this` is not attached to any object, so it refers to 'global' in node (an empty object).
@@ -157,27 +157,27 @@ console.log(this);
 // `this` appears in the function `sayHello`
 const alice = {
   name: "alice",
-  // sayHello is a regular 'function' function, so it has it's own scope, and the inner 'this'
-  // will refer to it's calling context
+  // sayHello is a regular 'function' function, so it has its own scope, and the inner 'this'
+  // will refer to its calling context
   sayHello: function () {
     console.log(`Hello, my name is ${this.name}`);
   },
 };
 
 // because of how we are calling this, the 'alice' variable is the 'context' in which sayHello is run
-// so when sayHello hits it's 'this' keyword, it refers to the variable 'alice'
+// so when sayHello hits its 'this' keyword, it refers to the variable 'alice'
 alice.sayHello();
 
 // arrow functions do not rebind `this`
 const bob = {
   name: "bob",
-  // sayHello is an arrow function, so it doesn't create it's own scope
+  // sayHello is an arrow function, so it doesn't create its own scope
   sayHello: () => {
     console.log(`My name is ${this.name}`);
   },
 };
 
-// that means when we call this, 'bob' is not it's context, but bob's context is sayHello's context, which is the 'global' object, or {}
+// that means when we call this, 'bob' is not its context, but bob's context is sayHello's context, which is the 'global' object, or {}
 // we warned you this is confusing and ugly!
 bob.sayHello();
 
