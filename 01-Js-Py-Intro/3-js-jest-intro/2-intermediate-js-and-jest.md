@@ -98,40 +98,28 @@ for (let [key, value] of Object.entries(database)) {
 
 ### The 'spread' operator (`...`)
 
-Often you will want to copy an array or object into another, and this isn't so easy to accomplish by default. Without modern JS we would still be able to do this with:
+The JavaScript spread operator (...) allows us to quickly copy all or part of an existing array or object into another array or object.
 
 ```js
-const arr = [1, 2, 3];
-const obj = { x: 1, y: 2, z: 3 };
+const arrOne = [1, 2, 3];
+const arrTwo = [4, 5, 6];
+const arrCombined = [...arrOne, ...arrTwo];
 
-const arrCopy = arr.slice(0);
-const objCopy = Object.assign({}, obj);
+const objOne = { x: 1, y: 2, z: 3 }
+const objTwo = { a: 4, b: 5,c: 6 }
+const objCombined = {...objOne, ...objTwo};
 
-arrCopy[0] = 42;
-objCopy.x = 42;
-
-console.log(arr);
-console.log(arrCopy);
-console.log(obj);
-console.log(objCopy);
+console.log(arrCombined)
+console.log(objCombined)
 ```
 
-This works and the originals are preserved as expected. But a cleaner modern approach to this is:
+You can also use the spread operator to expand an array into individual arguments for a function.
 
 ```js
-const arr = [1, 2, 3];
-const obj = { x: 1, y: 2, z: 3 };
-
-const arrCopy = [...arr];
-const objCopy = { ...obj };
-
-arrCopy[0] = 42;
-objCopy.x = 42;
-
-console.log(arr);
-console.log(arrCopy);
-console.log(obj);
-console.log(objCopy);
+const numbers = [10, 20, 5];
+const maxNumber1 = Math.max(numbers);
+const maxNumber2 = Math.max(...numbers);
+console.log(maxNumber1, maxNumber2); // NAAN, 20
 ```
 
 ### `import/export` syntax
