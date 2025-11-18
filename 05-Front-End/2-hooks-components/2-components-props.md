@@ -63,7 +63,7 @@ well that didn't work as expected. Rather than only updating one it updated all 
 
 ## Creating a Component
 
-we could change our function to change the individual objects "completed" attribute to but that would really handle the problem at it's root level. Instead we want to isolate this behavior for each individual object by creating a Component that will isolate an objects properties and functions.
+we could change our function to change the individual objects "completed" attribute to but that would really handle the problem at its root level. Instead we want to isolate this behavior for each individual object by creating a Component that will isolate an objects properties and functions.
 
 ```jsx
 const Task = () => {

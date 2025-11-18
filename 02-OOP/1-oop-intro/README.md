@@ -2,7 +2,7 @@
 
 ## What are we trying to accomplish?
 
-Everything in programming is interpreted as a class/object at it's most basic level making Object Oriented Programming(OOP) an essential skill for Junior Software Engineers. By the end of this lecture you'll learn the `4 pillars of pillars of OOP`, how to utilize `Pythons` elegant syntax and rich ecosystem to create multiple `Python Classes` and multiple `Instances of said classes`, and have an improved understanding of DRY (Don't Repeat Yourself) principles.
+Everything in programming is interpreted as a class/object at its most basic level making Object Oriented Programming(OOP) an essential skill for Junior Software Engineers. By the end of this lecture you'll learn the `4 pillars of OOP`, how to utilize `Python's` elegant syntax and rich ecosystem to create multiple `Python Classes` and multiple `Instances of said classes`, and have an improved understanding of DRY (Don't Repeat Yourself) principles.
 
 ## Lectures & Assignment
 

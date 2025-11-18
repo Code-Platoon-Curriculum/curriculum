@@ -250,7 +250,7 @@ export const userRegistration = async (email, password) => {
 
 Our token needs to be accessible to our application regardless whether our User refreshes their application or not. So we know the token of a user can't exist within the React DOM since it's re-rendered everytime the browser is refreshed... instead we will ask the browser to hold on to our users token through local storage.
 
-Additionally we are adding this token to our `axios instance` Authorization header so any following request made by the user will contain it's token within it.
+Additionally we are adding this token to our `axios instance` Authorization header so any following request made by the user will contain its token within it.
 
 #### Local Storage
 

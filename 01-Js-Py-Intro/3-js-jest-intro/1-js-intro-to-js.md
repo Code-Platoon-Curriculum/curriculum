@@ -4,12 +4,12 @@
 
 We will cover why Javascript (or JS) is such an important language for the web, and review/dig deeper into JS language fundamentals. Every programming language has fundamental features such as:
 
-- It's syntax
+- Its syntax
 - Logical operators (if, and, etc)
 - "Primitive" data types (often numbers or strings or booleans)
 - More complex data types (often arrays, lists, objects, etc)
 - If it is "strongly typed" or "weakly typed" (also called a *dynamic* language, as the type of a variable can change)
-- It's tools to compile (if necessary) a program written in the language and run that program on a computer
+- Its tools to compile (if necessary) a program written in the language and run that program on a computer
 
 JS and Python have some similarities (both are dynamic languages) and differences ("objects" work very differently in JS than Python). It is important to know the programming language you use inside and out; your goal in this course should be to become proficient in both JS and Python, and, to become an expert in one of them.
 
@@ -19,7 +19,7 @@ Before we can really talk about JavaScript, let's take a high level view of how 
 
 ![how the internet works](./page-resources/how-the-internet-works.png)
 
-That dotted line represents the internet, a 'divide' of time/space that be communicated over, albeit with a delay.
+That dotted line represents the internet, a 'divide' of time/space that can be communicated over, albeit with a delay.
 
 At one end is the _backend_. Take Facebook for example: Facebook owns a server (in reality, many) that hosts the website `facebook.com`. A backend can be complex, but at minimum it includes a database where data is persisted long-term, and a web server that fields requests from clients. A website like `facebook.com` has a single backend, owned by Facebook itself. This means Facebook has 100% control over those computers, including what OS they are running and what programming languages they choose to create their web server.
 
@@ -27,7 +27,7 @@ The _frontend_ on the other hand represents the client*s*. Many people use Faceb
 
 ## Why does JavaScript matter?
 
-So what does this have to do with JavaScript? Well, on the backend, you can choose any language you want, at Code Platoon we teach Python and Django, but a web server could be built in Java or C# or any other langauge. This is _not_ so on the frontend! To make every website compatibe with every client a client needs to use a specific program called a _web browser_ to interact with that website's backend. For obscure historical reasons web browsers support exactly one language - **JavaScript**! JavaScript can sometimes seem unnecessarily obtuse in it's designed, especially compared to Python, but there's a reason for this - by the design of the web, a [website from 1996](https://www.spacejam.com/1996/jam.html) should still work today. That means no breaking changes! No Python 2 -> Python 3. Websites written 25+ year ago should still work today, and to accomodate this JavaScript only ever adds features, never removes any. This means the language can appear poorly designed at times but just remember - **you don't have a choice!**
+So what does this have to do with JavaScript? Well, on the backend, you can choose any language you want, at Code Platoon we teach Python and Django, but a web server could be built in Java or C# or any other language. This is _not_ so on the frontend! To make every website compatible with every client a client needs to use a specific program called a _web browser_ to interact with that website's backend. For obscure historical reasons web browsers support exactly one language - **JavaScript**! JavaScript can sometimes seem unnecessarily obtuse in its design, especially compared to Python, but there's a reason for this - by the design of the web, a [website from 1996](https://www.spacejam.com/1996/jam.html) should still work today. That means no breaking changes! No Python 2 -> Python 3. Websites written 25+ year ago should still work today, and to accommodate this JavaScript only ever adds features, never removes any. This means the language can appear poorly designed at times but just remember - **you don't have a choice!**
 
 > In reality you do now, TypeScript is a 'better' JS that 'transpiles' down to JS, but it's beyond the scope of the course at the moment
 
@@ -159,10 +159,10 @@ true || false; // true
 
 This not only doesn't break, it treats the 1 as 'truth-y' and, instead of returning true, it returns the original value, `1`.
 
-**equality (`==` vs `===`)**. You may have seen both of these operators for comparing two values by truthiness. The different is subtle:
+**equality (`==` vs `===`)**. You may have seen both of these operators for comparing two values by truthiness. The difference is subtle:
 
-- `==` will perform implicit type cooercion, so `1 == '1'` evaluates to `true`.
-- `===` will _not_ perform such cooercions, so `1 === '1'` evaulates to `false`.
+- `==` will perform implicit type coercion, so `1 == '1'` evaluates to `true`.
+- `===` will _not_ perform such coercions, so `1 === '1'` evaluates to `false`.
 - Prefer `===` unless you have a very specific reason to use `==`, as that coercion behavior is almost never what you really want and it makes it easy to create odd type-based bugs.
 
 > For reference: [Booleans](./examples/booleans.js)
@@ -178,7 +178,7 @@ console.log(babyName); // undefined
 
 #### `null`
 
-`null` is almost identical in purpose and meaning to `undefined` but specifically use to represent a non-existent object (as opposed to an uninitiated variable). We will talk more about objects in a moment.
+`null` is almost identical in purpose and meaning to `undefined` but specifically use to represent a non-existent object (as opposed to an uninitialized variable). We will talk more about objects in a moment.
 
 ### Complex Data Types
 
@@ -300,7 +300,7 @@ This is because complex data types are not copied when passed in to a function a
 
 ### `if/else` and the ternary operator
 
-You are likely already familiar with an `if/else`` statement, but to review:
+You are likely already familiar with an `if/else` statement, but to review:
 
 ```js
 const age = 24;

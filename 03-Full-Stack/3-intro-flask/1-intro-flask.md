@@ -57,7 +57,7 @@ if __name__ == '__main__':
 
 **Explanation:**
 
-- `Flask(__name__)`: This creates a Flask application object. The `__name__` argument tells Flask the name of the current module. In Python, when you run a script, the script's namespace is set to `__main__`, and when a module is imported, it's set to the name of the module. By passing `__name__`, Flask knows where to find templates, static files, and other resources relative to the application.
+- `Flask(__name__)`: This creates a Flask application object. The `__name__` argument tells Flask the name of the current module. In Python, when you run a script, the script's namespace is set to `__main__`, and when a module is imported, its set to the name of the module. By passing `__name__`, Flask knows where to find templates, static files, and other resources relative to the application.
 - We define a list of student dictionaries to serve as our data source.
 - The `get_students` function returns the list of students as JSON using `jsonify`.
 - Finally, we start the Flask app with `app.run(debug=True)` for debugging purposes.

@@ -36,7 +36,7 @@ Part 2 of this lesson will get into Github and how we use it, but for Part 1 we 
 
 ### `git`
 
-Git is a command-line tool like any other, so can be invoked on it's own with `git`. If that's all you type you will see a very long output explaining all the subcommands git supports, of which there are many. The first one we will explore however is `git init`, which allows us to turn a regular folder into a _git repo_.
+Git is a command-line tool like any other, so can be invoked on its own with `git`. If that's all you type you will see a very long output explaining all the subcommands git supports, of which there are many. The first one we will explore however is `git init`, which allows us to turn a regular folder into a _git repo_.
 
 ### Creating a git repo
 
@@ -187,7 +187,7 @@ git commit -m 'my first commit'
 
 This will create a new commit with the provided comment directly in the cli. Some message is always required so this is the simplest way to add that message.
 
-We have now comitted our work, the final stage:
+We have now committed our work, the final stage:
 
 ![git committed](./page-resources/git-commited.png)
 
@@ -214,7 +214,7 @@ Date:   Mon May 22 11:42:33 2023 -0600
     my first commit
 ```
 
-> Like other cli programs, `git` commands often can take flags. One popolar one for `git log` is `git log --oneline` which removes extraneous information and only shows the commit hash (the long number representing that commmits id) and the message
+> Like other cli programs, `git` commands often can take flags. One popular one for `git log` is `git log --oneline` which removes extraneous information and only shows the commit hash (the long number representing that commits id) and the message
 
 We can continue making changes from here and commit them so let's do that. As a mini-assignment, let's:
 
@@ -231,7 +231,7 @@ What we have learnt so far allows us to track changes to a repo, but there's onl
 
 We are on branch `main` (the default branch you start with), and our commits are connected to each other in the order they were commited by arrows. There's also this keyword `HEAD` which represents the commit we are currently looking at, which is the latest one on `main`. What I drew is a visual representation of what Git is representing when you type `git log`.
 
-Now what consider the situation where we want to add a new feature to our project, but we won't be sure until it's done if we really want to add it into the project for real. `main` represents the 'true' version of the project in some sense, so if we do our work there we might break things for as long as our feature is a work in progress. The solution is to create a new _branch_ to work on. A branch will _branch_ off of `main`, keeping all the work we have already done in `main` but let's us work in an environment that is seperate where our work in progress can be managed seperately from the `main` version of the project.
+Now what consider the situation where we want to add a new feature to our project, but we won't be sure until it's done if we really want to add it into the project for real. `main` represents the 'true' version of the project in some sense, so if we do our work there we might break things for as long as our feature is a work in progress. The solution is to create a new _branch_ to work on. A branch will _branch_ off of `main`, keeping all the work we have already done in `main` but let's us work in an environment that is separate where our work in progress can be managed separately from the `main` version of the project.
 
 Let's see this idea of branching in action now. First, let's create this new branch with `git checkout -b`:
 
@@ -322,9 +322,9 @@ Some important commands we learnt so far include:
 
 Some good general git advice:
 
-1. Be careful when using a visual git tool, as it is running commands behind the scenes, many of which you may not understand. To be safe, don't use a visual git tool until you feel pretty confortable with git.
+1. Be careful when using a visual git tool, as it is running commands behind the scenes, many of which you may not understand. To be safe, don't use a visual git tool until you feel pretty comfortable with git.
 
-2. **Never** use a git command you copied off the internet and don't fully understand. You will only run into even greater complications. If you encounter a new git command on stack overflow, do your due dilligence and read about it first, and ideally seek a TA's help before proceeding.
+2. **Never** use a git command you copied off the internet and don't fully understand. You will only run into even greater complications. If you encounter a new git command on stack overflow, do your due diligence and read about it first, and ideally seek a TA's help before proceeding.
 
 3. Run `git status` between every other command you run. It will tell you what the state of the system is and is the main way you get familiar with the concepts git uses.
 

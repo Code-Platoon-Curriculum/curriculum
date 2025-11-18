@@ -77,7 +77,7 @@ print(clean_string) #=> I need help
     pip install nltk
     ```
 
-2. Now since this is our first time ever utilizing `nltk` we actually have to explicitly download some of it's commonly used content onto our machines `nltk`s version. Lets do so by opening a Python shell within the terminal and executing the following commands:
+2. Now since this is our first time ever utilizing `nltk` we actually have to explicitly download some of its commonly used content onto our machines `nltk`s version. Lets do so by opening a Python shell within the terminal and executing the following commands:
 
     ```python
     Python 3.13.3 (main, Apr  8 2025, 13:54:08) [Clang 16.0.0 (clang-1600.0.26.6)] on darwin

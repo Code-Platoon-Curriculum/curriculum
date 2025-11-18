@@ -221,4 +221,4 @@ def log_in(request):
 
 ## Stretch Goals
 
-[Look ahead](https://github.com/tangoplatoon/curriculum/blob/main/week-07/day2/django-auth.md) at tomorrow's lesson on using Django's built-in authentication and try it's assignments.
+[Look ahead](https://github.com/tangoplatoon/curriculum/blob/main/week-07/day2/django-auth.md) at tomorrow's lesson on using Django's built-in authentication and try its assignments.

@@ -195,7 +195,7 @@ Our Vite development server works fine for local development but when it comes t
 
 ### Configuring Nginx
 
-> The main, global config file for nginx is located at `/etc/nginx/nginx.conf`. The first line of this file specifies the user that nginx runs as. By default, it's `www-data`, but we need to change it to the owner of the application files, `ubuntu`. We will have to utilize `sudo vim` to be able to access this file and change it's value. You could instead change the owner of the application files to `www-data` using the command `chown`, if you prefer that. What matters is that they match.
+> The main, global config file for nginx is located at `/etc/nginx/nginx.conf`. The first line of this file specifies the user that nginx runs as. By default, it's `www-data`, but we need to change it to the owner of the application files, `ubuntu`. We will have to utilize `sudo vim` to be able to access this file and change its value. You could instead change the owner of the application files to `www-data` using the command `chown`, if you prefer that. What matters is that they match.
 
 ```bash
 user www-data; #<--- Change this to ubuntu

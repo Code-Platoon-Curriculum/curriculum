@@ -255,7 +255,7 @@ Text:
 
 - **Tactic 2: Instruct the model to work out its own solution before rushing to a conclusion**
 
-  - By instructing the LLM to work out its own solution to a problem you are assuring that it wont just make an assumption that something is correct. This is valuable when running word problems and/or mathematical reasoning along with an attempted solution. You can as the LLM to create it's own solution to the problem and compare it to the solution provided, identify errors, and provide constructive feedback.
+  - By instructing the LLM to work out its own solution to a problem you are assuring that it won't just make an assumption that something is correct. This is valuable when running word problems and/or mathematical reasoning along with an attempted solution. You can ask the LLM to create its own solution to the problem and compare it to the solution provided, identify errors, and provide constructive feedback.
 
 ### LLM Limitations
 
@@ -269,7 +269,7 @@ Tell me about AeroGlide UltraSlim Smart Toothbrush by Boie
 
 Boie is a real company but the product is not yet the LLM will still provide a `Hallucinated` answer that it thinks COULD be factual.
 
-- Reducing hallucinations = provide the LLM a specific set of resources it should utilize to populate it's answer and you could even ask its response to come attached with resources.
+- Reducing hallucinations = provide the LLM a specific set of resources it should utilize to populate its answer and you could even ask its response to come attached with resources.
 
 ### Iterative Prompt Development
 

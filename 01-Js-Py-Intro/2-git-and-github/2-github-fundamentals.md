@@ -10,7 +10,7 @@ To reiterate from part 1:
 
 - **_Git_** is the original invention, and it is designed to manage changes for a _local_ project living on your own personal computer.
 
-- **_Github_** is a modern product/company (now owned by Microsoft) that aims to be the de-facto place to _back up_ your local git repo on the internet. Github let's you sync your local project (and it's history) with a _remote_ computer, so you even if your personal computer is destroyed, a copy of your project still exists in it's entirelty on the internet. This remote location is also useful for collaborating with others, but that's beyond the scope of this lesson.
+- **_Github_** is a modern product/company (now owned by Microsoft) that aims to be the de-facto place to _back up_ your local git repo on the internet. Github let's you sync your local project (and its history) with a _remote_ computer, so you even if your personal computer is destroyed, a copy of your project still exists in its entirety on the internet. This remote location is also useful for collaborating with others, but that's beyond the scope of this lesson.
 
 ![Git vs Github](./page-resources/git-vs-github.png)
 
@@ -26,9 +26,9 @@ Give the repo a name and leave all the defaults as they are, and then hit 'Creat
 
 ![new repo clean](./page-resources/my-first-repo-clean.png)
 
-Github doesn't know anything about our local repo (yet) so we needed to first create a repo Github is aware of, but it's contents are empty.
+Github doesn't know anything about our local repo (yet) so we needed to first create a repo Github is aware of, but its contents are empty.
 
-This page gives us some steps for hooking up this remote repo to our local git repo, but it can be extremely dense to read for a newcover, so we will now walk through the process step by step. The only thing to note right now is the url, which we want to copy for later. I don't mean the url in the browser url bar but the one on the page that ends in `.git`, which has a convenient 'copy' button next to it. This url represents the location of your Github repo for the sake of hooking up your local to the remote. By way of example mine is: `https://github.com/AloofBuddha/my-first-git-repo.git`.
+This page gives us some steps for hooking up this remote repo to our local git repo, but it can be extremely dense to read for a newcomer, so we will now walk through the process step by step. The only thing to note right now is the url, which we want to copy for later. I don't mean the url in the browser url bar but the one on the page that ends in `.git`, which has a convenient 'copy' button next to it. This url represents the location of your Github repo for the sake of hooking up your local to the remote. By way of example mine is: `https://github.com/AloofBuddha/my-first-git-repo.git`.
 
 ## Setting up a connection between your local and remote (Github) repos
 
@@ -199,7 +199,7 @@ Other good general bits of git advice I feel are worth sharing:
 
 1. Be careful when using a visual git tool (like the one built into VSCode), as it is running commands behind the scenes, many of which you may not understand. You can use it, but be careful to understand how to do something using the cli first, as these tools can get you into trouble sometimes and you will be in over your head.
 
-2. **Never** use a git command you copied off the internet and don't fully understand. You will only run into even greater complications. If you encounter a new git command on stack overflow do your due dilligence and read about it first, and ideally seek a TAs help before proceeding.
+2. **Never** use a git command you copied off the internet and don't fully understand. You will only run into even greater complications. If you encounter a new git command on stack overflow do your due diligence and read about it first, and ideally seek a TAs help before proceeding.
 
 3. Run `git status` between every other command you run. It will tell you what the state of the system is and is the main way you get familiar with the concepts git uses.
 
@@ -207,7 +207,7 @@ Other good general bits of git advice I feel are worth sharing:
 
 ## Resources
 
-- [Atlassian Git resouces](./https://www.atlassian.com/git/tutorials/setting-up-a-repository)
+- [Atlassian Git resources](https://www.atlassian.com/git/tutorials/setting-up-a-repository)
 
 Atlassian is a company that makes many software development tools like Jira (project management) and a Github competitor called BitBucket. We don't use or teach BitBucket but their tutorials around Git are extremely high quality with diagrams that help a lot compared to Git's own official docs.
 

@@ -2,7 +2,7 @@
 
 ## What are we trying to accomplish?
 
-By the end of this lecture you'll have strengthen the relationship with your fellow classmates, have a structured understanding of your teams technical capabilities and limitations, and have developed experience working as a team to solve a complex project.
+By the end of this lecture you'll have strengthened the relationship with your fellow classmates, have a structured understanding of your teams technical capabilities and limitations, and have developed experience working as a team to solve a complex project.
 
 ## Lectures & Assignment
 
