@@ -83,7 +83,7 @@ class Person:
         self._name = name
         self._age = age
 
-    # Note that in the above example we have prefaced our Class attributes with an "_". This is to tell other developers that these attributes are not to pe touched and to instead utilize getters and setters to change/get this properties value.
+    # Note that in the above example we have prefaced our Class attributes with an "_". This is to tell other developers that these attributes are not to be touched and to instead utilize getters and setters to change/get this properties value.
 
     # THIS DOES NOT FULLY PRIVATIZE THIS ATTRIBUTE IT EXPECTS FELLOW DEVELOPERS TO UNDERSTAND THIS SYNTAX AND FOLLOW PRESCRIBED RESTRICTIONS
 
@@ -124,7 +124,7 @@ person.set_age = 30
 print(person.get_age)   # Output: 30
 ```
 
-Now that we have seen getters and setters, we can name our getters and setters more simply, and following python convention. The name getter and setter is just named `name`, and same for `age`. Notice how this makes the code more succint and simpler to read and write:
+Now that we have seen getters and setters, we can name our getters and setters more simply, and following python convention. The name getter and setter is just named `name`, and same for `age`. Notice how this makes the code more succinct and simpler to read and write:
 
 ```python
 class Person:

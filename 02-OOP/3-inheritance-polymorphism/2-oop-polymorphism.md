@@ -89,7 +89,7 @@ class Circle(Shape):
 ### Example: `speak()` Method in Different Animal Classes
 
 ```python
-class Animal(self):
+class Animal:
     def speak(self):
         return "Meow!"
 

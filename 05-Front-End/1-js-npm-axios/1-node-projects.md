@@ -190,7 +190,7 @@ Now we can successfully run both our test suite and our project through npm scri
 
 To keep our code organized, we'll use ES6 module syntax for import and export statements. In `index.js`, import the `task.json` file to access our To-Do tasks:
 
-#### Require Statements (NOT JS6)
+#### Require Statements (NOT ES6)
 
 Before we see how ES6 works with import statements on a modular level, we can see how to import information through the `require` function.
 

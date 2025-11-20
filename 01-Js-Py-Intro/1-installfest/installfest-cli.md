@@ -22,7 +22,7 @@ Before we get started, just know that this can be chaotic. Your goal is to get a
 - [Complete Installfest (Ubuntu Linux)](./page-resources/installfest_ubuntu.md)
 - [Youtube Walkthrough](https://youtu.be/9-v-0xRHWb8)
 
-> we don't have a Linux video walkthrough as there are too many versions of Linux to possibly account for but in addition to the guide above you can use the Windows/WSL link to see a similar walkthrough for Installfest on Windows using WSL + Ubunutu, so if your flavor of Linux is Ubuntu this should help
+> we don't have a Linux video walkthrough as there are too many versions of Linux to possibly account for but in addition to the guide above you can use the Windows/WSL link to see a similar walkthrough for Installfest on Windows using WSL + Ubuntu, so if your flavor of Linux is Ubuntu this should help
 
 ### Windows (WSL) Setup
 
@@ -41,7 +41,7 @@ Whether you are on an actual Linux system, MacOS or Windows with WSL, we are goi
 
 In reality, UNIX started as a specific OS invented at Bell Labs in the 1960s, by some of the same people who invented the C language. It was very popular, but also open-source, so different operating systems copied the concept. However there was poor compatibility between different implementations, a common theme in the history of software development. Complicating things further, software used to be deeply coupled with hardware and made to fit an individual product, so even within a given company there wasn't a single OS that unified the experience across devices.
 
-That changed in the 80s with the invention of the personal computer and Apple and Microsoft becoming the most significant players in that emerging market. MacOS based it's OS architecture on UNIX, whereas Microsoft went it's own way entirely with Windows and MSDOS. Then in the 90s Linux was invented as an open source OS and defined the core 'kernel' that all other Linux distributions (or 'flavors') are based on. Linux is odd in that sense in that it is open-source, so there isn't one Linux, there are a few popular 'flavors', but a million others that are just as legitimate, just not widely used. That means that in the modern age we have:
+That changed in the 80s with the invention of the personal computer and Apple and Microsoft becoming the most significant players in that emerging market. MacOS based its OS architecture on UNIX, whereas Microsoft went its own way entirely with Windows and MSDOS. Then in the 90s Linux was invented as an open source OS and defined the core 'kernel' that all other Linux distributions (or 'flavors') are based on. Linux is odd in that sense in that it is open-source, so there isn't one Linux, there are a few popular 'flavors', but a million others that are just as legitimate, just not widely used. That means that in the modern age we have:
 
 **Linux** - most closely based on UNIX, but may differ slightly based on the 'flavor' you go with (Ubuntu and Debian are the major flavors).
 
@@ -74,7 +74,7 @@ Extending the car analogy we could say the 4 layers of a car are:
 1. Hardware - the physical body of the car
 2. Kernel - the engine and other essential pieces that the average user cannot work with/repair themselves
 3. Shell - the steering wheel and gear shaft, how a normal user (who knows how to drive a car) interacts with the complex machine under-the-hood
-4. Applications - the GPS or radio, not essential to the car, swappable with other similar products, but extends the car's functionality beyond it's out-of-the-box capabilities.
+4. Applications - the GPS or radio, not essential to the car, swappable with other similar products, but extends the car's functionality beyond its out-of-the-box capabilities.
 
 ### Files and Folders
 
@@ -123,7 +123,7 @@ In order to use the shell at all we need to know how to navigate it. Some essent
 
 ### Absolute vs Relative
 
-Absolute vs relative filepaths: When speaking of paths, we often speak of the absolute (or full) path to a file, and relative paths. An absolute path starts with a `/`, it is 'relative' to the root fo the entire filesystem, which is the same for all users of that system, so we call that 'absolute'. A relative path is one that starts with `~` or `.` or `..`. If a path starts with `~` it just means 'relative to the current user's home directory', which will be different for every user. If it starts with a `.` it means 'relative to the current directory', and if it starts with `..` that means 'relative to the current directory's parent'. In truth there is only the absolute path as far as the file system is concerned, but `~` and `.` and `..` act similarly to variables in a programming language - they hold a value that can change depending on the context they are evaluated within, but the result is always a full path.
+Absolute vs relative filepaths: When speaking of paths, we often speak of the absolute (or full) path to a file, and relative paths. An absolute path starts with a `/`, it is 'relative' to the root of the entire filesystem, which is the same for all users of that system, so we call that 'absolute'. A relative path is one that starts with `~` or `.` or `..`. If a path starts with `~` it just means 'relative to the current user's home directory', which will be different for every user. If it starts with a `.` it means 'relative to the current directory', and if it starts with `..` that means 'relative to the current directory's parent'. In truth there is only the absolute path as far as the file system is concerned, but `~` and `.` and `..` act similarly to variables in a programming language - they hold a value that can change depending on the context they are evaluated within, but the result is always a full path.
 
 ![absolute vs relative](./page-resources/absolute-vs-relative.png)
 
@@ -136,7 +136,7 @@ Absolute vs relative filepaths: When speaking of paths, we often speak of the ab
 
 - `touch <filename>`
 
-  - Creaters a new file. By default this will be a child of the current directory. Needs an argument with the new file's name. This new file will be empty.
+  - Creates a new file. By default this will be a child of the current directory. Needs an argument with the new file's name. This new file will be empty.
   - Ex: `touch my-new-file.txt`
 
 > File extensions are meaningless! `.txt` is only a shorthand that allows an OS to guess what program might be appropriate to open a file with. File extensions don't truly mean anything at the shell level thought, so `my-new-file` and `my-new-file.xyz` are both valid file names, and will open/run correctly assuming you use the correct program to open/run them.
@@ -166,7 +166,7 @@ Absolute vs relative filepaths: When speaking of paths, we often speak of the ab
 
 - `sudo <command_name>`
 
-  - 'super user do'. Understanding `sudo` deeply is an advanced topic that requires you to learn about 'user permissions', but a basic understanding of the command is necessary. The essence: some commands won't work if you don't have the right permissions, and `sudo` is a command that let's you temporarily elevate your permissions status to run such a command. Be careful anytime you need to use `sudo`, it's a sign you are likely doing something powerful and irreversable.
+  - 'super user do'. Understanding `sudo` deeply is an advanced topic that requires you to learn about 'user permissions', but a basic understanding of the command is necessary. The essence: some commands won't work if you don't have the right permissions, and `sudo` is a command that let's you temporarily elevate your permissions status to run such a command. Be careful anytime you need to use `sudo`, it's a sign you are likely doing something powerful and irreversible.
 
 - `clear`
 
@@ -187,7 +187,7 @@ Absolute vs relative filepaths: When speaking of paths, we often speak of the ab
 
 #### Interrupts (Nice to Know)
 
-This section is small but worth mentioning. An 'interrupt' is a way of communicating with the operating system to override it's current task (literally, to interrupt the running process).
+This section is small but worth mentioning. An 'interrupt' is a way of communicating with the operating system to override its current task (literally, to interrupt the running process).
 
 - `<control-C>`
 
@@ -227,7 +227,7 @@ You will use these less commonly as on a modern system you will have access to b
 
 #### Operators (Non-essential)
 
-- `*` aka wilcards
+- `*` aka wildcards
 
   - Often you will want to say 'match anything' and the wildcard symbol is how you do that.
   - Ex: I want to copy all files from one folder to another, so I type `cp my-folder/* ../temp`

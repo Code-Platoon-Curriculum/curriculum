@@ -54,7 +54,7 @@ What's up with that `self` parameter though? That's a good question... we'll cov
 
 ### Instance Attributes
 
-In the example above, `self.name` is what we call an instance attribute (or instance variable). This is data belongs to the instance of Dog that is created, and is unique to each instance. In other words, every Dog instance that we create will get it's own name. Let's add a few more instance attributes to our Dog class:
+In the example above, `self.name` is what we call an instance attribute (or instance variable). This is data belongs to the instance of Dog that is created, and is unique to each instance. In other words, every Dog instance that we create will get its own name. Let's add a few more instance attributes to our Dog class:
 
 ```python
 class Dog:

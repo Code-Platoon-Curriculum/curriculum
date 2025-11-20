@@ -204,7 +204,7 @@ while x > 0:
 
 #### **Built-in Methods**
 
-> Most types of values in python have built-in methods that you can use to manipulate that value. a method is simply a function that belongs to an object. There are two types of methods that you should be aware of: destructive and non-destructive methods.
+> Most types of values in python have built-in methods that you can use to manipulate that value. A method is simply a function that belongs to an object. There are two types of methods that you should be aware of: destructive and non-destructive methods.
 > Destructive methods are those that change the original data where non-destructive methods are those that do not change the original data. You have to be careful with the methods that you use as there isn't a clear indication in Python or JS as to which are destructive and which aren't. Let's take a look at the example below:
 
 ```python

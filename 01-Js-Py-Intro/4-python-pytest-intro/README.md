@@ -2,7 +2,7 @@
 
 ## What are we trying to accomplish?
 
-By the end of this lecture you'll learn how to utilize `Pythons` elegant syntax and rich ecosystem to solve functional algorithms while exercise your critical solving abilities. Additionally, you'll learn how to utilize the `pytest`testing framework to explore and develop your skills with Test Driven Development.
+By the end of this lecture you'll learn how to utilize `Python's` elegant syntax and rich ecosystem to solve functional algorithms while exercising your critical thinking and problem-solving abilities. Additionally, you'll learn how to utilize the `pytest` testing framework to explore and develop your skills with Test Driven Development.
 
 ## Lectures & Assignment
 

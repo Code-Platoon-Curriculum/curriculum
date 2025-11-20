@@ -165,7 +165,7 @@ DATABASES = {
 
 ### **Pyscopg3**
 
-> Now we install [psycopg3](https://www.psycopg.org/psycopg3/docs/basic/install.html), the Python library that will help Django talk to Postgres. We won't actually be calling this library directly, it's just a depency of Django-ORM that we need to install in order to turn out Python queries into SQL queries when speaking with Postgres.
+> Now we install [psycopg3](https://www.psycopg.org/psycopg3/docs/basic/install.html), the Python library that will help Django talk to Postgres. We won't actually be calling this library directly, it's just a dependency of Django-ORM that we need to install in order to turn out Python queries into SQL queries when speaking with Postgres.
 
 ```bash
   python -m pip install --upgrade pip 

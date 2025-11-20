@@ -17,6 +17,6 @@ Learning about linear search versus binary search provides a fundamental underst
 
 ## ELO's (Enabling Learning Objectives)
 
-- Understand how to apply linear search and how to identify it's problem
+- Understand how to apply linear search and how to identify its problem
 - Understand how to refactor and restructure code to make it more efficient
 - Understand the complexity analysis between Linear Search and Binary Search 

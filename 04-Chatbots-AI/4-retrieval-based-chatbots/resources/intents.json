@@ -1,0 +1,29 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hello", "hi there", "hey", "good morning", "good evening"],
+      "responses": ["Hello! How can I help you today?"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "see you later", "good night"],
+      "responses": ["Goodbye! Have a wonderful day!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thanks", "thank you", "much appreciated"],
+      "responses": ["You're very welcome!"]
+    },
+    {
+      "tag": "age",
+      "patterns": ["how old are you", "what is your age"],
+      "responses": ["I don't have an age, but I'm always learning!"]
+    },
+    {
+      "tag": "name",
+      "patterns": ["what is your name", "who are you"],
+      "responses": ["I'm your friendly retrieval-based chatbot!"]
+    }
+  ]
+}

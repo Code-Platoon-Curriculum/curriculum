@@ -123,7 +123,7 @@ Let's review our recursive factorial function, and, see if we can make a few cha
 
 **Question:** What would happen if our recursive case was `n * factorial(n+1)` ? What problem do we see, and, could we further refactor our recursive algorithm so it could actually work with this as our recursive case?
 
-The problem we encounter is our algorithm "goes up" and goes on forever! **It never stops, because it never hits it's base case!**
+The problem we encounter is our algorithm "goes up" and goes on forever! **It never stops, because it never hits its base case!**
 
 It takes a bit of work, but it is indeed possible to design our recursive factorial algorithm to "go up", instead of "go down". Note how:
 

@@ -7,9 +7,9 @@ By learning SQL schema design, we aim to acquire the skills necessary for creati
 ## Lectures & Assignments
 
 - [Lesson - SQL Schema Design](./1-sql-schema-design.md)
-  - [Assignment - Game Store I](.)Using what we've covered about creating schema designs use drawSQL to create a table for Employees, Posters, and Action Figures from the provided csv data.
+  - [Assignment - Game Store I](https://github.com/Code-Platoon-Assignments/SQL-Game-Store-I) 
 - [Lesson - Creating Tables using SQL](./2-creating-tables.md)
-  - [Assignment - Game Store II](.)Using what we've covered about creating Tables with SQL, write the SQL queries that will create a Table for Employees, Posters, and Action Figures and load the provided CSV data onto your tables.
+  - [Assignment - Game Store II](https://github.com/Code-Platoon-Assignments/SQL-Game-Store-II)
 
   - [Assignment: 32 Flavors Stage 1](https://github.com/Code-Platoon-Assignments/sql-32-flavors-1)
   - [Assignment: 64 Slices 1](https://github.com/Code-Platoon-Assignments/sql-64-slices-1/)

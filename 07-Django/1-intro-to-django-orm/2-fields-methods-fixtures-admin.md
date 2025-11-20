@@ -30,7 +30,7 @@ year_of_schooling = models.IntegerField()
 description = models.TextField()
 
 # BooleanField will take in boolean values only
-good_pokmon = models.BooleanField()
+good_pokemon = models.BooleanField()
 
 ```
 

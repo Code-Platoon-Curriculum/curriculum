@@ -104,7 +104,7 @@ fields = "__all__"
             pokemon = get_object_or_404(Pokemon, name = id.title())
         return pokemon
 
-    # `get_object_or_404` is a method that takes in two arguments. first the method it's looking into and second the conditions it's looking for. This method will return the specific Model instance we are looking for if it exists. If it doesn't find the Model instance that meets our conditions, it will immediately return a 404 error saving us time and server space.
+    # `get_object_or_404` is a method that takes in two arguments. first the method its looking into and second the conditions its looking for. This method will return the specific Model instance we are looking for if it exists. If it doesn't find the Model instance that meets our conditions, it will immediately return a 404 error saving us time and server space.
 
     def get(self, request, id):
         pokemon = self.get_a_pokemon(id) # utilize newly created method
@@ -134,7 +134,7 @@ def test_003_update_pokemon_data(self):
             data={
                 "level_up": True,
                 "captured": True,
-                "description": "This is Pikachu and it is a surprizingly weak electric type that does not live up to it's name",
+                "description": "This is Pikachu and it is a surprisingly weak electric type that does not live up to its name",
             },
             content_type="application/json",
         )

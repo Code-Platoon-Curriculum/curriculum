@@ -20,7 +20,7 @@ We are going to install everything that you will need for this course. Please do
 4. Python
 5. Node
 6. Git
-7. Alisases
+7. Aliases
 8. PostgreSQL
 9. VSCode Extensions
 
@@ -112,7 +112,7 @@ Warnings are good to read but are not mandatory to fix, so continue on for now a
 
 ### Modifying `~/.zshrc`
 
-A recent MacOS update altered things slightly so that, even though Homebrew has been installed correctly, the place where it installs software will not be 'picked up' by default anymore. To fix this, let's open and modify the file `~/.zshrc` which allow you to customize how your shell is configured on startup. Open it with:
+A recent MacOS update altered things slightly so that, even though Homebrew has been installed correctly, the place where it installs software will not be 'picked up' by default anymore. To fix this, let's open and modify the file `~/.zshrc` which allows you to customize how your shell is configured on startup. Open it with:
 
 ```bash
 code ~/.zshrc
@@ -120,10 +120,15 @@ code ~/.zshrc
 
 Because we downloaded `oh-my-zsh` earlier, this file should already be prepopulated, with a lot of comments (lines starting with `#`) and a few actual lines of code. This is in a language called `bash` or 'shell script' and you aren't expected to understand it, so copy/pasting will suffice.
 
-At the very top of this file we are going to add a line that will update our `PATH` variable. `PATH` is a global variable throughout the entire shell that defines what folders to look in when searching for pre-existing commands. Homebrew by default adds it's downloads to a folder called `/usr/local/bin`, but this isn't already on the `PATH`, so let's add it. At the top of the file add the line below, then save:
+At the very top of this file we are going to add lines that will update our `PATH` variable. `PATH` is a global variable throughout the entire shell that defines what folders to look in when searching for pre-existing commands. Homebrew installs to different locations depending on whether you have an Intel or Apple Silicon Mac, so we need to handle both cases. At the top of the file add the lines below, then save:
 
 ```bash
-export PATH=$PATH:/usr/local/bin
+# Add Homebrew to PATH (works for both Intel and Apple Silicon Macs)
+if [[ $(uname -m) == 'arm64' ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 ```
 
 Now close VSCode and restart your terminal.
@@ -150,13 +155,13 @@ Now, install an up-to-date version of Python3 from your terminal by running:
 brew install python
 ```
 
-Test that you have the correct version asscoiated with the command `python3` by running the code below:
+Test that you have the correct version associated with the command `python3` by running the code below:
 
 ```bash
 which python3
 ```
 
-The result should be '/usr/local/bin/python3'. If it's not, speak to an instructor or TA because your Homebrew installations are not being correctly picked up.
+The result should be '/usr/local/bin/python3' (Intel Mac) or '/opt/homebrew/bin/python3' (Apple Silicon Mac). If it's not one of these, speak to an instructor or TA because your Homebrew installations are not being correctly picked up.
 
 This install should also include python's package manager, `pip`. To test this enter the command:
 
@@ -172,36 +177,25 @@ pip3
 
 As long as the `pip3` command is recognized, you are good.
 
-### Python Virtual Environment
-
-Python uses the concept of a 'virtual envrionment' to install packages through pip uniquely for a given project. While you can make virtual environments for a given project it is also wise to have a default virtual environment, which we will create now. Open a new terminal and ensure you are in the home folder (`~`) and then run:
-
-```bash
-python3 -m venv default
-```
-
-If it works this will create a new folder in your current directory called 'default'. Inside that folder we should see a bin folder holding an `activate` script. Run that script with:
-
-```bash
-source ~/default/bin/activate
-```
-
-After running the above you should see the name of the venv ('default') represented somewhere in your command line. Close the terminal and reopen it and you will see this name is no longer there. That is because the venv needs to be set every time you open your terminal. Because it is easy to forget to do this we will make it happen on startup by adding it to our `.zshrc` file later, but first, let's install node.
+> **Note on Virtual Environments:** Python uses the concept of a 'virtual environment' to install packages through pip uniquely for a given project. We will cover how to create and use project-specific virtual environments when you start working on Python projects. For now, we'll continue with the base Python installation.
 
 ## Node
 
-In this section, we'll use Homebrew to install `npm`, the default package manager for node. We'll then use `npm` to install `n`, which is a tool to help manage different versions of `node`. Lastly, we'll use `n` to install the latest stable version of `node`.
+In this section, we'll use Homebrew to install `node`, which includes `npm` (the default package manager for node).
 
 ```bash
-# use apt to install npm
-brew install npm
-# use npm to install n (-g means globally, as opposed to in a specific project/folder)
-sudo npm install -g n
-# use n to install the latest stable version of node
-sudo n stable
+# use brew to install node (includes npm)
+brew install node
 ```
 
-Close and reopen your terminal if necessary and test that both the commands `node` and `npm` are recognized.
+Verify the installation:
+
+```bash
+node --version
+npm --version
+```
+
+Both commands should return version numbers.
 
 ## `git`
 
@@ -258,7 +252,7 @@ This will install that repo in your current directory. Assuming this is successf
 rm -rf lodash
 ```
 
-## Alisases
+## Aliases
 
 We are going to modify `~/.zshrc` again so that we don't need to type `python3` but just `python` to invoke the correct program. This is a small change but it's a way of making it clear what your 'default' version is on a platform, and also an opportunity to discuss the concept of aliases.
 
@@ -272,48 +266,42 @@ VSCode should open the document. At the bottom of the file add the lines:
 
 ```bash
 # Aliases
-
 alias python='python3'
 alias pip='pip3'
 ```
 
 Aliases are what they sound like, simply a new name that points to an existing command.
 
-We are also going to add another line to our `.zshrc` to make sure we are using our default Python venv everytime we open the terminal. So below your aliases within `.zshrc` add:
-
-```sh
-# activate default python venv
-source $HOME/default/bin/activate
-```
+Save the file, then close and reopen your terminal (or run `source ~/.zshrc`). Now you can use `python` and `pip` instead of `python3` and `pip3`.
 
 ## PostgreSQL
 
 We will now install PostgreSQL by running the following command:
 
 ```bash
-brew install postgresql@14
+brew install postgresql@16
 ```
 
 Start a PostgreSQL instance (in the background) like so:
 
 ```bash
-brew services restart postgresql@14
+brew services start postgresql@16
 ```
 
-To enter PostgreSQL we will switch our shell user to one named `postgres`, and then we can enter the running PostgreSQL instance.
+To enter PostgreSQL, connect to the running PostgreSQL instance:
 
 ```bash
-# connect to the running PostgreSQL instance as the user 'postgres'
+# connect to the running PostgreSQL instance
 psql postgres
 ```
 
-If your terminal now looks like it does below, you have succesfully installed PostgreSQL:
+If your terminal now looks like it does below, you have successfully installed PostgreSQL:
 
 ```
 postgres=#
 ```
 
-To exit out of this enviroment type
+To exit out of this environment type
 
 ```
 postgres=# \q
@@ -323,7 +311,7 @@ postgres=# \q
 
 ### Python
 
-Open VSCode and create a new file called `example.py`. This will be enough for VSCode to prompt you to download it's official Python extension. If this doesn't happen for whatever reason, you can select the extension tab on the left pane and search for 'python' and download the one made by Microsoft (it should be the top result). You will know this was succesful if afterwords you can write some simply Python code like:
+Open VSCode and create a new file called `example.py`. This will be enough for VSCode to prompt you to download its official Python extension. If this doesn't happen for whatever reason, you can select the extension tab on the left pane and search for 'python' and download the one made by Microsoft (it should be the top result). You will know this was successful if afterwards you can write some simple Python code like:
 
 ```py
 print("hello")

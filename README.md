@@ -18,6 +18,8 @@
 10. [Continuous Integration/Deployment](./10-Github-Actions/README.md)
 11. [Data Structures and Algorithms](./11-DS-Algorithms/README.md)
 12. [Personal Projects](./12-Personal-Project/README.md)
+13. [Group Projects](./13-Group-Projects/README.md)
+14. [AWS CCP 'Crash Course'](./14-AWS-CCP-Crash-Course/README.md)
 
 ## Asking Questions in Slack / Slack Etiquette
 
