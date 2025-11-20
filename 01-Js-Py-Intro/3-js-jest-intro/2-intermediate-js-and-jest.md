@@ -222,7 +222,7 @@ Now we want to download Jest. We do this with:
 npm install --save jest
 ```
 
-> The `--save` will update `package.json` with a new field called `dependencies`. This keeps track of what dependencies your project requires, which is useful for other people who share your code who can then just type `npm install` to download all the necessary dependencies.
+> The `--save` will update `package.json` with a new field called `dependencies`. This keeps track of what dependencies your project requires, which is useful for other people who share your code who can then just type `npm install` to download all the necessary dependencies. If running into issues in the WSL environment, you might need to edit this `--save` flag to become `--save-dev`.
 
 Now try typing `jest` into your command line to see `jest` run (even though we don't have any tests yet). Not recognized, right?! That's because `jest` only exists for our project, not for the entire computer. To get around this, we can run it by modifying part of the `package.json`. `package.json` has a field called `scripts`, replace it with:
 
