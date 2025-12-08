@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* .text-red {
+    color: red;
+} */
+
+#root{
+    width: 100vw;
+    height: 100vh;
+}
