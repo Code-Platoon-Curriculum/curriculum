@@ -340,14 +340,10 @@ When hovering over an icon, many applications will display a tooltip to describe
 
 Dark mode is a popular feature for modern websites, and Tailwind makes implementing dark mode clear and easy. Tailwind provides the dark modifier which causes Tailwind classes to apply only when dark mode is enabled. Tailwind knows if dark mode is enabled by whether or not the class 'dark' is placed on the page's overall **html** element.
 
-Tailwind actually supports two different ways of activating dark mode, but we'll use the version described above. To make sure Tailwind understands that the **html** element's 'dark' class (or lack thereof) indicates dark mode, add the following entry to the `module.exports` object of the `tailwind.config.js` file:
+Tailwind actually supports two different ways of activating dark mode, but we'll use the version described above. To make sure Tailwind understands that the **html** element's 'dark' class (or lack thereof) indicates dark mode, add the following to the `index.css` file:
 
-```js
-module.exports = {
-    ...
-    darkMode: 'class',
-    ...
-}
+```css
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
 #### Example
