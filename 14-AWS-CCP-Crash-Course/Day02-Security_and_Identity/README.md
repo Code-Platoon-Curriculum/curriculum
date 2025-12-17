@@ -23,8 +23,11 @@ This is a high-value day for exam points — so pay close attention to exam-styl
 ## Lessons
 
 [1. Shared Responsibility Model](./lessons/1-shared_responsibility.md)
+
 [2.  IAM Overview: Users, Roles, MFA](./lessons/2-iam_intro.md)
+
 [3.  Security Services (Shield, WAF, etc.)](./lessons/3-security_services.md)
+
 [4.  Governance Tools: CloudTrail & Config](./lessons/4-governance_tools.md)
 
 ---
