@@ -21,8 +21,11 @@ We’ll review core AWS services like EC2, Lambda, S3, EBS, and RDS — just eno
 ## Lessons
 
 [1 – Core Services Overview (EC2, Lambda, S3, etc.)](./lessons/1-core_services.md)
+
 [2 – EC2 Pricing Models (On-Demand, Reserved, Spot)](./lessons/2-ec2_pricing.md)
+
 [3 – AWS Billing Tools](./lessons/3-billing_tools.md)
+
 [4 – Support Plans & Cost Optimization](./lessons/4-support_and_costs.md)
 
 ---
