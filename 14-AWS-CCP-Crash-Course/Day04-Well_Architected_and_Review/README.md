@@ -22,11 +22,11 @@ Finally, you’ll take your **last full-length practice exam** — this time wit
 
 ## Lessons
 
-[1 – Introduction to the Well-Architected Framework](./lessons/1-intro_well_architected.md)
-[2 – Six Pillars Overview](./lessons/2-six_pillars.md)
-[3 – Disaster Recovery & High Availability](./lessons/3-disaster_recovery.md)
-[4 – Cost Optimization & Sustainability](./lessons/4-cost_and_sustainability.md)
-[5 – Final Review Strategy](./lessons/5-final_review.md)
+1. [Introduction to the Well-Architected Framework](./lessons/1-intro_well_architected.md)
+2. [Six Pillars Overview](./lessons/2-six_pillars.md)
+3. [Disaster Recovery & High Availability](./lessons/3-disaster_recovery.md)
+4. [Cost Optimization & Sustainability](./lessons/4-cost_and_sustainability.md)
+5. [Final Review Strategy](./lessons/5-final_review.md)
 
 ---
 
