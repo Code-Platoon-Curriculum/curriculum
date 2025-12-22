@@ -1,3 +1,0 @@
-This is an example text file.
-It has example text in it.
-This is the last line of the file.
