@@ -1,25 +1,56 @@
-# Code Platoon Curriculum
-
-## Getting Started
+# Full-Stack, AI, and Cloud Engineering Curriculum
 
 ![Fullstack Development](./page-resources/full-stack-diamond.jpeg)
 
-## Curriculum Modules
+This curriculum is an end-to-end, instructor-led engineering program designed to take learners from core software development fundamentals through full-stack application development, applied artificial intelligence, and production-grade cloud architecture on AWS.
 
-1. [Environment and Programming Fundamentals](./01-Js-Py-Intro/README.md)
-2. [Object Oriented Programming in Python](./02-OOP/README.md)
-3. [AI Large Language Models with PyTorch](./03-AI-LLMs/README.md)
-4. [Simple Full-Stack Apps](./04-Full-Stack/README.md)
-5. [Front-End Dev with React.js](./05-Front-End/README.md)
-6. [Relational Database Management Systems](./06-RDBMS/README.md)
-7. [Back-End Dev with Django REST API's](./07-Django/README.md)
-8. [Full-Stack Apps](./08-Full-Stack-Dep/README.md)
-9. [Docker](./09-Docker/README.md)
-10. [Continuous Integration/Deployment](./10-Github-Actions/README.md)
-11. [Data Structures and Algorithms](./11-DS-Algorithms/README.md)
-12. [Personal Projects](./12-Personal-Project/README.md)
-13. [Group Projects](./13-Group-Projects/README.md)
-14. [AWS CCP 'Crash Course'](./14-AWS-CCP-Crash-Course/README.md)
+The program emphasizes **practical engineering skills**, modern tooling, and real-world workflows used by professional software engineers. Students progressively build competency across programming fundamentals, object-oriented design, data structures and algorithms, front-end and back-end development, containerization, CI/CD, AI systems, and scalable cloud infrastructure.
+
+By the end of the program, students are capable of designing, building, testing, deploying, and scaling full-stack and AI-powered applications using industry-standard technologies and best practices.
+
+---
+
+## Curriculum Phases
+
+### [Phase I: Fundamentals](./phase-1/README.md)
+
+**Programming Foundations, Tooling, and Core Computer Science**
+
+Phase I establishes the technical foundation required for the remainder of the program. Students are introduced to essential development tools (Docker, Git/GitHub, CI), programming languages (Python and JavaScript), object-oriented programming principles, test-driven development, and fundamental data structures and algorithms. This phase ensures students develop strong problem-solving skills and a shared technical baseline before advancing into full-stack development.
+
+---
+
+### [Phase II: Full-Stack Development](./phase-2/README.md)
+
+**Modern Front-End and Back-End Web Development**
+
+Phase II focuses on building complete web applications from the ground up. Students learn modern front-end development using HTML, CSS, JavaScript, and React, alongside robust back-end development using Django, PostgreSQL, and RESTful APIs. Containerization with Docker, automated testing, deployment pipelines, and full-stack workflows are emphasized to mirror real-world development environments.
+
+---
+
+### [Phase III: AI Development](./phase-3/README.md)
+
+**Chatbots, Machine Learning, and Generative AI Systems**
+
+Phase III introduces applied artificial intelligence with a strong emphasis on conversational systems. Students explore rule-based chatbots, traditional machine-learning-based retrieval systems, and modern generative AI using large language models. Topics include NLP fundamentals, vectorization, embeddings, RAG architectures, orchestration with LangChain, fine-tuning concepts, and building AI-powered applications that integrate seamlessly with full-stack systems.
+
+---
+
+### [Phase IV: Cloud Architecture (AWS)](./phase-4/README.md)
+
+**Production Deployment, Scalability, and Cloud Infrastructure**
+
+Phase IV prepares students to deploy and scale applications in production environments using AWS. Students learn IAM, EC2, ECS, ECR, S3, CloudFront, Route 53, RDS, CI/CD with GitHub Actions, and infrastructure automation with the AWS CLI. The phase culminates in designing scalable, secure, and maintainable cloud architectures for both full-stack and AI-driven applications.
+
+---
+
+### How to Go Through This Curriculum
+
+This curriculum is designed to be completed **in sequential order**, starting with Phase I and progressing through Phase IV.
+
+Each phase builds directly on concepts, tools, and practices introduced in earlier phases. Skipping ahead or completing modules out of order is strongly discouraged, as later material assumes mastery of prior fundamentals. For example, full-stack development relies on strong Git, Docker, and OOP knowledge, while AI and cloud architecture require a solid understanding of APIs, back-end systems, and deployment workflows.
+
+Students should treat each phase as a prerequisite for the next, ensuring a steady progression from foundational knowledge to advanced, production-ready engineering skills.
 
 ## Asking Questions in Slack / Slack Etiquette
 
@@ -29,25 +60,13 @@ Questions should be asked in the #questions Slack channel using proper [formatti
 
 Your questions should be pointed (not "Can someone help me?"), show that you’ve read through the code/error, should contain your thought process / some potential solutions, and should not be anything that is easily Google-able. Once you ask a question and find a solution, please update your question thread so that other students can benefit from seeing the question and answer.
 
-## What should I do if I finish everything on any given day?
+## Additional Programming
 
 1. Help those around you. Teaching solidifies learning.
 2. Watch tomorrow's video to get yourself a leg up on the next day!
 3. Go through [Code Wars](https://www.codewars.com/)
 4. Visit [Pramp](https://www.pramp.com/promo/codeplatoon) to interview with other people - we have an agreement with them to get their premium plan for free!
 5. [Interview Cake](https://www.interviewcake.com/)
-
-## Video Links
-
-Classroom videos/lectures will be recorded and posted to YouTube. It can take up to a few hours to process the video after recording, so please be patient if you don't see the video available online immediately after a lecture. If you want to refer back to the lecture content before the video is uploaded, you can look at the demo code in github, which is uploaded immediately after lectures finish.
-
-1. [JavaScript & Python](https://www.youtube.com/playlist?list=PLu0CiQ7bzwERa4oP43o_grVUlFwXZO_82)
-2. [Object Oriented Programming](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQ4nIjcTBcvjyZXoZ08RfZm)
-3. [Data Structures](https://www.youtube.com/playlist?list=PLu0CiQ7bzwER_9WMqWsv4TGrohhwHm5zE)
-4. [Intro to Full Stack](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESD8F____TWayTMou7kKd3y)
-5. [Front End Dev (React)](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQo2DmaLqh5eFnetMw7CJbp)
-6. [SQL](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESpu7SCo6RVY6vnbPi1fykk)
-7. [Back End Dev (Django)](https://www.youtube.com/playlist?list=PLu0CiQ7bzwET1lV7voeSNX7PZ0MySmH1u)
 
 ## Additional Resources Shared in Class
 
