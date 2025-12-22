@@ -6,3 +6,5 @@ node_modules
 __pycache__
 # general convention for naming python virtual env
 *-venv
+__pycache__
+.env
