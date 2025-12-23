@@ -31,4 +31,3 @@ function MyModal(props) {
 
 export default MyModal
       
- 

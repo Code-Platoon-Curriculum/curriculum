@@ -32,7 +32,7 @@ function App() {
         Footer
       </Row>
     </Container>
-      {/* <NavBar />
+      <NavBar />
       <Button variant="primary" onClick={() => setModalShow(true)}>
         Launch vertically centered modal
       </Button>
@@ -52,7 +52,7 @@ function App() {
         >
           Click me!
         </button>
-      </div> */}
+      </div>
     </>
   );
 }
