@@ -1,1 +1,50 @@
-site_name: My Docs
+site_name: Full Stack Curriculum
+theme:
+  name: material
+  logo: assets/home_logo.png
+  favicon: assets/favicon.png
+  palette:
+    # Dark mode (default)
+    - scheme: slate
+      primary: deep orange
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+    # Light mode
+    - scheme: default
+      primary: deep orange
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+  font:
+    text: Roboto Condensed
+    code: Roboto Mono
+
+  features:
+    - content.code.copy
+    - navigation.tabs
+    - navigation.footer
+
+extra:
+  generator: true
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/CodePlatoon/se-curriculum
+    - icon: fontawesome/brands/slack
+      link: https://codeplatoonteam.slack.com/
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@CodePlatoon
+
+nav:
+  - Home: index.md
+  - Installfest: Installfest
+  - Phase I: Phase-I
+  - Phase II: Phase-II
+  - Phase III: Phase-III
+  - Phase IV: Phase-IV
+  - Phase V: Phase-V
+  - Additional Lectures: additional-lectures

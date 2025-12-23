@@ -10,9 +10,19 @@ By the end of the program, students are capable of designing, building, testing,
 
 ---
 
+## Communication Tools
+
+- [Slack](https://slack.com/downloads) - for all communication purposes
+
+> We recommend you sign up for [Operation Code](https://operationcode.org/join) on slack in addition to our Code Platoon Network.
+
+- [Zoom](https://zoom.us/support/download) **Unnecessary for Self-Paced Students**
+
+---
+
 ## Curriculum Phases
 
-### [Phase I: Fundamentals](./phase-1/README.md)
+### [Phase I: Fundamentals](phase-I/)
 
 **Programming Foundations, Tooling, and Core Computer Science**
 
@@ -20,7 +30,7 @@ Phase I establishes the technical foundation required for the remainder of the p
 
 ---
 
-### [Phase II: Full-Stack Development](./phase-2/README.md)
+### [Phase II: Full-Stack Development](phase-II/)
 
 **Modern Front-End and Back-End Web Development**
 
@@ -28,7 +38,7 @@ Phase II focuses on building complete web applications from the ground up. Stude
 
 ---
 
-### [Phase III: AI Development](./phase-3/README.md)
+### [Phase III: AI Development](phase-III/)
 
 **Chatbots, Machine Learning, and Generative AI Systems**
 
@@ -36,7 +46,7 @@ Phase III introduces applied artificial intelligence with a strong emphasis on c
 
 ---
 
-### [Phase IV: Cloud Architecture (AWS)](./phase-4/README.md)
+### [Phase IV: Cloud Architecture (AWS)](phase-IV/)
 
 **Production Deployment, Scalability, and Cloud Infrastructure**
 
@@ -52,6 +62,8 @@ Each phase builds directly on concepts, tools, and practices introduced in earli
 
 Students should treat each phase as a prerequisite for the next, ensuring a steady progression from foundational knowledge to advanced, production-ready engineering skills.
 
+---
+
 ## Asking Questions in Slack / Slack Etiquette
 
 Before anything, read through [Slack etiquette](https://slack.com/blog/collaboration/etiquette-tips-in-slack).
@@ -60,16 +72,18 @@ Questions should be asked in the #questions Slack channel using proper [formatti
 
 Your questions should be pointed (not "Can someone help me?"), show that you’ve read through the code/error, should contain your thought process / some potential solutions, and should not be anything that is easily Google-able. Once you ask a question and find a solution, please update your question thread so that other students can benefit from seeing the question and answer.
 
-## Additional Programming
+---
+
+## Go Above and Beyond
 
 1. Help those around you. Teaching solidifies learning.
 2. Watch tomorrow's video to get yourself a leg up on the next day!
-3. Go through [Code Wars](https://www.codewars.com/)
-4. Visit [Pramp](https://www.pramp.com/promo/codeplatoon) to interview with other people - we have an agreement with them to get their premium plan for free!
-5. [Interview Cake](https://www.interviewcake.com/)
+3. Go through [Code Wars](https://www.codewars.com/) to get comfortable with identifying algorithms within reading problems.
+4. Go through [NeetCode's Blind 150](https://neetcode.io/practice/practice/neetcode150) to get comfortable with more complex algorithms that you will likely see within your interview process.
+
+---
 
 ## Additional Resources Shared in Class
 
 - [Lectures & Books](https://drive.google.com/drive/folders/1JXp_dvxjdFWyrVmSq6wqs9vcvqSDtZ5O?usp=drive_link)
-- [Retention and Additional Material](./00-Retention/)
 - [Khan Academy Pre-Calculus Course](https://www.khanacademy.org/math/precalculus) - the sections on Vectors and Matrices are good background for our AI Curriculum.

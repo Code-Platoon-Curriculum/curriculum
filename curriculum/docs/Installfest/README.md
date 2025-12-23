@@ -4,10 +4,23 @@
 
 By the end of this lecture you'll have a `complete` development environment in your machine with the capabilities to run Python, Node, and PostgreSQL. Additionally, you'll understand the basics of a linux operating system, the terminal Command Line Interface (cli), and your systems folder structure.
 
-## Lectures & Assignment
+## Lectures and Assignments
 
-- [Lecture - Installfest & Intro to the Command Line](./installfest-cli.md). *Note: Run complete installfest before 'Intro to Command Line'.*
-  - [Assignment - CLI Practice](https://github.com/Code-Platoon-Assignments/cli-practice.git)
+### Lectures
+
+- [Lecture - Preparing your Machine](./1-preparing-your-machine.md)
+- [Lecture - Command Line Interface](./2-command-line-interface.md)
+
+#### Installing Our Tech Stack
+
+- [Lecture - Manual Installment (Recommended)](./3-manual-installment.md)
+- [Lecture - Utilizing Dev Containers (Easiest)](./4-dev-containers.md)
+
+#### Interacting with Assignments
+
+- [Lecture - Interacting with Assignments](./5-interacting-with-assignments.md)
+
+### [Assignments](./assignments.md)
 
 ## TLO's (Terminal Learning Objectives)
 
