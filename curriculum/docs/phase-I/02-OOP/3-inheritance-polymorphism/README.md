@@ -12,7 +12,9 @@ By learning inheritance and polymorphism in Python object-oriented programming (
   - [Assignment - Boggle I](https://github.com/Code-Platoon-Assignments/oop-boggle-i.git)
   - [Assignment - App Users III](https://github.com/Code-Platoon-Assignments/oop-app-users-iii.git) in Python
   - [Reading Assignment - POODR pgs. 208-212](https://drive.google.com/file/d/1UX9o6CZp949vEQcpsdlALx73nG8RX-ZE/view?usp=drive_link)
+  - [School Interface III](https://github.com/Code-Platoon-Assignments/oop-school-interface-iii.git)
 - Stretch Exercises
+  - [Assignment - Bowling](https://github.com/Code-Platoon-Assignments/oop-bowling.git)
   - [Assignment - Boggle II](https://github.com/Code-Platoon-Assignments/oop-boggle-ii.git)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!

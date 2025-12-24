@@ -12,20 +12,13 @@ They are valuable in case they appear on technical interviews, because familiari
 
 ## Lectures & Assignments
 
-1. [Lecture: Intro to Stacks, Queues, and Linked Lists](./stacks-queues-linked-lists.md)
+1. [Lecture: Intro to Stacks and Queues](./stacks-queues.md)
     - Assignment: [Data Structures I](https://github.com/code-platoon-assignments/data-structures-I)
 
 ### Stretch Assignments
 
 #### Stacks
 - [valid parentheses](https://leetcode.com/problems/valid-parentheses/)
-
-#### Linked Lists
-- [Sort a linked list](https://leetcode.com/problems/sort-list/)
-- [Remove nodes from LL](https://leetcode.com/problems/remove-nodes-from-linked-list/)
-- [Reverse a LL](https://leetcode.com/problems/reverse-linked-list/)
-- [Swapping nodes in a LL](https://leetcode.com/problems/swapping-nodes-in-a-linked-list/)
-- [Add two numbers (From today's review)](https://leetcode.com/problems/add-two-numbers/)
 
 
 ## TLO's (Testable Learning Objectives)

@@ -9,7 +9,6 @@ By delving into prompt engineering and mastering Object-Oriented Programming (OO
 1. [Intro to Python OOP](./1-oop-intro/README.md)
 2. [Abstraction and Encapsulation](./2-abstraction-encapsulation/README.md)
 3. [Inheritance and Polymorphism](./3-inheritance-polymorphism/README.md)
-4. [OOP review](./4-review/README.md)
 
 ## Module Topics
 

@@ -15,6 +15,7 @@ Everything in programming is interpreted as a class/object at its most basic lev
 - Stretch Exercise
   - [Assignment - OOP Budget](https://github.com/Code-Platoon-Assignments/oop-budget.git)
   - [Assignment - CSV Reader](https://github.com/Code-Platoon-Assignments/csv-reader.git)
+  - [School Interface I](https://github.com/Code-Platoon-Assignments/oop-school-interface-i.git)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
