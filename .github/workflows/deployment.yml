@@ -1,0 +1,93 @@
+name: Deploy MkDocs to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  DEPLOY_BASE: /usr/share/nginx/html
+  APP_NAME: mkdocs-site
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # -----------------------------
+      # Build MkDocs
+      # -----------------------------
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build MkDocs site
+        run: |
+          mkdocs build --clean
+
+      # -----------------------------
+      # Prepare SSH
+      # -----------------------------
+      - name: Decode SSH key
+        run: |
+          echo "${{ secrets.EC2_SSH_KEY_B64 }}" | base64 --decode > ec2.pem
+          chmod 400 ec2.pem
+
+      - name: Add EC2 to known hosts
+        run: |
+          ssh-keyscan -H ${{ secrets.EC2_PUBLIC_IP }} >> ~/.ssh/known_hosts
+
+      # -----------------------------
+      # Upload files
+      # -----------------------------
+      - name: Upload site and nginx config
+        run: |
+          rsync -avz site/ ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/site
+          rsync -avz nginx.conf ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/nginx.conf
+        env:
+          RSYNC_RSH: "ssh -i ec2.pem"
+
+      # -----------------------------
+      # Remote Deployment
+      # -----------------------------
+      - name: Deploy on EC2
+        run: |
+          ssh -i ec2.pem ubuntu@${{ secrets.EC2_PUBLIC_IP }} << 'EOF'
+            set -e
+
+            sudo apt update -y
+            which nginx || sudo apt install nginx -y
+
+            sudo systemctl enable nginx
+
+            DEPLOY_DIR="/usr/share/nginx/html"
+            VERSION=$(date +%Y%m%d%H%M%S)
+            TARGET="$DEPLOY_DIR/site_$VERSION"
+
+            sudo mkdir -p $TARGET
+            sudo rsync -a /home/ubuntu/site/ $TARGET/
+
+            sudo chown -R www-data:www-data $DEPLOY_DIR
+            sudo chmod -R 755 $DEPLOY_DIR
+
+            sudo ln -sfn $TARGET $DEPLOY_DIR/current
+
+            sudo cp /home/ubuntu/nginx.conf /etc/nginx/sites-available/default
+            sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+            sudo nginx -t
+            sudo systemctl reload nginx
+          EOF

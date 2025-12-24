@@ -1,0 +1,46 @@
+name: Generate EC2 SSH Key (OIDC)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  KEY_NAME: mkdocs-deploy-key
+
+jobs:
+  generate-key:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Authenticate to AWS (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Create SSH key pair
+        run: |
+          EXISTS=$(aws ec2 describe-key-pairs \
+            --key-names $KEY_NAME \
+            --query "KeyPairs[0].KeyName" \
+            --output text 2>/dev/null || true)
+
+          if [ -n "$EXISTS" ]; then
+            echo "Key already exists: $KEY_NAME"
+            exit 0
+          fi
+
+          aws ec2 create-key-pair \
+            --key-name $KEY_NAME \
+            --query 'KeyMaterial' \
+            --output text | base64 > ec2_key.b64
+
+          echo "--------------------------------------------"
+          echo "SAVE THIS AS GITHUB SECRET:"
+          echo "Name: EC2_SSH_KEY_B64"
+          echo "--------------------------------------------"
+          cat ec2_key.b64
