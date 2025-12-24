@@ -14,8 +14,14 @@ env:
 jobs:
   generate-key:
     runs-on: ubuntu-latest
+    environment: deployment
 
     steps:
+      - name: Confirm Secrets
+        run: |
+          echo ${{ secrets.AWS_ROLE_ARN }}
+          echo ${{ secrets.AWS_REGION }}
+
       - name: Authenticate to AWS (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
