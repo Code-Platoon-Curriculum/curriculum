@@ -51,5 +51,5 @@ Run the server:
 
 ## Deployment
 
-Ideally this project will be Deployed on an AWS ec2 instance.
+Currently our site is [LIVE](http://3.12.198.12/) and currently receiving request. There is a Continuous Deployment Pipeline built with GH Actions that will deploy the `site` directory from MkDocs to an AWS EC2 instance.
 
