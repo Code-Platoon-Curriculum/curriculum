@@ -77,8 +77,7 @@ jobs:
             sudo systemctl enable nginx
 
             DEPLOY_DIR="/usr/share/nginx/html"
-            VERSION=$(date +%Y%m%d%H%M%S)
-            TARGET="$DEPLOY_DIR/site_$VERSION"
+            TARGET="$DEPLOY_DIR/site"
 
             sudo mkdir -p $TARGET
             sudo rsync -a /home/ubuntu/site/ $TARGET/
