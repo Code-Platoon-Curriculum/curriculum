@@ -40,7 +40,7 @@ Simplicity: Pytest uses a concise and intuitive syntax for writing tests. Test f
 
 ## Adding Pytest to our Docker Containers
 
-Pytest is essentially an addition to our Python Dockerfile that we need to explicitly include. Luckily this will be a rather easy task to accomplish:
+Pytest is essentially an addition to our Python Environment that we need to explicitly include. Luckily this will be a rather easy task to accomplish:
 
 ```yml
 FROM python:3.11-slim
@@ -54,44 +54,43 @@ RUN pip install --no-cache-dir pytest
 CMD ["pytest"]
 ```
 
-The only new command we see here is the `RUN` command. This is different than the `CMD` command 
+The only new command we see here is the `RUN` command. This is different than the `CMD` command. `RUN` also executes terminal/bash based commands but can be called multiple times in order to set up your desired Environment.
 
-1. **Installation:** Install pytest using `pip`:
+**Installation:** Install pytest using `pip`:
 
-   ```bash
-   pip install pytest #if this fails utilize pip3
-   ```
+```bash
+pip install pytest #if this fails utilize pip3
+```
 
-2. **Writing Tests:** Create test functions using the naming convention `test_<function_name>.py`. Use `assert` statements to check expected outcomes.
+## Utilizing Pytest
 
-3. **Running Tests:** Run tests using the `pytest` command in your terminal:
+1. **Writing a Test File:** In order for *pytest* to identify a file as a *test file* you must follow a specific naming convention of `test_<file>.py`.
 
-   ```bash
-   pytest
-   ```
+2. **Writing Tests:** Create test functions using the naming convention `test_<function_name>`. Use `assert` statements to check expected outcomes which should always evaluate to a boolean.
 
-## Writing Your First Test with Pytest
+### Writing Your First Test with Pytest
 
 Let's write a simple test using the pytest framework to check if a function works as expected:
 
-0. **Create Two Files:** Create a file named `test_example.py` and another named `example.py`.
+1. **Create Two Files:** Create a file named `test_example.py` and another named `example.py`.
 
-1. **Write the Test:** In `test_example.py` import the `add_two_numbers` function(we have not created this function) and write a test that will assert this function can take in two numbers as arguments and return their sum.
+2. **Write the Test:** In `test_example.py` import the `add_two_numbers` function(we have not created this function) and write a test that will assert this function can take in two numbers as arguments and return their sum.
 
-   ```python
-   from example import add_two_numbers
+      
 
-   def test_add_two_numbers():
-       assert add_two_numbers(2,2) == 4
-   ```
+         from example import add_two_numbers
+         def test_add_two_numbers():
+               assert add_two_numbers(2,2) == 4
 
-2. **Run the Test:** Open your terminal and navigate to the directory containing `test_example.py` and `example.py`. Run the test using `pytest` and watch it fail:
+      
 
-   ```bash
-   pytest test_example.py
-   ```
+3. **Run the Test:** Open your terminal and navigate to the directory containing `test_example.py` and `example.py`. Run the test using `pytest` and watch it fail:
 
-   - Now that you've seen a test failure, lets take some time and talk about the common errors you'll encounter in `pytest`:
+      
+         pytest test_example.py
+      
+
+4. Now that you've seen a test failure, lets take some time and talk about the common errors you'll encounter in `pytest`:
 
       - **Assertion Errors** is one of the most common errors you'll encounter in testing. It occurs when an assertion made within a test function fails. An assertion is a statement that checks whether a condition is true. If the condition is false, the AssertionError is raised, indicating that the expected behavior doesn't match the actual result.
 
@@ -99,19 +98,17 @@ Let's write a simple test using the pytest framework to check if a function work
 
       - **Import Errors** If Pytest encounters issues importing modules or test files, you might encounter ImportError. This can happen if the required modules are not installed, if there's a typo in the module names, or if the file paths are incorrect.
 
-3. **Define a Function:** In `example.py` define a function that will take in two numbers as arguments and return their sum.
+5. **Define a Function:** In `example.py` define a function that will take in two numbers as arguments and return their sum.
 
-   ```python
-   def add_two_numbers(num_one, num_two):
-     answer = num_one + num_two
-     return answer   
-   ```
+         def add_two_numbers(num_one, num_two):
+            answer = num_one + num_two
+            return answer  
+   
+6. **Run the Test:** Open your terminal and navigate to the directory containing `test_example.py`. Run the test using `pytest` to see it pass:
 
-4. **Run the Test:** Open your terminal and navigate to the directory containing `test_example.py`. Run the test using `pytest` to see it pass:
 
-   ```bash
-   pytest test_example.py
-   ```
+         pytest test_example.py
+
 
 ## Assertions
 
@@ -130,7 +127,7 @@ Apart from `assert`, pytest provides other assertion methods like `assertEqual`,
    ```python
    assert 3 * 5 != 11
    ```
-
+ 
 3. **assertEqual:** This assertion compares two values and raises an error if they are not equal. Useful for objects, lists, and more complex data structures.
 
    ```python
