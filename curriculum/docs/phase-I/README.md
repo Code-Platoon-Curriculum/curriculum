@@ -10,7 +10,7 @@ By the end of Phase I, students will be comfortable working in containerized env
 
 ## Modules
 
-### [Module 1 – Fundamentals](01-fundamentals/)
+### [Module 1 – Fundamentals](01-Fundamentals/README.md)
 
 Module 1 introduces students to the essential tools and workflows used in modern software development. Students begin by learning Docker fundamentals, including how to write Dockerfiles and run isolated Ubuntu environments to execute shell commands and scripts. Version control is introduced through Git and GitHub, where students learn to fork, clone, branch, commit, push, pull, and collaborate on projects using industry-standard workflows.
 
@@ -18,7 +18,7 @@ The module also provides a practical introduction to Python and JavaScript, cove
 
 ---
 
-### [Module 2 – Object-Oriented Programming (OOP)](02-OOP/)
+### [Module 2 – Object-Oriented Programming (OOP)](02-OOP/README.md)
 
 Module 2 focuses on Object-Oriented Programming as a tool for writing scalable, maintainable, and reusable code. Students learn the purpose and benefits of OOP by applying principles such as the Single Responsibility Principle (SRP) and Don’t Repeat Yourself (DRY), while exploring the five core pillars of OOP.
 
@@ -26,7 +26,7 @@ Topics include the distinction between class-level and instance-level attributes
 
 ---
 
-### [Module 3 – Data Structures & Algorithms](03-DS-Algorithms)
+### [Module 3 – Data Structures & Algorithms](03-DS-Algorithms/README.md)
 
 Module 3 introduces foundational data structures and algorithms that are essential for technical interviews and real-world problem solving. This material is delivered incrementally throughout the program to reinforce concepts over time.
 
