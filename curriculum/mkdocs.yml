@@ -41,7 +41,14 @@ extra:
 
 nav:
   - Home: index.md
-  - Installfest: Installfest
+  - Installfest: 
+    - Installfest - Overview: Installfest/README.md
+    - Preparing Your Machine: Installfest/1-preparing-your-machine.md
+    - Command Line Interface: Installfest/2-command-line-interface.md
+    - Manual Installment: Installfest/3-manual-installment.md
+    - Dev Containers: Installfest/4-dev-containers.md
+    - Interacting with Assignments: Installfest/5-interacting-with-assignments.md
+    - Assignments: Installfest/assignments.md
   - Phase I: 
     - Phase I - Overview: phase-I/README.md
     - Fundamentals:
@@ -60,6 +67,7 @@ nav:
         - JS & Python - Overview: phase-I/01-Fundamentals/3-js-python/README.md
         - JS & Python Fundamentals: phase-I/01-Fundamentals/3-js-python/1-js-python-fundamentals.md
         - Functional Programming: phase-I/01-Fundamentals/3-js-python/2-functional-programming.md
+        - JS & Python Assignments: phase-I/01-Fundamentals/3-js-python/assignments.md
     - OOP: phase-I/02-OOP/README.md
     - DS & Algorithms: phase-I:/03-DS-Algorithms/README.md
   - Phase II: phase-II
