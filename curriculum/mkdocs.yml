@@ -42,7 +42,19 @@ extra:
 nav:
   - Home: index.md
   - Installfest: Installfest
-  - Phase I: phase-I
+  - Phase I: 
+    - Overview: phase-I/README.md
+    - Fundamentals:
+      - Overview: phase-I/01-Fundamentals/README.md
+      - Docker:
+        - Overview: phase-I/01-Fundamentals/1-docker/README.md
+        - Intro to Docker: phase-I/01-Fundamentals/1-docker/1-intro-to-docker.md
+        - Leveraging Docker: phase-I/01-Fundamentals/1-docker/2-leveraging-docker.md
+        - Assignments: phase-I/01-Fundamentals/1-docker/assignments.md
+      - Git & Github: phase-I/01-Fundamentals/2-git-and-github/README.md
+      - JS & Python: phase-I/01-Fundamentals/3-js-and-python/README.md
+    - OOP: phase-I/02-OOP/README.md
+    - DS & Algorithms: phase-I:/03-DS-Algorithms/README.md
   - Phase II: phase-II
   - Phase III: phase-III
   - Phase IV: phase-IV

@@ -1,4 +1,4 @@
-# Intro to JS, Python, the Command Line, and Git
+# Software Engineering Fundamentals
 
 ## What are we trying to accomplish?
 
