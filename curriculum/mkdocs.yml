@@ -43,16 +43,23 @@ nav:
   - Home: index.md
   - Installfest: Installfest
   - Phase I: 
-    - Overview: phase-I/README.md
+    - Phase I - Overview: phase-I/README.md
     - Fundamentals:
-      - Overview: phase-I/01-Fundamentals/README.md
+      - Fundamentals - Overview: phase-I/01-Fundamentals/README.md
       - Docker:
-        - Overview: phase-I/01-Fundamentals/1-docker/README.md
+        - Docker - Overview: phase-I/01-Fundamentals/1-docker/README.md
         - Intro to Docker: phase-I/01-Fundamentals/1-docker/1-intro-to-docker.md
         - Leveraging Docker: phase-I/01-Fundamentals/1-docker/2-leveraging-docker.md
-        - Assignments: phase-I/01-Fundamentals/1-docker/assignments.md
-      - Git & Github: phase-I/01-Fundamentals/2-git-and-github/README.md
-      - JS & Python: phase-I/01-Fundamentals/3-js-and-python/README.md
+        - Docker Assignments: phase-I/01-Fundamentals/1-docker/assignments.md
+      - Git & Github: 
+        - Git & Github - Overview: phase-I/01-Fundamentals/2-git-and-github/README.md
+        - Git Fundamentals: phase-I/01-Fundamentals/2-git-and-github/1-git-fundamentals.md
+        - Github Fundamentals: phase-I/01-Fundamentals/2-git-and-github/2-github-fundamentals.md
+        - Git Assignments: phase-I/01-Fundamentals/2-git-and-github/assignments.md
+      - JS & Python:
+        - JS & Python - Overview: phase-I/01-Fundamentals/3-js-python/README.md
+        - JS & Python Fundamentals: phase-I/01-Fundamentals/3-js-python/1-js-python-fundamentals.md
+        - Functional Programming: phase-I/01-Fundamentals/3-js-python/2-functional-programming.md
     - OOP: phase-I/02-OOP/README.md
     - DS & Algorithms: phase-I:/03-DS-Algorithms/README.md
   - Phase II: phase-II
