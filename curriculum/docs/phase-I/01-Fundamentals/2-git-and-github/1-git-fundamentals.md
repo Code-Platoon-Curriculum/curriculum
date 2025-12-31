@@ -61,7 +61,9 @@ git init
 
 `git init` will make the current folder a git repo. What does this mean? Well, depending on your terminal and shell, you may already see some visual display implying the terminal understands this folder is a git repo. But how does it know? Type `ls -a` again. You should now see a folder called `.git`. You don't need to go in there and root around (in general you shouldn't) but this folder is what `git` itself uses to manage the folder as a git repo. There's ultimately no difference between an ordinary folder and a Git repo besides this file, but we say 'git repo' to imply the folder is being tracked in a way that Git is aware of.
 
-`git status`
+```sh
+git status
+```
 
 Before doing anything else, type `git status`. This will tell you the 'status' of the repo, as Git sees it. Because we haven't done anything yet you should see something like:
 

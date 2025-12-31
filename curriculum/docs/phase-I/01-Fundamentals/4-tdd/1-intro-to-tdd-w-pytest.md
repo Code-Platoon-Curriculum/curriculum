@@ -4,7 +4,11 @@
 
 In this lesson, we'll dive into the world of Test Driven Development (TDD) and explore the pytest framework. TDD is a crucial practice in software development that helps ensure code quality and reliability. We'll learn why TDD is important and how pytest can assist us in writing effective tests.
 
+---
+
 ## What is Test Driven Development (TDD)?
+
+![tdd](./resources/tdd.png)
 
 Test Driven Development is a development methodology where tests are written before writing the actual code. It follows a cycle of **Red-Green-Refactor**:
 
@@ -14,6 +18,8 @@ Test Driven Development is a development methodology where tests are written bef
 
 3. **Refactor:** Once the test passes, refactor your code to improve its structure and maintainability while keeping the tests passing.
 
+---
+
 ## Why TDD is Important
 
 - **Reliability:** Writing tests before code ensures that your code behaves as expected, reducing the chance of bugs.
@@ -21,6 +27,8 @@ Test Driven Development is a development methodology where tests are written bef
 - **Maintainability:** Refactoring becomes less risky when you have a comprehensive test suite.
 - **Collaboration:** Tests allow multiple developers to work on the same codebase with confidence.
 - **Regression Testing:** Tests catch regressions, ensuring that new changes don't break existing functionality.
+
+---
 
 ## Introducing Pytest
 
@@ -37,6 +45,8 @@ Simplicity: Pytest uses a concise and intuitive syntax for writing tests. Test f
 - **Powerful Plugins:** Pytest has a rich ecosystem of plugins that extend its functionality. These plugins can be used to generate test reports, integrate with continuous integration tools, and more.
 
 - **Test Coverage Analysis:** Pytest can generate coverage reports that show which parts of your code are exercised by your tests. This helps you identify areas of code that need more testing.
+
+---
 
 ## Adding Pytest to our Docker Containers
 
@@ -79,6 +89,7 @@ Let's write a simple test using the pytest framework to check if a function work
       
 
          from example import add_two_numbers
+
          def test_add_two_numbers():
                assert add_two_numbers(2,2) == 4
 
@@ -109,136 +120,153 @@ Let's write a simple test using the pytest framework to check if a function work
 
          pytest test_example.py
 
+---
 
 ## Assertions
 
 Apart from `assert`, pytest provides other assertion methods like `assertEqual`, `assertRaises`, and more for different use cases.
 
+---
+
 ### Equality and Exception Assertions
 
-1. **assert ==:** The basic equality assertion checks if two values are equal.
+- **assert ==:** The basic equality assertion checks if two values are equal.
 
-   ```python
-   assert 2 + 2 == 4
-   ```
+```python
+assert 2 + 2 == 4
+```
 
-2. **assert !=:** You can also use the inequality assertion to check if two values are not equal.
+- **assert !=:** You can also use the inequality assertion to check if two values are not equal.
 
-   ```python
-   assert 3 * 5 != 11
-   ```
+```python
+assert 3 * 5 != 11
+```
  
-3. **assertEqual:** This assertion compares two values and raises an error if they are not equal. Useful for objects, lists, and more complex data structures.
+- **assertEqual:** This assertion compares two values and raises an error if they are not equal. Useful for objects, lists, and more complex data structures.
 
-   ```python
-   assertEqual(result, expected_result)
-   ```
+```python
+assertEqual(result, expected_result)
+```
 
-4. **assertRaises:** This assertion checks if a specific exception is raised when a certain action is performed.
+- **assertRaises:** This assertion checks if a specific exception is raised when a certain action is performed.
 
-   ```python
-   with assertRaises(ZeroDivisionError):
-       result = 1 / 0
-   ```
+```python
+with assertRaises(ZeroDivisionError):
+      result = 1 / 0
+```
+
+---
 
 ### Comparison Assertions
 
-1. **assert >, <, >=, <=:** These assertions allow you to compare numerical values.
+- **assert >, <, >=, <=:** These assertions allow you to compare numerical values.
 
-   ```python
-   assert 10 > 5
-   assert 7 < 20
-   ```
+```python
+assert 10 > 5
+assert 7 < 20
+```
 
-2. **assert math.isclose:** For floating-point comparisons, you can use `math.isclose` to handle small differences due to floating-point precision.
+- **assert math.isclose:** For floating-point comparisons, you can use `math.isclose` to handle small differences due to floating-point precision.
 
-   ```python
-   import math
-   assert math.isclose(0.1 + 0.2, 0.3)
-   ```
+```python
+import math
+assert math.isclose(0.1 + 0.2, 0.3)
+```
+
+---
 
 ### Membership and String Assertions
 
-1. **assert in:** You can use the membership assertion to check if a value is present in a list, tuple, or other iterable.
+- **assert in:** You can use the membership assertion to check if a value is present in a list, tuple, or other iterable.
 
-   ```python
-   assert "apple" in ["apple", "banana", "cherry"]
-   ```
+```python
+assert "apple" in ["apple", "banana", "cherry"]
+```
 
-2. **assert not in:** Similarly, you can use the "not in" assertion to check if a value is not present in an iterable.
+- **assert not in:** Similarly, you can use the "not in" assertion to check if a value is not present in an iterable.
 
-   ```python
-   assert "grape" not in ["apple", "banana", "cherry"]
-   ```
+```python
+assert "grape" not in ["apple", "banana", "cherry"]
+```
 
-3. **assert str.startswith, str.endswith:** These assertions check if a string starts with or ends with a specific substring.
+- **assert str.startswith, str.endswith:** These assertions check if a string starts with or ends with a specific substring.
 
-   ```python
-   assert "Hello, world!".startswith("Hello")
-   assert "Hello, world!".endswith("world!")
-   ```
+```python
+assert "Hello, world!".startswith("Hello")
+assert "Hello, world!".endswith("world!")
+```
+
+---
 
 ### Collection Assertions
 
-1. **assert len:** You can use the `len` function to assert the length of a collection.
+- **assert len:** You can use the `len` function to assert the length of a collection.
 
-   ```python
-   assert len([1, 2, 3]) == 3
-   ```
+```python
+assert len([1, 2, 3]) == 3
+```
 
-2. **assert sorted:** For testing whether a collection is sorted, you can use the `sorted` function and compare it with the original collection.
+- **assert sorted:** For testing whether a collection is sorted, you can use the `sorted` function and compare it with the original collection.
 
-   ```python
-   assert sorted([3, 1, 2]) == [1, 2, 3]
-   ```
+```python
+assert sorted([3, 1, 2]) == [1, 2, 3]
+```
+
+---
 
 ## Exploring Pytest's Capabilities
 
+### Monkey Patch
+
 - **Monkey Patching:**You can utilize `monkeypatch` for various reasons, but in this program the main use of this tool will be to fill in arguments for our input fields within our functions.
 
-   ```python
-   # single input for a function
-   def get_user_input():
-    user_input = input("Enter a number: ")
-    return int(user_input)
+```python
+# single input for a function
+def get_user_input():
+   user_input = input("Enter a number: ")
+   return int(user_input)
 
-   def test_get_user_input(monkeypatch):
-      # Simulate user input
-      monkeypatch.setattr("builtins.input", lambda _: "42")
+def test_get_user_input(monkeypatch):
+   # Simulate user input
+   monkeypatch.setattr("builtins.input", lambda _: "42")
 
-      result = get_user_input()
+   result = get_user_input()
 
-      assert result == 42
+   assert result == 42
 
-   # multiple inputs per function
-   def get_multiple_inputs():
-      num1 = int(input("Enter the first number: "))
-      num2 = int(input("Enter the second number: "))
-      return num1 + num2
+# multiple inputs per function
+def get_multiple_inputs():
+   num1 = int(input("Enter the first number: "))
+   num2 = int(input("Enter the second number: "))
+   return num1 + num2
 
-   def test_get_multiple_inputs(monkeypatch):
-      # Simulate user inputs
-      user_inputs = ["5", "7"]
-      input_values = iter(user_inputs)
-      monkeypatch.setattr("builtins.input", lambda _: next(input_values))
+def test_get_multiple_inputs(monkeypatch):
+   # Simulate user inputs
+   user_inputs = ["5", "7"]
+   input_values = iter(user_inputs)
+   monkeypatch.setattr("builtins.input", lambda _: next(input_values))
 
-      result = get_multiple_inputs()
+   result = get_multiple_inputs()
 
-      assert result == 5 + 7
-   ```
+   assert result == 5 + 7
+```
 
 - **Capturing Terminal Output:**
 
-   ```python
-   def test_printing(capsys):
-       print("Hello, pytest!")
-       captured = capsys.readouterr()
-       assert captured.out == "Hello, pytest!\n"
-   ```
+```python
+def test_printing(capsys):
+      print("Hello, pytest!")
+      captured = capsys.readouterr()
+      assert captured.out == "Hello, pytest!\n"
+```
+
+---
 
 ## Conclusion
 
 Congratulations! You've taken your first step into the world of Test Driven Development and learned about the pytest framework. Writing tests before code helps ensure the quality and reliability of your software. Remember the Red-Green-Refactor cycle, and use pytest to create and run tests effectively. This practice will greatly contribute to your skills as a Full Stack Software Engineer.
+
+---
 
 ## Resources
 

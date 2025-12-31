@@ -232,17 +232,17 @@ Why it matters:
 
 ### Installing Docker Desktop
 
-1. Go to the [Docker Desktop download page](https://www.docker.com/products/docker-desktop/).
+1. Go to the [Docker Desktop download page](https://docs.docker.com/desktop/).
 2. Download the installer for your operating system (Mac, Windows, or Linux).
 3. Run the installer and follow the on-screen instructions.
 4. After installation, open Docker Desktop and make sure it’s running in the background.
 5. Verify installation: open a terminal (or WSL on Windows) and run:
 
-   ```bash
-   docker --version
-   ```
+```bash
+docker --version
+```
 
-   You should see something like `Docker version 24.0.6`.
+> You should see something like `Docker version 24.0.6`.
 
 ---
 

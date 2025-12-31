@@ -158,6 +158,175 @@ In professional environments, Docker is rarely optional. It is considered requir
 
 ---
 
+## Docker Hub
+
+### What Is Docker Hub and Why Is It Important?
+
+Docker Hub is Docker’s **centralized image registry**—a public (and private) repository where Docker images are stored, shared, and distributed.
+
+Think of Docker Hub as:
+
+* **GitHub for Docker images**
+* A **marketplace of prebuilt environments**
+* The **default source** Docker pulls from when you run a container
+
+When you execute a command like:
+
+```bash
+docker run python
+```
+
+Docker does *not* magically know what “python” is. Instead, it:
+
+1. Checks your local machine for the image
+2. If not found, **pulls it from Docker Hub**
+
+> **Key idea:**
+> *Docker Hub is the reason Docker containers are reusable and shareable across teams and machines.*
+
+Without Docker Hub, every developer would need to build every image from scratch.
+
+---
+
+### How to View Images You Can Reference for Your Own Images
+
+Docker Hub hosts **thousands of prebuilt images** for common tools and technologies, including:
+
+* Programming languages (Python, Node, Java)
+* Databases (PostgreSQL, MySQL, Redis)
+* Web servers (Nginx, Apache)
+* Operating system bases (Ubuntu, Alpine)
+
+You can browse these images at:
+
+* [https://hub.docker.com](https://hub.docker.com)
+
+Each image page typically includes:
+
+* Available **tags** (versions)
+* Documentation and usage examples
+* The base OS used by the image
+* Update frequency and maintenance status
+
+These images are often used as **base images** in Dockerfiles:
+
+```dockerfile
+FROM python:3.12-slim
+```
+
+> **Mental model:**
+> *You are not building environments from nothing—you are extending existing, well-defined images.*
+
+This dramatically reduces setup time and error potential.
+
+---
+
+### Approved Images Are Recommended
+
+Not all images on Docker Hub are equal.
+
+Docker provides a category called **Official Images** (sometimes referred to as “approved” or “trusted”).
+
+Official Images:
+
+* Are maintained by Docker or the software maintainers
+* Follow best practices
+* Receive security updates
+* Have clear documentation
+* Are widely used in production environments
+
+Examples:
+
+* `python`
+* `node`
+* `postgres`
+* `nginx`
+* `redis`
+
+> **Best practice:**
+> *Always start with an official image unless you have a very specific reason not to.*
+
+Using random community images can introduce:
+
+* Security vulnerabilities
+* Outdated dependencies
+* Poor configuration choices
+
+---
+
+### Navigating Through Docker Hub
+
+When viewing an image on Docker Hub, encourage students to look for the following sections:
+
+#### 1. Tags
+
+Tags represent **versions** of the image.
+
+Example:
+
+* `python:3.12`
+* `python:3.12-slim`
+* `python:3.12-alpine`
+
+> **Important teaching moment:**
+> `latest` does **not** mean “stable” or “best.”
+
+Pin versions explicitly to avoid unexpected breaking changes.
+
+---
+
+#### 2. Description & Documentation
+
+This section explains:
+
+* What the image contains
+* How it is intended to be used
+* Common configuration patterns
+
+Students should get used to reading this before using an image.
+
+---
+
+#### 3. Image Size
+
+Smaller images:
+
+* Download faster
+* Build faster
+* Have fewer attack surfaces
+
+This reinforces the earlier principle:
+
+> **Keep containers small**
+
+---
+
+#### 4. Pull Command
+
+Every image page shows the exact command needed to pull it:
+
+```bash
+docker pull postgres:16
+```
+
+This is often the easiest way to verify that an image exists and works as expected.
+
+---
+
+### Key Mental Model to Reinforce
+
+> **Docker Hub is not just a website—it is a shared ecosystem of standardized environments.**
+
+By relying on Docker Hub:
+
+* Teams avoid reinventing environments
+* Applications become portable by default
+* Development and production environments stay aligned
+
+In real-world workflows, engineers spend far more time **choosing and configuring existing images** than creating new ones from scratch.
+
+---
+
 ## Conclusion
 
 Docker exists to solve a fundamental problem in software engineering: environment inconsistency. By introducing containerization, Docker allows developers to define, share, and reproduce application environments with confidence and speed. Rather than relying on individual machines and manual setup, Docker enables teams to work from a single, predictable source of truth.

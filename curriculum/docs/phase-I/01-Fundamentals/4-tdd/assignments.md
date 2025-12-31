@@ -1,0 +1,5 @@
+  - [Assignment - Test my Calculator](https://github.com/Code-Platoon-Assignments/intro-to-pytest.git)
+  - [Assignment - Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numeral-py.git)
+  - [Assignment - Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search-py.git)
+  - [Assignment - Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci)
+  - [Assignment - Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search)
