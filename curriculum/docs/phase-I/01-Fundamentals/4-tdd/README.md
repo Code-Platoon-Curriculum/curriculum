@@ -17,12 +17,6 @@ By working with **Pytest (Python)** and **Jest (JavaScript)**, students will see
 
 ### [Assignments](./assignments.md)
 
-Assignments will reinforce TDD concepts by requiring students to:
-- Write tests before implementation
-- Interpret test failures
-- Incrementally implement logic until tests pass
-- Run test suites locally and inside Docker containers
-
 ---
 
 ## Enabling Learning Objectives (ELO's)

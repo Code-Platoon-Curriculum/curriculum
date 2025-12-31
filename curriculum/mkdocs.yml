@@ -73,6 +73,11 @@ nav:
         - Intro to TDD with PyTest: phase-I/01-Fundamentals/4-tdd/1-intro-to-tdd-w-pytest.md
         - TDD with Jest: phase-I/01-Fundamentals/4-tdd/2-tdd-w-jest.md
         - TDD Assignments: phase-I/01-Fundamentals/4-tdd/assignments.md
+      - Githuh Actions:
+        - GH Actions - Overview: phase-I/01-Fundamentals/5-github-actions/README.md
+        - Intro to Workflows: phase-I/01-Fundamentals/5-github-actions/1-intro-to-workflows.md
+        - Managing Workflows: phase-I/01-Fundamentals/5-github-actions/2-managing-workflows.md
+        - GH Actions Assignments: phase-I/01-Fundamentals/5-github-actions/assignments.md
     - OOP: phase-I/02-OOP/README.md
     - DS & Algorithms: phase-I:/03-DS-Algorithms/README.md
   - Phase II: phase-II
