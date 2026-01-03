@@ -6,28 +6,14 @@ By the end of this lecture you'll have strengthened the relationship with your f
 
 ## Lectures & Assignment
 
-- [Lecture - Team Kickoff](./1-team-kickoff.md)
-  - [Assignment - Team Exercise](https://github.com/Code-Platoon-Assignments/Team-Group-Project/tree/main)
-- Evening and Weekend Assignments
-  - [Assignment - Armstrong Numbers](https://github.com/Code-Platoon-Assignments/algo-armstrong-numbers.git) in JS and Python
-  - [Assignment - Anagrams I](https://github.com/Code-Platoon-Assignments/algo-anagrams-i.git) in JS & Python
-  - [Assignment - Sum Pairs](https://github.com/Code-Platoon-Assignments/algo-sum-pairs.git) in JS & Python
-  - [Assignment - Credit Check](https://github.com/Code-Platoon-Assignments/algo-credit-check.git) in JS & Python
-  - [Assignment - Practice with a Pair](https://github.com/Code-Platoon-Assignments/git-pair.git)
-  - [Assignment - Character Count](https://github.com/Code-Platoon-Assignments/algo-character-count.git) in JS & Python
-  - [Assignment - Palindromes](https://github.com/Code-Platoon-Assignments/algo-palindromes.git) in JS & Python
-  - [Assignment - Calculate Mode](https://github.com/Code-Platoon-Assignments/algo-calculate-mode.git) in JS & Python
-  - [Assignment - Pad an Array](https://github.com/Code-Platoon-Assignments/algo-pad-array.git) in JS & Python
-  - [Assignment - Balanced Parentheses](https://github.com/Code-Platoon-Assignments/algo-balanced-parentheses.git) in JS & Python
-  - [Reading Assignment - Mastering Prompt Engineering](https://drive.google.com/file/d/1YhBN6Bk7eOYHY_ZXeQrOODWwwY1Zj1Ax/view?usp=drive_link)
+### Lectures (Immersive Students Only)
 
-> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+**Click on the following links**
 
-## Goals
+- <a href="https://docs.google.com/presentation/d/1lUesXFiTO5EslyByyEk2vYND1E4LQdvQLX3eOBgASiU/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Lecture - Team Kickoff</a>
+- <a href="https://github.com/Code-Platoon-Assignments/Team-Group-Project/tree/main" target="_blank" rel="noopener noreferrer">Team Exercise</a>
 
-- Created class teams & gotten to know your teammates.
-- Hands-on intro to writing code as a part of a team.
-- Class President & Social Chair
+### [Assignments](./assignments.md) (All Students In Person and Self Paced)
 
 ## Tangible Learning Objectives
 
