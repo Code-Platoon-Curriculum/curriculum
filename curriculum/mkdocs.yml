@@ -81,7 +81,23 @@ nav:
       - Team Kickoff:
         - Team Kickoff - Overview: phase-I/01-Fundamentals/6-team-kickoff/README.md
         - Retention Assignments: phase-I/01-Fundamentals/6-team-kickoff/assignments.md
-    - OOP: phase-I/02-OOP/README.md
+    - OOP: 
+      - OOP Overview: phase-I/02-OOP/README.md
+      - Intro to OOP:
+        - Intro to OOP - Overview: phase-I/02-OOP/1-oop-intro/README.md
+        - OOP with Python: phase-I/02-OOP/1-oop-intro/1-intro-python-oop.md
+        - Getters & Setters: phase-I/02-OOP/1-oop-intro/2-encapsulation-get-set.md
+        - Intro to OOP - Assignments: phase-I/02-OOP/1-oop-intro/assignments.md
+      - Class vs Instance:
+        - Class vs Instance - Overview: phase-I/02-OOP/2-abstraction-encapsulation/README.md
+        - cls vs self - attributes: phase-I/02-OOP/2-abstraction-encapsulation/1-attributes-cls-vs-self.md
+        - cls vs self - methods: phase-I/02-OOP/2-abstraction-encapsulation/2-methods-static-cls-self.md
+        - Class vs Instance - Assignments: phase-I/02-OOP/2-abstraction-encapsulation/assignments.md
+      - Inheritance & Polymorphism:
+        - Inheritance & Polymorphism - Overview: phase-I/02-OOP/3-inheritance-polymorphism/README.md
+        - OOP Inheritance: phase-I/02-OOP/3-inheritance-polymorphism/1-oop-inheritance.md
+        - OOP Polymorphism: phase-I/02-OOP/3-inheritance-polymorphism/2-oop-polymorphism.md
+        - Inheritance & Polymorphism - Assignments: phase-I/02-OOP/3-inheritance-polymorphism/assignments.md
     - DS & Algorithms: phase-I:/03-DS-Algorithms/README.md
   - Phase II: phase-II
   - Phase III: phase-III
