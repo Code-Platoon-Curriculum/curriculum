@@ -97,6 +97,7 @@ Key places to explore:
     - `actions/setup-python`
 
 Using approved and well-maintained actions:
+
 - Saves time
 - Reduces configuration errors
 - Follows industry best practices
@@ -116,8 +117,7 @@ Now let's put some of the information we've learned up to this point and actuall
 
 .github/
 └── workflows/
-└── hello-world.yml
-
+|     └── hello-world.yml
 ```
 
 2. Add the following contents to `hello-world.yml`:
@@ -136,7 +136,7 @@ jobs:
         run: echo "Hello from GitHub Actions!"
 ```
 
-This is a completely new form of commands than we've seen before. Although we've utilized *yml* files to write Dockerfiles in the past, the syntax is completely different now so lets break it down so we understand what's happening:
+Although we've used configuration-style files (like Dockerfiles) in the past, GitHub Actions workflows use YAML, which has its own syntax and structure, the syntax is completely different now so lets break it down so we understand what's happening:
 
 * `name: Hello World Workflow` → This is a completely exchangeable value. Typically you want to name your workflow after the task it is meant to accomplish.
 * `on: push` → The workflow runs every time code is pushed and because we didn't define a branch it will be triggered by any branch as well.
@@ -150,9 +150,9 @@ This workflow doesn’t test anything yet—it simply proves that **automation i
 
 ## The *Actions* Tab
 
-Once a workflow exists, GitHub automatically runs it when triggered. Meaning Github will actually open a small *virtual machine* similar to a docker container that will simply follow the recipe that you've provided for it.
+Once a workflow exists, GitHub automatically runs it when triggered. Meaning GitHub will actually open a temporary runner (typically a virtual machine) that behaves similarly to a clean Docker environment that will simply follow the recipe you've provided.
 
-To view our workflows results simply open your github repository on the browser, **after pushing your code**, and look for a tap named `Actions` on the navigation tabs at the top of the repo. Once you find it, click it and open it.
+To view our workflows results simply open your github repository on the browser, **after pushing your code**, and look for a tab named `Actions` on the navigation tabs at the top of the repo. Once you find it, click it and open it.
 
 ![actions](./resources/actions.png)
 
@@ -167,27 +167,50 @@ This is where developers can debug failing pipelines, confirm test success, and 
 
 ---
 
-## Executing Actions in Different Branches
+## Managing Execution of Workflows
 
-Workflows are not limited to a single branch.
+The `on` key is the **control center** for workflow execution and can receive many different types of arguments to ensure your workflow is executed at the right time within the right place.
 
-By default:
+### Branch-based execution
 
-* A workflow triggered by `push` runs on **any branch**
+Sometimes, you'll want to ensure certain jobs are only executed within certain branches. For example your deployment workflow should only deploy the branch holding all of the working state of your code and only that branch so we would give the `on` stage the instructions to only trigger this workflow within `main`.
 
-This enables:
+```yml
+on:
+  push:
+    branches:
+      - main
+```
 
-* Testing feature branches independently
-* Validating pull requests before merging
-* Preventing broken code from reaching `main`
+### Pull request targeting
 
-Later, you can refine workflows to:
+At this point we've learned that we should not be developing code within our `main` branch. Instead we should write code within a development branch and once our code has achieved it's purpose we then merge it onto `main`. Well, if we want to protect main and ensure only code that passes all tests are code with a dictated format is being merged, we would add a workflow that is triggered upon a *Pull Request*.
 
-* Run only on specific branches
-* Run differently for `main` vs feature branches
-* Trigger on pull requests instead of pushes
+```yml
+on:
+  pull_request:
+    branches:
+      - main
+```
 
-For now, it’s enough to understand that **workflows follow your Git strategy**.
+### Scheduled execution (cron)
+
+Some functions may need to happen at a specific time of a day or date such as sending a message or re-deploying static files onto github pages. These workflows would follow a *schedule* and execute the workflow on a timer basis.
+
+```yml
+on:
+  schedule:
+    - cron: "0 0 * * *"
+```
+
+This runs the workflow daily at midnight UTC.
+
+### Why conditions matter
+
+Conditions help teams reduce unnecessary CI runs, control costs, match workflows to Git strategy, and prevent accidental deployments.
+
+> **Professional takeaway:**
+> Well-managed triggers keep CI fast, predictable, and intentional.
 
 ---
 
