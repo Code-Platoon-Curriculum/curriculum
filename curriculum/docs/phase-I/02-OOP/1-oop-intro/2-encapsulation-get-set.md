@@ -1,10 +1,14 @@
 # Getters & Setters
 
+![rules](./resources/rules.png)
+
 ## Introduction
 
 Welcome, to an essential aspect of Object-Oriented Programming (OOP) in Python! In this lesson, we'll delve into the concepts of getters and setters and understand why, when, and how to use them effectively when crafting your Python classes.
 
 ## Decorators
+
+Now before we start talking about getters and setters we need to discuss a key function of Python known as decorators.
 
 Decorators in Python are a powerful and flexible way to modify or enhance the behavior of functions or methods without altering their actual code. Decorators allow you to wrap a function with another function, often adding functionality before or after the original function's execution. This is commonly used for tasks like logging, authentication, caching, and more.
 
@@ -49,11 +53,13 @@ Something is happening after the function is called.
 
 Decorators are a fundamental concept in Python that enables you to achieve cleaner, more modular, and more maintainable code by separating concerns and reusing code enhancement logic across multiple functions.
 
+> DECORATE IS JUST A FUNCTION THAT TAKES IN A FUNCTION TO ADD PRE AND POST EXECUTION BEHAVIOR
+
 ## Getters and Setters
 
 ### Why Getters and Setters?
 
-In Python, getters and setters provide an extra layer of encapsulation and control over your class attributes. By using getters and setters, you can control how data is accessed and modified, ensuring data integrity, validation, and adaptability.
+In Python, getters and setters provide an extra layer of encapsulation and control over your class attributes. By using getters and setters, you can control how data is accessed and modified, ensuring data integrity, validation, and adaptability. It's essentially a way for you to explain to the other developers and the program itself how attributes can be accessed and what type of values should be set within each attribute. quick example would be an attribute like *age* You wouldn't want age to be set as a string type so instead you would add a setter that ensures age is an integer type and that it follows restrictions like it can't be less than 0.
 
 ### When to Use Getters and Setters
 
@@ -129,8 +135,8 @@ Now that we have seen getters and setters, we can name our getters and setters m
 ```python
 class Person:
     def __init__(self, name, age):
-        self._name = name
-        self._age = age
+        self.name = name
+        self.age = age
 
     # Getter for name attribute
     @property
@@ -141,9 +147,9 @@ class Person:
     @name.setter
     def name(self, new_name):
         if isinstance(new_name, str):
-            self._name = new_name
+            self._name = new_name # if self._name doesn't exist than it will create it
         else:
-            print("Name must be a string.")
+            raise Exception("Name must be a string.")
 
     # Getter for age attribute
     @property
@@ -154,9 +160,9 @@ class Person:
     @age.setter
     def age(self, new_age):
         if isinstance(new_age, int) and new_age > 0:
-            self._age = new_age
+            self._age = new_age # if self._age doesn't exist than it will create it
         else:
-            print("Age must be a positive integer.")
+            raise Exception("Age must be a positive integer.")
 
 # Create an instance of Person
 person = Person("Alice", 25)
@@ -168,6 +174,8 @@ print(person.name)  # Output: Bob
 person.age = 30
 print(person.age)   # Output: 30
 ```
+
+![data](./resources/data-flow.png)
 
 ## Conclusion
 

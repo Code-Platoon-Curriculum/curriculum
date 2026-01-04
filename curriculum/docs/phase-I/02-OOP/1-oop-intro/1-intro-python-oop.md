@@ -1,8 +1,8 @@
 # Python OOP
 
-## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1lcYNdojb96cDjZyzhLVolQA_-pOxe8V36bqbH8VEJLg/edit?usp=drive_link)**
+- <a href="https://docs.google.com/presentation/d/1lcYNdojb96cDjZyzhLVolQA_-pOxe8V36bqbH8VEJLg/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">Lecture PowerPoint</a>
 
-## Lesson
+## Intro
 
 Object-oriented programming is one of the most effective approaches to writing software. In object-oriented programming you write classes that represent real-world things and situations, and you create objects based on these classes. When you write a class, you define the general behavior that a whole category of objects can have.
 
@@ -13,28 +13,61 @@ Object-oriented programming is one of the most effective approaches to writing s
 - **Classes:** Classes are structures in code that allow us to create objects. A class serves as the blueprint or template for that object. Classes are used to combine how data is represented and methods to manipulate that data
 
 - **Five Pillars of OOP**:
-  - Encapsulation = Data access can be restricted based on needs
-  - Abstraction = Logic/Complexity is hidden, for simplicity
-  - Inheritance = Sharing of similar features and attributes (Is-a)
-  - Composition = Including other Objects as attributes (Has-a)
-  - Polymorphism = Objects can take different forms depending on needs/situation
+    - Encapsulation = Data access can be restricted based on needs
+    - Abstraction = Logic/Complexity is hidden, for simplicity
+    - Inheritance = Sharing of similar features and attributes (Is-a)
+    - Composition = Including other Objects as attributes (Has-a)
+    - Polymorphism = Objects can take different forms depending on needs/situation
 
 ### Creating a class and making an instance
 
-Creating a class in Python is as simple as the following:
+![oop machine](./resources/class_overview.png)
+
+Creating a class in Python extremely simple. You must utilize the keyword `class` followed by the name of the class in CamelCase convention. This is called the class Declaration:
+
+#### Class Declaration
+
+![class_declaration](./resources/class_declaration.png)
+
+Declaring a class is equivalent to designing a blue print of what the class itself is going to look like but there is not *instance* of a class just yet. This is similar to *defining* a function. The function is created and the Python program knows about its existence but it's behavior has not been put into action.
 
 ```python
-class Dog: # this is our class definition/blueprint
+class Dog: # this is our class declaration/blueprint
   pass
-
-fido = Dog() # this is how we create an instance of our Dog class
 ```
 
 A class can be viewed as a concept, or blueprint, for some idea. When we turn that concept into reality, we create instances (or objects) of the class. It is important to understand this distinction, and become familiar with the terminology being used: A class definition -vs- an instance of a class.
 
-### \_\_init\_\_() method
+#### Class Instance
 
-The first thing we'll talk about is how to initialize a class with some data. Let's add on to our Dog class:
+![instance](./resources/instance.png)
+
+An *instance* of the class is the outcome of said blueprint after being created. You must *call* the class in order to create an *instance* and save it's return value within a variable if you'd like to utilize it later on.
+
+```python
+fido = Dog()
+```
+
+Now an instance of the class of Dog has been created and saved within the variable fido.
+
+##### \_\_init\_\_() method
+
+Now the biggest point of OOP is to allow us to really exploit both the DRY (Don't Repeat Yourself) and SRP (Single Responsibility) principles. But as of now our class definition is really not doing that. If I wanted to give our dog an attribute of name I would have to manually write it for each instance of a Dog class.
+
+```python
+apollo = Dog()
+
+fido.name = "fido"
+apollo.name = "apollo"
+```
+
+You can see how our current design really brings no power to us at this stage. Well this can be fixed by further defining our class declaration into including the `__init__()` method to declare properties that will belong to the class itself.
+
+> **Vocabulary**
+> - Method: a function that belongs to a class
+> - Attribute: a variable that belongs to a class
+
+![init](./resources/init.png)
 
 ```python
 class Dog:
@@ -43,14 +76,20 @@ class Dog:
     self.name = name
 
 fido = Dog("Fido")
+apollo = Dog("Apollo")
 print(fido.name) # output to the terminal will display "Fido"
+print(apollo.name)
 ```
 
-You can add an ```__init__()``` method to your class to allow data to be passed in upon creation of your instance. In our Dog example, we are passing in a ```name``` value and storing it in the instance. We can access the data we've stored in the instance by calling *[instance].[attribute]*, or for our example: ```fido.name```
+You can add an `__init__()` method to your class to allow data to be passed in upon creation of your instance. In our Dog example, we are passing in a `name` value and storing it in the instance. We can access the data we've stored in the instance by calling *[instance].[attribute]*, or for our example: `fido.name`
 
-The ```__init__()``` method also allows us to initialize anything else we may need to for our instance. Keep in mind that Python automatically calls our ```__init__()``` method when we create our instance. You should never be calling the ```__init__()``` method yourself! Also, you MUST name your initialization method "\_\_init\_\_" (two leading underscores, "init", and two trailing underscores) because Python is looking for this method when our object is being initialized.
+The `__init__()` method also allows us to initialize anything else we may need to for our instance. Keep in mind that Python automatically calls our `__init__()` method when we create our instance. You should never be calling the `__init__()` method yourself! Also, you MUST name your initialization method "\_\_init\_\_" (two leading underscores, "init", and two trailing underscores) because Python is looking for this method when our object is being initialized.
 
-What's up with that `self` parameter though? That's a good question... we'll cover that in a moment.
+##### Self
+
+There's this *self* parameter that is being utilized through out the program and it's important to understand that the word self is a common OOP convention not a hard coded restriction of the program. So why *self*, that is because the first parameter of class methods should reference the *instance* itself. Later on we will learn about *class and static* methods that will expand our understanding of this convention but for now understand that:
+
+> SELF == INSTANCE ITSELF
 
 ### Instance Attributes
 
@@ -115,7 +154,7 @@ fido = Dog("Fido", "Pointer", "woof!")
 print(fido)
 ```
 
-The output of this shows the type of our object and the memory location where it's being stored on our computer. That's great, but this output isn't really telling us much about our instance. To control what is outputted, we can make use of the ```__str__()``` dunder method:
+The output of this shows the type of our object and the memory location where it's being stored on our computer. That's great, but this output isn't really telling us much about our instance. To control what is outputted, we can make use of the `__str__()` dunder method:
 
 ```python
 class Dog:

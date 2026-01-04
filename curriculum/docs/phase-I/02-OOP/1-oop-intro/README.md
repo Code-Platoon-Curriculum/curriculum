@@ -6,18 +6,12 @@ Everything in programming is interpreted as a class/object at its most basic lev
 
 ## Lectures & Assignment
 
-- [Lecture - Intro to Python OOP](./1-intro-python-oop.md)
-  - [Assignment - App Users I](https://github.com/Code-Platoon-Assignments/oop-app-users-i.git) in Python
-  - [Assignment - Guessing Game](https://github.com/Code-Platoon-Assignments/oop-guessing-game.git) in Python
-- [Lecture - Getters & Setters](./2-encapsulation-get-set.md)
-  - [Assignment - Student Registry](https://github.com/Code-Platoon-Assignments/oop-student-registry.git)
-  - [Reading Assignment - Python Crash Course CH.9 pgs. 167 - 173](https://drive.google.com/file/d/1M0UbipX2AKpooG98OdJklhcKMwikmV8L/view?usp=drive_link)
-- Stretch Exercise
-  - [Assignment - OOP Budget](https://github.com/Code-Platoon-Assignments/oop-budget.git)
-  - [Assignment - CSV Reader](https://github.com/Code-Platoon-Assignments/csv-reader.git)
-  - [School Interface I](https://github.com/Code-Platoon-Assignments/oop-school-interface-i.git)
+### Lectures
 
-> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+- [Lecture - Intro to Python OOP](./1-intro-python-oop.md)
+- [Lecture - Getters & Setters](./2-encapsulation-get-set.md)
+
+### [Assignments](./assignments.md)
 
 ## Terminal Learning Objectives
 

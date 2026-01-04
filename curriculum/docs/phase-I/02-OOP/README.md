@@ -21,13 +21,3 @@ By delving into prompt engineering and mastering Object-Oriented Programming (OO
 ## Video Playlist
 
 - [OOP Youtube](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQ4nIjcTBcvjyZXoZ08RfZm)
-Binary vs Linear Search
-Understanding Big-O Notation
-Single vs Double Pointer Algorithmsn(missing)
-Working with Stacks and Queus
-Recursion Algorithms
-Sorting Algorithms
-Working with Linked Lists
-Doubly Linked Lists
-Working with Binary Trees
-Technical Interview Demonstration
