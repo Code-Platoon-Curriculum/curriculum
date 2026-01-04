@@ -1,109 +1,196 @@
-# Instance and Class Attributes in Object-Oriented Programming
+# Class vs Instance Attributes
 
-## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1-BcmDpQ32uS7J7dOLPRVNQei4rAhCI87bz4zJQtmlYs/edit?usp=drive_link)**
+**<a href="https://docs.google.com/presentation/d/1-BcmDpQ32uS7J7dOLPRVNQei4rAhCI87bz4zJQtmlYs/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">Lecture PowerPoint</a>**
 
-## Introduction
+## Intro
 
-In this session, we'll dive deep into the concepts of instance attributes and class attributes, understanding how they differ and when to use one or the other. We'll also explore practical examples to solidify your understanding.
+Up to this point, you’ve learned how to define **classes**, create **instances**, and manage data using **instance attributes** with getters and setters. This has allowed each object to maintain its own state safely and predictably.
 
-## Instance Attributes: Unique Per Object
+In this lesson, we’ll introduce a new concept: **class attributes**. While instance attributes belong to *individual objects*, class attributes belong to the *class itself* and are **shared across all instances**.
 
-Instance attributes are variables that are specific to each object created from a class. They store data unique to each instance and provide distinct characteristics to objects. These attributes are defined within the constructor (`__init__`) and are accessible via the `self` parameter within instance methods.
+Understanding the difference between **instance-level data** and **class-level data** is critical for writing scalable, memory-efficient, and intention-revealing object-oriented code.
 
-### Example: Instance Attributes
+---
 
-```python
-class Dog:
-    def __init__(self, name, breed):
-        self.name = name  # Each dog will likely have a unique name
-        self.breed = breed  # Not every dog is the same breed
+## Review of Instance Attributes
 
-dog1 = Dog("Buddy", "Golden Retriever")
-dog2 = Dog("Max", "Labrador")
+Before introducing class attributes, let’s reinforce what we already know.
 
-print(dog1.name)  # Output: Buddy
-print(dog2.name)  # Output: Max
-```
+### What is an Instance?
 
-## Class Attributes: Shared Among Instances
-
-Class attributes are variables that are shared among all instances of a class. They are defined within the class body, outside any method. While they can be accessed using instances, any modification to a class attribute will affect all instances of that class.
-
-### Example: Class Attributes
+An **instance** is a concrete object created from a class blueprint.
 
 ```python
-class Circle:
-    pi = 3.14159  # Every instance of a Circle class will hold the attribute pi and share the same value
-
-    def __init__(self, radius):
-        self.radius = radius  # Instance attribute
-
-circle1 = Circle(5)
-circle2 = Circle(7)
-
-print(circle1.pi)  # Output: 3.14159
-print(circle2.pi)  # Output: 3.14159
-print(circle1.radius)  # Output: 5
-print(circle2.radius)  # Output: 7
-
-
-class Dog:
-  species = "Canis Lupus Familiaris" # all dogs have the same species type => *class attribute*
-  legs = 4 # all dogs have 4 legs
-
-  def __init__(self, name, breed):
-    self.name = name
-    self.breed = breed
-
-fido = Dog("Fido", "Pointer", "white", "woof!")
-print(fido.name) # Output: Fido
-print(fido.species) # Output: Canis Lupus Familiaris
-
-lassie = Dog("Scooby", "Mutt", "Scooby-Dooby-Doo!")
-print(lassie.name) # Output: Scooby
-print(lassie.species) # Output: Canis Lupus Familiaris
+person = Person("Alice", 25)
 ```
 
-## When to Use Instance Attributes and Class Attributes: Best Practices
+Here:
 
-Understanding when to use instance attributes and class attributes is crucial for writing clean, maintainable, and efficient object-oriented code. Let's delve deeper into these concepts while considering industry best practices.
+* `Person` is the class (the blueprint)
+* `person` is an instance (a real object created from that blueprint)
 
-### Instance Attributes
+Each instance gets its **own copy of instance attributes**.
 
-Instance attributes are specific to each individual object created from a class. They define unique characteristics for each instance and encapsulate data that varies between instances. Here's when you should use instance attributes:
+---
 
-1. **Object-Specific Data:** Use instance attributes to store data that is unique to each object. For example, attributes like `name`, `age`, and `color` that differ from object to object.
+### Instance Attributes and `self`
 
-2. **Encapsulation:** Encapsulating data within instance attributes ensures that each object maintains its own state. This promotes data integrity and prevents unintended interference between objects.
+Instance attributes are defined and accessed using `self`.
 
-3. **Customization:** Instance attributes enable you to customize each object's behavior by storing values that influence how the object behaves.
+```python
+self.name = name
+self.age = age
+```
 
-4. **Method Interaction:** Instance attributes are accessible within instance methods, allowing methods to work with and manipulate the specific data of an object.
+Key points:
 
-### Class Attributes
+* `self` refers to the **specific instance** currently being worked on
+* Each instance stores its own values
+* Modifying one instance does **not** affect others
 
-Class attributes are shared among all instances of a class. They store data that should be consistent across all instances. Consider these scenarios for using class attributes:
+Example:
 
-1. **Shared Information:** When you want to maintain information that's the same for all instances of a class, such as configuration settings or default values.
+```python
+alice = Person("Alice", 25)
+bob = Person("Bob", 30)
 
-2. **Constants:** Class attributes can be used to define constants that are used throughout the class. These constants can represent values that are not meant to change.
+print(alice.name)  # Alice
+print(bob.name)    # Bob
+```
 
-3. **Memory Efficiency:** Class attributes consume less memory than instance attributes, as they're shared among all instances. If the data doesn't need to vary per object, using class attributes can be memory-efficient.
+Even though both objects come from the same class, their data is **isolated**.
 
-4. **Static Information:** Data that remains constant and static, like mathematical constants or units of measurement, can be stored as class attributes.
+> **Mental model:**
+> Instance attributes describe *what makes this object unique*.
 
-### Best Practices
+---
 
-1. **Data Encapsulation:** Always aim to encapsulate your data within attributes, whether instance or class attributes. This promotes data integrity, prevents accidental modifications, and enhances maintainability.
+## Class Attributes
 
-2. **Keep It Simple:** Favor using instance attributes when data should vary between objects and class attributes when data is shared. Don't overcomplicate your design by using class attributes for data that's meant to be unique to each object.
+A **class attribute** is defined **directly on the class**, outside of `__init__`, and is **shared by all instances**.
 
-3. **Documentation:** Clearly document your class attributes to explain their purpose and usage. This helps other developers understand the role of these attributes in your code.
+Example:
 
-4. **Avoid Global State:** While class attributes are shared, avoid using them as a substitute for global variables. Maintain the principle of encapsulation and avoid creating tight coupling between classes.
+```python
+class Person:
+    species = "Human"  # class attribute
 
-By adhering to these best practices and understanding the nuances of instance and class attributes, you'll create well-organized, modular, and maintainable object-oriented code that aligns with industry standards and conventions.
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+```
+
+Now observe how it behaves:
+
+```python
+alice = Person("Alice", 25)
+bob = Person("Bob", 30)
+
+print(alice.species)  # Human
+print(bob.species)    # Human
+print(Person.species) # Human
+```
+
+Key characteristics of class attributes:
+
+* Stored once, on the class
+* Shared across all instances
+* Accessible via both the class and instances
+* Best suited for **shared, universal data**
+
+---
+
+## Why Class Attributes
+
+Class attributes are useful when data:
+
+* Is the **same for every instance**
+* Represents a **shared rule, constant, or configuration**
+* Should not belong to any one specific object
+
+### Example: Tracking All Instances
+
+```python
+class Person:
+    population = 0  # class attribute
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        Person.population += 1
+```
+
+Usage:
+
+```python
+p1 = Person("Alice", 25)
+p2 = Person("Bob", 30)
+
+print(Person.population)  # 2
+```
+
+Here:
+
+* `population` belongs to the class
+* Every new instance updates the same shared value
+
+### Common Use Cases
+
+* Counters (number of users, objects created)
+* Constants (`MAX_SIZE`, `DEFAULT_ROLE`)
+* Configuration values
+* Shared metadata
+
+> **Professional insight:**
+> If the data describes *the group*, not *the individual*, it belongs on the class.
+
+---
+
+## Instance vs Class Attributes (Quick Comparison)
+
+| Attribute Type     | Belongs To | Stored Where  | Shared? |
+| ------------------ | ---------- | ------------- | ------- |
+| Instance Attribute | Object     | Each instance | ❌ No    |
+| Class Attribute    | Class      | Class itself  | ✅ Yes   |
+
+---
+
+## Important Gotcha: Shadowing Class Attributes
+
+If you assign to an attribute on `self` with the same name as a class attribute, you **create an instance attribute** instead of modifying the class attribute.
+
+```python
+class Person:
+    species = "Human"
+
+alice = Person("Alice", 25)
+alice.species = "Mutant"
+
+print(alice.species)   # Mutant (instance attribute)
+print(Person.species)  # Human (unchanged)
+```
+
+This is called **attribute shadowing**.
+
+> **Rule of thumb:**
+> Modify class attributes using the class name, not `self`.
+
+---
 
 ## Conclusion
 
-Understanding the distinction between instance and class attributes is essential for effective object-oriented programming. Instance attributes encapsulate unique data for each object, while class attributes provide shared data across instances. By mastering these concepts, you'll gain the ability to design more flexible and well-structured classes, optimizing your code for reusability and clarity. Happy coding! 🐍🚀
+In this lesson, you learned the difference between **instance attributes** and **class attributes**, a foundational concept in object-oriented programming.
+
+You should now understand:
+
+* What an instance is and how it stores unique data
+* How `self` connects methods and attributes to a specific object
+* What class attributes are and how they are shared
+* When to use instance attributes vs class attributes
+* Common real-world use cases for class-level data
+
+Mastering this distinction helps you design clearer, more intentional classes—and prepares you for advanced topics like inheritance, class methods, and design patterns.
+
+> **Takeaway:**
+> Instance attributes define *who this object is*.
+> Class attributes define *what all objects have in common*.

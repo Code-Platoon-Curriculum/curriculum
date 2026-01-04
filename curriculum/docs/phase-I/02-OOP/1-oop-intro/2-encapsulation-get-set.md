@@ -53,7 +53,7 @@ Something is happening after the function is called.
 
 Decorators are a fundamental concept in Python that enables you to achieve cleaner, more modular, and more maintainable code by separating concerns and reusing code enhancement logic across multiple functions.
 
-> DECORATE IS JUST A FUNCTION THAT TAKES IN A FUNCTION TO ADD PRE AND POST EXECUTION BEHAVIOR
+> DECORATOR IS JUST A FUNCTION THAT TAKES IN A FUNCTION TO ADD PRE AND POST EXECUTION BEHAVIOR
 
 ## Getters and Setters
 

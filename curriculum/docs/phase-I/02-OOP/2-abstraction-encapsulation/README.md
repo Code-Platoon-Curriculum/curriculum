@@ -6,19 +6,12 @@ Learning the difference between class and instance attributes, as well as unders
 
 ## Lectures & Assignment
 
-1. [Lecture - Class vs Instance Attributes](./1-attributes-cls-vs-self.md)
-    - [Assignment - Car Management](https://github.com/Code-Platoon-Assignments/oop-vehicle-shop.git)
+### Lectures
 
-2. [Lecture - Class, Instance, and Static Methods](./2-methods-static-cls-self.md)
-    - [Assignment - App Users II](https://github.com/Code-Platoon-Assignments/oop-app-users-ii.git) in Python
-    - [Assignment - Contact List](https://github.com/Code-Platoon-Assignments/oop-contact-list.git) in Python
-    - [Reading Assignment - POODR Chapter 2: "Designing Classes With A Single Responsibility](https://drive.google.com/file/d/1UX9o6CZp949vEQcpsdlALx73nG8RX-ZE/view?usp=drive_link)
-    - [School Interface II](https://github.com/Code-Platoon-Assignments/oop-school-interface-ii.git)
+- [Lecture - Class vs Instance Attributes](./1-attributes-cls-vs-self.md)
+- [Lecture - Class, Instance, and Static Methods](./2-methods-static-cls-self.md)
 
-3. Stretch Exercises
-    - [Assignment - Caesar Cipher](https://github.com/Code-Platoon-Assignments/algo-caesar-cipher.git) in JS/Python
-
-> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+### [Assignments](./assignments.md)
 
 ## TLO's(Terminal Learning Objectives)
 
