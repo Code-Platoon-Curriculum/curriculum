@@ -1,6 +1,6 @@
 # Inheritance in Python Object-Oriented Programming
 
-## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1dTwIEYiR0CBCCq_QPxlKCZXwoZbKXNDWiKTYsiDGCnA/edit?usp=drive_link)**
+**<a href="https://docs.google.com/presentation/d/1dTwIEYiR0CBCCq_QPxlKCZXwoZbKXNDWiKTYsiDGCnA/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">Lecture PowerPoint</a>**
 
 ## Introduction
 
