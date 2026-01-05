@@ -104,7 +104,25 @@ nav:
       - Binary vs Linear Search - Assignments: phase-I/03-DS-Algorithms/01-binary-vs-linear-search/assignments.md
       - Understanding Big-O: phase-I/03-DS-Algorithms/02-big-o/README.md
       - Big-O - Assignments: phase-I/03-DS-Algorithms/02-big-o/assignments.md
-  - Phase II: phase-II
+      - Stacks & Queues: phase-I/03-DS-Algorithms/03-stacks-and-queues/README.md
+      - Stacks & Queues - Assignments: phase-I/03-DS-Algorithms/03-stacks-and-queues/assignments.md
+      - Recursion: phase-I/03-DS-Algorithms/04-recursion/README.md
+      - Recursion - Assignments: phase-I/03-DS-Algorithms/04-recursion/assignments.md
+      - Sorting Algorithms: phase-I/03-DS-Algorithms/05-sorting-algos/README.md
+      - Sorting Algorithms - Assignments: phase-I/03-DS-Algorithms/05-sorting-algos/assignments.md
+      - Divide & Conquer Algorithms: phase-I/03-DS-Algorithms/06-div-conquer-algos/README.md
+      - Divide & Conquer Algorithms - Assignments: phase-I/03-DS-Algorithms/06-div-conquer-algos/assignments.md
+      - Memory & Linked List: phase-I/03-DS-Algorithms/07-memory-linked-list/README.md
+      - Memory & Linked List - Assignments: phase-I/03-DS-Algorithms/07-memory-linked-list/assignments.md
+      - Circular & Doubly Linked List: phase-I/03-DS-Algorithms/08-circular-doubly-linked-lists/README.md
+      - Circular & Doubly Linked List - Assignments: phase-I/03-DS-Algorithms/08-circular-doubly-linked-lists/assignments.md
+      - Binary Trees: phase-I/03-DS-Algorithms/09-binary-trees/README.md
+      - Binary Trees - Assignments: phase-I/03-DS-Algorithms/09-binary-trees/assignments.md
+      - DFS vs BFS: phase-I/03-DS-Algorithms/10-dfs-vs-bfs/README.md
+      - DFS vs BFS - Assignments: phase-I/03-DS-Algorithms/10-dfs-vs-bfs/assignments.md
+      - Technical Interview: phase-I/03-DS-Algorithms/11-technical-interview/README.md
+      - DS & Algorithms - Assignments: phase-I/03-DS-Algorithms/assignments.md
+  - Phase II: phase-II/README.md
   - Phase III: phase-III
   - Phase IV: phase-IV
   - Phase V: phase-V
