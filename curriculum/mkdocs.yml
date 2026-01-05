@@ -98,7 +98,12 @@ nav:
         - OOP Inheritance: phase-I/02-OOP/3-inheritance-polymorphism/1-oop-inheritance.md
         - OOP Polymorphism: phase-I/02-OOP/3-inheritance-polymorphism/2-oop-polymorphism.md
         - Inheritance & Polymorphism - Assignments: phase-I/02-OOP/3-inheritance-polymorphism/assignments.md
-    - DS & Algorithms: phase-I:/03-DS-Algorithms/README.md
+    - DS & Algorithms: 
+      - DS & Algorithms - Overview: phase-I/03-DS-Algorithms/README.md
+      - Binary vs Linear Search: phase-I/03-DS-Algorithms/01-binary-vs-linear-search/README.md
+      - Binary vs Linear Search - Assignments: phase-I/03-DS-Algorithms/01-binary-vs-linear-search/assignments.md
+      - Understanding Big-O: phase-I/03-DS-Algorithms/02-big-o/README.md
+      - Big-O - Assignments: phase-I/03-DS-Algorithms/02-big-o/assignments.md
   - Phase II: phase-II
   - Phase III: phase-III
   - Phase IV: phase-IV

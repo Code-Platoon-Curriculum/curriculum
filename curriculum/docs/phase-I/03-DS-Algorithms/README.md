@@ -8,41 +8,23 @@ You will learn and become comfortable with the core computer science concept of 
 
 You will learn some of the fundamental building blocks (data structures, algorithms) of programs and computing.
 
-## Lessons
+## Lessons & Assignments
 
-1. [Searching Algorithms: Linear Search and Binary Search](./01-intro-algos/)
-2. [Understanding Big-O](./02-big-o/)
-3. [Sorting Algorithms & Algorithm Analysis: Bubble Sort, Insertion Sort, Merge Sort](./03-sorting-algos/)
-4. Divide and Conquer Algorithms
-5. [Recursion and Divide & Conquer Revisited](./04-recursion/)
-6. [Stacks & Queues Data Structures](./05-stacks-and-queues/)
-7. [Intro to Computer Memory & Linked Lists Data Structure](./06-memory-linked-lists/)
-8. [Doubly and Circular Linked Lists](./07-circular-doubly-linked-lists/)
-9. Binary Trees
-10. Hash Table
-11. [Technical Interview Strategies & Demo](./11-technical-interview-demo/README.md)
+### Lessons
 
-## Daily Algos
+1. [Linear Search vs Binary Search](./01-binary-vs-linear-search/README.md)
+2. [Understanding Big-O](./02-big-o/README.md)
+3. [Stacks and Queues](./03-stacks-and-queues/README.md)
+4. [Recursion](./03-stacks-and-queues/README.md)
+5. [Sorting Algorithms](./05-sorting-algos/README.md)
+6. [Divide & Conquer Algorithms](./06-div-conquer-algos/README.md)
+7. [Memory & Linked Lists](./07-memory-linked-list/README.md)
+8. [Circular & Doubly Linked Lists](./08-circular-doubly-linked-lists/README.md)
+9. [Binary Trees](./09-binary-trees/README.md)
+10. [DFS vs BFS](./10-dfs-vs-bfs/README.md)
+11. [Technical Interviews](./11-technical-interview/README.md)
 
-Coding problems we will do a couple of each week.
-
-- [The Most Common Letter](https://github.com/Code-Platoon-Assignments/algos-the-most-common-letter)
-- [Vowel Encoder](https://github.com/Code-Platoon-Assignments/algos-vowel-encoder/settings)
-- [Highest Scoring Word](https://github.com/Code-Platoon-Assignments/algos-highest-scoring-word)
-- [Four Letter Anagrams](https://github.com/Code-Platoon-Assignments/algos-four-letter-anagrams)
-- [Sort The Odds](https://github.com/Code-Platoon-Assignments/algo-sort-the-odds)
-
-## Module Topics
-
-- Sorting Algorithms
-- Searching Algorithms
-- Divide & Conquer strategy for Algorithm Design
-- Time Complexity Analysis(Big-O)
-- Space Complexity Analysis(Memory)
-- Recursion & The Call Stack 
-- Computer Memory
-- Fundamental Data Structures
-- Technical Interview Prep
+### [Assignments](./assignments.md)
 
 ## Video Playlist
 
