@@ -122,7 +122,12 @@ nav:
       - DFS vs BFS - Assignments: phase-I/03-DS-Algorithms/10-dfs-vs-bfs/assignments.md
       - Technical Interview: phase-I/03-DS-Algorithms/11-technical-interview/README.md
       - DS & Algorithms - Assignments: phase-I/03-DS-Algorithms/assignments.md
-  - Phase II: phase-II/README.md
+  - Phase II:
+      - Phase II - Overview: phase-II/README.md
+      - Full Stack Development:
+        - Full Stack Development Overview: phase-II/Intro-to-FS-Dev/README.md
+        - Full Stack Development Workflow: phase-II/Intro-to-FS-Dev/1-fs-workflow.md
+        - Full Stack Development Breakdown: phase-II/Intro-to-FS-Dev/2-fs-breakdown.md
   - Phase III: phase-III
   - Phase IV: phase-IV
   - Phase V: phase-V
