@@ -8,9 +8,7 @@ By learning about Node, NPM, ES6, mapping, filtering, object destructuring, and 
 
 - [Lesson - NPM](./1-node-projects.md)
 - [Lesson - Intro to React](./2-intro-vite-react.md)
-  - [Assignment - Pokemon Theme Team](https://github.com/Code-Platoon-Assignments/react-pokemon)
-  - [Assignment - To-Do List](https://github.com/Code-Platoon-Assignments/to-do-react)
-  - [Reading Assignment - Beginning with React.JS Ch.4(Please skip everything regarding Class components) & Ch.11(stop at page 272)](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
+
 
 ## TLO's(Terminal Learning Objectives)
 

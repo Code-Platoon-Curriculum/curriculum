@@ -7,16 +7,16 @@ By learning HTML and CSS, you are equipping yourself with the foundational skill
 ## Lectures & Assignments
 
 - [Lesson - Intro to HTML](./1-intro-to-html.md)
-  - [Assignment - To-Do List](https://github.com/Code-Platoon-Assignments/html-css-to-do-list-I.git)
 - [Lesson - Intro to CSS](./2-intro-to-css.md)
-  - [Assignment - To-Do List](https://github.com/Code-Platoon-Assignments/html-css-to-do-list-II.git)
-  - [Assignment - Top Ten](https://github.com/Code-Platoon-Assignments/html-top-ten.git)
-  - Use the html and css you were introduced to today to start a portfolio website for yourself. This does not have to be completed today but it's good to start one so you can keep adding to it the more you learn.
-  Sections to include:
-    - About me: a little paragraph about you
-    - projects: links to github projects
-    - any other sections you'd like to add
-  - [Reading Assignment - The Manga Guide To Databases Ch.1](https://drive.google.com/file/d/1734zrxCLK61P7tC6nhUX9LTpikivaxip/view?usp=drive_link)
+- [Assignment - To-Do List](https://github.com/Code-Platoon-Assignments/html-css-to-do-list-I.git)
+- [Assignment - To-Do List](https://github.com/Code-Platoon-Assignments/html-css-to-do-list-II.git)
+- [Assignment - Top Ten](https://github.com/Code-Platoon-Assignments/html-top-ten.git)
+- Use the html and css you were introduced to today to start a portfolio website for yourself. This does not have to be completed today but it's good to start one so you can keep adding to it the more you learn.
+Sections to include:
+  - About me: a little paragraph about you
+  - projects: links to github projects
+  - any other sections you'd like to add
+- [Reading Assignment - The Manga Guide To Databases Ch.1](https://drive.google.com/file/d/1734zrxCLK61P7tC6nhUX9LTpikivaxip/view?usp=drive_link)
 
 ## TLO's (Terminal Learning Objectives)
 

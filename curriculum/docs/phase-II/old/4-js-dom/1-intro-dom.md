@@ -12,7 +12,7 @@ We've been using [node](https://en.wikipedia.org/wiki/Node.js) to run our javasc
 
 Before we can start using Javascript on our front end, we need to understand what the DOM is and how it works. When the browser receives a webpage (HTML and CSS) it breaks it up into a tree like structure called the Document Object Model (DOM).
 
-![The DOM](/page-resources/DOM_example.png)
+
 
 Each element in our HTML document is represented as a 'node' in the DOM. We can use Javascript to access these nodes and manipulate them. Let's start with a simple HTML file. Create a file called `index.html` and paste the following code:
 

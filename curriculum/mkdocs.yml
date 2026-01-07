@@ -128,6 +128,18 @@ nav:
         - Full Stack Development Overview: phase-II/Intro-to-FS-Dev/README.md
         - Full Stack Development Workflow: phase-II/Intro-to-FS-Dev/1-fs-workflow.md
         - Full Stack Development Breakdown: phase-II/Intro-to-FS-Dev/2-fs-breakdown.md
+      - Front-End:
+        - Front-End - Overview: phase-II/04-Front-End/README.md
+        - Vanilla Development:
+          - Vanilla Development - Overview: phase-II/04-Front-End/1-vanilla-development/README.md
+          - HTML & CSS: phase-II/04-Front-End/1-vanilla-development/1-html-css.md
+          - JavaScript DOM: phase-II/04-Front-End/1-vanilla-development/2-js-dom.md
+          - Vanilla Development - Assignments: phase-II/04-Front-End/1-vanilla-development/assignments.md
+        - React and Requests:
+          - React and Requests - Overview: phase-II/04-Front-End/2-react-and-requests/README.md
+          - React and Vite: phase-II/04-Front-End/2-react-and-requests/1-react-and-vite.md
+          - Async Requests: phase-II/04-Front-End/2-react-and-requests/2-async-requests.md
+          - React and Requests - Assignments: phase-II/04-Front-End/2-react-and-requests/assignments.md
   - Phase III: phase-III
   - Phase IV: phase-IV
   - Phase V: phase-V
