@@ -6,10 +6,13 @@ By learning how to use and integrate Tailwind CSS and React Bootstrap in your Vi
 
 ## Lectures and Assignments
 
+### Lectures
+
 - [Lesson - Tailwind CSS](./1-tailwind.md)
 - [Lesson - React BootStrap](./2-bootstrap.md)
-  - [Assignment - Tailwind and BootStrap Project](https://github.com/Code-Platoon-Assignments/Tailwind-and-BootStrap-Project.git)
-  - [Reading Assignment - Beginning React Ch.20 (Read the Testing Section)](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
+
+### [Assignments](./assignments.md)
+
 
 ## TLO's (Terminal Learning Objectives)
 
@@ -18,6 +21,6 @@ By learning how to use and integrate Tailwind CSS and React Bootstrap in your Vi
 ## ELO's (Enabling Learning Objectives)
 
 - Integrate Tailwind.css with a Vite + React.js project
-  - Customize individual elements CSS utilizing Tailwind classes
+    - Customize individual elements CSS utilizing Tailwind classes
 - Integrate React BootStrap with a Vite + React.js project
-  - Import pre-designed components and customize them with built in functionality
+    - Import pre-designed components and customize them with built in functionality

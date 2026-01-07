@@ -1,116 +1,223 @@
-# Getting Started with React Router Dom
+# Intro React Router Dom
+
+## Introduction
+
+As React applications grow, rendering everything inside a single component quickly becomes unmanageable. Real-world applications require multiple “pages” such as home views, detail views, forms, and dashboards. React Router Dom is the library that allows React applications to support **URL-based navigation** while remaining a single-page application (SPA).
+
+In this lesson, we will integrate React Router Dom into the existing PokemonCard project and restructure the application so that different views are rendered based on the browser’s URL. This introduces a new way of thinking about application structure, navigation, and component responsibility.
+
+---
 
 ## What is React Router Dom?
 
-React Router Dom is a popular library for handling routing in React applications. It allows you to create single-page applications (SPAs) by enabling navigation and rendering different components based on the URL. With React Router Dom, you can build dynamic, interactive web applications with multiple views while keeping the UI in sync with the URL.
+React Router Dom is the standard routing library for React applications running in the browser. It allows you to map URL paths to React components and ensures that the UI stays in sync with the browser’s address bar.
+
+Instead of manually showing and hiding components, React Router Dom renders components **based on the current route**, allowing React applications to behave like traditional multi-page websites without full page reloads.
+
+Key ideas introduced by React Router Dom include:
+
+- Declarative routing
+- Nested layouts
+- URL-driven state
+- Client-side navigation
+
+> Think of it as `urlPattern === '/' ? <HomePage/> : <DetailPage/>`
+
+---
 
 ## Why and When to Use React Router Dom?
 
-React Router Dom is essential when building multi-page-like experiences within a single web page. Here are some scenarios where you should consider using it:
+React Router Dom becomes necessary once an application needs more than a single view.
 
-1. **Multi-page Navigation**: When you need to create a multi-page app experience, React Router Dom allows you to define routes for different pages or views of your application. Users can navigate through these views without triggering a full page reload.
+In the context of the PokemonCard project, routing allows us to:
 
-2. **Bookmarkable URLs**: React Router Dom ensures that each view of your application has a unique URL. This means users can bookmark specific pages and share links, and the application will render the correct view when users access those URLs directly.
+- Separate the Pokemon list view from other application views
+- Prepare for features such as a Pokémon detail page
+- Make application state shareable via URLs
+- Improve code organization by separating “pages” from reusable components
 
-3. **Conditional Rendering**: You can use React Router Dom to conditionally render components based on the current route. This enables you to create more complex user interfaces that respond to user interactions and URL changes.
+React Router Dom is especially useful when:
 
-4. **Back and Forward Navigation**: React Router Dom handles the browser's back and forward buttons, allowing users to navigate through the application's history seamlessly.
+- Your app needs multiple screens or views
+- You want bookmarkable and shareable URLs
+- You want browser back/forward navigation to work correctly
+- You want to structure your app around layouts and nested views
+- You want to scale your project without turning `App.jsx` into a monolith
 
-5. **Code Splitting**: It facilitates code splitting by loading only the components needed for the current route, resulting in faster initial page loads.
+---
 
-## How to Install React Router Dom
+## Installing React Router Dom
 
-To get started with React Router Dom, you need to install it into your React project. You can do this using npm.
-
-Using npm:
+To add routing to the PokemonCard project, install React Router Dom:
 
 ```bash
 npm install react-router-dom
 ```
 
-Create a "pages" directory where we'll put each component that will be a "page" - that there will be routing for. This is not required, but is recommended and a common way of organizing your code:
+This library integrates directly with React and works seamlessly with Vite.
+
+---
+
+## Organizing the Project for Routing
+
+Before adding routes, it is important to organize the project correctly.
+
+A common convention is to separate **pages** from **reusable components**.
+
+Inside `src`, create a `pages` directory:
 
 ```bash
 mkdir src/pages
 ```
 
-## How to Create and Connect a React Browser Router to a Vite + React Development Environment
+* Components represent reusable UI building blocks (e.g., PokemonCard, PokemonForm)
+* Pages represent full-screen views that are tied to routes (e.g., HomePage)
 
-In this section, we'll walk through setting up React Router Dom in a Vite + React project.
+This separation helps enforce clarity as the application grows.
 
-1. **Create a New Vite + React Project**:
-   If you don't already have a Vite + React project, you can create one using the following command:
+---
 
-   ```bash
-   npm create vite my-react-router-app
-   cd my-react-router-app
-   ```
+## Creating Pages for the Pokemon Application
 
-2. **Install React Router Dom**:
-   As mentioned earlier, install React Router Dom in your project using npm.
+Create a `HomePage.jsx` file inside `src/pages`. This file is pretty much going to hold the current state of `App.jsx` this way we can isolate the Home behavior and separate it from other pages.
 
-3. **Create Routes**:
-   In your project directory, create a new file, e.g., "router.jsx." Inside this file define your application's routes. Here's a basic example:
+```jsx
+import { useState, useEffect } from "react";
+import axios from "axios";
+import PokemonCard from "../components/PokemonCard";
+import PokemonForm from "../components/PokemonForm";
 
-   ```jsx
-   // router.jsx
-   import { createBrowserRouter } from "react-router-dom";
-   import App from "./App";
-   import HomePage from "./pages/HomePage";
+const HomePage = () => {
+  const [pokemonsData, setPokemonsData] = useState([]);
 
-   const router = createBrowserRouter([
-     {
-       path: "/",
-       element: <App />,
-       children: [
-         {
-           index: true,
-           element: <HomePage />,
-         },
-       ],
-     },
-   ]);
+  const addCard = async (name, event = null) => {
+    event && event.preventDefault();
+    try {
+      let searchUrl = `https://pokeapi.co/api/v2/pokemon/${name}`;
+      let response = await axios.get(searchUrl);
+      setPokemonsData([...pokemonsData, response.data]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-   export default router;
-   ```
+  useEffect(() => {
+    addCard("Pikachu");
+  }, []);
 
-4. **Create Page Components**:
-   Create the Page components for the routes mentioned in the "router.jsx" file, such as "HomePage.jsx"
+  return (
+    <>
+      <div id="cardHolder">
+        {pokemonsData.map((data) => (
+          <PokemonCard key={data.id} data={data} />
+        ))}
+      </div>
+      <PokemonForm addCard={addCard} />
+    </>
+  );
+}
 
-5. **Connect Browser Router to main.jsx**
-   Currently our application doesn't know it's supposed to use the Browser Router we've just created. We have to tell main.jsx to utilize our browser router to render pages and components on the browser instead of immediately rendering App.jsx.
+export default HomePage;
+```
 
-    ```jsx
-   import React from "react";
-   import ReactDOM from "react-dom/client";
-   import { RouterProvider } from "react-router-dom";
-   import router from "./router";
-   import "./index.css";
+The HomePage component represents a **route-level view**, not a generic component.
 
-   ReactDOM.createRoot(document.getElementById("root")).render(
-     <RouterProvider router={router} />
-   );
-   ```
+---
 
-6. **Use Routes in Your App**:
-   In your main application component, import and use the `AppRoutes` component.
+## Creating the Browser Router
 
-   ```jsx
-   // App.js
-   import { Outlet } from "react-router-dom";
+Create a new file at `src/router.jsx`.
 
-   export default function App() {
-     return <Outlet />;
-   }
-   ```
+```jsx
+import { createBrowserRouter } from "react-router-dom";
+import App from "./App";
+import HomePage from "./pages/HomePage";
 
-7. **Start the Development Server**:
-   You can now start the Vite development server:
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+    ],
+  },
+]);
 
-   ```bash
-   npm run dev
-   ```
+export default router;
+```
 
-   Your React application with React Router Dom is up and running. You can access different routes like `/`.
+Key concepts introduced here:
 
-That's it! You've successfully set up React Router Dom in your Vite + React project. You can now expand your application by defining additional routes and components to create a more complex SPA.
+* The root route (`/`) renders `App`
+* Child routes render inside `App` using `<Outlet />`
+* The index route represents the default child route
+
+---
+
+## Connecting the Router to the Application
+
+By default, Vite renders `App.jsx` directly. To enable routing, we must replace that behavior.
+
+Update `src/main.jsx`:
+
+```jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
+import "./index.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
+```
+
+At this point, React Router Dom controls which components are rendered based on the URL.
+
+---
+
+## Updating App.jsx to Act as a Layout
+
+With routing in place, `App.jsx` no longer renders page content directly. Instead, it acts as a **layout component**.
+
+```jsx
+import { Outlet } from "react-router-dom";
+import "./App.css";
+
+function App() {
+  return (
+    <>
+      <Outlet />
+    </>
+  );
+}
+
+export default App;
+```
+
+This pattern allows for a clear and clean separation of routing and UI logic
+
+---
+
+## Understanding the Mental Model
+
+With React Router Dom:
+
+* URLs determine which components render
+* Pages represent routes
+* Components remain reusable and route-agnostic
+* `App.jsx` becomes a layout instead of a page
+* Navigation does not reload the browser
+
+This is a fundamental shift from manually showing and hiding components to **URL-driven rendering**.
+
+---
+
+## Conclusion
+
+React Router Dom introduces a scalable architecture for React applications by allowing the UI to respond directly to the browser’s URL. By integrating routing into the PokemonCard project, we moved from a single-view application to a multi-view SPA with clear separation between pages, layouts, and reusable components.
+
+Understanding routing early enables students to reason about application structure, navigation, and long-term scalability. With routing in place, the PokemonCard application is now prepared for additional features such as detail pages, navigation bars, and nested views.

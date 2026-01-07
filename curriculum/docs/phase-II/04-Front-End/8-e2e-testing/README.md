@@ -6,11 +6,13 @@ By learning about front-end testing and how to test React applications with Cypr
 
 ## Lectures and Assignments
 
-- [Lecture - Why Testing?](./1-why-testing.md)
-- [Lecture - Cypress](./2-cypress-react.md)
-  - [Assignment - Cypress](https://github.com/Code-Platoon-Assignments/react-cypress.git)
-  - [Assignment - Refactor](https://github.com/Code-Platoon-Assignments/React-Refactor.git)
-  - [Reading Assignment - Beginning React.JS Ch.12(stop at pg.317)](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
+### Lectures
+
+- [Lecture - Why Testing?](./1-cypress-react.md)
+- [Lecture - Cypress](./2-cypress-assertions.md)
+
+### [Assignments](./assignments.md)
+
 
 ## TLO's (Terminal Learning Objectives)
 

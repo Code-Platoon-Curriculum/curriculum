@@ -6,10 +6,13 @@ By learning about React Router DOM hooks such as useParams, useNavigate, and use
 
 ## Lectures and Assignments
 
+### Lectures
+
 - [Lecture - useNavigate and useParams](./1-useParams-useNav.md)
-  - [Assignment - Rick and Morty](https://github.com/Code-Platoon-Assignments/Rick-and-Morty-React-III.git)
 - [Lecture - useOutletContext](./2-useOutletContext.md)
-  - [Assignment - Rick and Morty](https://github.com/Code-Platoon-Assignments/Rick-and-Morty-React-IV.git)
+
+### [Assignments](./assignments.md)
+
 
 ## TLO's (Testable Learning Objectives)
 

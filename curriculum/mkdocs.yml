@@ -152,20 +152,24 @@ nav:
           - React Components - Assignments: phase-II/04-Front-End/4-react-components/assignments.md
         - Component & Utility Libraries:
           - Component & Utility Libraries - Overview: phase-II/04-Front-End/5-components-utilities/README.md
-          - Tailwind: phase-II/04-Front-End/5-components-utilities/1-tailwind.md
-          - BootStrap: phase-II/04-Front-End/5-components-utilities/2-bootstrap.md
+          - Tailwind CSS: phase-II/04-Front-End/5-components-utilities/1-tailwind.md
+          - React BootStrap: phase-II/04-Front-End/5-components-utilities/2-bootstrap.md
+          - Component & Utility Libraries - Assignments: phase-II/04-Front-End/5-components-utilities/assignments.md
         - React Router DOM:
           - React Router DOM - Overview: phase-II/04-Front-End/6-intro-to-react-router/README.md
           - Intro to React Router DOM: phase-II/04-Front-End/6-intro-to-react-router/1-intro-react-router.md
           - React Router DOM Pages: phase-II/04-Front-End/6-intro-to-react-router/2-adding-router-pages.md
+          - React Router DOM - Assignments: phase-II/04-Front-End/6-intro-to-react-router/assignments.md
         - React Router DOM Hooks:
           - React Router DOM Hooks - Overview: phase-II/04-Front-End/7-react-router-hooks/README.md
           - useParams & useNav: phase-II/04-Front-End/7-react-router-hooks/1-useParams-useNav.md
           - useOutletContext: phase-II/04-Front-End/7-react-router-hooks/2-useOutletContext.md
+          - React Router DOM Hooks - Assignments: phase-II/04-Front-End/7-react-router-hooks/assignments.md
         - E2E Testing:
           - E2E Testing - Overview: phase-II/04-Front-End/8-e2e-testing/README.md
-          - Why Testing: phase-II/04-Front-End/8-e2e-testing/1-why-testing.md
-          - Cypress & React: phase-II/04-Front-End/8-e2e-testing/2-cypress-react.md
+          - Cypress & React: phase-II/04-Front-End/8-e2e-testing/1-cypress-react.md
+          - Cypress Assertions: phase-II/04-Front-End/8-e2e-testing/2-cypress-assertions.md
+          - E2E Testing - Assignments: phase-II/04-Front-End/8-e2e-testing/assignments.md
   - Phase III: phase-III
   - Phase IV: phase-IV
   - Phase V: phase-V

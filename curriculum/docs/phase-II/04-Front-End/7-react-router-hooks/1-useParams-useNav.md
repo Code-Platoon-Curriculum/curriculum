@@ -1,158 +1,246 @@
-# Utilizing useParams and useNavigate
+# useParams and useNavigate
+
+## Introduction
+
+Modern React applications often need to display **detail views** based on user interaction. Clicking on a list item, card, or row should navigate the user to a page that displays more information about that specific resource.
+
+In this lesson, we will extend the PokemonCard application by adding a **Pokemon Details page**. This page will be driven by a dynamic URL parameter and reached through programmatic navigation.
+
+By the end of this lecture, students will understand how:
+
+- URLs can represent application state
+- Dynamic route parameters work
+- Components can navigate imperatively without links
+- Routing, data fetching, and UI composition work together
+
+---
 
 ## What is `useParams`?
 
-`useParams` is a hook provided by React Router, specifically the `react-router-dom` library. It allows you to access and extract URL parameters from the current route in your React application.
+`useParams` is a hook provided by `react-router-dom` that allows a component to **read dynamic values from the URL**.
 
-### What Problem Does `useParams` Solve?
-
-`useParams` is used to solve the problem of extracting dynamic data from the URL. When your application has routes with dynamic segments (e.g., user profiles, product pages), you need to access the values in the URL and use them to customize the content of your components.
-
-### When Should `useParams` Be Utilized?
-
-`useParams` should be utilized when:
-
-- You need to access and utilize data from the URL to render component content dynamically.
-- Your application has routes with dynamic segments (e.g., `/user/:id`, where `id` is a dynamic parameter).
-
-### Example: Using `useParams`
-
-#### Step 1: Install Dependencies
-
-If you haven't already, make sure you have `react-router-dom` installed in your Vite project:
+When a route includes a dynamic segment, such as:
 
 ```bash
-npm install react-router-dom
+/pokemon/:id
 ```
 
-#### Step 2: Set Up Basic Routing
+`useParams` allows the component rendered at that route to access the `id` value directly.
 
-Assuming you have a Vite project set up with React, wrap your application with the `BrowserRouter` component in your `main.js` or `App.js`:
+> the `:` declares `id` as a parameter within this route
 
-```jsx
-// main.js
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import { RouterProvider } from 'react-router-dom'
-import router from './router.jsx'
+---
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <RouterProvider router={router} />
-)
+## What Problem Does `useParams` Solve?
 
-```
+Applications frequently need to render content based on **which resource the user is viewing**.
 
-#### Step 3: Create a Route
+Examples include:
 
-Define a route with a dynamic parameter in your `router.jsx` or another component file:
+- Viewing a specific Pokémon
+- Viewing a user profile
+- Viewing a product detail page
 
-```jsx
-import { createBrowserRouter } from "react-router-dom";
-import App from "./App";
-import HomePage from "./pages/HomePage";
-import MovieDetailsPage from "./pages/MovieDetailsPage";
-import NotFoundPage from "./pages/NotFoundPage";
+Rather than storing this information in state, the **URL becomes the source of truth**. `useParams` provides a clean way to extract that information.
 
+---
 
-const router = createBrowserRouter([
-    {
-        // http://localhost:5173/
-        path: "/",
-        element: <App/>,
-        children: [
-            {
-                index: true,
-                element: <HomePage/>
-            },
-            {
-                path: 'movie/:id/', //{id} is a dynamic parameter
-                element: <MovieDetailsPage />
-            },
-        ],
-        errorElement: <NotFountPage />
-    }
-])
+## Adding a Pokemon Details Route
 
-export default router;
-```
+### Creating the Details Page
 
-#### Step 4: Utilize `useParams`
+Inside `src/pages`, create a new file called `PokemonDetailsPage.jsx`.
 
-In the `MovieDetailsPage` component, use the `useParams` hook to access the `id` parameter from the URL:
+This page will:
+
+- Read the Pokémon ID from the URL
+- Fetch data from the PokeAPI
+- Display a clean, focused Pokémon view
+
+#### Capturing the Parameter
+
+Lets first work through the process of grabbing the parameter straight from the url pattern and displaying it on the screen:
 
 ```jsx
-import React from 'react';
-import { useParams } from 'react-router-dom';
+//router.jsx within `children
+{
+  path: "pokemon/:id",
+  element: <PokemonDetailsPage />,
+}
 
-const MovieDetailsPage = () => {
-  const { id } = useParams(); //useParams returns an object that we can destructure to grab the ID from our passed in through our URL
-  
+// PokemonDetailsPage.jsx
+import { useParams } from "react-router-dom";
+import axios from "axios";
+
+const PokemonDetailsPage = () => {
+  const { id } = useParams();
+
   return (
     <div>
-      Movie ID: {id}
+      <h2>{id}</h2>
     </div>
   );
 };
 
-export default MovieDetailsPage;
+export default PokemonDetailsPage;
+
+// within the PokemonCard.jsx add
+<Link to={`/pokemon/${data.id}`}>Details</Link>
 ```
 
-With this setup, the `id` parameter from the URL will be extracted and displayed in your `MovieDetailsPage` component.
+Now when you click on a cards *Details link you should see the Pokemons Id being displayed on the screen.
+
+---
+
+#### Fetching Pokemon Data
+
+We will utilize
+
+```jsx
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+const PokemonDetailsPage = () => {
+  const { id } = useParams();
+  const [pokemon, setPokemon] = useState(null);
+
+  const fetchPokemon = async () => {
+    try {
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${id}`
+      );
+      setPokemon(response.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(()=>{
+    fetchPokemon()
+  }, [id])
+
+  return (
+    <>
+      {
+        pokemon ?
+        <div>
+          <h1>{pokemon.name}</h1>
+          <img src={pokemon.sprites.front_default} />
+          <p>Height: {pokemon.height}</p>
+          <p>Weight: {pokemon.weight}</p>
+        </div>
+        :
+        <p>Loading...</p>
+      }
+    </>
+  );
+};
+
+export default PokemonDetailsPage;
+```
+
+This component **does not receive props**. Everything it needs comes from the URL. Let's break it down a bit further. Here we conduct the following:
+
+- Grab the ID parameter from the URL pattern
+- Fetch a Pokemons data from the PokeAPI
+- Anytime the ID parameter changes update the state of `pokemon`
+- Once a Pokemon is present, render the Pokemon details
+
+---
 
 ## What is `useNavigate`?
 
-`useNavigate` is another hook provided by React Router, specifically the `react-router-dom` library. It offers a programmatic way to navigate between different routes in your React application.
+`useNavigate` is a hook that allows components to **change routes programmatically**.
 
-### What Problem Does `useNavigate` Solve?
+Instead of relying on links, components can trigger navigation as a result of:
 
-`useNavigate` solves the problem of programmatically navigating between routes. It allows you to change the route based on user interactions, form submissions, or other application logic.
+* Button clicks
+* Form submissions
+* Business logic
 
-### When Should `useNavigate` Be Utilized?
+---
 
-`useNavigate` should be utilized when:
+## Why Use `useNavigate` Instead of `Link`?
 
-- You need to programmatically change the route in your application.
-- Handling user interactions that require route changes, such as form submissions or button clicks.
+While `<Link>` is ideal for static navigation, `useNavigate` is preferred when:
 
-### Example: Using `useNavigate`
+* Navigation depends on data
+* Navigation is triggered by logic
+* Navigation is attached to non-anchor UI (buttons, cards)
 
-#### Step 1: Install React-Router-DOM
+In our case, clicking a Pokémon card button should navigate to a page **based on that Pokémon’s ID**.
 
-Ensure that you have `react-router-dom` installed, as mentioned in Part 1.
+---
 
-### Step 2: Basic Setup
+## Updating the PokemonCard Component
 
-Your project should already be set up with the `BrowserRouter` in `main.jsx` or `App.jsx`.
+We will now add a **“See Details”** button to each Pokémon card.
 
-### Step 3: Utilize `useNavigate`
+This button will:
 
-In a component where you want to trigger a programmatic route change, import and use the `useNavigate` hook:
+* Read the Pokémon ID from props
+* Navigate to `/pokemon/:id`
 
 ```jsx
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const NavigationExample = () => {
+function PokemonCard({ data }) {
+  const [shiny, setShiny] = useState(false);
   const navigate = useNavigate();
-
-  const handleButtonClick = () => {
-    // Navigate to a different route on button click
-    navigate('/other-route');
-  };
 
   return (
     <div>
-      <button onClick={handleButtonClick}>Go to Other Route</button>
+      <h2>{data.name}</h2>
+      <img
+        src={
+          shiny
+            ? data.sprites.front_shiny
+            : data.sprites.front_default
+        }
+      />
+      <button onClick={() => setShiny(!shiny)}>
+        {shiny ? "un-shine" : "shine"}
+      </button>
+
+      <button onClick={() => navigate(`/pokemon/${data.id}`)}>
+        See Details
+      </button>
     </div>
   );
-};
+}
 
-export default NavigationExample;
+export default PokemonCard;
 ```
 
-In this example, when the button is clicked, it will navigate to the `/other-route`. This is a simple example of how `useNavigate` can be used to change routes programmatically.
+This keeps the card reusable while allowing it to participate in navigation.
+
+---
+
+## The Mental Model
+
+At this point, the application follows a clean routing architecture:
+
+* **Lists live on pages**
+* **Details live at URL-specific routes**
+* **URLs represent what the user is viewing**
+* **Components do not own navigation state**
+
+The URL `/pokemon/25` now fully represents:
+
+> “The user is viewing Pikachu”
+
+---
 
 ## Summary
 
-In Part 1, you learned how to use `useParams` to access URL parameters and utilize them to customize component content. In Part 2, you learned how to use `useNavigate` to programmatically navigate between routes in your React application. These hooks are essential for building dynamic and interactive routing in your Vite project.
+In this lesson, you learned how to:
+
+* Use `useParams` to read dynamic values from the URL
+* Use `useNavigate` to programmatically change routes
+* Build a real detail page backed by a public API
+* Connect list views to detail views using routing
+* Treat URLs as a source of application state
+
+This pattern is foundational for building scalable React applications and mirrors how professional SPAs structure navigation and data flow.

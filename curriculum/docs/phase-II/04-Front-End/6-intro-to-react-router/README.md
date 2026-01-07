@@ -6,11 +6,13 @@ By learning to add routing to your React + Vite project using react-router-dom, 
 
 ## Lectures and Assignments
 
+### Lectures
+
 - [Lecture - Intro to React-Router-Dom](./1-intro-react-router.md)
-  - [Assignment - Rick and Morty](https://github.com/Code-Platoon-Assignments/Rick-and-Morty-React.git)
 - [Lecture - Adding Navigation and Pages](./2-adding-router-pages.md)
-  - [Assignment - Rick and Morty](https://github.com/Code-Platoon-Assignments/Rick-and-Morty-React-II.git)
-  - [Reading Assignment - Beginning React.JS Ch.12 (start at pg.317)](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
+
+### [Assignments](./assignments.md)
+
 
 ## TLO's (Testable Learning Objectives)
 
