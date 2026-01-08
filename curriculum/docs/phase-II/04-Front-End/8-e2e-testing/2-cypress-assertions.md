@@ -51,7 +51,7 @@ describe('PokemonCard App', () => {
 
   it('displays Pikachu on initial load', () => {
     cy.get('#cardHolder').children().should('have.length', 1);
-    cy.get('#cardHolder').contains('Pikachu');
+    cy.get('#cardHolder').contain('pikachu').should('exist')
   });
 
 });
@@ -60,7 +60,7 @@ describe('PokemonCard App', () => {
 > **Assertion Explanation:**
 
 * `children().should('have.length', 1)` ensures only one Pokémon exists initially.
-* `contains('Pikachu')` verifies the correct Pokémon name is displayed.
+* `contains('pikachu')` verifies the correct Pokémon name is displayed.
 
 ---
 
@@ -70,11 +70,11 @@ describe('PokemonCard App', () => {
 it('can add Bulbasaur and Charizard', () => {
   cy.get('input[name="pokemonName"]').type('Bulbasaur');
   cy.get('button[type="submit"]').click();
-  cy.get('#cardHolder').contains('Bulbasaur');
+  cy.get('#cardHolder').contains('bulbasaur');
 
   cy.get('input[name="pokemonName"]').clear().type('Charizard');
   cy.get('button[type="submit"]').click();
-  cy.get('#cardHolder').contains('Charizard');
+  cy.get('#cardHolder').contains('charizard');
 
   cy.get('#cardHolder').children().should('have.length', 3);
 });

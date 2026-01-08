@@ -10,7 +10,7 @@ By the end of Phase II, students will understand how data flows through an appli
 
 ## Modules
 
-### [Module 4 – Front-End Development (React & Docker)](03-Frontend/README.md)
+### [Module 4 – Front-End Development (React & Docker)](04-Frontend/README.md)
 
 Module 4 introduces students to the front-end layer of modern web applications, beginning with a conceptual overview of full stack development. Students explore how the internet works, the role of the browser, and how front-end, back-end, and databases interact within a complete system. This foundational understanding helps students contextualize every tool they use moving forward.
 
@@ -22,7 +22,7 @@ Routing is introduced through React Router DOM, where students build Single Page
 
 ---
 
-### [Module 5 – Back-End Development (Django & Docker)](04-Backend/README.md)
+### [Module 5 – Back-End Development (Django & Docker)](05-Backend/README.md)
 
 Module 5 shifts focus to the server-side of full stack applications. Students begin by learning how relational database management systems work, with PostgreSQL serving as the primary database. They explore schema design, table relationships, SQL queries, and joins, using tools like drawSQL to visualize database structures. Concepts such as normalization are introduced to promote clean and maintainable data design.
 
@@ -34,7 +34,7 @@ The module continues with API development using Django REST Framework APIViews a
 
 ---
 
-### [Module 6 – Full Stack Integration (Docker Compose)](05-Fullstack/README.md)
+### [Module 6 – Full Stack Integration (Docker Compose)](06-Fullstack/README.md)
 
 Module 6 brings all layers of the application together into a cohesive full stack system. Students are introduced to Docker Compose as a tool for orchestrating multiple services, including React, Django, PostgreSQL, NGINX, and Gunicorn. They learn how container networking works and how services communicate with one another within a composed environment.
 

@@ -170,6 +170,58 @@ nav:
           - Cypress & React: phase-II/04-Front-End/8-e2e-testing/1-cypress-react.md
           - Cypress Assertions: phase-II/04-Front-End/8-e2e-testing/2-cypress-assertions.md
           - E2E Testing - Assignments: phase-II/04-Front-End/8-e2e-testing/assignments.md
+        - CI/CD:
+          - CI/CD - Overview: phase-II/04-Front-End/9-ci-cd/README.md
+          - GH Pages: phase-II/04-Front-End/9-ci-cd/1-gh-pages.md
+          - GH Actions: phase-II/04-Front-End/9-ci-cd/2-gh-actions.md
+          - CI/CD - assignments: phase-II/04-Front-End/9-ci-cd/assignments.md 
+      - Back-End:
+        - Back-End - Overview: phase-II/05-Back-End/README.md
+        - RDBMS:
+          - RDBMS - Overview: phase-II/05-Back-End/1-rdbms/README.md
+          - Intro to Postgres: phase-II/05-Back-End/1-rdbms/1-intro-postgres.md
+          - Constraints and Queries: phase-II/05-Back-End/1-rdbms/2-constraints-queries.md
+          - RDBMS - Assignments: phase-II/05-Back-End/1-rdbms/assignments.md
+        - Django ORM:
+          - Django ORM - Overview: phase-II/05-Back-End/2-intro-to-django-orm/README.md
+          - Django ORM: phase-II/05-Back-End/2-intro-to-django-orm/1-intro-django-orm.md
+          - Fixtures and Admin: phase-II/05-Back-End/2-intro-to-django-orm/2-fields-methods-fixtures-admin.md
+          - Django ORM - Assignments: phase-II/05-Back-End/2-intro-to-django-orm/assignments.md
+        - Validators & Serializers:
+          - Validators & Serializers - Overview: phase-II/05-Back-End/3-validators-and-serializers/README.md
+          - Validators & Tests: phase-II/05-Back-End/3-validators-and-serializers/1-intro-validators-and-tests.md
+          - Model Serializers: phase-II/05-Back-End/3-validators-and-serializers/2-intro-model-serializers.md
+          - Validators & Serializers - Assignments: phase-II/05-Back-End/3-validators-and-serializers/assignments.md
+        - Relationships & the Server:
+          - Relationships & the Server - Overview: phase-II/05-Back-End/4-associations-and-django-server/README.md
+          - Relationships: phase-II/05-Back-End/4-associations-and-django-server/1-intro-associations.md
+          - Django Server: phase-II/05-Back-End/4-associations-and-django-server/2-intro-to-django-server.md
+          - Relationships & the Server - Assignments: phase-II/05-Back-End/4-associations-and-django-server/assignments.md
+        - API Views & Testing:
+          - API Views & Testing - Overview: phase-II/05-Back-End/5-api-views-and-testing/README.md
+          - API Views: phase-II/05-Back-End/5-api-views-and-testing/1-api-views.md
+          - Endpoints and Testing: phase-II/05-Back-End/5-api-views-and-testing/2-endpoints-and-testing.md
+          - API Views & Testing - Assignments: phase-II/05-Back-End/5-api-views-and-testing/assignments.md
+        - CRUD:
+          - CRUD - Overview: phase-II/05-Back-End/6-create-read-update-delete/README.md
+          - Intro to CRUD: phase-II/05-Back-End/6-create-read-update-delete/1-intro-to-CRUD.md
+          - Create & Delete: phase-II/05-Back-End/6-create-read-update-delete/2-create-and-delete.md
+          - CRUD - Assignments: phase-II/05-Back-End/6-create-read-update-delete/assignments.md
+        - User Authentication:
+          - User Authentication - Overview: phase-II/05-Back-End/7-user-authentication/README.md
+          - Create and Log In: phase-II/05-Back-End/7-user-authentication/1-create-login.md
+          - Info and Logout: phase-II/05-Back-End/7-user-authentication/2-info-logout.md
+          - User Authentication - Assignments: phase-II/05-Back-End/7-user-authentication/assignments.md
+        - Server Side API's:
+          - Server Side API's - Overview: phase-II/05-Back-End/8-server-side-apis/README.md
+          - BE API's & Secrets: phase-II/05-Back-End/8-server-side-apis/1-back-end-apis-and-secrets.md
+          - Formatting Responses: phase-II/05-Back-End/8-server-side-apis/2-formatting-responses.md
+          - Server Side API's - Assignments: phase-II/05-Back-End/8-server-side-apis/assignments.md
+        - Caching & Logging:
+          - Caching & Logging - Overview: phase-II/05-Back-End/9-caching-logging/README.md
+          - Server Caching: phase-II/05-Back-End/9-caching-logging/1-caching.md
+          - Server Logging: phase-II/05-Back-End/9-caching-logging/2-logging.md
+          - Caching & Logging - Assignments: phase-II/05-Back-End/9-caching-logging/assignments.md
   - Phase III: phase-III
   - Phase IV: phase-IV
   - Phase V: phase-V

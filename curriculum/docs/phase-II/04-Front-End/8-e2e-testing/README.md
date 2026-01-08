@@ -8,8 +8,8 @@ By learning about front-end testing and how to test React applications with Cypr
 
 ### Lectures
 
-- [Lecture - Why Testing?](./1-cypress-react.md)
-- [Lecture - Cypress](./2-cypress-assertions.md)
+- [Lecture - Cypress and React](./1-cypress-react.md)
+- [Lecture - Cypress Assertions](./2-cypress-assertions.md)
 
 ### [Assignments](./assignments.md)
 

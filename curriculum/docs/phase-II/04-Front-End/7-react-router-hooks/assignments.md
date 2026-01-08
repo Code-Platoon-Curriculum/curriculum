@@ -12,5 +12,5 @@ Assignments should be completed from top to bottom as they will raise in difficu
 
 ## Stretch
 
-- <a href="https://github.com/Code-Platoon-Assignments/react-news-site-iv" target="_blank" rel="noopener noreferrer">Assignment - News Site IV</a>
 - <a href="https://github.com/Code-Platoon-Assignments/react-news-site-iii" target="_blank" rel="noopener noreferrer">Assignment - News Site III</a>
+- <a href="https://github.com/Code-Platoon-Assignments/react-news-site-iv" target="_blank" rel="noopener noreferrer">Assignment - News Site IV</a>
