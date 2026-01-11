@@ -57,6 +57,7 @@ good_pokemon = models.BooleanField()
 > Create a `fixtures` directory inside of our 'pokemon_app' and make a file named `pokemon_data.json` within it.
 
 ```bash
+    # DOCKER CONTAINER TERMINAL
     mkdir pokemon_app/fixtures
     # the following command will dump our PostgresSQL data from this data table onto a json 
     # file named pokemon_data.json. Notice we haven't created said file just yet so it's sage 
@@ -83,6 +84,7 @@ good_pokemon = models.BooleanField()
 > Just like Django allows to "back up" your data by dumping it onto a JSON file. Django also allows you to load data from a JSON file through the `loaddata` command.
 
 ```bash
+    # DOCKER CONTAINER TERMINAL
     python manage.py loaddata pokemon_data.json
     Installed 1 object(s) from 1 fixture(s)
 ```

@@ -195,7 +195,7 @@ nav:
           - Validators & Serializers - Assignments: phase-II/05-Back-End/3-validators-and-serializers/assignments.md
         - Relationships & the Server:
           - Relationships & the Server - Overview: phase-II/05-Back-End/4-associations-and-django-server/README.md
-          - Relationships: phase-II/05-Back-End/4-associations-and-django-server/1-intro-associations.md
+          - Relationships: phase-II/05-Back-End/4-associations-and-django-server/1-intro-to-associations.md
           - Django Server: phase-II/05-Back-End/4-associations-and-django-server/2-intro-to-django-server.md
           - Relationships & the Server - Assignments: phase-II/05-Back-End/4-associations-and-django-server/assignments.md
         - API Views & Testing:

@@ -137,17 +137,26 @@ INSTALLED_APPS = [
 
 ## Linking PostgreSQL with Django
 
+As of now we don't know how to create a Django container just yet, but what we can do, is start a PostgreSQL container that we will eventually link to our Django container later on.
+
 ### **Create a database**
 
 > Now our `pokedex_proj` project needs a database to manage all of its data through Django-ORM (NOT OPERATIONAL RISK MANAGEMENT BUT OBJECT RELATIONAL MAPPING). We'll be creating a `pokedex_db` database with one table: `pokemon`.
 > First we will create our database on PostgreSQL to link onto our Django Project.
 
-```bash
-# bash
-  createdb pokedex_db
-# SQL 
-  CREATE DATABASE pokedex_db;
+```Dockerfile
+FROM postgres:15
+
+ENV POSTGRES_USER=cp_user
+ENV POSTGRES_PASSWORD=password
+ENV POSTGRES_DB=pokedex_db
+
+EXPOSE 5432
+
+CMD ["postgres"]
 ```
+
+### **Linking the Database**
 
 > And then tell Django we want to use Postgres as our database instead of the default, SQLite3. Then we will specify the name of the database we want to utilize for this project.
 
@@ -159,6 +168,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pokedex_db',
+        'HOST': 'postgres-container' # location where postgresql is living within the Docker Engine
+        'PORT': '5432',
+        'USER': 'cp_user',
+        'PASSWORD': 'password'
     }
 }
 ```
@@ -170,6 +183,61 @@ DATABASES = {
 ```bash
   python -m pip install --upgrade pip 
   pip install "psycopg[binary]"
+```
+
+> Since we just installed a new *dependency* onto our virtual environment, we should update our requirements.txt to reflect the new install as well.
+
+```bash
+pip freeze > requirements.txt
+```
+
+
+## Django and Docker
+
+> Now it's time to start running our Django application within a Docker Container. We can do this by doing the following:
+
+1. writing a Dockerfile that will host a Python environment.
+2. Copying our project onto the image.
+3. Running the container with the following conditions:
+    - link to our *postgres-container*
+    - mount to our Django project directory to ensure it can conduct a *hot reload*
+    - connecting our machines port 8000 to the Docker Engines port 8000.
+
+> Here's the Dockerfile you can utilize to host our Django project.
+
+```Dockerfile
+FROM python:latest
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8000
+
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+```
+
+> The process of creating the image should look very similar and familiar to what we've done in the passed specially when we hosted the React application. Now we must run the container and that's going to have a series of commands that can make the hosting of the container a bit difficult:
+
+```bash
+docker run -d --rm \
+  -p 8000:8000 \
+  -v $(pwd)/:/app/ \
+  --name django-container \
+  --link django-container:postgres-container \
+  django-img
+```
+
+> The only new command we see here is the `--link` command, which creates a link within the Docker Network that let's the postgres-container and django container speak to one another.
+
+### Entering the Django Docker Container
+
+> Now we must maintain the state of our containerized database and Django project so the majority of the following commands will have to be executed within the Django Docker Container. Think about it this way, you are to write code within VSCode but execute shell commands within the Docker Container. You can enter the Django container by running the following:
+
+```bash
+docker exec --it django-container bash
 ```
 
 ## Creating a Model
@@ -204,13 +272,14 @@ class Pokemon(models.Model):
 > We've created a Python class that directly maps to a database table (i.e., a model). Next, let's tell Django to create the necessary code for us to get this table into the database:
 
 ```bash
-  # TERMINAL
+  # DOCKER CONTAINER TERMINAL
   python manage.py makemigrations
 ```
 
 > A folder was just generated called `migrations`. Look inside there and take a look at the Django code that was generated for us to put our tables into the database. If we were not using an ORM, we would have to write these migrations ourselves, by hand, so let's take a moment to appreciate all the time and effort that Django-ORM is saving us. Next, let's `migrate` our database, so that it reflects the current state of our models.
 
 ```bash
+  # DOCKER CONTAINER TERMINAL
   python manage.py migrate
 ```
 
@@ -221,7 +290,7 @@ class Pokemon(models.Model):
 > While we can interact with our data using Postgres, more often we want to interact with our data using Python. We're going to use a console for our project that will pull in all our Python classes and allow us to query the database directly using Django's ORM.
 
 ```bash
-# Terminal
+# # DOCKER CONTAINER TERMINAL
 python manage.py shell
 # When you run the command above you'll enter a python terminal that is able to interact with your Django project
 Python 3.11.3 (main, Apr  7 2023, 20:13:31) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
@@ -233,7 +302,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 > The shell will allow us to load in our models from Django. Once in the shell, we can create a new pokemon.
 
 ```python
-# Python Terminal
 >>> pikachu = Pokemon(name = 'Pikachu', level = 12)
 >>> pikachu.save()
 ```
@@ -254,11 +322,17 @@ INSERT into pokemon (name, level) VALUES ("Pikachu", 12)
 <QuerySet [<Pokemon: Pokemon object (1)>]>
 ```
 
-> You should get back a list of Query Objects. This may not seem like much but you've actually places data onto PostgreSQL and now have grabbed all entries of that data table through Python.
+> You should get back a list of Query Objects. This may not seem like much but you've actually placed data onto PostgreSQL and now have grabbed all entries of that data table through Python.
 
-> Exit the shell by typing `exit()`. Let's confirm that our new record got saved in our Postgres db.
+> Exit the shell by typing `exit()`. Let's confirm that our new record got saved in our Postgres db. In a separate machine terminal enter the `poke_db` through the `postgres-container` which should be attached to your OS  port 5433.
 
 ```bash
+psql -h localhost -p 5433 -d poke_db -U cp_user
+```
+
+> Enter the password and upon entering execute `\d` to display the following:
+
+```sql
 psql pokedex_db
 psql (11.1, server 9.6.3)
 Type "help" for help.
@@ -269,8 +343,8 @@ pokedex_db=# \d
 --------+-----------------------------------+----------+---------------
  ...    |   ...........                     |   ...    |    ........
  public | django_session                    | table    | codingisawesome
- public | pokemon_app_pokemon             | table    | codingisawesome
- public | pokemon_app_pokemon_id_seq      | sequence | codingisawesome
+ public | pokemon_app_pokemon               | table    | codingisawesome
+ public | pokemon_app_pokemon_id_seq        | sequence | codingisawesome
 
 ```
 
