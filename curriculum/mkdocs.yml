@@ -179,6 +179,7 @@ nav:
         - Back-End - Overview: phase-II/05-Back-End/README.md
         - RDBMS:
           - RDBMS - Overview: phase-II/05-Back-End/1-rdbms/README.md
+          - RDBMS - Pre-Requisite: phase-II/05-Back-End/1-rdbms/0-setup.md
           - Intro to Postgres: phase-II/05-Back-End/1-rdbms/1-intro-postgres.md
           - Constraints and Queries: phase-II/05-Back-End/1-rdbms/2-constraints-queries.md
           - RDBMS - Assignments: phase-II/05-Back-End/1-rdbms/assignments.md
