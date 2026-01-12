@@ -4,7 +4,8 @@
 
 ### Lectures
 
-- [Lesson - Django Auth](./1-django-auth.md)
+- [Lecture - Create & LogIn](./1-create-login.md)
+- [Lecture - Info and LogOut](./2-info-logout.md)
 
 ### [Assignments](./assignments.md)
 
