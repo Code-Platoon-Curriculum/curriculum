@@ -40,6 +40,18 @@ class Log_out(APIView):
 
 > We don't really have to give a user any sort of message at this point so lets send them response with an HTTP 204 No Content status is returned.
 
+#### The Issue with Token Auth
+
+> You may think to yourself, well if I'm logged in through multiple browsers/machines/devices and I delete my 1 token than all of my other devices would also be logged out. This is True at this stage and it proposes a real issue with our Authentication method. Later on we will cover how we will actually direct the browser to delete the token on their side rather than deleting it on the server side.
+
+> The real production level authentication that should be implemented is through JWT Tokens, this is where multiple tokens are generated for a user and it does this by generating tokens matched to both a user and device:
+
+```bash
+user + device = Token
+```
+
+> This way Tokens can be deleted both from the Server and Client side but we will talk about this more later on during full stack applications.
+
 ### Breaking down imports
 
 > We are utilizing quite a bit of imports here. Lets take a step back and go over what each import is doing for us.

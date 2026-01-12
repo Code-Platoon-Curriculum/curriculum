@@ -1,4 +1,4 @@
-# Django Associations
+# Django Relationships
 
 ## Intro
 

@@ -124,10 +124,10 @@ nav:
       - DS & Algorithms - Assignments: phase-I/03-DS-Algorithms/assignments.md
   - Phase II:
       - Phase II - Overview: phase-II/README.md
-      - Full Stack Development:
-        - Full Stack Development Overview: phase-II/Intro-to-FS-Dev/README.md
-        - Full Stack Development Workflow: phase-II/Intro-to-FS-Dev/1-fs-workflow.md
-        - Full Stack Development Breakdown: phase-II/Intro-to-FS-Dev/2-fs-breakdown.md
+      - Intro Full Stack Development:
+        - Intro Full Stack Development Overview: phase-II/Intro-to-FS-Dev/README.md
+        - Intro Full Stack Development Workflow: phase-II/Intro-to-FS-Dev/1-fs-workflow.md
+        - Intro Full Stack Development Breakdown: phase-II/Intro-to-FS-Dev/2-fs-breakdown.md
       - Front-End:
         - Front-End - Overview: phase-II/04-Front-End/README.md
         - Vanilla Development:
@@ -223,6 +223,19 @@ nav:
           - Server Caching: phase-II/05-Back-End/9-caching-logging/1-caching.md
           - Server Logging: phase-II/05-Back-End/9-caching-logging/2-logging.md
           - Caching & Logging - Assignments: phase-II/05-Back-End/9-caching-logging/assignments.md
+      - Full Stack Apps:
+        - Full Stack Apps - Overview: phase-II/06-Full-Stack/README.md
+        - Project Layout: phase-II/06-Full-Stack/0-project-layout/README.md
+        - Docker Compose:
+          - Docker Compose - Overview: phase-II/06-Full-Stack/1-docker-compose/README.md
+          - Docker Compose Back-End: phase-II/06-Full-Stack/1-docker-compose/1-back-end.md
+          - Docker Compose Full-Stack: phase-II/06-Full-Stack/1-docker-compose/2-full-stack.md
+          - Docker Compose - Assignments: phase-II/06-Full-Stack/1-docker-compose/assignments.md
+        - Full-Stack Workflow:
+          - Full-Stack Workflow - Overview: phase-II/06-Full-Stack/2-full-stack-workflow/README.md
+          - Full-Stack Workflow - Authentication: phase-II/06-Full-Stack/2-full-stack-workflow/1-authentication.md
+          - Full-Stack Workflow - CRUD: phase-II/06-Full-Stack/2-full-stack-workflow/2-crud.md
+          - Full-Stack Workflow - Assignments: phase-II/06-Full-Stack/2-full-stack-workflow/assignments.md
   - Phase III: phase-III
   - Phase IV: phase-IV
   - Phase V: phase-V

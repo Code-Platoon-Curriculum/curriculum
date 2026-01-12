@@ -84,8 +84,14 @@ Throughout Phase II, students work with the following tools and technologies:
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cypressio/cypressio-original.svg" alt="cypress" width="40" height="40"/>
 </a>
 
-<a href="https://redis.io/" target="_blank" rel="noreferrer">
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" alt="redis" width="40" height="40"/>
+<a href="https://vite.dev/" target="_blank" rel="noreferrer">
+<img src="https://vite.dev/logo.svg" alt="vite" width="40" height="40"/>
 </a>
+
+
+<a href="https://gunicorn.org/" target="_blank" rel="noreferrer">
+<img src="https://gunicorn.org/images/logo.jpg" alt="gunicorn" width="40" height="40"/>
+</a>
+
 
 </p>
