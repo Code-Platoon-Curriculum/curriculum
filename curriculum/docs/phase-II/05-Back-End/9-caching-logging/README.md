@@ -19,7 +19,7 @@ By the end of this module, you will understand how to **optimize read-heavy work
 
 ---
 
-## Terminal Learning Objectives (TLO's) executable
+## Terminal Learning Objectives (TLO's)
 
 * Explain the role of server-side caching in performance optimization
 * Identify when caching is appropriate and when it is harmful
@@ -34,7 +34,7 @@ By the end of this module, you will understand how to **optimize read-heavy work
 
 ---
 
-## Enabling Learning Objectives (ELO's) enabling
+## Enabling Learning Objectives (ELO's)
 
 * Define key caching terminology: cache backend, TTL, cache key, cache-aside pattern
 * Compare in-memory caching with production-grade solutions such as Redis
