@@ -225,7 +225,10 @@ nav:
           - Caching & Logging - Assignments: phase-II/05-Back-End/9-caching-logging/assignments.md
       - Full Stack Apps:
         - Full Stack Apps - Overview: phase-II/06-Full-Stack/README.md
-        - Project Layout: phase-II/06-Full-Stack/0-project-layout/README.md
+        - Project Layout:
+          - Project Layout - Overview: phase-II/06-Full-Stack/0-project-layout/README.md
+          - Project Layout - Back-End: phase-II/06-Full-Stack/0-project-layout/1-back-end.md
+          - Project Layout - Front-End: phase-II/06-Full-Stack/0-project-layout/2-front-end.md
         - Docker Compose:
           - Docker Compose - Overview: phase-II/06-Full-Stack/1-docker-compose/README.md
           - Docker Compose Back-End: phase-II/06-Full-Stack/1-docker-compose/1-back-end.md

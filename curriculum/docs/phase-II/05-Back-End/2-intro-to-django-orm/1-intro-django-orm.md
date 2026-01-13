@@ -232,6 +232,14 @@ docker run -d --rm \
 
 > The only new command we see here is the `--link` command, which creates a link within the Docker Network that let's the postgres-container and django container speak to one another.
 
+### Updating ALLOWED_HOSTS
+
+> because we are working within a Docker Container we have to allow our Container to receive requests from multiple locations. This is done within *settings.py*:
+
+```python
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
+```
+
 ### Entering the Django Docker Container
 
 > Now we must maintain the state of our containerized database and Django project so the majority of the following commands will have to be executed within the Django Docker Container. Think about it this way, you are to write code within VSCode but execute shell commands within the Docker Container. You can enter the Django container by running the following:
