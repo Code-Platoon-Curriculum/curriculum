@@ -130,12 +130,16 @@ from rest_framework.response import Response
 
 # We can create this class and pass in APIView as the Parent Class to allow DRF to handle permissions, authentications, and allowed methods.
 class All_pokemon(APIView):
+    authentication_classes = []
+    permission_classes = []
     # Just like we said before we only want this information available for GET requests therefore we have to place this logic under a GET method. DRF will recognize the `get` method and trigger that method every time a GET request is sent
     def get(self, request):
         pokemon = PokemonSerializer(Pokemon.objects.order_by('name'), many=True)
         # Under response we don't necessarily need to send information in JSON format instead DRF will format our response and make it acceptable for Front-End frameworks
         return Response(pokemon.data)
 ```
+
+> To avoid CSRF Errors we implement authentication classes and permission classes as an empty list dictating this APIView will have public access. Later on in Authentication we will go deeper into this two class level attributes but for now let's proceed.
 
 > Next we have to fix our `pokemon_app.urls` url patterns to use this Class Based View we've just created.
 
@@ -197,6 +201,8 @@ from rest_framework.response import Response
 
 # Create a view that utilizes APIView to inherit DRF's built in functionality
 class All_moves(APIView):
+    authentication_classes = []
+    permission_classes = []
     # establish a get method that will be triggered by GET requests
     def get(self, request):
         # utilize your ModelSerializer to serialize your queryset and return a proper response with DRF's Response

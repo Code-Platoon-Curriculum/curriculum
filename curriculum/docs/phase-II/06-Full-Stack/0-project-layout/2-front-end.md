@@ -154,7 +154,7 @@ import TaskDisplay from "../components/TaskDisplay";
 import TaskForm from "../components/TaskForm";
 
 const HomePage = () => {
-    const {user} = useOutletContext()
+    const {user, setUser} = useOutletContext()
     const [tasks, setTasks] = useState([{id:1, title:"Code some more"}])
 
     const addTask = (task) => {
@@ -175,7 +175,7 @@ const HomePage = () => {
 
     return (
         <>
-            <h1>Welcome {user && user.email}: Here are your Tasks</h1>
+            <h1>Welcome {user && user}: Here are your Tasks <button onClick={()=>setUser(null)}>Log Out</button></h1>
             
             <Stack gap={3}>
                 <TaskForm addTask={addTask}/>
@@ -222,7 +222,7 @@ const AuthForm = ({setUser}) => {
         }
         let method = create ? 'CREATE ACCT' : 'LOGIN ACCT'
         console.log(userDict, method)
-        setUser(userDict)
+        setUser(userDict.email)
         setCreate(true)
         setEmail('')
         setPassword('')
@@ -289,11 +289,11 @@ const TaskDisplay = ({task, rmTask, updateTask}) => {
     const [editTitle, setEditTitle] = useState(task.title)
     
     const editTaskHandle = () => {
-        let editTask = {
+        let editedTask = {
             id:task.id,
             title: editTitle
         }
-        updateTask(editTask)
+        updateTask(editedTask)
         setEdit(!edit)
     }
 

@@ -8,7 +8,7 @@ This is where **Docker Compose** enters the picture. Docker Compose allows us to
 
 ---
 
-## What and Why Docker Composed
+## What and Why Docker Compose
 
 Docker Compose was created to solve the problem of **orchestrating multiple related containers** that must communicate with one another.
 
@@ -44,7 +44,7 @@ This behavior mirrors how services communicate in production container orchestra
 
 ---
 
-### Multiple Linked Containers vs Docker Composed
+### Multiple Linked Containers vs Docker Compose
 
 | Concept | Independent Containers | Docker Compose |
 |------|----------------------|----------------|
@@ -59,7 +59,7 @@ Docker Compose replaces a collection of shell commands with **one source of trut
 
 ---
 
-## Back-End Docker Composed
+## Back-End Docker Compose
 
 ### Why We No Longer Need a PostgreSQL Dockerfile
 
@@ -124,7 +124,7 @@ services:
 
   backend:
     build: ./server
-    container_name: django_container
+    container_name: django-container
     command: sh -c "gunicorn task_api.wsgi --bind 0.0.0.0:8000 --reload"
     ports:
       - "8000:8000"
@@ -207,7 +207,7 @@ RUN  pip install -r requirements.txt
 
 COPY . .
 
-CMD ["gunicorn", "server_proj.wsgi", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "task_api.wsgi", "--bind", "0.0.0.0:8000"]
 ```
 
 > NOTE: There should only be ONE Dockerfile within *server*
@@ -243,9 +243,9 @@ Ensures the database container starts before Django. This avoids any issues wher
 Hardcoding credentials is acceptable for learning—but not for real systems. We wouldn't want to expose things like secret keys or our database information. With that said let's create a `.env` file within the *server* directory that we can reference within our *docker-compose.yml* file to build our application and add the following key value pairs onto the file:
 
 ```env
-POSTGRES_DB='task_db'
-POSTGRES_USER='cp_user'
-POSTGRES_PASSWORD='password'
+POSTGRES_DB=task_db
+POSTGRES_USER=cp_user
+POSTGRES_PASSWORD=password
 ```
 
 Now we can tell our `docker-compose.yml` where this env file is located so it may load environment variables from it when building it's images:
@@ -300,7 +300,7 @@ Key takeaway:
 
 ---
 
-### Final Docker Composed File
+### Final Docker Compose File
 
 ```yml
 version: "3.9"

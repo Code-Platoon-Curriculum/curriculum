@@ -118,6 +118,8 @@ Errors should be logged with appropriate severity.
 
 ```python
 class UpdateProfileView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         try:

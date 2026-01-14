@@ -162,6 +162,9 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class Sign_up(APIView):
+    authentication_classes = []
+    permission_classes = []
+
     def post(self, request):
         request.data["username"] = request.data["email"]
         trainer = Trainer.objects.create_user(**request.data)
@@ -188,6 +191,9 @@ class Sign_up(APIView):
 
 
 class Log_in(APIView):
+    authentication_classes = []
+    permission_classes = []
+    
     def post(self, request):
         email = request.data.get("email")
         password = request.data.get("password")

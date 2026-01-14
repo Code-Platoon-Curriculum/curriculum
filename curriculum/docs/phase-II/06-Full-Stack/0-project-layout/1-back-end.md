@@ -187,8 +187,8 @@ def connection(request):
     return JsonResponse({"connected":True})
 
 urlpatterns = [
-    path('', connection),
     path('admin/', admin.site.urls),
+    path('api/v1/test/', connection),
     path('api/v1/tasks/', include('task_app.urls')),
     path('api/v1/users/', include('user_app.urls')),
 ]
@@ -239,6 +239,9 @@ from rest_framework import status as s
 
 # Create your views here.
 class CreateUser(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
         data = request.data
         data['username'] = request.data.get('email')
@@ -246,19 +249,21 @@ class CreateUser(APIView):
         try:
             new_user.full_clean()
             new_user.save()
-            login(request, new_user)
             token = Token.objects.create(user=new_user)
             return Response({"token":token.key, "email":new_user.email}, status=s.HTTP_201_CREATED)
         except Exception as e:
             return Response(e.args, status=s.HTTP_400_BAD_REQUEST)
         
 class LogIn(APIView):
+    authentication_classes = []
+    permission_classes = []
+    
     def post(self, request):
         data = request.data
         data['username'] = request.data.get('email')
         user = authenticate(username=data.get('username'), password=data.get("password"))
         if user:
-            login(request, user)
+            Token.objects.get_or_create(user=user)
             return Response({"token":user.auth_token.key, "email":user.email})
         else:
             return Response("No user matching credentials", status=s.HTTP_404_NOT_FOUND)
@@ -276,8 +281,7 @@ class Info(UserView):
 class LogOut(UserView):
     def post(self, request):
         user = request.user
-        user.aut_token.delete()
-        logout(request)
+        user.auth_token.delete()
         return Response(f"{user.email} has been logged out")
 ```
 

@@ -12,6 +12,8 @@ So far our application has `READ` and `UPDATE` capabilities for both Moves and P
 # pokemon_app/views.py
 
 class All_pokemon(APIview):
+    authentication_classes = []
+    permission_classes = []
  # specify the request method that should trigger this behavior
     def post(self, request):
         # We could create a pokemon by specifying each individual field but that's obviously not optimal
@@ -36,7 +38,9 @@ class All_pokemon(APIview):
 ```python
 # pokemon_app/views.py
 class A_pokemon(APIView):
-
+    authentication_classes = []
+    permission_classes = []
+    
     def delete(self, request, id):
         # get a pokemon from our database
         pokemon = self.get_a_pokemon(id)

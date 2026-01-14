@@ -104,7 +104,8 @@ urlpatterns = [
 # pokemon_app/views
 
 class A_pokemon(APIView):
-    
+    authentication_classes = []
+    permission_classes = []
     #  Specify the method to trigger this behavior
     def get(self, request, id): # <-- Notice id is now a parameter and its value is being pulled straight from our URL
         # Lets initialize pokemon as None and give it a
@@ -136,6 +137,9 @@ urlpatterns = [
 ```python
 # move_app/views.py
 class A_move(APIView):
+    authentication_classes = []
+    permission_classes = []
+    
     def get(self, request, name):
         move = Move.objects.get(name = name.title())
         return Response(MoveSerializer(move).data)

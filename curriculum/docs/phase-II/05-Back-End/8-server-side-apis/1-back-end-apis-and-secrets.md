@@ -87,6 +87,8 @@ from requests_oauthlib import OAuth1 #<== import OAuth1 which will essentially a
 class Noun_Project(APIView):
     # In our CBV lets create a method to interact with the NounAPI
     def get(self, request):
+        authentication_classes = []
+        permission_classes = []
         # let's grab this body from the `get started` documentation from the NounAPI 
         auth = OAuth1("your-api-key", "your-api-secret") #<== for now place your corresponding keys here
         endpoint = "http://api.thenounproject.com/icon/1"

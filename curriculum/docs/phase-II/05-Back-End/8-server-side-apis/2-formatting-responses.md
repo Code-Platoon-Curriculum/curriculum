@@ -75,7 +75,9 @@ urlpatterns = [
 
 # api_app.views
 class Noun_Project(APIView):
-
+    authentication_classes = []
+    permission_classes = []
+    
     def get(self, request, types):
         auth = OAuth1("your-api-key", "your-api-secret") 
         endpoint = f"http://api.thenounproject.com/icon/{types}"
