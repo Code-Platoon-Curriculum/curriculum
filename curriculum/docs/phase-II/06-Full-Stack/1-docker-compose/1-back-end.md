@@ -10,6 +10,8 @@ This is where **Docker Compose** enters the picture. Docker Compose allows us to
 
 ## What and Why Docker Compose
 
+![docker-network](./resources/docker-network.png)
+
 Docker Compose was created to solve the problem of **orchestrating multiple related containers** that must communicate with one another.
 
 Without Docker Compose, developers must:

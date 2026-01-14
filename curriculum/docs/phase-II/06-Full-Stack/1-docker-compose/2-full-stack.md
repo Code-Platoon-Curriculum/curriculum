@@ -138,4 +138,6 @@ Now as you develop your application, nginx will always have the newest version o
 
 ## Conclusion
 
+![endstate](./resources/endstate.png)
+
 With the frontend now integrated into Docker Compose, the application operates as a complete full-stack system. Nginx serves optimized React assets, proxies API requests to Django, and provides a single entry point for users. Each service runs in isolation, communicates over a Docker network, and mirrors the boundaries you would expect in a real deployment. In the next stage of this project, we’ll focus on refining workflows, improving configuration management, and preparing this architecture for real-world deployment environments.

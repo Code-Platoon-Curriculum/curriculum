@@ -10,7 +10,7 @@ By the end of Phase II, students will understand how data flows through an appli
 
 ## Modules
 
-### [Module 4 – Front-End Development (React & Docker)](04-Frontend/README.md)
+### [Module 4 – Front-End Development (React & Docker)](./04-Front-End/README.md)
 
 Module 4 introduces students to the front-end layer of modern web applications, beginning with a conceptual overview of full stack development. Students explore how the internet works, the role of the browser, and how front-end, back-end, and databases interact within a complete system. This foundational understanding helps students contextualize every tool they use moving forward.
 
@@ -22,7 +22,7 @@ Routing is introduced through React Router DOM, where students build Single Page
 
 ---
 
-### [Module 5 – Back-End Development (Django & Docker)](05-Backend/README.md)
+### [Module 5 – Back-End Development (Django & Docker)](./05-Back-End/README.md)
 
 Module 5 shifts focus to the server-side of full stack applications. Students begin by learning how relational database management systems work, with PostgreSQL serving as the primary database. They explore schema design, table relationships, SQL queries, and joins, using tools like drawSQL to visualize database structures. Concepts such as normalization are introduced to promote clean and maintainable data design.
 
@@ -34,7 +34,7 @@ The module continues with API development using Django REST Framework APIViews a
 
 ---
 
-### [Module 6 – Full Stack Integration (Docker Compose)](06-Fullstack/README.md)
+### [Module 6 – Full Stack Integration (Docker Compose)](./06-Full-Stack/README.md)
 
 Module 6 brings all layers of the application together into a cohesive full stack system. Students are introduced to Docker Compose as a tool for orchestrating multiple services, including React, Django, PostgreSQL, NGINX, and Gunicorn. They learn how container networking works and how services communicate with one another within a composed environment.
 
@@ -88,10 +88,24 @@ Throughout Phase II, students work with the following tools and technologies:
 <img src="https://vite.dev/logo.svg" alt="vite" width="40" height="40"/>
 </a>
 
-
 <a href="https://gunicorn.org/" target="_blank" rel="noreferrer">
-<img src="https://gunicorn.org/images/logo.jpg" alt="gunicorn" width="40" height="40"/>
+<img src="https://habrastorage.org/r/w120/web/334/300/762/3343007626ed4bb2a3cde09be8ae9da2.png" alt="gunicorn" width="40" height="40"/>
 </a>
 
+<a href="https://docs.docker.com/compose/" target="_blank" rel="noreferrer">
+<img src="https://i0.wp.com/codeblog.dotsandbrackets.com/wp-content/uploads/2016/10/compose-logo.jpg?resize=622%2C678&ssl=1" alt="docker-compose" width="40" height="40"/>
+</a>
+
+<a href="https://www.django-rest-framework.org/" target="_blank" rel="noreferrer">
+<img src="https://cdn.brandfetch.io/django-rest-framework.org/fallback/lettermark/theme/dark/h/256/w/256/icon?c=1bfwsmEH20zzEfSNTed" alt="drf" width="40" height="40"/>
+</a>
+
+<a href="https://www.psycopg.org/psycopg3/docs/" target="_blank" rel="noreferrer">
+<img src="https://www.psycopg.org/psycopg3/docs/_static/psycopg.svg" alt="psycopg3" width="40" height="40"/>
+</a>
+
+<a href="https://requests.readthedocs.io/en/latest/" target="_blank" rel="noreferrer">
+<img src="https://requests.readthedocs.io/en/latest/_static/requests-sidebar.png" alt="requests" width="40" height="40"/>
+</a>
 
 </p>

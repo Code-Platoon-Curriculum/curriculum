@@ -33,28 +33,9 @@ We will now connect each of these endpoints to our frontend and manage state upd
 
 ### Get all Tasks (GET)
 
-When a user navigates to the Home page, we want to immediately fetch all tasks associated with their account. This is a perfect use case for a **React Router loader**, ensuring the data exists before the page renders.
+When a user navigates to the Home page, we want to immediately fetch all tasks associated with their account. This is a perfect use case for a **React Router Loader**, ensuring the data exists before the page renders. All of this said, we currently don't have a function meant to fetch this data from our Django API. Within *utilities.jsx* lets add the following:
 
 ```jsx
-// HomePage.jsx
-const [tasks, setTasks] = useState(useLoaderData())
-````
-
-We define a loader on the `/home` route:
-
-```jsx
-// router.jsx
-{
-    path:"home",
-    element: <HomePage />,
-    loader: getTasks
-}
-```
-
-The loader calls our API through the Axios instance:
-
-```jsx
-// utilities.jsx
 export const getTasks = async() => {
     let response = await api.get("tasks/")
     if (response.status === 200){
@@ -66,7 +47,25 @@ export const getTasks = async() => {
 }
 ```
 
-Because our Axios instance already includes the `Authorization` header, Django automatically scopes the returned tasks to the authenticated user.
+Now this function sends a GET request with a user token within the Authorization header to our Django Back-End. It always returns an array, if the response status is 200 (i.e. successful) we return the data within the response which we know is an array of objects where each object represents a task. Otherwise we return an empty array. Now all we have to do is connect the dots: 
+
+- We define a loader on the `/home` route:
+
+```jsx
+// router.jsx
+{
+    path:"home",
+    element: <HomePage />,
+    loader: getTasks
+}
+```
+
+- we utilize the loader data as the initial state of *tasks* within *HomePage.jsx*:
+
+```jsx
+// HomePage.jsx
+const [tasks, setTasks] = useState(useLoaderData())
+```
 
 This pattern ensures:
 
@@ -78,9 +77,7 @@ This pattern ensures:
 
 ### Create a Task (POST)
 
-Next, we allow users to create new tasks.
-
-The API expects a simple payload containing a `title`. The authenticated user is inferred from the token.
+Next, we allow users to create new tasks. The API expects a simple object with the key of *title* assigned to a value of string type. Again this request should only be accessible if there's a logged in user, meaning that the axios instance *api* already holds an Authorization header with the users token. This allows our Django API to create tasks that will directly wrap to our current user.
 
 ```jsx
 // utilities.jsx
@@ -93,6 +90,8 @@ export const createTask = async(taskObj) => {
     return null
 }
 ```
+
+Again, we check if the response status code is of *201*, meaning the request was successful and has returned the task object within the data of the response. If the request failed we alert the user of the error messages and return `null`.
 
 Inside our form component, we handle submission as follows:
 
@@ -108,13 +107,13 @@ const handleSubmit = async(e) => {
 }
 ```
 
-Here we immediately update the frontend state after a successful API response, keeping the UI in sync without requiring a refetch.
+Here we immediately update the frontend state after a successful API response, keeping the UI in sync **without requiring a refetch.**
 
 ---
 
 ### Update a Task (PUT)
 
-Updating a task requires sending the task’s ID along with the updated data.
+Updating a task requires sending the task’s ID along with the updated data. We will send our `PUT` request to the endpoint that includes our tasks id and the object holding the edited state of the task. We ensure the request is successful and return the updated task or if unsuccessful we return `null`.
 
 ```jsx
 // utilities.jsx
@@ -128,7 +127,7 @@ export const updateTask = async(taskObj) => {
 }
 ```
 
-In the task display component, we construct the edited object and submit it:
+In the *TaskDisplay* component, we construct the edited object and submit it:
 
 ```jsx
 // TaskDisplay.editTaskHandle
@@ -155,17 +154,14 @@ This approach ensures:
 
 ### Delete a Task (DELETE)
 
-Finally, we allow users to delete tasks.
+Finally, we allow users to delete tasks. Similarly to our `PUT` request we need to capture the tasks *id* in order to tell the Django API which users task must be deleted. Finally we can return whether the request was successful or not based on the response status.
 
 ```jsx
 // utilities.jsx
 export const deleteTask = async(taskId) => {
     let response = await api.delete(`tasks/${taskId}/`)
     alert(response.data)
-    if (response.status === 200){
-        return true
-    }
-    return false
+    return response.status === 200
 }
 ```
 
