@@ -23,6 +23,12 @@ Go to the project directory
 
 There are some `Python` dependencies within this project for `Material MkDocs` that must be installed prior to interacting with this project.
 
+Navigate to the `curriculum` directory:
+
+```bash
+  cd curriculum
+```
+
 Create a Python virtual environment:
 
 ```bash
