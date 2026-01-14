@@ -8,6 +8,12 @@ By the end of Phase II, students will understand how data flows through an appli
 
 ---
 
+## Mental Model Lesson
+
+### [Intro to Full Stack Development](./Intro-to-FS-Dev/README.md)
+
+In this lesson you'll learn about the concept of what is the internet. How the internet works? What is the Front-end? What is the Back-End? and How are http conversations conducted. This lecture is extremely vital in the process of understanding how full stack development processes are applied and we strongly recommend you revisit this lecture to clarify and further understand the concepts about how each portion of the stack functions in order to provide users with pleasant application interfaces.
+
 ## Modules
 
 ### [Module 4 – Front-End Development (React & Docker)](./04-Front-End/README.md)
