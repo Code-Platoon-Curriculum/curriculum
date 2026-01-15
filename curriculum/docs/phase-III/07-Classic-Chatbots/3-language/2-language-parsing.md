@@ -1,59 +1,10 @@
 # Intro to Language Parsing
 
-![dep_parse](./resources/parse_tree_depndncy_graph.jpeg)
+![dep_parse](./resources/parse_tree_depndncy_graph.png)
 
 ## What is Language Parsing in NLP?
 
 **Language parsing in Natural Language Processing (NLP)** refers to the process of analyzing and breaking down a text or sentence into its grammatical components to understand its structure and meaning. Parsing involves identifying the roles that individual words play (such as nouns, verbs, adjectives, etc.) and how they relate to one another within the sentence, typically by generating a syntactic representation like a parse tree or dependency graph. This structured representation helps machines interpret the hierarchical relationships and dependencies between words—such as which noun a verb is acting upon or how clauses are connected. Parsing is essential for many NLP tasks including machine translation, question answering, sentiment analysis, and chatbot intent detection, as it enables systems to move beyond simple word matching and towards understanding the syntax and, indirectly, the semantics of a sentence. There are different types of parsing approaches in NLP, such as **constituency parsing** (which focuses on dividing a sentence into nested sub-phrases) and **dependency parsing** (which focuses on the direct relationships between words). Accurate language parsing allows NLP systems to grasp the meaning and intent behind human language with greater precision, facilitating more natural and contextually appropriate responses.
-
-## Reviewing Regex Methods
-
-In this section we will review key methods of Python’s built-in `re` module, which help us search, match, and extract patterns from text. These tools are valuable for cleaning and analyzing large text files, like our science fiction story.
-
-### `re.match`
-
-`re.match()` checks if a pattern appears at the **very beginning** of a string. If it finds a match at the start, it returns a match object; otherwise, it returns `None`.
-
-```python
-import re
-
-with open("./resources/sci_fi_story.txt", "r") as file:
-    text = file.read()
-
-# Check if the text starts with 'Title'
-match_result = re.match(r"Title", text)
-
-if match_result:
-    print("Match found at start of text:", match_result.group())
-else:
-    print("No match found at start of text.")
-```
-
-### `re.search`
-
-`re.search()` scans the **entire string** and returns a match object for the **first occurrence** of the pattern it finds, or `None` if no match exists.
-
-```python
-# Search for the first occurrence of 'machine'
-search_result = re.search(r"machine", text)
-
-if search_result:
-    print(f"'machine' found at position {search_result.start()}: {search_result.group()}")
-else:
-    print("No occurrence of 'machine' found.")
-```
-
-### `re.findall`
-
-`re.findall()` searches the full string and returns a **list of all non-overlapping matches** of the pattern.
-
-```python
-# Find all instances of 'Elara'
-all_elara = re.findall(r"Elara", text)
-print(f"'Elara' appears {len(all_elara)} times in the text.")
-```
-
-By mastering these methods, you can efficiently analyze, clean, and process textual data in your NLP projects.
 
 ## Part-of-Speech (POS) Tagging with NLTK
 

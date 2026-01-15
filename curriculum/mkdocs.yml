@@ -255,6 +255,7 @@ nav:
         - Regex + Rule Based ChatBots - Assignments: phase-III/07-Classic-Chatbots/2-regex-rule-based-chatbots/assignments.md
       - Language in ChatBots:
         - Language in ChatBots - Overview: phase-III/07-Classic-Chatbots/3-language/README.md
+        - Pre-Requisites: phase-III/07-Classic-Chatbots/3-language/0-story.md
         - Text Pre-processing: phase-III/07-Classic-Chatbots/3-language/1-text-preprocessing.md
         - Language Parsing: phase-III/07-Classic-Chatbots/3-language/2-language-parsing.md
         - Language in ChatBots - Assignments: phase-III/07-Classic-Chatbots/3-language/assignments.md

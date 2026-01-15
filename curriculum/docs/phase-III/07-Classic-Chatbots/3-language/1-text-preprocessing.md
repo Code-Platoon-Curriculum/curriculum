@@ -8,13 +8,13 @@
 
 This process is critically important because it directly affects how accurately a chatbot can interpret a user’s intent and generate meaningful responses. For example, a model trained on clean, standardized text is more likely to recognize similar patterns across inputs, improving both intent classification and dialogue generation. Additionally, reducing noise in the input data can decrease model complexity and training time while increasing generalization. In retrieval-based or generative models, especially those powered by neural networks, well-preprocessed text can significantly improve both training efficiency and model performance. In short, text pre-processing ensures that the AI has the best possible understanding of what the user is trying to communicate—forming the backbone of accurate, context-aware chatbot interactions.
 
-Raw user text is messy. If we feed it directly to a chatbot, the model might misinterpret intent. Pre-processing transforms human language into machine-readable structured data.
-
 ![noise](./resources/noise_removal.png)
 
-> User input → Lowercasing → Remove noise (punctuation, HTML) → Tokenize → Remove stopwords → Stemming/Lemmatization
+> Raw user text is messy. If we feed it directly to a chatbot, the model might misinterpret intent. Pre-processing transforms human language into machine-readable structured data.
 
-## Noise Removal with Regex.sub()
+> User input → Tokenize → Lowercasing → Remove noise (punctuation, HTML) → Tokenize → Remove stopwords → Stemming/Lemmatization
+
+## Noise Removal with Regex
 
 ### What is Noise and why is it important to remove noise from text input?
 
@@ -35,33 +35,49 @@ In the context of text pre-processing for AI chatbots, **noise** refers to any i
 | URLs                       | `Check this out: http://example.com` | Often irrelevant to the chatbot’s task unless explicitly required for the conversation logic.   |
 | Stop words (in some cases) | `the, is, at, on, in`                | Common words that generally don’t help identify intent or key entities in basic NLP tasks.      |
 
-### Utilizing Regex.sub()
+### Applying it to Text
 
-Now that we have some examples about Noise lets talk about how we can address said noise utilizing the `.sub()` method from `re`.
+Using the provided *story.txt* in [pre-requisites](./0-story.md), let's open up the story and clean the provided text:
+
+```python
+story = None
+with open("./story.txt", 'r') as file:
+    story = file.read()
+
+print(story)
+```
+
+This simple code block will allow us to actually read the file and represent is as a singular Python string. We can inspect the text and realize that there is many characters that our chatbot doesn't need to be aware of and terminologies that may confuse our bot all together.
+
+Now let's go ahead and remove the *noise* from this story by creating a function that will leverage regex and Python built in methods. Here's what we mean by noise:
+
+- Capitalization inconsistencies
+- Punctuation (.,!?;:"—)
+- Special characters
+- Extra whitespace
+- Non-alphabetic characters
 
 ```python
 import re
-"""
-The re.sub() method takes in a total of 3 parameters
-1. the raw string pattern to match
-2. the string utilized to replace all matches
-3. the string that will be searched for matches
-The method then returns a new string with all matches of the raw string replaced by the string value of the second parameter
-"""
-html_noise = '<div>Hello</div>'
-remove_html = re.sub(r'<.?div>', '', html_noise)
-print(remove_html) #=> Hello
+def removing_noise(txt_file:str) -> str:
+    # flatten the string
+    text_file = txt_file.lower()
+    # Remove markdown symbols explicitly
+    txt_file = re.sub(r'[#*_>`~\-]', ' ', txt_file)
+    # removing special characters
+    txt_file = re.sub(r'[^a-z]\s|\.', '', txt_file)
+    # normalize whitespaces
+    txt_file = re.sub(r'\s+', ' ', txt_file)
+    return txt_file
+
+story = removing_noise(story)
+print(story)
 ```
 
-Lets apply the same concept onto removing some excess spaces within a dirty string.
+Our story is now a clean singular string ready to be fed down the pipeline of NLP.
 
-```python
-dirty_string = "I need    help"
-clean_string = re.sub(r' {2,9}', ' ', dirty_string)
-print(clean_string) #=> I need help
-```
 
-## Tokenization with NLTK (Natural Language ToolKit)
+## NLTK (Natural Language ToolKit)
 
 ![tokenization](./resources/tokenization.webp)
 
@@ -75,56 +91,71 @@ print(clean_string) #=> I need help
 
 ### Installing NLTK
 
-1. first lets install `nltk` by running the following command on your terminal while your python venv is activated:
+* first lets install `nltk` by running the following command on your terminal while your python venv is activated:
 
-    ```bash
-    pip install nltk
-    ```
+```bash
+pip install nltk
+```
 
-2. Now since this is our first time ever utilizing `nltk` we actually have to explicitly download some of its commonly used content onto our machines `nltk`s version. Lets do so by opening a Python shell within the terminal and executing the following commands:
+* Now since this is our first time ever utilizing `nltk` we actually have to explicitly download some of its commonly used content onto our machines `nltk`s version. Lets do so by opening a Python cell within the JupyTer Notebook with the following code:
 
-    ```python
-    Python 3.13.3 (main, Apr  8 2025, 13:54:08) [Clang 16.0.0 (clang-1600.0.26.6)] on darwin
-    Type "help", "copyright", "credits" or "license" for more information.
-    >>> import nltk
-    >>> nltk.download('punkt')      # Tokenizer models returns True
-    >>> nltk.download('stopwords')  # List of common stopwords returns True
-    >>> nltk.download('wordnet')    # For lemmatization returns True
-    >>> nltk.download('averaged_perceptron_tagger')  # For POS tagging returns True
-    ```
+```python
+import nltk
+nltk.download('punkt')      # Tokenizer models returns True
+nltk.download('punkt_tab')  # brings in other tokenizer methods
+nltk.download('stopwords')  # List of common stopwords returns True
+nltk.download('wordnet')    # For lemmatization returns True
+nltk.download('averaged_perceptron_tagger')  # For POS tagging returns True
+nltk.download('averaged_perceptron_tagger_eng')
+```
 
-### Utilizing NLTK to Tokenize text by Sentences or Words
+## Tokenization
 
-- Lets tokenize some text by sentence utilizing the `sent_tokenize` function from the `nltk` library. We will utilize the open function to grab some text from the `full-stack-quest.md` file within the `resources` directory and apply these concepts:
+The end state of this Tokenization process is where we hold a list for every sentence holding a list for every word in the sentence. This is a pretty heavy task if we were writing it from scratch but luckily *nltk* comes with built in functions we can leverage to accomplish this behavior.
 
-    ```python
-    from nltk.tokenize import sent_tokenize
+### Sentence Tokenizer
 
-    file = open("./resources/full-stack-quest.md")
-    text_from_file = file.read()
-    file.close()
+First let's start by breaking up our string into a list of sentences.
 
-    story_tokenized_by_sent = sent_tokenize(text_from_file)
-    print(story_tokenized_by_sent) #=> This will print a list of sentences neatly broken up by the sent_tokenize function
-    ```
+```python
+from nltk.tokenize import sent_tokenize
 
-- Lets see the difference between `sent_tokenize` and `word_tokenize` with the same text along with a bit of Noise removal:
+story = sent_tokenize(story)
+print(len(story))
+```
 
-    ```python
-    from nltk.tokenize import sent_tokenize, word_tokenize
-    import re
+You'll notice that your output returns the length of 1... but there's definitely more than just one sentence within our original text so what's going on. This is due thanks to our current NLP pipeline being out of place. In our `removing_noise` function we explicitly tell our program to remove punctuation which is vital for `sent_tokenize` to work correctly. We must update our pipeline to tokenize the sentence and then remove noise.
 
-    file = open("./resources/full-stack-quest.md")
-    text_from_file = file.read()
-    file.close()
+```python
+story = sent_tokenize(story)
+print(story[0][-1]) 
 
-    clean_text = re.sub(r'[#|*|-|_|\U0001F525]', '', text_from_file)
+def removing_noise(txt:str) -> str:
+    # flatten the string
+    txt = txt.lower()
+    # removing special characters
+    txt = re.sub(r'[^a-z\s]', '', txt)
+    # normalize whitespaces
+    txt = re.sub(r'\s+', ' ', txt)
+    return txt
 
-    story_tokenized_by_word = word_tokenize(clean_text)
-    print(story_tokenized_by_word) #=> this returns a list of words and special characters separated at each independent index
-    ```
+story = [removing_noise(sent) for sent in story]
+print(story[0][-1]) 
+```
 
-Now our text is broken up into smaller more manageable pieces!
+### Word Tokenizer
+
+The final step now is to tokenize every word and we do this by leveraging nltk's `word_tokenize` method.
+
+```python
+from nltk.tokenize import word_tokenize
+
+story_w_tokens = [word_tokenize(sent) for sent in story]
+print(story[0])
+print(story_w_tokens[0])
+```
+
+Now our text is broken up into smaller more manageable pieces with all of the noise removed!
 
 ## Normalization
 
@@ -132,52 +163,33 @@ Now our text is broken up into smaller more manageable pieces!
 
 **Normalization** in text pre-processing refers to the process of transforming text into a consistent, standardized format so that natural language processing (NLP) systems, like AI chatbots, can analyze and interpret it accurately. Since the same word or phrase can appear in many forms—such as “Help,” “help,” or “HELP!”—normalization reduces these variations by applying transformations like **lowercasing**, **removing punctuation**, and **stripping extra whitespace**. It also involves more advanced techniques such as **stemming** and **lemmatization**. **Stemming** reduces words to their base or root form by chopping off prefixes or suffixes (e.g., “helping” → “help”), often without regard for proper grammar, while **lemmatization** goes a step further by converting words to their dictionary root form (lemma) using linguistic rules (e.g., “better” → “good”). Normalization may also expand contractions (e.g., “don’t” → “do not”) and standardize spelling (e.g., “colour” → “color”). These steps are critical in chatbot development because they ensure that semantically equivalent inputs are treated uniformly, improving intent detection, entity extraction, and overall conversational accuracy.
 
-### Stopwords, what are they and why remove them?
+![stemming](./resources/stemming_lemmetization.png)
+
+### Stopwords
+
+#### Stopwords, what are they and why remove them?
 
 **Stopwords** are common words in a language—such as “the,” “is,” “and,” “in,” “on,” and “at”—that typically carry little meaningful information on their own when it comes to tasks like intent recognition or text classification in AI chatbots. While these words are essential for human communication, they often act as **noise** in natural language processing because they occur so frequently that they don't help differentiate between user intents or key entities. Removing stopwords during text pre-processing helps reduce the amount of data the model has to analyze, allowing it to focus on the most informative words that convey the core meaning of a user’s input. For example, in the sentence *"What is the weather like in New York?"*, removing stopwords leaves *"weather,"* *"like,"* and *"New York,"* which are much more relevant for determining intent. This improves computational efficiency and can enhance the chatbot's ability to match inputs with the correct responses or actions. However, stopword removal should be done carefully, as in some contexts certain stopwords might carry important meaning (e.g., in sentiment analysis or when working with specific commands).
 
-### Removing Stopwords with NLTK
+#### Removing Stopwords with NLTK
 
 To accomplish this task we need to accomplish a couple of steps
 
-1. We need to import `stopwords` class from `nltk.corpus`
-2. We need to grab the words from the right language and save them onto a set
-3. We will utilize a list literal to iterate through a set of tokenized words and build a new list holding all words that are not in stopwords.
+- import `stopwords` class from `nltk.corpus`
+- grab the words from the right language and save them onto a set
+- utilize a list literal to iterate through a set of tokenized words and build a new list holding all words that are not in stopwords.
 
 ```python
-from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords 
-import re
-
-file = open("./resources/full-stack-quest.md")
-text_from_file = file.read()
-file.close()
-
-clean_text = re.sub(r'[#|*|-|_|\U0001F525]', '', text_from_file)
-
-story_tokenized_by_word = word_tokenize(clean_text)
-print(len(story_tokenized_by_word))
 
 stop_words = set(stopwords.words("english"))
-stopwords_removed = [word for word in story_tokenized_by_word if word not in stop_words]
 
-print(len(stopwords_removed))
-```
+story_no_stop = []
+for sent in story_w_tokens:
+    story_no_stop.append([word for word in sent if word not in stop_words])
 
-### Bag-of-Words (BoW) Representation
-
-Bag-of-Words is a way to represent text as numerical vectors by counting the frequency of each word in a corpus. This helps chatbots compare input sentences to pre-defined responses.
-
-Example:
-
-```python
-from sklearn.feature_extraction.text import CountVectorizer
-
-corpus = ["I love AI", "AI loves me too"]
-vectorizer = CountVectorizer()
-X = vectorizer.fit_transform(corpus)
-print(vectorizer.get_feature_names_out())  # ['ai', 'love', 'loves', 'me', 'too']
-print(X.toarray())
+print(len(story_w_tokens[0]))
+print(len(story_no_stop[0]))
 ```
 
 ### Stemming
@@ -189,9 +201,16 @@ print(X.toarray())
 ```python
 from nltk.stem import PorterStemmer
 stemmer = PorterStemmer()
-stemmed_words = [stemmer.stem(w) for w in stopwords_removed]
-print(stemmed_words)
+
+stemmed_story = []
+for sent in story_no_stop:
+    stemmed_story.append([stemmer.stem(word) for word in sent])
+
+print(story_no_stop[0])
+print(stemmed_story[0])
 ```
+
+This python code iterates through the version of our story that holds no stop words and utilizes PorterStemmer to *stem* all words.
 
 ### Lemmatization
 
@@ -199,36 +218,18 @@ print(stemmed_words)
 
 > Since lemmatization requires the part of speech, it is a less efficient approach than stemming.
 
-#### Applying Lemmatization with NLTK
-
-First lets apply the obvious pattern at this point of importing the Lemmatizer creating an instance of said Lemmatizer and lemmatizing each word within `stopwords_removed`.
-
-```python
-from nltk.stem import WordNetLemmatizer
-
-lemmatizer = WordNetLemmatizer()
-
-# Lemmatize each word 
-lemmatized_words = [lemmatizer.lemmatize(word) for word in stopwords_removed]
-
-print(lemmatized_words)
-```
-
-You'll notice that unlike the `Stemmer` Lemmatizer didn't really change anything to the word itself. This happened because lemmatize() treats every word as a noun. To take advantage of the power of lemmatization, we need to tag each word in our text with the most likely part of speech.
-
-##### Part of Speech Tagging
+#### Part of Speech Tagging
 
 In this context, **part of speech (POS)** refers to the grammatical category that a word belongs to based on its role within a sentence. Examples of parts of speech include **nouns** (people, places, things), **verbs** (actions or states), **adjectives** (describing words), **adverbs** (words that modify verbs or adjectives), **pronouns**, **prepositions**, and more. When we apply **lemmatization** in text pre-processing, knowing the part of speech of each word is important because it determines how the word should be reduced to its base or dictionary form (lemma). For instance, the word *“better”* would lemmatize to *“good”* if it’s identified as an adjective, but it wouldn’t change if mistakenly treated as a noun. Similarly, *“running”* would reduce to *“run”* if recognized as a verb, but stay as *“running”* if incorrectly treated as a noun. Therefore, identifying parts of speech allows NLP tools like the **WordNetLemmatizer** to perform more accurate and meaningful text normalization, helping chatbots better understand and process user input.
 
-To properly apply lemmatization, we need to supply the correct part of speech (POS) for each word so the lemmatizer can accurately reduce words to their true lemmas. We can achieve this by using `nltk.pos_tag`, which tags each word in our list with its most probable POS.
+To properly apply lemmatization, we need to supply the correct part of speech (POS) for each word enabling the lemmatizer to accurately reduce words to their true lemmas. We can achieve this by using `nltk.pos_tag`, which tags each word in our list with its most probable POS.
 
 ```python
 from nltk import pos_tag
 
-# Tag each word with its part of speech
-tagged_words = pos_tag(stopwords_removed)
+pos_story = [pos_tag(sent) for sent in story_no_stop]
 
-print(tagged_words)
+print(pos_story)
 ```
 
 This will output something like:
@@ -239,9 +240,9 @@ This will output something like:
 
 where `NN` stands for noun, `IN` for preposition, `NNP` for proper noun, etc.
 
-##### Mapping NLTK POS Tags to WordNet POS
+#### Mapping NLTK POS Tags to WordNet POS
 
-Since `WordNetLemmatizer` uses WordNet POS tags (`n`, `v`, `a`, `r` for noun, verb, adjective, adverb respectively), we need to manually connect the NLTK POS tags to these WordNet tags.
+Since `WordNetLemmatizer` uses WordNet POS tags (`n`, `v`, `a`, `r` for noun, verb, adjective, adverb respectively), we need to manually connect the NLTK POS tags to these WordNet tags which is as simple as feeding each tag through a switch case like function that checks the current tag and maps it to the appropriate wordnet tag.
 
 ```python
 from nltk.corpus import wordnet
@@ -259,22 +260,103 @@ def get_wordnet_pos(treebank_tag):
         return wordnet.NOUN  # Default to noun if unknown
 ```
 
-###### Final Lemmatization with POS
+#### Final Lemmatization with POS
 
-Now we can lemmatize each word using its POS for more accurate results:
+Now we can lemmatize each word using its POS for more accurate results by leveragin nltks *WordNetLemmatizer* and feeding it both the words we have in our text and the appropriate pos tag values.
 
 ```python
-lemmatized_words_with_pos = [
-    lemmatizer.lemmatize(word, get_wordnet_pos(pos_tag))
-    for word, pos_tag in tagged_words
-]
+from nltk.stem import WordNetLemmatizer
 
-print(lemmatized_words_with_pos)
+lemmatizer = WordNetLemmatizer()
+
+lemmatized_story = []
+
+for pos_sent in pos_story:
+    lemmatized_story.append([
+        lemmatizer.lemmatize(word, get_wordnet_pos(pos_tag))
+        for word, pos_tag in pos_sent
+])
+
+print(lemmatized_story[0])
 ```
 
 This will produce a more meaningful reduction of words, taking their grammatical role into account.
 
-![stemming](./resources/stemming_lemmetization.png)
+## Vectorization
+
+### What does Vectorization do for a Chatbot
+
+**Vectorization** is the process of converting human language (text) into **numerical representations** that a computer can understand and operate on. While earlier steps in text pre-processing—such as tokenization, stopword removal, stemming, and lemmatization—help clean and structure text, vectorization is the step that transforms this processed text into **numbers** that machine learning models can actually use.
+
+Chatbots, whether rule-based, retrieval-based, or powered by deep learning, do not “understand” words the way humans do. Instead, they operate on vectors (arrays of numbers). Vectorization allows a chatbot to:
+- Compare user inputs mathematically
+- Measure similarity between messages
+- Classify intent
+- Retrieve relevant responses
+- Feed text into machine learning and neural network models
+
+Without vectorization, text remains symbolic and cannot be used for statistical analysis or learning. Vectorization is therefore the **bridge between language and machine intelligence**, enabling chatbots to make decisions based on patterns in text rather than hard-coded rules.
+
+### Bag of Words (BoW)
+
+The **Bag of Words** model is one of the simplest and most commonly taught vectorization techniques in NLP. It represents text by counting how often each word appears, completely ignoring grammar and word order. Each sentence or document becomes a vector where:
+- Each position corresponds to a word in the vocabulary
+- The value represents the frequency of that word
+
+For chatbots, Bag of Words is useful for:
+- Intent classification
+- Keyword-based matching
+- Simple retrieval systems
+- Understanding *what* words are present, even if not *how* they are ordered
+
+Although BoW does not capture context or meaning, it provides a clear and intuitive introduction to how text can be converted into numbers.
+
+#### Applying Bag of Words with Python
+
+We’ll use `CountVectorizer` from `scikit-learn`, a standard tool for vectorization in NLP pipelines. You'll notice this class expects a list of sentences so we will have to join all of our sentences and then pass them through our *vectorizer* to see it provide us with both the amount of features it was able to identify and a numpy array that could be utilized for machine learning.
+
+```python
+from sklearn.feature_extraction.text import CountVectorizer
+final_story = [" ".join(sent) for sent in lemmatized_story]
+# Create the vectorizer
+vectorizer = CountVectorizer()
+
+# Fit and transform the text
+bow_vectors = vectorizer.fit_transform(final_story)
+print(vectorizer.get_feature_names_out())
+print(bow_vectors.toarray())
+```
+
+---
+
+### Why This Matters Before Deep Learning
+
+Bag of Words may seem simple, but it introduces **core NLP ideas** that carry forward into more advanced models:
+
+* Vocabulary construction
+* Feature extraction
+* Numerical representations of language
+* Similarity and comparison of text
+
+Modern deep learning models (including embeddings and transformers) build on these same principles—just in more sophisticated ways. By mastering vectorization at this level, students gain a strong mental model for how chatbots *interpret*, *compare*, and *reason about* language before moving into neural networks and PyTorch-based approaches.
+
+## NLP Pipeline
+
+```bash
+Raw Text
+  ↓
+Sentence Tokenization
+  ↓
+Lowercasing / Noise Removal
+  ↓
+Word Tokenization
+  ↓
+Stop Word Removal
+  ↓
+Lemmatization  OR  Stemming
+  ↓
+Vectorization / Modeling
+```
 
 ## Conclusion
 
