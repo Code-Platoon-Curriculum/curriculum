@@ -8,9 +8,13 @@
 
 This process is critically important because it directly affects how accurately a chatbot can interpret a user’s intent and generate meaningful responses. For example, a model trained on clean, standardized text is more likely to recognize similar patterns across inputs, improving both intent classification and dialogue generation. Additionally, reducing noise in the input data can decrease model complexity and training time while increasing generalization. In retrieval-based or generative models, especially those powered by neural networks, well-preprocessed text can significantly improve both training efficiency and model performance. In short, text pre-processing ensures that the AI has the best possible understanding of what the user is trying to communicate—forming the backbone of accurate, context-aware chatbot interactions.
 
-## Noise Removal with Regex.sub()
+Raw user text is messy. If we feed it directly to a chatbot, the model might misinterpret intent. Pre-processing transforms human language into machine-readable structured data.
 
 ![noise](./resources/noise_removal.png)
+
+> User input → Lowercasing → Remove noise (punctuation, HTML) → Tokenize → Remove stopwords → Stemming/Lemmatization
+
+## Noise Removal with Regex.sub()
 
 ### What is Noise and why is it important to remove noise from text input?
 
@@ -158,6 +162,22 @@ stop_words = set(stopwords.words("english"))
 stopwords_removed = [word for word in story_tokenized_by_word if word not in stop_words]
 
 print(len(stopwords_removed))
+```
+
+### Bag-of-Words (BoW) Representation
+
+Bag-of-Words is a way to represent text as numerical vectors by counting the frequency of each word in a corpus. This helps chatbots compare input sentences to pre-defined responses.
+
+Example:
+
+```python
+from sklearn.feature_extraction.text import CountVectorizer
+
+corpus = ["I love AI", "AI loves me too"]
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(corpus)
+print(vectorizer.get_feature_names_out())  # ['ai', 'love', 'loves', 'me', 'too']
+print(X.toarray())
 ```
 
 ### Stemming

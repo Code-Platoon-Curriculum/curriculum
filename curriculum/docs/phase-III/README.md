@@ -1,4 +1,4 @@
-# Artificial Intelligence & Chat-bots
+# Artificial Intelligence & ChatBots
 
 ## Overview
 

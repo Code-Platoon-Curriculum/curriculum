@@ -2,9 +2,9 @@
 
 ## What is NLP?
 
-Natural Language Processing (NLP) is a subfield of artificial intelligence and linguistics that focuses on enabling computers to understand, interpret, generate, and respond to human languages in a valuable way. NLP bridges the gap between human communication and computer understanding by applying techniques from linguistics, machine learning, and statistics to analyze and process textual and spoken language data. From virtual assistants and chatbots to language translation and sentiment analysis, NLP is foundational in helping machines interact with people using natural language.
+Natural Language Processing (NLP) is a subfield of artificial intelligence and linguistics that focuses on enabling computers to understand, interpret, generate, and respond to human languages in a valuable way. NLP bridges the gap between human communication and computer understanding by applying techniques from linguistics, machine learning, and statistics to analyze and process textual and spoken language data. From virtual assistants and ChatBots to language translation and sentiment analysis, NLP is foundational in helping machines interact with people using natural language.
 
-## What is Text Pre-processing?
+### What is Text Pre-processing?
 
 Text pre-processing is the essential first step in any NLP task. It involves cleaning and preparing raw textual data so that it can be efficiently analyzed by NLP algorithms. Since language data can be messy, inconsistent, or filled with irrelevant symbols, text pre-processing improves data quality and relevance for downstream tasks.
 
@@ -17,15 +17,17 @@ Text pre-processing is the essential first step in any NLP task. It involves cle
 * **Normalization**
   Normalization transforms text into a more consistent format by lowering case, removing variations, or converting different forms of words into a base form.
 
-  * **Stemming**
-    Stemming is a process that cuts off word suffixes to reduce words to their root form. For example, "running" and "runner" might both be reduced to "run". Stemming is quick but can sometimes yield non-dictionary words.
+    * **Stemming**
+      Stemming is a process that cuts off word suffixes to reduce words to their root form. For example, "running" and "runner" might both be reduced to "run". Stemming is quick but can sometimes yield non-dictionary words.
 
-  * **Lemmatization**
-    Lemmatization reduces words to their base or dictionary form (lemma), taking into account the context and part of speech. For example, "was" becomes "be" and "better" becomes "good". This approach is more accurate than stemming, though computationally heavier.
+    * **Lemmatization**
+      Lemmatization reduces words to their base or dictionary form (lemma), taking into account the context and part of speech. For example, "was" becomes "be" and "better" becomes "good". This approach is more accurate than stemming, though computationally heavier.
 
-## Regex and NLP
+### Regex and NLP
 
 Regular Expressions (regex) in Python are powerful tools used to search, match, and manipulate text. In NLP, regex is often used during the pre-processing stage to clean and extract useful patterns from text. It allows developers to identify and handle structures like emails, phone numbers, dates, or specific word patterns quickly and efficiently.
+
+In rule-based chatbots, regex is often the primary mechanism used to interpret user input. Rather than “understanding” language, the chatbot matches patterns in text to predefined rules, allowing it to classify intent, validate input, and trigger responses.
 
 ### Why Regex?
 
@@ -39,7 +41,7 @@ Regex becomes extremely helpful in various text processing scenarios, such as:
 
 ### How does it work?
 
-Regex works by using a sequence of characters that defines a search pattern. When applied to a string, the regex engine reads the pattern and scans through the text to find matches. Each symbol or character in a regex pattern has a specific meaning—some match literal characters, while others serve as wildcards, quantifiers, or groups. The engine can perform a variety of tasks such as searching, replacing, splitting, or extracting substrings. Regular expressions are evaluated using a state machine under the hood, moving through a text one character at a time based on the defined rules until a match is found or the search ends.
+Regex works by using a sequence of characters that defines a search pattern. When applied to a string, the regex engine reads the pattern and scans through the text to find matches. Each symbol or character in a regex pattern has a specific meaning—some match literal characters, while others serve as wildcards, quantifiers, or groups. The engine can perform a variety of tasks such as searching, replacing, splitting, or extracting substrings. Regex engines operate using state-based pattern matching, scanning text sequentially and transitioning between states until a match succeeds or fails, moving through a text one character at a time based on the defined rules until a match is found or the search ends.
 
 ## Applying Regex
 
@@ -99,6 +101,10 @@ re.match(r"h.t", "hat")
 re.match(r"c.r", "car")
 re.search(r".at", "I have a cat")
 ```
+
+> *Note:*
+
+> re.match() checks for a pattern only at the beginning of a string, while re.search() scans the entire string for a match.
 
 ### Ranges
 
@@ -214,7 +220,7 @@ These tools provide even more flexibility when parsing complex language structur
 
 Here’s a concise and informative **summary** you can attach to the end of your `intro-to-nlp-and-regex.md` lecture:
 
-## Summary
+## Conclusion
 
 In this lecture, we introduced **Natural Language Processing (NLP)** as a critical component of chatbot development, enabling machines to understand and work with human language. We explored the key stages of **text pre-processing**, including noise removal, tokenization, and normalization techniques like stemming and lemmatization, which prepare raw text for intelligent analysis.
 
