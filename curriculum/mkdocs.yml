@@ -259,6 +259,16 @@ nav:
         - Text Pre-processing: phase-III/07-Classic-Chatbots/3-language/1-text-preprocessing.md
         - Language Parsing: phase-III/07-Classic-Chatbots/3-language/2-language-parsing.md
         - Language in ChatBots - Assignments: phase-III/07-Classic-Chatbots/3-language/assignments.md
+      - Deep Learning:
+        - Deep Learning - Overview: phase-III/07-Classic-Chatbots/4-deep-learning/README.md
+        - Data Pre-processing: phase-III/07-Classic-Chatbots/4-deep-learning/1-data-preprocessing.md
+        - Learning Models: phase-III/07-Classic-Chatbots/4-deep-learning/2-learning-models.md
+        - Deep Learning - Assignments: phase-III/07-Classic-Chatbots/4-deep-learning/assignments.md
+      - Retrieval Based ChatBots:
+        - Retrieval Based ChatBots - Overview: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/README.md
+        - Data Pre-processing: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/1-understanding-rbc.md
+        - Learning Models: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/2-building-rbc.md
+        - Retrieval Based ChatBots - Assignments: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/assignments.md
   - Phase IV: phase-IV
   - Phase V: phase-V
   - Additional Lectures: additional-lectures
