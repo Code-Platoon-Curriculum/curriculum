@@ -351,9 +351,9 @@ Lowercasing / Noise Removal
   ↓
 Word Tokenization
   ↓
-Stop Word Removal
-  ↓
 Lemmatization  OR  Stemming
+  ↓
+Stop Word Removal
   ↓
 Vectorization / Modeling
 ```

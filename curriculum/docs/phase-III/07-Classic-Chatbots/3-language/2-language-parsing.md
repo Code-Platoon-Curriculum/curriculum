@@ -1,10 +1,29 @@
-# Intro to Language Parsing
+# Language Parsing
 
 ![dep_parse](./resources/parse_tree_depndncy_graph.png)
 
 ## What is Language Parsing in NLP?
 
 **Language parsing in Natural Language Processing (NLP)** refers to the process of analyzing and breaking down a text or sentence into its grammatical components to understand its structure and meaning. Parsing involves identifying the roles that individual words play (such as nouns, verbs, adjectives, etc.) and how they relate to one another within the sentence, typically by generating a syntactic representation like a parse tree or dependency graph. This structured representation helps machines interpret the hierarchical relationships and dependencies between words—such as which noun a verb is acting upon or how clauses are connected. Parsing is essential for many NLP tasks including machine translation, question answering, sentiment analysis, and chatbot intent detection, as it enables systems to move beyond simple word matching and towards understanding the syntax and, indirectly, the semantics of a sentence. There are different types of parsing approaches in NLP, such as **constituency parsing** (which focuses on dividing a sentence into nested sub-phrases) and **dependency parsing** (which focuses on the direct relationships between words). Accurate language parsing allows NLP systems to grasp the meaning and intent behind human language with greater precision, facilitating more natural and contextually appropriate responses.
+
+## Mental Model
+
+Before we dive into this lecture we need to understand where is it that *Language Parsing* falls within our NLP pipeline. We are actually already utilized this concept within our *lemmetizer* but now we are going to dive into how is it that lemmetization is capable of understanding the intent behind each word. Later on we will utilize other tools that will leverage *Language Parsing* as a way for identifying intent from user prompts. This means our pipeline will look as follows:
+
+```bash
+Raw Text
+  ↓
+Sentence Tokenization
+  ↓
+Lowercasing / Noise Removal
+  ↓
+Word Tokenization
+  ↓
+POS Tagging
+  ↓
+Language Parsing
+```
+
 
 ## Part-of-Speech (POS) Tagging with NLTK
 
@@ -44,39 +63,32 @@ In **NLTK POS tagging**, these 9 core parts of speech are expanded into detailed
 Let’s look at an example sentence and apply POS tagging using NLTK:
 
 ```python
-from nltk.tokenize import word_tokenize
-from nltk import pos_tag
+story = None
+with open("./story.txt", 'r') as file:
+    story = file.read()
 
-sentence = "Wow! Ramona and her class are happily studying the new textbook she has on NLP."
-tokens = word_tokenize(sentence)
-tagged = pos_tag(tokens)
+story = sent_tokenize(story)
 
-print(tagged)
+def removing_noise(txt:str) -> str:
+    # flatten the string
+    txt = txt.lower()
+    # removing special characters
+    txt = re.sub(r'[^a-z\s]', '', txt)
+    # normalize whitespaces
+    txt = re.sub(r'\s+', ' ', txt)
+    return txt
+
+story_w_tokens = [word_tokenize(removing_noise(sent)) for sent in story]
+
+pos_story = [pos_tag(sent) for sent in story_w_tokens]
+print(pos_story)
 ```
 
-The output might look like this:
-
-```python
-[('Wow', 'UH'),
- ('!', '.'),
- ('Ramona', 'NNP'),
- ('and', 'CC'),
- ('her', 'PRP$'),
- ('class', 'NN'),
- ('are', 'VBP'),
- ('happily', 'RB'),
- ('studying', 'VBG'),
- ('the', 'DT'),
- ('new', 'JJ'),
- ('textbook', 'NN'),
- ('she', 'PRP'),
- ('has', 'VBZ'),
- ('on', 'IN'),
- ('NLP', 'NNP'),
- ('.', '.')]
-```
+You'll see our list of strings is now a list of tuples where index 0 is the word itself and index 1 is the POS belonging to the word itself. So far none of this is new... now we are going to start utilizing this data to build phrases and identify what each portion of a phrase is meant to do.
 
 ### Breakdown of POS Abbreviations
+
+These tags aren't as self explanatory as one would think so unfortunately
 
 | **Tag** | **Part of Speech**                  | **Example from Sentence**                         |
 | ------- | ----------------------------------- | ------------------------------------------------- |
