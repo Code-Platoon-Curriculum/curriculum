@@ -6,12 +6,12 @@ AI chatbots are computer programs designed to simulate human conversation using 
 
 ## How do they work?
 
-From a technical standpoint, chatbots function by processing user input—typically text or voice—through several layers, beginning with **natural language understanding (NLU)** to interpret the user's intent and extract relevant information. This is followed by a **dialogue management** system that determines how the bot should respond, using either predefined rules or machine learning models trained on large datasets. The response is then generated using **natural language generation (NLG)** and sent back to the user in human-readable form. More advanced AI chatbots, like those built on transformer models (e.g., GPT), use deep learning to predict and generate coherent, context-aware responses across a conversation. From the user's perspective, this process is seamless: they input a question or command and receive an intelligent, often conversational response almost instantly. The chatbot appears to "understand" and respond naturally, creating an interactive experience that feels human-like, even though it's powered by complex data pipelines, algorithms, and model inference under the hood.
+From a technical standpoint, chatbots function by processing user input—typically text or voice—through several layers, beginning with **natural language understanding (NLU)** to interpret the user's intent and extract relevant information. This is followed by a **dialogue management system** that determines how the bot should respond, using either predefined rules or machine learning models trained on large datasets. The response is then generated using **natural language generation (NLG)** and sent back to the user in human-readable form. More advanced AI chatbots, like those built on transformer models (e.g., GPT), use deep learning to predict and generate coherent, context-aware responses across a conversation. From the user's perspective, this process is seamless: they input a question or command and receive an intelligent, often conversational response almost instantly. The chatbot appears to "understand" and respond naturally, creating an interactive experience that feels human-like, even though it's powered by complex data pipelines, algorithms, and model inference under the hood.
 
 - NLU (Natural Language Understanding):
     - Intent Detection: Is the user asking a question, giving a command?
     - Entity Recognition: Extracting items like dates, names, product IDs.
-- Dialogue Management Layer:
+- Dialogue Management System Layer:
     - tracks conversation state, 
     - decides next actions
     - applies business or model logic.
@@ -27,7 +27,7 @@ From a technical standpoint, chatbots function by processing user input—typica
 
 **What is a rule-based chatbot?**  
 
-A rule-based chatbot operates on a set of predefined rules and patterns, often using decision trees or keyword matching to guide the flow of conversation. These bots do not understand context or intent beyond their hardcoded logic and are typically designed for specific tasks like answering FAQs or guiding users through menus. Check out <a href="https://anthay.github.io/eliza.html" target="_">**E.L.I.Z.A.**</a> take some time to experiment and test out the bots capabilities and limitations.
+A rule-based chatbot operates on a set of predefined rules and patterns, often using decision trees or keyword matching to guide the flow of conversation. These bots do not understand context or intent beyond their hardcoded logic and are typically designed for specific tasks like answering FAQs or guiding users through menus. Check out <a href="https://anthay.github.io/eliza.html" target="_blank">**E.L.I.Z.A.**</a> take some time to experiment and test out the bots capabilities and limitations.
 
 ![RBC](./resources/rule_based.png)
 
@@ -43,7 +43,7 @@ Rule-based chatbots are **closed-domain** systems. They can only handle question
 
 **What is a retrieval-based chatbot?**
 
-Retrieval-based chatbots select the most appropriate response from a pool of predefined responses using machine learning and natural language processing. These bots rely on similarity measures and intent recognition to find the best match to a user's input. Checkout <a href="https://www.pandorabots.com/pandora/talk?botid=b8d616e35e36e881" target="_">**Alice**</a> take some time to experiment and test out the bots capabilities and limitations.
+Retrieval-based chatbots select the most appropriate response from a pool of predefined responses using machine learning and natural language processing. These bots rely on similarity measures and intent recognition to find the best match to a user's input. Checkout <a href="https://www.pandorabots.com/pandora/talk?botid=b8d616e35e36e881" target="_blank">**Alice**</a> take some time to experiment and test out the bots capabilities and limitations.
 
 ![retrieval](./resources/retrieval_based.png)
 
@@ -77,7 +77,9 @@ Rule-based, retrieval-based, and generative chatbots differ fundamentally in how
 
 ![chatbot-matrix](./resources/chatbot-matrix.png)
 
-### Use Cases for each Chatbot
+> While generative chatbots are powerful, most real-world production systems still rely heavily on rule-based and retrieval-based components for control, reliability, and safety.
+
+## Use Cases for each Chatbot
 
 | Use Case                     | Best Fit        | Reason                                       |
 | ---------------------------- | --------------- | -------------------------------------------- |
@@ -93,4 +95,4 @@ As chatbot technology advances, developers must navigate several ethical concern
 
 ## Summary
 
-AI chatbots have come a long way from simple rule-based systems to sophisticated generative models capable of human-like conversation. We've explored the evolution from ELIZA to ChatGPT, detailing how these bots use NLU, dialogue management, and NLG to understand and respond to user input. Understanding the distinctions between rule-based, retrieval-based, and generative chatbots is crucial: rule-based for structured tasks, retrieval-based for context-aware interactions, and generative for open-domain conversations requiring creativity and nuance. As we integrate chatbots into various aspects of our lives, from customer service to mental health support, it's essential to address the ethical concerns surrounding transparency, persona management, and the potential for manipulative communication. By understanding both the capabilities and limitations of each type, along with the ethical considerations, we can harness the power of AI chatbots responsibly and effectively.
+AI chatbots have come a long way from simple rule-based systems to sophisticated generative models capable of human-like conversation. We've explored the evolution from ELIZA to ChatGPT, detailing how these bots use NLU, dialogue management system, and NLG to understand and respond to user input. Understanding the distinctions between rule-based, retrieval-based, and generative chatbots is crucial: rule-based for structured tasks, retrieval-based for context-aware interactions, and generative for open-domain conversations requiring creativity and nuance. As we integrate chatbots into various aspects of our lives, from customer service to mental health support, it's essential to address the ethical concerns surrounding transparency, persona management, and the potential for manipulative communication. By understanding both the capabilities and limitations of each type, along with the ethical considerations, we can harness the power of AI chatbots responsibly and effectively.

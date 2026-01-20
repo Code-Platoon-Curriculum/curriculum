@@ -15,6 +15,22 @@ By the end of this lesson, every student should have a standardized environment 
 
 ---
 
+## Project Structure End-State
+
+By the end of this lecture, you should have a project layout that looks as such.
+
+```txt
+root/
+├── .venv/
+├── notebooks/
+├── data/
+└── requirements.txt
+```
+
+This will help you organize and manage our AI related projects through out this module.
+
+---
+
 ## Python Virtual Environment
 
 ### What is a Virtual Environment
@@ -33,7 +49,7 @@ Using a virtual environment ensures that everyone in the class is working with t
 
 ### Creating a Python VENV
 
-We will standardize on **Python 3.13**, using the system-installed `python3` available on both macOS (Homebrew) and Ubuntu (apt).
+We will standardize on **Python 3.11**, using the system-installed `python3` available on both macOS (Homebrew) and Ubuntu (apt).
 
 > Ensure you are in your project directory before running these commands.
 
@@ -307,4 +323,4 @@ These extensions improve:
 
 ## Conclusion
 
-A well-prepared environment is the foundation of every successful machine learning project. In this lecture, we created an isolated Python 3.13 virtual environment, configured Jupyter Notebook, installed essential ML libraries, and aligned VSCode with our setup. With these tools in place, you are ready to begin building chatbots—from simple rule-based systems to advanced generative models—without friction or configuration issues. In the next lecture, we will begin implementing our first chatbot and explore how conversational logic works in practice.
+A well-prepared environment is the foundation of every successful machine learning project. In this lecture, we created an isolated Python 3.11 virtual environment, configured Jupyter Notebook, installed essential ML libraries, and aligned VSCode with our setup. With these tools in place, you are ready to begin building chatbots—from simple rule-based systems to advanced generative models—without friction or configuration issues. In the next lecture, we will begin implementing our first chatbot and explore how conversational logic works in practice.

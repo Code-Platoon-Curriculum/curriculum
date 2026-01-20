@@ -165,3 +165,98 @@ This creates a **natural narrative arc**:
 
 > Rules → Patterns → Numbers → Meaning → Retrieval → AI
 
+Lesson 1 — Intro to Chatbots & Environment
+
+Lecture 1
+
+What are chatbots?
+
+Rule vs Retrieval vs Generative
+
+Deterministic vs probabilistic systems
+
+Lecture 2
+
+Python + Jupyter setup
+
+First toy rule-based chatbot (if/else)
+
+Lesson 2 — Regex & Rule-Based Chatbots
+
+Lecture 1
+
+Python regex fundamentals
+
+Pattern matching & entity extraction
+
+Lecture 2
+
+Building a rule-based chatbot with regex
+
+Intent routing & fallbacks
+
+Lesson 3 — Language as Data
+
+Lecture 1
+
+Text preprocessing pipeline
+
+Tokenization, normalization, lemmatization (NLTK)
+
+Lecture 2
+
+Bag of Words
+
+N-grams
+
+Feature vectors intuition
+
+Lesson 4 — Classical Retrieval-Based Chatbots
+
+Lecture 1
+
+Information retrieval concepts
+
+TF-IDF
+
+Cosine similarity
+
+Lecture 2
+
+Building a retrieval-based chatbot (TF-IDF)
+
+Response ranking
+
+Lesson 5 — ML for Intent Classification
+
+Lecture 1
+
+Intent detection as classification
+
+Train/test splits
+
+Scikit-learn models
+
+Lecture 2
+
+Neural intent classification with PyTorch
+
+Dataset creation & training loop
+
+Lesson 6 — Semantic Retrieval & System Design
+
+Lecture 1
+
+Why classical retrieval fails
+
+Sentence embeddings
+
+sentence-transformers
+
+Lecture 2
+
+Hybrid chatbots (rules + retrieval)
+
+Limits of classic systems
+
+Bridge to generative models (Hugging Face preview)
