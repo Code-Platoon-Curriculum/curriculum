@@ -1,35 +1,12 @@
 # Intro to Regex
 
-## What is NLP?
+## Regex and NLP
 
-Natural Language Processing (NLP) is a subfield of artificial intelligence and linguistics that focuses on enabling computers to understand, interpret, generate, and respond to human languages in a valuable way. NLP bridges the gap between human communication and computer understanding by applying techniques from linguistics, machine learning, and statistics to analyze and process textual and spoken language data. From virtual assistants and ChatBots to language translation and sentiment analysis, NLP is foundational in helping machines interact with people using natural language.
-
-### What is Text Pre-processing?
-
-Text pre-processing is the essential first step in any NLP task. It involves cleaning and preparing raw textual data so that it can be efficiently analyzed by NLP algorithms. Since language data can be messy, inconsistent, or filled with irrelevant symbols, text pre-processing improves data quality and relevance for downstream tasks.
-
-* **Noise Removal**
-  Noise refers to unwanted characters or formatting in text such as HTML tags, punctuation, numbers, special characters, or extra whitespaces. Removing noise helps focus on the actual words and their meaning, improving the performance of text-based models.
-
-* **Tokenization**
-  Tokenization is the process of splitting text into individual units called tokens, which can be words, phrases, or symbols. This step allows NLP models to analyze language at a granular level, making it easier to process and extract patterns.
-
-* **Normalization**
-  Normalization transforms text into a more consistent format by lowering case, removing variations, or converting different forms of words into a base form.
-
-    * **Stemming**
-      Stemming is a process that cuts off word suffixes to reduce words to their root form. For example, "running" and "runner" might both be reduced to "run". Stemming is quick but can sometimes yield non-dictionary words.
-
-    * **Lemmatization**
-      Lemmatization reduces words to their base or dictionary form (lemma), taking into account the context and part of speech. For example, "was" becomes "be" and "better" becomes "good". This approach is more accurate than stemming, though computationally heavier.
-
-### Regex and NLP
-
-Regular Expressions (regex) in Python are powerful tools used to search, match, and manipulate text. In NLP, regex is often used during the pre-processing stage to clean and extract useful patterns from text. It allows developers to identify and handle structures like emails, phone numbers, dates, or specific word patterns quickly and efficiently.
+Regular Expressions (regex) in Python are powerful tools used to search, match, and manipulate text. In NLP (Natural Language Processing), regex is often used during the pre-processing stage to clean and extract useful patterns from text. It allows developers to identify and handle structures like emails, phone numbers, dates, or specific word patterns quickly and efficiently.
 
 In rule-based chatbots, regex is often the primary mechanism used to interpret user input. Rather than “understanding” language, the chatbot matches patterns in text to predefined rules, allowing it to classify intent, validate input, and trigger responses.
 
-### Why Regex?
+## Why Regex?
 
 Regex becomes extremely helpful in various text processing scenarios, such as:
 
@@ -39,11 +16,19 @@ Regex becomes extremely helpful in various text processing scenarios, such as:
 * Matching time formats, dates, or currency patterns
 * Filtering out profane or restricted words from text
 
-### How does it work?
+## How does it work?
 
 Regex works by using a sequence of characters that defines a search pattern. When applied to a string, the regex engine reads the pattern and scans through the text to find matches. Each symbol or character in a regex pattern has a specific meaning—some match literal characters, while others serve as wildcards, quantifiers, or groups. The engine can perform a variety of tasks such as searching, replacing, splitting, or extracting substrings. Regex engines operate using state-based pattern matching, scanning text sequentially and transitioning between states until a match succeeds or fails, moving through a text one character at a time based on the defined rules until a match is found or the search ends.
 
 ## Applying Regex
+
+### Regex Method Table
+
+| Function       | What it Does                 |
+| -------------- | ---------------------------- |
+| `re.match`     | Matches from start of string |
+| `re.search`    | Matches anywhere             |
+| `re.fullmatch` | Matches entire string        |
 
 ### Character Matching
 
