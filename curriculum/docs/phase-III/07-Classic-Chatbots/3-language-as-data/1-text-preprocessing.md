@@ -12,7 +12,7 @@ This process is critically important because it directly affects how accurately 
 
 > Raw user text is messy. If we feed it directly to a chatbot, the model might misinterpret intent. Pre-processing transforms human language into machine-readable structured data.
 
-> User input → Tokenize → Lowercasing → Remove noise (punctuation, HTML) → Tokenize → Remove stopwords → Stemming/Lemmatization
+> User input → Sentence Tokenize → Lowercasing → Remove noise (punctuation, HTML) → Word Tokenize → Remove stopwords → Stemming/Lemmatization
 
 ## Noise Removal with Regex
 
@@ -97,7 +97,7 @@ Our story is now a clean singular string ready to be fed down the pipeline of NL
 pip install nltk
 ```
 
-* Now since this is our first time ever utilizing `nltk` we actually have to explicitly download some of its commonly used content onto our machines `nltk`s version. Lets do so by opening a Python cell within the JupyTer Notebook with the following code:
+* Now since this is our first time ever utilizing `nltk` we actually have to explicitly download some of its commonly used content onto our machines `nltk`s version. Lets do so by opening a Python cell within the Jupyter Notebook with the following code:
 
 ```python
 import nltk
@@ -262,7 +262,7 @@ def get_wordnet_pos(treebank_tag):
 
 #### Final Lemmatization with POS
 
-Now we can lemmatize each word using its POS for more accurate results by leveragin nltks *WordNetLemmatizer* and feeding it both the words we have in our text and the appropriate pos tag values.
+Now we can lemmatize each word using its POS for more accurate results by leveraging nltks *WordNetLemmatizer* and feeding it both the words we have in our text and the appropriate pos tag values.
 
 ```python
 from nltk.stem import WordNetLemmatizer
@@ -282,64 +282,6 @@ print(lemmatized_story[0])
 
 This will produce a more meaningful reduction of words, taking their grammatical role into account.
 
-## Vectorization
-
-### What does Vectorization do for a Chatbot
-
-**Vectorization** is the process of converting human language (text) into **numerical representations** that a computer can understand and operate on. While earlier steps in text pre-processing—such as tokenization, stopword removal, stemming, and lemmatization—help clean and structure text, vectorization is the step that transforms this processed text into **numbers** that machine learning models can actually use.
-
-Chatbots, whether rule-based, retrieval-based, or powered by deep learning, do not “understand” words the way humans do. Instead, they operate on vectors (arrays of numbers). Vectorization allows a chatbot to:
-- Compare user inputs mathematically
-- Measure similarity between messages
-- Classify intent
-- Retrieve relevant responses
-- Feed text into machine learning and neural network models
-
-Without vectorization, text remains symbolic and cannot be used for statistical analysis or learning. Vectorization is therefore the **bridge between language and machine intelligence**, enabling chatbots to make decisions based on patterns in text rather than hard-coded rules.
-
-### Bag of Words (BoW)
-
-The **Bag of Words** model is one of the simplest and most commonly taught vectorization techniques in NLP. It represents text by counting how often each word appears, completely ignoring grammar and word order. Each sentence or document becomes a vector where:
-- Each position corresponds to a word in the vocabulary
-- The value represents the frequency of that word
-
-For chatbots, Bag of Words is useful for:
-- Intent classification
-- Keyword-based matching
-- Simple retrieval systems
-- Understanding *what* words are present, even if not *how* they are ordered
-
-Although BoW does not capture context or meaning, it provides a clear and intuitive introduction to how text can be converted into numbers.
-
-#### Applying Bag of Words with Python
-
-We’ll use `CountVectorizer` from `scikit-learn`, a standard tool for vectorization in NLP pipelines. You'll notice this class expects a list of sentences so we will have to join all of our sentences and then pass them through our *vectorizer* to see it provide us with both the amount of features it was able to identify and a numpy array that could be utilized for machine learning.
-
-```python
-from sklearn.feature_extraction.text import CountVectorizer
-final_story = [" ".join(sent) for sent in lemmatized_story]
-# Create the vectorizer
-vectorizer = CountVectorizer()
-
-# Fit and transform the text
-bow_vectors = vectorizer.fit_transform(final_story)
-print(vectorizer.get_feature_names_out())
-print(bow_vectors.toarray())
-```
-
----
-
-### Why This Matters Before Deep Learning
-
-Bag of Words may seem simple, but it introduces **core NLP ideas** that carry forward into more advanced models:
-
-* Vocabulary construction
-* Feature extraction
-* Numerical representations of language
-* Similarity and comparison of text
-
-Modern deep learning models (including embeddings and transformers) build on these same principles—just in more sophisticated ways. By mastering vectorization at this level, students gain a strong mental model for how chatbots *interpret*, *compare*, and *reason about* language before moving into neural networks and PyTorch-based approaches.
-
 ## NLP Pipeline
 
 ```bash
@@ -351,16 +293,15 @@ Lowercasing / Noise Removal
   ↓
 Word Tokenization
   ↓
-Lemmatization  OR  Stemming
-  ↓
 Stop Word Removal
   ↓
-Vectorization / Modeling
+Lemmatization  OR  Stemming
 ```
+
+Now that we have clean, normalized tokens, the next step is to convert them into numerical feature vectors that machines can compare.
 
 ## Conclusion
 
-Conclusion
 In this lecture, we've laid the groundwork for understanding text pre-processing, a vital initial step in preparing raw textual data for effective use in AI chatbot models. We began by defining text pre-processing as the essential process of cleaning, standardizing, and structuring noisy user inputs, which is critical for accurate interpretation by machine learning algorithms.
 
 We then explored the concept of noise in text, identifying common types such as excess punctuation, typos, HTML tags, and inconsistent casing. We demonstrated how the re.sub() method from Python's re module can be effectively utilized to remove this noise, making our text data cleaner and more consistent.

@@ -253,12 +253,12 @@ nav:
         - Intro to Regex: phase-III/07-Classic-Chatbots/2-regex-rule-based-chatbots/1-intro-to-regex.md
         - Rule Based ChatBots: phase-III/07-Classic-Chatbots/2-regex-rule-based-chatbots/2-rule-based-chatbots.md
         - Regex + Rule Based ChatBots - Assignments: phase-III/07-Classic-Chatbots/2-regex-rule-based-chatbots/assignments.md
-      - Language in ChatBots:
-        - Language in ChatBots - Overview: phase-III/07-Classic-Chatbots/3-language/README.md
-        - Pre-Requisites: phase-III/07-Classic-Chatbots/3-language/0-story.md
-        - Text Pre-processing: phase-III/07-Classic-Chatbots/3-language/1-text-preprocessing.md
-        - Language Parsing: phase-III/07-Classic-Chatbots/3-language/2-language-parsing.md
-        - Language in ChatBots - Assignments: phase-III/07-Classic-Chatbots/3-language/assignments.md
+      - Language as Data:
+        - Language as Data - Overview: phase-III/07-Classic-Chatbots/3-language-as-data/README.md
+        - Pre-Requisites: phase-III/07-Classic-Chatbots/3-language-as-data/0-story.md
+        - Text Pre-processing: phase-III/07-Classic-Chatbots/3-language-as-data/1-text-preprocessing.md
+        - Vectorization: phase-III/07-Classic-Chatbots/3-language-as-data/2-vectorization.md
+        - Language as Data - Assignments: phase-III/07-Classic-Chatbots/3-language-as-data/assignments.md
       - Deep Learning:
         - Deep Learning - Overview: phase-III/07-Classic-Chatbots/4-deep-learning/README.md
         - Data Pre-processing: phase-III/07-Classic-Chatbots/4-deep-learning/1-data-preprocessing.md
