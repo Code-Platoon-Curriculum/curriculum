@@ -15,8 +15,8 @@ Lastly, we will cover the two most commonly used languages in the industry along
 
 1. [Docker](./1-docker/README.md)
 2. [Git and Github](./2-git-and-github/README.md)
-3. [JavaScript and Python](./3-js-jest-intro/README.md)
-4. [TDD with Jest and Pytest](./4-python-pytest-intro/README.md)
+3. [JavaScript and Python](./3-js-python/README.md)
+4. [TDD with Jest and Pytest](./4-tdd/README.md)
 5. [Github Actions](./5-github-actions/README.md)
 6. [Team Kickoff](./6-team-kickoff/README.md)
 
