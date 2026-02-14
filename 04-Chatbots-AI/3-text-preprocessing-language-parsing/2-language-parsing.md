@@ -235,7 +235,7 @@ chunk_grammar = r"""
 """
 
 # Create parser and apply
-parser = RegexpParser(noun_phrase_r)
+parser = RegexpParser(chunk_grammar)
 chunked_tree = parser.parse(tagged_tokens)
 
 # Visualize or print the result
