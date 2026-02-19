@@ -241,6 +241,12 @@ data.iloc[<num_row>] #grabs the row matching said num
 data.iloc[<from_row>:<to_row>] # returns a slice of rows
 ```
 
+```python
+data['Age']        # grabs a column (use column name)
+data.iloc[0]       # grabs the row matching said num
+data.iloc[0:5]     # returns a slice of rows (from row 0 to 4)
+```
+
 We will see a couple of other methods Pandas has to offer when handling data.
 
 ##### Handle Missing Values
