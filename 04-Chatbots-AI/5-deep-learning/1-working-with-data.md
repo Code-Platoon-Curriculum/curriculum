@@ -320,8 +320,8 @@ training_dataset = TensorDataset(training_f, training_l) # aligns features and l
 testing_dataset = TensorDataset(testing_f, testing_l)
 
 # Create DataLoaders
-training_loader = DataLoader(training_dataset, batch_size=32, shuffle=True)
-testing_loader = DataLoader(testing_dataset, batch_size=32, shuffle=True)
+training_loader = DataLoader(training_dataset, batch_size=32)
+testing_loader = DataLoader(testing_dataset, batch_size=32)
 ```
 
 - **TensorDataset** : Creates a tensor of 2 indexed tensors
