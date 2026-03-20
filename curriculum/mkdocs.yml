@@ -239,7 +239,36 @@ nav:
           - Full-Stack Workflow - Authentication: phase-II/06-Full-Stack/2-full-stack-workflow/1-authentication.md
           - Full-Stack Workflow - CRUD: phase-II/06-Full-Stack/2-full-stack-workflow/2-crud.md
           - Full-Stack Workflow - Assignments: phase-II/06-Full-Stack/2-full-stack-workflow/assignments.md
-  - Phase III: phase-III
+  - Phase III:
+    - Phase III - Overview: phase-III/README.md
+    - Classic ChatBots:
+      - Classic ChatBots - Overview: phase-III/07-Classic-Chatbots/README.md
+      - Intro to ChatBots:
+        - Intro to ChatBots - Overview: phase-III/07-Classic-Chatbots/1-intro-to-chatbots/README.md
+        - What are ChatBots: phase-III/07-Classic-Chatbots/1-intro-to-chatbots/1-what-are-chatbots.md
+        - Prepping Environment: phase-III/07-Classic-Chatbots/1-intro-to-chatbots/2-prepping-env.md
+        - Intro to ChatBots - Assignments: phase-III/07-Classic-Chatbots/1-intro-to-chatbots/assignments.md
+      - Regex + Rule Based ChatBots:
+        - Regex + Rule Based ChatBots - Overview: phase-III/07-Classic-Chatbots/2-regex-rule-based-chatbots/README.md
+        - Intro to Regex: phase-III/07-Classic-Chatbots/2-regex-rule-based-chatbots/1-intro-to-regex.md
+        - Rule Based ChatBots: phase-III/07-Classic-Chatbots/2-regex-rule-based-chatbots/2-rule-based-chatbots.md
+        - Regex + Rule Based ChatBots - Assignments: phase-III/07-Classic-Chatbots/2-regex-rule-based-chatbots/assignments.md
+      - Language as Data:
+        - Language as Data - Overview: phase-III/07-Classic-Chatbots/3-language-as-data/README.md
+        - Pre-Requisites: phase-III/07-Classic-Chatbots/3-language-as-data/0-story.md
+        - Text Pre-processing: phase-III/07-Classic-Chatbots/3-language-as-data/1-text-preprocessing.md
+        - Vectorization: phase-III/07-Classic-Chatbots/3-language-as-data/2-vectorization.md
+        - Language as Data - Assignments: phase-III/07-Classic-Chatbots/3-language-as-data/assignments.md
+      - Deep Learning:
+        - Deep Learning - Overview: phase-III/07-Classic-Chatbots/4-deep-learning/README.md
+        - Data Pre-processing: phase-III/07-Classic-Chatbots/4-deep-learning/1-data-preprocessing.md
+        - Learning Models: phase-III/07-Classic-Chatbots/4-deep-learning/2-learning-models.md
+        - Deep Learning - Assignments: phase-III/07-Classic-Chatbots/4-deep-learning/assignments.md
+      - Retrieval Based ChatBots:
+        - Retrieval Based ChatBots - Overview: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/README.md
+        - Understanding Retrieval Chatbots: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/1-understanding-rbc.md
+        - Building Retrieval Chatbots: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/2-building-rbc.md
+        - Retrieval Based ChatBots - Assignments: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/assignments.md
   - Phase IV: phase-IV
   - Phase V: phase-V
   - Additional Lectures: additional-lectures
