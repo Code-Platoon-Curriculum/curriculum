@@ -5,6 +5,7 @@
 ## Introduction
 
 In this lecture you'll learn what a **retrieval-based chatbot** is and how it differs from a **rule-based chatbot**. From there we will move on into breaking down the functionality of understanding intent and how limited this process is when working within a Rule Based Chatbot. We will learn how to empower our chatbot by converting text into numbers using **Bag-of-Words**, **TF-IDF**, and **embeddings** which will allow us to turn chatbots from rule base to retrieval base.
+
 ---
 
 ## What Is a Retrieval-Based Chatbot?

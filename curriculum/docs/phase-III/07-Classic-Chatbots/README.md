@@ -4,84 +4,32 @@
 
 ## What are we trying to accomplish?
 
+The goal of this module is to equip students with a deep understanding of how conversational AI systems are designed, built, and progressively improved—without relying on large language models. Beginning with the history and taxonomy of chatbots, students move through a deliberate progression: from **rule-based systems** driven by pattern matching, to **data-driven systems** that treat language as a structured dataset, to **retrieval-based and classification-powered systems** that use machine learning to understand user intent. Each lesson builds directly on the last, exposing both the capabilities and limitations of classical approaches so that students understand *why* each technique exists and *when* it breaks down. By the end of this module, students will have built multiple functional chatbot systems in Python and will be prepared to transition into generative, LLM-powered architectures.
+
+---
+
 ## Lessons
 
-1. [Intro to Chat-Bots](./1-intro-to-chatbots-prompt-engineering/README.md)
-2. [Regex & Rule Based Chat-Bots](./2-regex-rule-based-chatbots/README.md)
+1. [Intro to ChatBots](./1-intro-to-chatbots/README.md)
+2. [Regex & Rule-Based ChatBots](./2-regex-rule-based-chatbots/README.md)
 3. [Language as Data](./3-language-as-data/README.md)
-4. [Retrieval Based Chatbots](./5-retrieval-based-chatbots/README.md)
-5. [Deep Learning](./4-deep-learning/README.md)
+4. [Deep Learning](./4-deep-learning/README.md)
+5. [Retrieval-Based ChatBots](./5-retrieval-based-chatbots/README.md)
+
+---
 
 ## Module Topics
 
-
-
-
-## Suggested Module Breakdown (Concrete)
-
-Here’s a **clean module progression** that fits your curriculum:
-
-1. **Regex & Rule-Based Chatbots** ✅
-2. **Text Preprocessing for NLP** ✅
-3. **Tokenization & Vectorization**
-4. **Intro to PyTorch for Language Data**
-5. **Word Embeddings & Semantic Meaning**
-6. **Vector Similarity & Search**
-7. **Retrieval-Based Chatbots**
-8. **Transition to LLM-Powered Systems**
-
-This creates a **natural narrative arc**:
-
-> Rules → Patterns → Numbers → Meaning → Retrieval → AI
-
-
-
-Lesson 4 — Classical Retrieval-Based Chatbots
-
-Lecture 1
-
-Information retrieval concepts
-
-TF-IDF
-
-Cosine similarity
-
-Lecture 2
-
-Building a retrieval-based chatbot (TF-IDF)
-
-Response ranking
-
-Lesson 5 — ML for Intent Classification
-
-Lecture 1
-
-Intent detection as classification
-
-Train/test splits
-
-Scikit-learn models
-
-Lecture 2
-
-Neural intent classification with PyTorch
-
-Dataset creation & training loop
-
-Lesson 6 — Semantic Retrieval & System Design
-
-Lecture 1
-
-Why classical retrieval fails
-
-Sentence embeddings
-
-sentence-transformers
-
-Lecture 2
-
-Hybrid chatbots (rules + retrieval)
-
-Limits of classic systems
-
-Bridge to generative models (Hugging Face preview)
+- Chatbot taxonomy: rule-based, retrieval-based, and generative systems
+- NLU, dialogue management, and NLG components
+- Python ML environment setup with Jupyter Notebook
+- Regular expressions for pattern detection and intent inference
+- Rule-based conversation loop design and input normalization
+- Text preprocessing pipelines: tokenization, normalization, stopword removal, lemmatization
+- Vocabulary construction and corpus-based feature extraction
+- Bag of Words, N-grams, and TF-IDF vectorization
+- Information retrieval concepts and cosine similarity
+- Retrieval-based chatbot construction and response ranking
+- Intent classification with scikit-learn and PyTorch
+- Sentence embeddings and semantic retrieval
+- Classical vs. generative chatbot system design

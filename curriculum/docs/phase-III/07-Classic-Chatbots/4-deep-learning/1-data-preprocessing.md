@@ -6,6 +6,8 @@ In this lecture, we will focus on preparing data for a learning model. We'll dis
 
 ## Lesson Content
 
+> Please use the Kaggle [Students Performance Dataset](https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset) for this lecture.
+
 ### What are Learning Models?
 
 Learning models are algorithms that enable machines to learn from data and make decisions or predictions based on that data. These models range from simple linear regressions to complex neural networks. Neural networks, inspired by the human brain, consist of interconnected nodes (neurons) that process data in layers.

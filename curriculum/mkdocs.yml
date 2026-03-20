@@ -266,8 +266,8 @@ nav:
         - Deep Learning - Assignments: phase-III/07-Classic-Chatbots/4-deep-learning/assignments.md
       - Retrieval Based ChatBots:
         - Retrieval Based ChatBots - Overview: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/README.md
-        - Data Pre-processing: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/1-understanding-rbc.md
-        - Learning Models: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/2-building-rbc.md
+        - Understanding Retrieval Chatbots: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/1-understanding-rbc.md
+        - Building Retrieval Chatbots: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/2-building-rbc.md
         - Retrieval Based ChatBots - Assignments: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/assignments.md
   - Phase IV: phase-IV
   - Phase V: phase-V
