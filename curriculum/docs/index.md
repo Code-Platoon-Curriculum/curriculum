@@ -22,7 +22,7 @@ By the end of the program, students are capable of designing, building, testing,
 
 ## Curriculum Phases
 
-### [Phase I: Fundamentals](phase-I/)
+### [Phase I: Fundamentals](phase-I/README.md)
 
 **Programming Foundations, Tooling, and Core Computer Science**
 
@@ -30,7 +30,7 @@ Phase I establishes the technical foundation required for the remainder of the p
 
 ---
 
-### [Phase II: Full-Stack Development](phase-II/)
+### [Phase II: Full-Stack Development](phase-II/README.md)
 
 **Modern Front-End and Back-End Web Development**
 
@@ -38,7 +38,7 @@ Phase II focuses on building complete web applications from the ground up. Stude
 
 ---
 
-### [Phase III: AI Development](phase-III/)
+### [Phase III: AI Development](phase-III/README.md)
 
 **Chatbots, Machine Learning, and Generative AI Systems**
 

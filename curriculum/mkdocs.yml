@@ -269,6 +269,28 @@ nav:
         - Understanding Retrieval Chatbots: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/1-understanding-rbc.md
         - Building Retrieval Chatbots: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/2-building-rbc.md
         - Retrieval Based ChatBots - Assignments: phase-III/07-Classic-Chatbots/5-retrieval-based-chatbots/assignments.md
-  - Phase IV: phase-IV
-  - Phase V: phase-V
-  - Additional Lectures: additional-lectures
+    - Generative AI:
+      - Generative AI - Overview: phase-III/08-Generative-Chatbots/README.md
+      - Working with LLMS:
+        - Working with LLMS - Overview: phase-III/08-Generative-Chatbots/1-working-w-llms/README.md
+        - What are LLMs: phase-III/08-Generative-Chatbots/1-working-w-llms/1-what-are-llms.md
+        - Prompt Engineering: phase-III/08-Generative-Chatbots/1-working-w-llms/2-prompt-engineering.md
+        - Working with LLMS - Assignments: phase-III/08-Generative-Chatbots/1-working-w-llms/assignments.md
+      - Integrating LLMs:
+        - Integrating LLMs - Overview: phase-III/08-Generative-Chatbots/2-integrating-llms/README.md
+        - LLM APIs: phase-III/08-Generative-Chatbots/2-integrating-llms/1-api-communication.md
+        - Adjusting your Agent: phase-III/08-Generative-Chatbots/2-integrating-llms/2-adjusting-agent.md
+        - Integrating LLMs - Assignments: phase-III/08-Generative-Chatbots/2-integrating-llms/assignments.md
+      - Coding Assistants:
+        - Coding Assistants - Overview: phase-III/08-Generative-Chatbots/3-coding-assistants/README.md
+        - Understanding Coding Assistants: phase-III/08-Generative-Chatbots/3-coding-assistants/1-intro-to-coding-assistants.md
+        - Installing Claude: phase-III/08-Generative-Chatbots/3-coding-assistants/2-installing-claude.md
+        - Coding Assistants - Assignments: phase-III/08-Generative-Chatbots/3-coding-assistants/assignments.md
+      - Claude in Action:
+        - Claude in Action - Overview: phase-III/08-Generative-Chatbots/4-claude-in-action/README.md
+        - Using Claude for Code: phase-III/08-Generative-Chatbots/4-claude-in-action/1-context-and-mcp.md
+        - Commands, Hooks, and SDK: phase-III/08-Generative-Chatbots/4-claude-in-action/2-commands-hooks-n-sdk.md
+        - Claude in Action - Assignments: phase-III/08-Generative-Chatbots/4-claude-in-action/assignments.md
+  # - Phase IV: phase-IV
+  # - Phase V: phase-V
+  # - Additional Lectures: additional-lectures

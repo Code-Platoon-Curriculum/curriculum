@@ -18,7 +18,7 @@ For this lecture we will dig into how we integrate our local Git repo with Githu
 
 ## Creating a new repo in `Github`
 
-In a browser, go to [github.com](github.com), sign in (you should have created an account by now, but if not, please do), and click the '+' button near your profile picture and select 'New repository'. You should see a page like below:
+In a browser, go to <a href="github.com" target="_">github.com</a>, sign in (you should have created an account by now, but if not, please do), and click the '+' button near your profile picture and select 'New repository'. You should see a page like below:
 
 ![create new github](./page-resources/create-new-repo.png)
 
@@ -207,8 +207,8 @@ Other good general bits of git advice I feel are worth sharing:
 
 ## Resources
 
-- [Atlassian Git resouces](./https://www.atlassian.com/git/tutorials/setting-up-a-repository)
+- <a href="/https://www.atlassian.com/git/tutorials/setting-up-a-repository" target="_">Atlassian Git resouces </a>
 
 Atlassian is a company that makes many software development tools like Jira (project management) and a Github competitor called BitBucket. We don't use or teach BitBucket but their tutorials around Git are extremely high quality with diagrams that help a lot compared to Git's own official docs.
 
-- [Code Platoon git workflow cheat sheet & intermediate git cheat sheet](https://github.com/Code-Platoon-Curriculum/curriculum/blob/main/optional_lessons/intermediate-git.md)
+- <a href="https://github.com/Code-Platoon-Curriculum/curriculum/blob/main/optional_lessons/intermediate-git.md" target="_"> Code Platoon git workflow cheat sheet & intermediate git cheat sheet </a>

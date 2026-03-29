@@ -12,7 +12,7 @@ By the end of this lesson, students should understand *why* components exist, wh
 
 ### Lectures
 
-- [Components and Props](./1-component-props.md)
+- [Components and Props](./1-components-props.md)
 - [Component Level State](./2-component-lvl-state.md)
 
 ### [Assignments](./assignments.md)
