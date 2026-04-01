@@ -90,6 +90,8 @@ Notice how this answers all three questions: what it does (Python assistant), ho
 
 ### Choosing your Model
 
+![models](./resources/models.png)
+
 Gemini is a family of models, not a single model. Each variant in the family makes a different trade-off between capability, speed, and cost. Choosing the right one for your use case matters — especially when you're paying per token or optimizing for latency.
 
 #### The Gemini Model Family
@@ -137,6 +139,8 @@ pip install -q -U google-genai python-dotenv
 
 ### Handling Authentication
 
+![auth](./resources/auth.png)
+
 To use the Gemini API, you need an **API key** — a credential that identifies your application to Google's servers and authorizes API calls against your account.
 
 #### Getting a Gemini API Key
@@ -180,6 +184,8 @@ load_dotenv()  # reads .env into os.environ
 api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY not set. Check your .env file.")
+
+client = genai.Client(api_key=api_key)
 ```
 
 This pattern — load from environment, validate it exists, raise clearly if it doesn't — is the standard approach across all API integrations, not just Gemini.
@@ -187,6 +193,8 @@ This pattern — load from environment, validate it exists, raise clearly if it 
 ---
 
 ### Communicate with AI
+
+![communication](./resources/communication.png)
 
 Now that you have a model, prompt and API key within your project, we can confidently begin to send requests to *genai* and receive our selected models responses.
 

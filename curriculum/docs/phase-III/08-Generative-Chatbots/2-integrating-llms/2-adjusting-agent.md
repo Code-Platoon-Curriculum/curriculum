@@ -16,6 +16,8 @@ In this lesson you'll extend the script from the previous lesson with four capab
 
 ### Structured Outputs
 
+![format](./resources/format.png)
+
 By default, the Gemini API returns plain text. That's fine when the output is meant to be read by a human. It's a problem when another part of your program needs to consume it.
 
 Consider asking the model to extract information from a paragraph. If it responds in plain prose, you'd have to parse natural language to get the values you need — fragile and error-prone. **Structured output** solves this by forcing the model to respond in valid JSON that matches a schema you define.
@@ -98,6 +100,8 @@ The `google-genai` SDK solves this with **chat sessions**. A chat session automa
 
 #### Creating a Chat Session
 
+![chat](./resources/chat.png)
+
 ```python
 chat = client.chats.create(model=MODEL_NAME)
 ```
@@ -162,19 +166,21 @@ This is useful for debugging — if the model gives a strange response, check wh
 
 ### Multi-Modal Capabilities
 
+![multimodal](./resources/multimodal.png)
+
 So far every prompt has been plain text. Gemini is a **multimodal** model — it can reason about images, audio, and documents alongside text. This opens up a different category of applications: tools that can read a screenshot, describe a photo, or extract data from a scanned document.
 
 #### Sending an Image with Your Prompt
 
-The `google-genai` SDK lets you pass image data directly as part of the `contents` list using `types.Part.from_bytes()`. You provide the raw bytes and the MIME type.
+The `google-genai` SDK lets you pass image data directly as part of the `contents` list using <a href="https://pillow.readthedocs.io/en/stable/installation/basic-installation.html" target="_">Pillow</a>. Once you open the image you can send it within the request.
 
 Here's a script that loads a local image and asks the model to describe it:
 
 ```python
 from google import genai
-from google.genai import types
-import os
+from PIL import Image
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
@@ -183,13 +189,12 @@ MODEL_NAME = "gemini-2.5-flash"
 
 image_path = "photo.jpg"  # path to a local image file
 
-with open(image_path, "rb") as f:
-    image_bytes = f.read()
+img = Image.open(image_path)
 
 response = client.models.generate_content(
     model=MODEL_NAME,
     contents=[
-        types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg"),
+        img,
         "Describe what you see in this image in two sentences."
     ]
 )
@@ -229,9 +234,11 @@ print(response.text)
 
 ### Thinking
 
+![thinking](./resources/thinking.png)
+
 Gemini 2.5 models have a **thinking mode** — before generating a response, the model performs an internal reasoning pass that is not shown in the output. The result is more accurate answers on tasks that require multi-step logic: math problems, code debugging, planning, and complex analysis.
 
-Thinking is controlled by `ThinkingConfig`, which you pass inside `GenerateContentConfig`. The `thinking_budget` parameter sets how much reasoning effort the model applies.
+Thinking is controlled by `ThinkingConfig`, which you pass inside `GenerateContentConfig`. The `thinking_level` parameter sets how much reasoning effort the model applies.
 
 ```python
 from google import genai
@@ -254,16 +261,31 @@ response = client.models.generate_content(
     model=MODEL_NAME,
     contents=problem,
     config=types.GenerateContentConfig(
-        thinking_config=types.ThinkingConfig(thinking_budget="high")
+        thinking_config=types.ThinkingConfig(
+            thinking_level="high" #only supported by Gemini >= 3.0 
+            include_thoughts=True,
+        )
     )
 )
+
+for part in response.candidates[0].content.parts:
+    if not part.text:
+        continue
+    if part.thought:
+        print("Thought summary:")
+        print(part.text)
+        print()
+    else:
+        print("Answer:")
+        print(part.text)
+        print()
 
 print(response.text)
 ```
 
-#### Thinking Budget Options
+#### Thinking Level Options
 
-| Budget | Use When... |
+| Level | Use When... |
 |---|---|
 | `"minimal"` | Simple tasks — thinking adds unnecessary latency |
 | `"low"` | Light reasoning; faster and cheaper than medium |
@@ -276,7 +298,11 @@ Turn thinking **on** for: math and logic problems, code debugging, multi-step pl
 
 Turn thinking **off** (or use `"minimal"`) for: simple Q&A, creative writing, tasks where speed and cost matter more than precision.
 
-> Thinking increases latency and token consumption. Don't apply `"high"` thinking budget universally — reserve it for tasks where the extra reasoning actually changes the answer quality.
+> Thinking increases latency and token consumption. Don't apply `"high"` thinking level universally — reserve it for tasks where the extra reasoning actually changes the answer quality.
+
+#### Why include Thoughts
+
+The easiest way we can identify there's something wrong with out prompt is by viewing the thought process of our LLM. We can identify assumptions it may have made and/or steering that should not have happened.
 
 ---
 
