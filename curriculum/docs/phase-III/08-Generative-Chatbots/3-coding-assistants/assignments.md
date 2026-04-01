@@ -4,8 +4,7 @@ Assignments should be completed from top to bottom as they will raise in difficu
 
 ## Part I
 
-- <a href="https://anthropic.skilljar.com/introduction-to-model-context-protocol" target="_">**Anthropic**: Intro to Model Context Protocol</a>
-- <a href="https://anthropic.skilljar.com/model-context-protocol-advanced-topics" target="_">**Anthropic**: Model Context Protocol: Advanced Topics</a>
+- <a href="https://github.com/Code-Platoon-Assignments/agent-infrastructure/tree/main" target="_">Agent Architecture Quiz</a>: In this assignment you'll find a series multiple choice questions. Read the question carefully, answer it in your head, and then proceed to read the correct answer. Once you have the right answer, understand why it's the right answer, if you answered incorrectly identify where you may have been mislead, lastly do not proceed unless you have a solid understanding.
 
 ## Part II
 
