@@ -58,21 +58,7 @@ For this course we use **Claude Code** — it exposes the agent architecture mos
 
 This distinction matters: a coding agent is **not** an LLM. It is a system that *uses* an LLM.
 
-```
-┌─────────────────────────────────────────┐
-│              Coding Agent               │
-│                                         │
-│  ┌──────────┐      ┌──────────────────┐ │
-│  │  Agent   │ ───► │   LLM  (brain)   │ │
-│  │  Loop    │ ◄─── │                  │ │
-│  └──────────┘      └──────────────────┘ │
-│       │                                 │
-│       ▼                                 │
-│  ┌──────────┐                           │
-│  │  Tools   │ (filesystem, terminal...) │
-│  └──────────┘                           │
-└─────────────────────────────────────────┘
-```
+![agent-loop](./resources/agent-loop.png)
 
 The LLM is the **reasoning core** — it decides what to do next given the current context. The agent is the **orchestration layer** — it manages the loop, invokes tools, feeds results back to the LLM, and determines when the task is complete.
 
