@@ -291,6 +291,12 @@ nav:
         - Using Claude for Code: phase-III/08-Generative-Chatbots/4-claude-in-action/1-context-and-mcp.md
         - Commands, Hooks, and SDK: phase-III/08-Generative-Chatbots/4-claude-in-action/2-commands-hooks-n-sdk.md
         - Claude in Action - Assignments: phase-III/08-Generative-Chatbots/4-claude-in-action/assignments.md
-  # - Phase IV: phase-IV
+  - Phase IV: 
+    - Phase IV - Overview: phase-IV/README.md
+    - Simple Deployment:
+      - Simple Deployment - Overview: phase-IV/1-simple-deployment/README.md
+      - Internet and AWS: phase-IV/1-simple-deployment/1-internet-and-aws.md
+      - Deploying your App: phase-IV/1-simple-deployment/2-deploying-your-app.md
+
   # - Phase V: phase-V
   # - Additional Lectures: additional-lectures
