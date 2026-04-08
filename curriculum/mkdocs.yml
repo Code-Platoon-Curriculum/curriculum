@@ -291,12 +291,18 @@ nav:
         - Using Claude for Code: phase-III/08-Generative-Chatbots/4-claude-in-action/1-context-and-mcp.md
         - Commands, Hooks, and SDK: phase-III/08-Generative-Chatbots/4-claude-in-action/2-commands-hooks-n-sdk.md
         - Claude in Action - Assignments: phase-III/08-Generative-Chatbots/4-claude-in-action/assignments.md
-  - Phase IV: 
+  - Phase IV:
     - Phase IV - Overview: phase-IV/README.md
     - Simple Deployment:
       - Simple Deployment - Overview: phase-IV/1-simple-deployment/README.md
       - Internet and AWS: phase-IV/1-simple-deployment/1-internet-and-aws.md
       - Deploying your App: phase-IV/1-simple-deployment/2-deploying-your-app.md
+      - Simple Deployment - Assignments: phase-IV/1-simple-deployment/assignments.md
+    - SSL and HTTPS:
+      - SSL and HTTPS - Overview: phase-IV/2-ssl-and-https/README.md
+      - Why SSL: phase-IV/2-ssl-and-https/1-why-ssl.md
+      - Acquiring SSL: phase-IV/2-ssl-and-https/2-acquiring-ssl.md
+      - SSL and HTTPS - Assignments: phase-IV/2-ssl-and-https/assignments.md
 
   # - Phase V: phase-V
   # - Additional Lectures: additional-lectures
