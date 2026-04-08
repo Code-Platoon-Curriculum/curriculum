@@ -1,4 +1,4 @@
-# Why SSL
+# Why Secure Socket Layer
 
 ## Intro
 
@@ -18,31 +18,25 @@ In this lesson, we will understand exactly why that matters, how SSL/TLS solves 
 
 Right now, your application communicates over **HTTP** (HyperText Transfer Protocol). When a user logs in to your task manager, here is what happens at the network level:
 
-```
-Browser  ──────────────────────────────────►  EC2 Instance (port 80)
-         POST /api/v1/users/login/              │
-         { "username": "alice",                 ▼
-           "password": "hunter2" }           NGINX
-                                                │
-                                                ▼
-                                           Django (port 8000)
-```
+![http-only](./resources/http-only.png)
 
 That POST request — containing the username and password — travels across every router, switch, and network segment between the user's machine and your server. It is not encrypted. It is a plain text string moving through the internet.
 
-> **Key idea:** HTTP has no concept of privacy. It is simply a protocol for sending text back and forth. Anyone who can intercept the connection can read everything.
+HTTP has no concept of privacy. It is simply a protocol for sending text back and forth. Anyone who can intercept the connection can read everything.
 
 ---
 
 ### What Happens Without SSL
 
-#### Browser Warnings
+**Browser Warnings**
 
 Modern browsers actively flag HTTP sites. Chrome shows a "Not Secure" label in the address bar for any page served over HTTP. For login forms specifically, Chrome shows a more prominent warning: *"Your connection to this site is not secure. You should not enter any sensitive information on this site."*
 
 Users who see these warnings lose trust in the application — and rightfully so.
 
-#### Man-in-the-Middle Attacks
+**Man-in-the-Middle Attacks**
+
+![mitm](./resources/mitm.png)
 
 A **man-in-the-middle (MITM) attack** occurs when an attacker positions themselves between the client and server and intercepts or modifies traffic.
 
@@ -54,7 +48,7 @@ Consider a user on a coffee shop WiFi network. The network's router sees all tra
 
 MITM attacks on HTTP are not theoretical. They are trivially easy on shared networks using widely available tools.
 
-#### SEO and Browser Feature Restrictions
+**SEO and Browser Feature Restrictions**
 
 Beyond security, running over HTTP has practical consequences:
 
@@ -72,9 +66,9 @@ For any application users are expected to trust with their data, HTTPS is not op
 
 ### How SSL/TLS Works
 
-> **Key idea:** "SSL" and "TLS" are often used interchangeably. SSL (Secure Sockets Layer) was the original protocol; TLS (Transport Layer Security) is its modern replacement. When people say "SSL certificate," they almost always mean a TLS certificate.
+"SSL" and "TLS" are often used interchangeably. SSL (Secure Sockets Layer) was the original protocol; TLS (Transport Layer Security) is its modern replacement. When people say "SSL certificate," they almost always mean a TLS certificate.
 
-#### The Certificate Authority Model
+**The Certificate Authority Model**
 
 The goal of TLS is to answer a simple question: *How does the browser know it is talking to the real server and not an impersonator?*
 
@@ -95,7 +89,7 @@ Browser's built-in trust store
 
 If the certificate is valid, matches the domain, and was signed by a trusted CA — the browser proceeds. If any of those conditions fail, the browser shows a security warning and blocks the connection.
 
-#### The TLS Handshake
+**The TLS Handshake**
 
 When a browser connects to an HTTPS server, it performs a **TLS handshake** before any application data is exchanged. In simplified terms:
 
@@ -120,30 +114,27 @@ You have several options for obtaining a TLS certificate. They differ in cost, h
 | **ZeroSSL** | Free (basic) | Installed on server | Alternative to Let's Encrypt. Less tooling support. |
 | **DigiCert / Comodo** | $50–$500+/year | Installed on server | OV and EV certificates with extended identity verification. Used in enterprise and financial services. |
 
-For this module, we will use both **Certbot** and **AWS ACM**:
-
-- **Certbot** first — it installs directly on your server, it's free, and it makes the certificate files visible and tangible. You will understand exactly what changed.
-- **ACM + ALB** second — this is the AWS production pattern. SSL terminates at the load balancer, and your EC2 instance serves plain HTTP internally.
+For this module, we will use **Certbot** — it installs directly on your server, it's free, and it makes the certificate files visible and tangible. You will understand exactly what changed on your machine and why your application is now secure.
 
 ---
 
 ### Acquiring a Domain
 
-Every SSL certificate approach covered in this module — Certbot and ACM — requires a **domain name**. Certificates cannot be issued against a raw IPv4 address like `3.138.247.77` for two reasons:
+Every SSL certificate approach covered in this module requires a **domain name**. Certificates cannot be issued against a raw IPv4 address like `3.138.247.77` for two reasons:
 
 1. **Verification** — the certificate issuer needs to confirm you control the domain. They do this by having you add a specific DNS record or serve a specific file at a known URL. An IP address has no corresponding DNS record you can manage.
 2. **Stability** — EC2 public IPv4 addresses change when an instance is stopped and restarted. A domain name is a stable identifier that you control regardless of what happens to the underlying IP.
 
-#### Route 53 vs External Registrars
+**Route 53 vs External Registrars**
 
 | Option | Pros | Cons |
 |---|---|---|
-| **AWS Route 53** | Seamless integration with ACM (one-click DNS validation), hosted zone created automatically | Slightly higher registration cost (~$13–15/year for .com) |
+| **AWS Route 53** | Seamless integration with AWS services, hosted zone created automatically | Slightly higher registration cost (~$13–15/year for .com) |
 | **External registrar** (Namecheap, GoDaddy, Google Domains) | Often cheaper domain prices | Additional step to configure nameservers or add DNS records manually |
 
-For this curriculum we will use **Route 53** — the integration with ACM in the next lesson makes the process significantly smoother.
+For this curriculum we will use **Route 53** — it keeps everything within the AWS ecosystem and requires the least manual DNS configuration.
 
-#### Registering a Domain in Route 53
+**Registering a Domain in Route 53**
 
 1. In the AWS Console, navigate to **Route 53** → **Registered domains** → **Register domain**
 2. Search for the domain name you want
@@ -152,7 +143,7 @@ For this curriculum we will use **Route 53** — the integration with ACM in the
 
 > Registration can take a few minutes to up to an hour to complete. You will receive a confirmation email.
 
-#### Creating an A Record
+**Creating an A Record**
 
 Once your domain is registered and the Hosted Zone exists, point it at your EC2 instance.
 
@@ -165,15 +156,66 @@ Once your domain is registered and the Hosted Zone exists, point it at your EC2 
    - **TTL**: 300 (5 minutes is fine for now)
 4. Click **Create records**
 
-> **Important:** This A record must be in place before running Certbot in the next lesson. Let's Encrypt verifies domain ownership by making an HTTP request to your domain — if DNS hasn't propagated yet, the verification will fail.
+This A record must be in place before running Certbot in the next lesson. Let's Encrypt verifies domain ownership by making an HTTP request to your domain — if DNS hasn't propagated yet, the verification will fail.
 
-You can confirm propagation using the same tool from Lesson 1:
+You can confirm propagation with:
 
 ```bash
 nslookup yourdomain.com
 ```
 
 When the returned IP address matches your EC2's public IPv4, you are ready to proceed.
+
+**Importing an Existing Domain from an External Registrar**
+
+If you already own a domain through GoDaddy, Namecheap, Google Domains, or any other registrar, you do not need to buy a new one. You can keep the domain where it is registered and delegate its DNS management to Route 53 by updating the domain's **nameservers**.
+
+Here is how DNS authority works: when a browser looks up `yourdomain.com`, it first asks the global DNS system which nameservers are authoritative for that domain. Those nameservers are set at your registrar. By pointing them at Route 53, you are telling the internet "Route 53 is now in charge of all DNS records for this domain" — even though you are still paying your original registrar for the domain itself.
+
+The steps are:
+
+**Step 1 — Create a Hosted Zone in Route 53**
+
+1. In the AWS Console, navigate to **Route 53** → **Hosted zones** → **Create hosted zone**
+2. Enter your domain name exactly as registered (e.g. `yourdomain.com`)
+3. Leave the type as **Public hosted zone**
+4. Click **Create hosted zone**
+
+Route 53 will immediately create the zone and populate it with two default records: an **NS record** (nameservers) and an **SOA record** (start of authority). The NS record is what you need next.
+
+**Step 2 — Copy the Route 53 Nameservers**
+
+Click into your new Hosted Zone and find the **NS record**. It will contain four nameserver addresses that look like:
+
+```
+ns-123.awsdns-45.com
+ns-678.awsdns-90.net
+ns-111.awsdns-22.co.uk
+ns-999.awsdns-55.org
+```
+
+Copy all four — you will paste these into your registrar's dashboard.
+
+**Step 3 — Update Nameservers at Your Registrar (GoDaddy example)**
+
+1. Log in to your GoDaddy account and navigate to **My Products** → **Domains**
+2. Click **Manage** next to your domain
+3. Scroll to the **Nameservers** section and click **Change**
+4. Select **Enter my own nameservers (advanced)**
+5. Delete the existing GoDaddy nameservers and paste in the four Route 53 nameservers from Step 2
+6. Save your changes
+
+The process is nearly identical for other registrars — look for a "Custom nameservers" or "DNS management" section in your domain settings.
+
+**Step 4 — Wait for Propagation**
+
+Nameserver changes can take anywhere from a few minutes to 48 hours to propagate across the global DNS network, though in practice it is usually under an hour. You can check whether propagation has completed with:
+
+```bash
+nslookup -type=NS yourdomain.com
+```
+
+When the output shows the Route 53 nameservers instead of your registrar's original ones, DNS authority has transferred. From this point forward, all DNS records for your domain — including the A record pointing to your EC2 instance — are managed entirely within Route 53.
 
 ---
 
@@ -187,6 +229,6 @@ In this lesson you:
 - Understood the attack surface created by running without SSL
 - Learned how Certificate Authorities and the TLS handshake establish trust
 - Compared the major SSL providers and their deployment models
-- Registered a domain name, created a Hosted Zone, and pointed it at your EC2 instance
+- Registered a domain name (or imported an existing one), created a Hosted Zone, and pointed it at your EC2 instance
 
-In the next lesson, we will obtain a certificate using Certbot and then walk through the AWS ACM + Application Load Balancer approach as a production-grade alternative.
+In the next lesson, we will use Certbot to obtain a free SSL certificate, wire it into our Nginx configuration, and serve our application exclusively over HTTPS.
