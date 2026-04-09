@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'http://3.138.247.77/api/v1/'
+    baseURL: 'https://deployment-demo.com/api/v1/',
+    withCredentials: true,
 })
 
 export const deleteATask = async( id ) => {
@@ -51,8 +52,6 @@ export const createTask = async( title, dueDate ) => {
 export const logoutUser = async() => {
     let response = await api.post('users/logout/')
     if (response.status === 200){
-        localStorage.removeItem('token')
-        delete api.defaults.headers.common['Authorization']
         return null
     }
     alert("Something went wrong")
@@ -60,37 +59,37 @@ export const logoutUser = async() => {
 }
 
 export const userConfirmation = async() => {
-    let token = localStorage.getItem("token") // 'str' | null
-    if (token){
-        api.defaults.headers.common['Authorization'] = `Token ${token}`
+    try{
         let response = await api.get('users/')
         if (response.status === 200){
             let user = response.data.email
             console.log("SUCCESS")
             return user
-        }
+        } 
         console.error(response.data)
         return null
+    } catch(error){
+        console.error(error)
+        return null
     }
-    return null
 }
 
 export const handleUserAuth = async( data, create ) => {
-    // url pattern users/create|login/
-    // body of request must hold {email,password}
-    let response = await api.post(`users/${create ? 'create' : 'login'}/`,
-        data
-    )
-    // response status of 201 | 200| 400 |404
-    if (response.status === 201 || response.status === 200){
-        let token = response.data.token
-        api.defaults.headers.common['Authorization'] = `Token ${token}`
-        localStorage.setItem("token", token)
-        return response.data.email
+    try{
+        let response = await api.post(`users/${create ? 'create' : 'login'}/`,
+            data
+        )
+        // response status of 201 | 200| 400 |404
+        if (response.status === 201 || response.status === 200){
+            return response.data.email
+        }
+        else{
+            console.error(response.data)
+            return null
+        }
     }
-    // response data = {token, email} | {errors}
-    else{
-        console.error(response.data)
+    catch(error){
+        console.error(error)
         return null
     }
 }

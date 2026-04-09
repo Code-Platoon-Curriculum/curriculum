@@ -308,6 +308,11 @@ nav:
       - Secrets and Configurations: phase-IV/3-dev-vs-prod/1-secrets-and-configs.md
       - HTTPS and Cookies: phase-IV/3-dev-vs-prod/2-https-cookies.md
       - Dev vs Prod - Assignments: phase-IV/3-dev-vs-prod/assignments.md
+    - JWT and Interceptors:
+      - JWT and Interceptors - Overview: phase-IV/4-jwt-interceptors/README.md
+      - JWTs: phase-IV/4-jwt-interceptors/1-drf-jwt.md
+      - Interceptors: phase-IV/4-jwt-interceptors/2-axios-interceptors.md
+      - JWT and Interceptors - Assignments: phase-IV/4-jwt-interceptors/assignments.md
 
   # - Phase V: phase-V
   # - Additional Lectures: additional-lectures
