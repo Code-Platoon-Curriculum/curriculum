@@ -303,6 +303,11 @@ nav:
       - Why SSL: phase-IV/2-ssl-and-https/1-why-ssl.md
       - Acquiring SSL: phase-IV/2-ssl-and-https/2-acquiring-ssl.md
       - SSL and HTTPS - Assignments: phase-IV/2-ssl-and-https/assignments.md
+    - Dev vs Prod:
+      - Dev vs Prod - Overview: phase-IV/3-dev-vs-prod/README.md
+      - Secrets and Configurations: phase-IV/3-dev-vs-prod/1-secrets-and-configs.md
+      - HTTPS and Cookies: phase-IV/3-dev-vs-prod/2-https-cookies.md
+      - Dev vs Prod - Assignments: phase-IV/3-dev-vs-prod/assignments.md
 
   # - Phase V: phase-V
   # - Additional Lectures: additional-lectures
