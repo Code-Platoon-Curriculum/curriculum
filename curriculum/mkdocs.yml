@@ -313,6 +313,9 @@ nav:
       - JWTs: phase-IV/4-jwt-interceptors/1-drf-jwt.md
       - Interceptors: phase-IV/4-jwt-interceptors/2-axios-interceptors.md
       - JWT and Interceptors - Assignments: phase-IV/4-jwt-interceptors/assignments.md
+    - Scaling Infrastructure:
+      - S3 + CloudFront: phase-IV/5-scaling-infrastructure/1-s3-n-cloudfront.md
+      - Load Balancers: phase-IV/5-scaling-infrastructure/2-alb.md
 
   # - Phase V: phase-V
   # - Additional Lectures: additional-lectures

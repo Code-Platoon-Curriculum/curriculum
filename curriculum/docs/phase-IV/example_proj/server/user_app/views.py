@@ -3,17 +3,55 @@ from .models import AppUser
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.authentication import TokenAuthentication
+# from rest_framework.authentication import TokenAuthentication
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status as s
 from task_proj.utilies import handle_exceptions
 from datetime import datetime, timedelta
 from .utilities import CookieAuthentication
 
-def create_time_for_cookie():
-    life_time = datetime.now() + timedelta(days=7) # token is valid for 1 week
+def create_time_for_cookie(days=0, minutes=2):
+    life_time = datetime.now() + timedelta(days=days, minutes=minutes) # token is valid for 1 week
     format_time = life_time.strftime("%a, %d %b %Y %H:%M:%S GMT")
     return format_time
+
+class RefreshAccessToken(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def post(self, request):
+        refresh_token = request.COOKIES.get('refresh')
+        if not refresh_token:
+            return Response("No token present", status=s.HTTP_401_UNAUTHORIZED)
+        try:
+            refresh = RefreshToken(refresh_token)
+            new_access = str(refresh.access_token)
+            new_refresh = str(refresh)
+            response = Response(
+                {"message":"Token refreshed"}, status=s.HTTP_200_OK
+            )
+            response.set_cookie(
+                key='access',
+                value=new_access,
+                httponly=True,
+                secure=True,
+                samesite='Lax',
+                expires=create_time_for_cookie(minutes=1)
+            )
+            response.set_cookie(
+                key='refresh',
+                value=new_refresh,
+                httponly=True,
+                secure=True,
+                samesite='Lax',
+                expires=create_time_for_cookie(days=7)
+            )
+            return response
+        except TokenError as e:
+            return Response(str(e), status=s.HTTP_401_UNAUTHORIZED)
+
 # Create your views here.
 class CreateUser(APIView):
     authentication_classes = []
@@ -27,16 +65,25 @@ class CreateUser(APIView):
         try:
             new_user.full_clean()
             new_user.save()
-            token = Token.objects.create(user=new_user)
+            refresh = RefreshToken.for_user(new_user)
+            access = str(refresh.access_token)
             # life_time key value http secure samesite
             response = Response({"email":new_user.email}, status=s.HTTP_201_CREATED)
             response.set_cookie(
-                key='token',
-                value=token.key,
+                key='access',
+                value=access,
                 httponly=True,
                 secure=True,
                 samesite='Lax',
-                expires=create_time_for_cookie()
+                expires=create_time_for_cookie(minutes=1)
+            )
+            response.set_cookie(
+                key='refresh',
+                value=str(refresh),
+                httponly=True,
+                secure=True,
+                samesite='Lax',
+                expires=create_time_for_cookie(days=7)
             )
             return response
         except Exception as e:
@@ -53,15 +100,24 @@ class LogIn(APIView):
         data['username'] = request.data.get('email')
         user = authenticate(username=data.get('username'), password=data.get("password"))
         if user:
-            token, _ = Token.objects.get_or_create(user=user)
-            response = Response({"email":user.email}, status=s.HTTP_201_CREATED)
+            refresh = RefreshToken.for_user(user)
+            access = str(refresh.access_token)
+            response = Response({"email":user.email}, status=s.HTTP_200_OK)
             response.set_cookie(
-                key='token',
-                value=token.key,
+                key='access',
+                value=access,
                 httponly=True,
                 secure=True,
                 samesite='Lax',
-                expires=create_time_for_cookie()
+                expires=create_time_for_cookie(minutes=1)
+            )
+            response.set_cookie(
+                key='refresh',
+                value=str(refresh),
+                httponly=True,
+                secure=True,
+                samesite='Lax',
+                expires=create_time_for_cookie(days=7)
             )
             return response
         else:
@@ -84,7 +140,15 @@ class LogOut(UserView):
     @handle_exceptions
     def post(self, request):
         user = request.user
-        user.auth_token.delete()
+        refresh_token = request.COOKIES.get("refresh")
+        if refresh_token:
+            try:
+                token = RefreshToken(refresh_token)
+                token.blacklist()
+            except TokenError as e:
+                print(str(e))
+                pass
         response = Response(f"{user.email} has been logged out")
-        response.delete_cookie('token')
+        response.delete_cookie('access')
+        response.delete_cookie('refresh')
         return response
