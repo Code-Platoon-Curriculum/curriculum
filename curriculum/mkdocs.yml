@@ -1,4 +1,6 @@
 site_name: Full Stack Curriculum
+markdown_extensions:
+  - pymdownx.keys
 theme:
   name: material
   logo: assets/home_logo.png
