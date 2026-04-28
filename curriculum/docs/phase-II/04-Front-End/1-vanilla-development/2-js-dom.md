@@ -201,8 +201,8 @@ element.addEventListener("click", handler);
 ```js
 newDiv.addEventListener("mousemove", (evt) => {
   let xRatio = 1 - evt.x / document.documentElement.clientWidth;
-  let value = Math.round(256 * xRatio);
-  evt.target.style.backgroundColor = `rgb(256, ${value}, ${value})`;
+  let value = Math.round(255 * xRatio);
+  evt.target.style.backgroundColor = `rgb(255, ${value}, ${value})`;
 });
 ```
 
