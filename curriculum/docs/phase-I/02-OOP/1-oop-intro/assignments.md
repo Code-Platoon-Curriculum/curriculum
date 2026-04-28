@@ -8,7 +8,7 @@ Assignments should be completed from top to bottom as they will raise in difficu
 - <a href="https://github.com/Code-Platoon-Assignments/oop-app-users-i.git" target="_blank" rel="noopener noreferrer">Assignment - App Users I</a> (Python)
 
 ## Part II
-
+- [Practice with the Ninja Coders Demo](./hands-on-demo.md)
 - <a href="https://github.com/Code-Platoon-Assignments/oop-student-registry.git" target="_blank" rel="noopener noreferrer">Assignment - Student Registry</a>
 - <a href="https://drive.google.com/file/d/1M0UbipX2AKpooG98OdJklhcKMwikmV8L/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Reading Assignment - Python Crash Course CH.9 (pgs. 167–173)</a>
 
