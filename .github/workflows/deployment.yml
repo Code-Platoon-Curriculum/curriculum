@@ -1,97 +1,36 @@
-name: Deploy MkDocs to EC2
-
+name: Deploy MkDocs
 on:
   push:
     branches:
       - main
-
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
 permissions:
-  id-token: write
-  contents: read
-
-env:
-  DEPLOY_BASE: /usr/share/nginx/html
-  APP_NAME: mkdocs-site
-
+  contents: write
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: deployment
 
+    defaults:
+      run:
+        working-directory: curriculum
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # -----------------------------
-      # Build MkDocs
-      # -----------------------------
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          cd curriculum
-          pip install -r requirements.txt
-
-      - name: Build MkDocs site
-        run: |
-          cd curriculum
-          mkdocs build --clean
-
-      # -----------------------------
-      # Prepare SSH
-      # -----------------------------
-      - name: Decode SSH key
-        run: |
-          echo "${{ secrets.EC2_SSH_KEY_B64 }}" | base64 --decode > ec2.pem
-          chmod 400 ec2.pem
-
-      - name: Add EC2 to known hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ secrets.EC2_PUBLIC_IP }} >> ~/.ssh/known_hosts
-          chmod 700 ~/.ssh
-          chmod 644 ~/.ssh/known_hosts
-      # -----------------------------
-      # Upload files
-      # -----------------------------
-      - name: Upload site and nginx config
-        run: |
-          rsync -avz curriculum/site/ ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/site
-          rsync -avz curriculum/nginx.conf ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/nginx.conf
-        env:
-          RSYNC_RSH: "ssh -i ec2.pem"
-
-      # -----------------------------
-      # Remote Deployment
-      # -----------------------------
-      - name: Deploy on EC2
-        run: |
-          ssh -i ec2.pem ubuntu@${{ secrets.EC2_PUBLIC_IP }} << 'EOF'
-            set -e
-
-            sudo apt update -y
-            which nginx || sudo apt install nginx -y
-
-            sudo systemctl enable nginx
-
-            DEPLOY_DIR="/usr/share/nginx/html"
-            TARGET="$DEPLOY_DIR/site"
-
-            sudo mkdir -p $TARGET
-            sudo rsync -a /home/ubuntu/site/ $TARGET/
-
-            sudo chown -R www-data:www-data $DEPLOY_DIR
-            sudo chmod -R 755 $DEPLOY_DIR
-
-            sudo ln -sfn $TARGET $DEPLOY_DIR/current
-
-            sudo cp /home/ubuntu/nginx.conf /etc/nginx/sites-available/default
-            sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
-            sudo nginx -t
-            sudo systemctl reload nginx
-          EOF
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: ~/.cache 
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install --upgrade pip
+      - run: pip install -r requirements.txt
+      - run: mkdocs gh-deploy --force

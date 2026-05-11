@@ -104,49 +104,46 @@ When applying inheritance, consider these best practices:
 Multiple inheritance involves a class inheriting attributes and methods from more than one parent class. This provides the ability to combine features from different sources. Let's consider an example:
 
 ```python
-class Mother:
+class Instructor:
     def __init__(self):
-        self.first_name = "Sandra"
-        self.last_name = "Wilensky"
+        self.role = "Instructor"
+
+    def teach(self):
+        print("Teaching students")
 
 
-class Father:
+class Mentor:
     def __init__(self):
-        self.first_name = "Harris"
-        self.last_name = "Cohen"
+        self.role = "Mentor"
+
+    def give_feedback(self):
+        print("Giving project feedback")
 
 
-class Child(Mother, Father):
+class LeadInstructor(Instructor, Mentor):
     def __init__(self):
-        # try swapping the order of these initializing statements
-        Father.__init__(self)
-        Mother.__init__(self)
+        # Try swapping these and see the change in output
+        Mentor.__init__(self)
+        Instructor.__init__(self)
 
-        self.first_name = "Benjamin"
+        self.name = "Francisco"
 
-    def print_full_name(self):
-        print(f"{self.first_name} {self.last_name}")
+    def introduce(self):
+        print(f"{self.name} is a {self.role}")
 
 
-ben = Child()
-ben.print_full_name()
+lead = LeadInstructor()
+
+lead.introduce()
+lead.teach()
+lead.give_feedback()
+# You can view the Method Resolution Order
+print(LeadInstructor.__mro__) 
 ```
 
 Inheritance establishes a relationship between parent and child classes. Child classes inherit attributes and methods from their parent class. This allows us to extend or override behaviors in a structured manner. Think of the parent as a tree of attributes and methods with each child class being a branch of said tree, although each branch is unique they still share many commonalities with the tree itself.
 
-```bash
-# Single Inheritance        # Multiple Inheritance
-Animal                      Father             Mother
-------                     --------           --------
-   |                          |                  |
-   |--- Dog                   |                  |
-   |                          |                  |
-   |                          |------------------|
-   |                          |         |        |
-   |--- Cat                   |         |        |
-   |                          |       Child      |
-   |                          |      -------     |
-```
+![Multiple Inheritance Graphic](./page-resources/multi-inhereit.png "Multiple Inheritance Graphic") 
 
 ## Conclusion
 
