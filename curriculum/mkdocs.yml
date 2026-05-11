@@ -1,4 +1,6 @@
 site_name: Full Stack Curriculum
+site_url: https://CodePlatoon.github.io/se-curriculum/
+
 markdown_extensions:
   - pymdownx.keys
 theme:
