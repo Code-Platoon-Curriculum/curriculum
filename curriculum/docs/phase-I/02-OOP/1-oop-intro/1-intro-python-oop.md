@@ -14,7 +14,7 @@ Object-oriented programming is one of the most effective approaches to writing s
 
 - **Five Pillars of OOP**:
     - Encapsulation = Data access can be restricted based on needs
-    - Abstraction = Logic/Complexity is hidden, for simplicity
+    - Abstraction = Expose what something does, hide how it does it
     - Inheritance = Sharing of similar features and attributes (Is-a)
     - Composition = Including other Objects as attributes (Has-a)
     - Polymorphism = Objects can take different forms depending on needs/situation
