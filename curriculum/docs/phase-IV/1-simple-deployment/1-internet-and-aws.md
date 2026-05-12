@@ -139,6 +139,239 @@ A specialized platform focused on static site and front-end deployment. Dramatic
 For this curriculum, we will use **AWS** — it is the industry standard and understanding it will transfer to virtually any professional environment you enter.
 
 ---
+## AWS Account Setup Before EC2
+
+Before we launch our first EC2 instance, we need to properly configure our AWS account. By default, AWS gives you a **root user**, which has unrestricted access to the entire account. This is powerful, but it is not the account we should use for normal day-to-day work.
+
+In this section, we will secure the root account, create a safer admin user, and set up basic billing protections.
+
+---
+
+### Root User vs IAM Users
+
+AWS accounts start with a **root user**.
+
+The root user is the original account owner. It has access to everything in the AWS account and can perform certain account-level actions that normal users cannot.
+
+An **IAM user** is a separate login identity inside the AWS account. IAM users are given permissions through AWS Identity and Access Management.
+
+For normal work, we should use an IAM user instead of root.
+
+| User Type | Purpose |
+| --- | --- |
+| Root user | Account ownership, billing/account recovery, rare account-level actions |
+| IAM admin user | Normal AWS management work |
+| IAM limited user | Specific tasks with limited permissions |
+| IAM role | Temporary permissions for AWS services, applications, or automation |
+
+Best practice:
+
+- Secure the root user.
+- Create an IAM admin user.
+- Use the IAM admin user for normal work.
+- Avoid using root unless absolutely necessary.
+
+---
+
+### Step 1: Log In as the Root User
+
+Log in to AWS using the root account email and password.
+
+This should be the original email address used to create the AWS account.
+
+---
+
+### Step 2: Enable MFA on the Root User
+
+Multi-Factor Authentication, or MFA, adds a second layer of protection to the account.
+
+From the AWS Console:
+
+1. Go to **IAM**.
+2. Open the **IAM Dashboard**.
+3. Find the root user security recommendations.
+4. Choose **Add MFA**.
+5. Use an authenticator app or hardware MFA device.
+6. Complete the setup.
+
+This is one of the most important security steps. If someone gets the root password but does not have the MFA device, they still cannot log in.
+
+---
+
+### Step 3: Create an AWS Account Alias
+
+By default, IAM users log in using the AWS account ID, which is a long number.
+
+An **account alias** lets users log in with a readable name instead.
+
+From the AWS Console:
+
+1. Go to **IAM**.
+2. Open the **IAM Dashboard**.
+3. On the right side, find **AWS Account**.
+4. Choose **Account Alias**.
+5. Create a unique alias.
+
+The alias must be unique across AWS.
+
+After creating the alias, save the IAM sign-in URL.
+
+It will look similar to this:
+
+```text
+https://your-account-alias.signin.aws.amazon.com/console
+```
+
+This is the URL IAM users can use to log in.
+
+---
+
+### Step 4: Enable Billing Access for IAM Users
+
+Even if an IAM user has admin permissions, AWS billing access is not always enabled by default.
+
+To allow IAM users to access billing information:
+
+1. Click the profile menu in the top-right corner.
+2. Go to **Account**.
+3. Find **IAM user and role access to Billing Information**.
+4. Click **Edit**.
+5. Activate IAM access to billing.
+
+This allows admin IAM users to view billing information, budgets, and cost tools.
+
+---
+
+### Step 5: Update Billing Preferences
+
+Billing alerts help prevent surprise charges.
+
+From the AWS Console:
+
+1. Go to **Billing and Cost Management**.
+2. Open **Preferences** or **Billing Preferences**.
+3. Enable **Free Tier usage alerts**.
+4. Enable **CloudWatch billing alerts** if available.
+5. Add an email address for alerts.
+6. Optionally enable PDF invoices by email.
+
+These settings do not stop AWS from charging you, but they help you notice usage before it becomes a problem.
+
+---
+
+### Step 6: Create a Budget
+
+AWS Budgets can send alerts when your account spending reaches a certain amount.
+
+From the AWS Console:
+
+1. Go to **Billing and Cost Management**.
+2. Open **Budgets**.
+3. Choose **Create budget**.
+4. Select a template such as **Monthly cost budget**.
+5. Enter a small amount, such as `$5`, `$10`, or `$20`.
+6. Add your email address.
+7. Create the budget.
+
+!!! warning
+    AWS budgets do **not** automatically stop resources.
+
+    A budget sends alerts when spending reaches your chosen amount, but EC2 instances, databases, load balancers, and other services will continue running unless you manually stop them or create automation to stop them.
+
+---
+
+### Step 7: Create an IAM Admin User
+
+Now that the root account is secured, create a normal user for daily AWS work.
+
+From the AWS Console:
+
+1. Go to **IAM**.
+2. Go to **Users**.
+3. Choose **Create user**.
+4. Enter a username.
+5. Check **Provide user access to the AWS Management Console**.
+6. Choose **I want to create an IAM user**.
+7. Set a custom password or allow AWS to generate one.
+8. For a personal learning account, you may uncheck **Users must create a new password at next sign-in**.
+
+Console access is important here because this user needs to log in through the AWS web interface.
+
+---
+
+### Step 8: Create an Admin User Group
+
+Instead of attaching permissions directly to the user, create a group and attach permissions to the group.
+
+From the AWS Console:
+
+1. Go to **IAM**.
+2. Go to **User groups**.
+3. Choose **Create group**.
+4. Name the group something like `Admins`.
+5. Search for the policy named `AdministratorAccess`.
+6. Select `AdministratorAccess`.
+7. Create the group.
+
+Then add the IAM user you created to the `Admins` group.
+
+This gives the IAM user full administrative permissions inside the AWS account.
+
+---
+
+### Step 9: Log Out of Root and Log In as the IAM User
+
+Once the IAM admin user exists:
+
+1. Log out of the root account.
+2. Go to the IAM sign-in URL saved earlier.
+3. Enter the account alias.
+4. Log in with the IAM username and password.
+
+From this point forward, use the IAM admin account for normal AWS work.
+
+---
+
+### Step 10: Enable MFA on the IAM Admin User
+
+The root user is now protected, but the admin IAM user also needs MFA.
+
+From the IAM admin account:
+
+1. Go to **IAM**.
+2. Go to **Users**.
+3. Select your IAM user.
+4. Open **Security credentials**.
+5. Add an MFA device.
+
+This protects the account you will actually use day to day.
+
+---
+
+### Final Check
+
+Before moving on to EC2, confirm that:
+
+- The root user has MFA enabled.
+- The IAM admin user exists.
+- The IAM admin user is in an admin group.
+- The admin group has the `AdministratorAccess` policy.
+- Billing access is enabled for IAM users.
+- Billing alerts are enabled.
+- A monthly budget exists.
+- The IAM admin user has MFA enabled.
+- You are no longer using root for normal work.
+
+Once this setup is complete, the account is ready for creating AWS resources like EC2 instances.
+
+---
+
+### Important Reminder
+
+The AWS root user should only be used for rare account-level tasks, such as billing/account recovery, changing certain account settings, or closing the AWS account.
+
+For normal AWS work, including creating EC2 instances, use the IAM admin user.
+---
 
 ### AWS EC2 Instance
 
