@@ -137,7 +137,7 @@ python3 -m ensurepip
 1. Install Python 3, pip, and setuptools. This will allow us to utilize Python to its full potential through out the program:
 
 ```bash
-sudo apt install -y python3 python3-pip python3-venv python-is-python3
+sudo apt install -y python3 python3-pip python3-venv python-is-python3 python3-setuptools
 ```
 
 2. Verify the installations were successful with the following commands:
