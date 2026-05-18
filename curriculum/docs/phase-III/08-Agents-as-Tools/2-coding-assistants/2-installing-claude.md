@@ -76,7 +76,10 @@ ollama --version
 Pull the model (downloads ~2 GB of model weights) and start an interactive session to confirm it's working:
 
 ```bash
-ollama run qwen3.5
+ollama run qwen3-coder-next
+
+# if space is a concern for your machine we recommend using the following instead
+ollama run qwen3-coder
 ```
 
 Type a test message, then `Ctrl+D` to exit when satisfied.
@@ -88,7 +91,7 @@ Type a test message, then `Ctrl+D` to exit when satisfied.
 Once Ollama is running, launch Claude Code and point it at your local model:
 
 ```bash
-ollama launch claude --model qwen3.5
+ollama launch claude --model qwen3-coder-next
 ```
 
 Claude Code will now route all requests to your local Qwen3 instance instead of Anthropic's API. The interface is identical — same commands, same workflow — but zero cost and fully offline.
@@ -203,29 +206,13 @@ To configure this, run `/output-style` inside Claude Code and select **Learning*
 
 #### Putting It Together: Model Selection
 
-Before you reach for the `/model` command, you should be able to make that decision programmatically. Here's a skeleton:
-
-```python
-def select_model(task: dict) -> str:
-    """
-    Given a task description, return the recommended Claude Code model.
-
-    task = {
-        "complexity": "low" | "medium" | "high",
-        "has_budget": bool,
-        "needs_internet": bool,
-        "is_practice": bool
-    }
-    """
-    # TODO(human): implement model selection logic
-    pass
-```
+Before you reach for the `/model` command, you should be able to make that decision logically.
 
 ● **Learn by Doing**
 
-**Context:** You now understand the cost and capability trade-offs for each model. The skeleton above is a decision function that encodes those trade-offs as logic — the same reasoning you'll apply every time you reach for `/model` in a real session.
+**Context:** You now understand the cost and capability trade-offs for each model. Utilizing [TLDRAW](https://www.tldraw.com/) draw out a decision tree that accounts for those trade-offs — the same reasoning you'll apply every time you reach for `/model` in a real session.
 
-**Your Task:** In this file, implement the body of `select_model()` after the `TODO(human)` comment. Return one of: `"qwen3.5"`, `"claude-haiku-4-5"`, `"claude-sonnet-4-6"`, or `"claude-opus-4-6"`.
+**Your Task:** implement a logical decision tree. Return one of: `"qwen3-coder-next"`, `"qwen3-coder"`, `"claude-haiku-4-5"`, `"claude-sonnet-4-6"`, or `"claude-opus-4-6"`.
 
 **Guidance:** Think through the priorities in order — not all conditions are equal weight. A student in practice mode with no budget should always get Qwen even if the task is complex. A high-complexity task with budget available warrants Opus. The remaining cases fall to Haiku or Sonnet. There are multiple valid orderings; what matters is that your logic is consistent and defensible — could you explain each branch to a teammate?
 

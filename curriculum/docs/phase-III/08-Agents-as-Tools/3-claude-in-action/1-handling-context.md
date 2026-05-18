@@ -104,6 +104,14 @@ before the closing heading.
 
 Claude will add this instruction to `CLAUDE.md`. Every future session in this project will respect it automatically. Use memory mode when you discover a project-specific rule mid-session that you want to persist.
 
+#### Installing MkDocs
+
+In case `Claude Code` is unable to install this technology for you. You can install `mkdocs` with the following command:
+
+```bash
+pip install mkdocs
+```
+
 #### The Three Scopes of CLAUDE.md
 
 `CLAUDE.md` files can live at three levels, and Claude reads all three that apply:

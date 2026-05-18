@@ -137,23 +137,13 @@ Modern LLMs (Claude, GPT-4o, Gemini) are fine-tuned specifically for this **tool
 
 ### The Agent Loop
 
-Everything above comes together in one algorithm that runs continuously until the task is done:
-
-```python
-def agent_loop(user_task, tools, llm):
-    context = build_initial_context(user_task, tools)
-
-    # TODO(human): implement the rest of this loop
-    # Think through: what does the agent do with the LLM's response?
-    # How does it handle tool calls vs. final answers?
-    # When does the loop end?
-```
+Everything above comes together in one algorithm that runs continuously until the task is done.
 
 ● **Learn by Doing**
 
 **Context:** The agent infrastructure diagram and the four component descriptions above give you the full picture of what happens when you type a request into Claude Code. Now you need to internalize it by implementing the logic yourself.
 
-**Your Task:** In the code block above (in this `.md` file), implement the body of `agent_loop()` after the `TODO(human)` comment. Write 5-8 lines of pseudocode (Python-style is fine) that:
+**Your Task:** In [TLDRAW](https://www.tldraw.com/), implement a visual representation of the Agent loop that goes through the following steps:
 1. Calls the LLM with the current context
 2. Checks whether the response is a tool call or a final answer
 3. If tool call: executes the tool, appends result to context, and loops
