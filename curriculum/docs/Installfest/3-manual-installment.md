@@ -137,7 +137,7 @@ python3 -m ensurepip
 1. Install Python 3, pip, and setuptools. This will allow us to utilize Python to its full potential through out the program:
 
 ```bash
-sudo apt-get install -y python3 python3-pip python3-setuptools python3.10-venv
+sudo apt install -y python3 python3-pip python3-venv python-is-python3 python3-setuptools
 ```
 
 2. Verify the installations were successful with the following commands:
@@ -365,12 +365,11 @@ Finally, lets open the `.zshrc` file:
 code .zshrc
 ``` 
 
-and add the following `aliases` for our environment:
+and add the following `path` for our environment:
 
 ```bash
-# Aliases
-alias python='python3'
-alias pip='pip3'
+# * MacOS ONLY * Points to version-less executables for python and pip
+export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
 # Activate default Python venv
 source $HOME/default/bin/activate
