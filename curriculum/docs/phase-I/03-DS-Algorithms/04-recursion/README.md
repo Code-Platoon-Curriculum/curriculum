@@ -156,14 +156,17 @@ Let's see it play out recursively now, it's important to notice the functionalit
 
 ```python
 def binary_search(arr, target, left, right):
-    if left <= right:
+    if left > right:
         return False
-    elif arr[mid] == target:
+
+    mid = (left + right) // 2
+
+    if arr[mid] == target:
         return True
     elif target < arr[mid]:
-        return binary_search(arr, target, left, mid - 1)
+        return binary_search2(arr, target, left, mid - 1)
     else:
-        return binary_search(arr, target, mid + 1, right)
+        return binary_search2(arr, target, mid + 1, right)
 ```
 
 ---
