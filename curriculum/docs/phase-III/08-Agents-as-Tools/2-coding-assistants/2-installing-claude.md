@@ -76,9 +76,6 @@ ollama --version
 Pull the model (downloads ~2 GB of model weights) and start an interactive session to confirm it's working:
 
 ```bash
-ollama run qwen3-coder-next
-
-# if space is a concern for your machine we recommend using the following instead
 ollama run qwen3-coder
 ```
 
@@ -91,7 +88,7 @@ Type a test message, then `Ctrl+D` to exit when satisfied.
 Once Ollama is running, launch Claude Code and point it at your local model:
 
 ```bash
-ollama launch claude --model qwen3-coder-next
+ollama launch claude --model qwen3-coder
 ```
 
 Claude Code will now route all requests to your local Qwen3 instance instead of Anthropic's API. The interface is identical — same commands, same workflow — but zero cost and fully offline.
