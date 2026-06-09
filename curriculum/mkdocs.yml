@@ -299,7 +299,7 @@ nav:
         - Single Page Applications - Assignments: phase-III/09-Building-Applications/1-single-page-apps/assignments.md
       - Relational Databases:
         - Relational Databases - Overview: phase-III/09-Building-Applications/2-rdbms/README.md
-        - RDBMS Refresher: phase-III/09-Building-Applications/2-rdbms/1-understanding-dbs.md
+        - RDBMS: phase-III/09-Building-Applications/2-rdbms/1-understanding-dbs.md
         - Database Design: phase-III/09-Building-Applications/2-rdbms/2-supabase.md
         - Relational Databases - Assignments: phase-III/09-Building-Applications/2-rdbms/assignments.md
   - Phase IV:

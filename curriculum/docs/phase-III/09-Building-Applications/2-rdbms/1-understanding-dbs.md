@@ -1,5 +1,7 @@
 # Relational Databases
 
+## <a href="https://docs.google.com/presentation/d/1IdV7bsTZfPheiYbcrUS3SMusLRbfoPWMrgAdIrtvyJ8/edit?usp=drive_link" target="_">LECTURE SLIDE DECK</a>
+
 ---
 
 ## Intro
