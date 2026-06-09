@@ -297,6 +297,11 @@ nav:
         - Intro to SPAs: phase-III/09-Building-Applications/1-single-page-apps/1-ui-fundamentals.md
         - Building & Deploying SPAs: phase-III/09-Building-Applications/1-single-page-apps/2-building-and-deploying.md
         - Single Page Applications - Assignments: phase-III/09-Building-Applications/1-single-page-apps/assignments.md
+      - Relational Databases:
+        - Relational Databases - Overview: phase-III/09-Building-Applications/2-rdbms/README.md
+        - RDBMS Refresher: phase-III/09-Building-Applications/2-rdbms/1-understanding-dbs.md
+        - Database Design: phase-III/09-Building-Applications/2-rdbms/2-supabase.md
+        - Relational Databases - Assignments: phase-III/09-Building-Applications/2-rdbms/assignments.md
   - Phase IV:
     - Phase IV - Overview: phase-IV/README.md
     - Simple Deployment:
