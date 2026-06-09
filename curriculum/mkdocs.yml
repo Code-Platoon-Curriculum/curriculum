@@ -290,6 +290,18 @@ nav:
         - Handling Context: phase-III/08-Agents-as-Tools/3-claude-in-action/1-handling-context.md
         - MCP Servers: phase-III/08-Agents-as-Tools/3-claude-in-action/2-mcp-servers.md
         - Claude in Action - Assignments: phase-III/08-Agents-as-Tools/3-claude-in-action/assignments.md
+    - Building Applications:
+      - Building Applications - Overview: phase-III/09-Building-Applications/README.md
+      - Single Page Applications:
+        - Single Page Applications - Overview: phase-III/09-Building-Applications/1-single-page-apps/README.md
+        - Intro to SPAs: phase-III/09-Building-Applications/1-single-page-apps/1-ui-fundamentals.md
+        - Building & Deploying SPAs: phase-III/09-Building-Applications/1-single-page-apps/2-building-and-deploying.md
+        - Single Page Applications - Assignments: phase-III/09-Building-Applications/1-single-page-apps/assignments.md
+      - Relational Databases:
+        - Relational Databases - Overview: phase-III/09-Building-Applications/2-rdbms/README.md
+        - RDBMS Refresher: phase-III/09-Building-Applications/2-rdbms/1-understanding-dbs.md
+        - Database Design: phase-III/09-Building-Applications/2-rdbms/2-supabase.md
+        - Relational Databases - Assignments: phase-III/09-Building-Applications/2-rdbms/assignments.md
   - Phase IV:
     - Phase IV - Overview: phase-IV/README.md
     - Simple Deployment:
