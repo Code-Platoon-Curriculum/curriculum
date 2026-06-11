@@ -1,5 +1,7 @@
 # RESTful APIs
 
+## <a href="https://docs.google.com/presentation/d/1SbDNjxJ0wWyz0uYtqEwZzaKN7uyLPZZXGK0C9iu5vc8/edit?usp=sharing" target="_">LECTURE SLIDE DECK</a>
+
 ## Intro
 
 You've already built two important pieces of a real application: a React + Vite frontend that users can see and interact with, and a PostgreSQL database in Supabase that stores your data. But right now, those two pieces can't talk to each other. There's a gap between them — and that gap is where APIs live.
