@@ -27,9 +27,7 @@ The key conventions you need to know right now are:
 
 A RESTful API acts as a **contract and a gatekeeper** between your UI and your database. Neither the frontend nor the database talks directly to the other — the API sits in between.
 
-```
-[ React UI ]  ←—— HTTP Requests/Responses ——→  [ RESTful API ]  ←—— SQL ——→  [ PostgreSQL Database ]
-```
+![api](./resources/api.png)
 
 This separation exists for good reasons:
 
@@ -38,6 +36,8 @@ This separation exists for good reasons:
 - **Control** — You decide exactly what data is exposed and how it can be modified; the raw database is never directly accessible to the outside world
 
 In Supabase's case, they've built a RESTful API layer called **PostgREST** that automatically generates endpoints for every table in your database. You don't have to write the API yourself — it's already there. But understanding what it's doing is essential before you start building your own logic on top of it.
+
+![our-api](./resources/our_api.png)
 
 ---
 
@@ -239,6 +239,14 @@ You've been seeing status codes throughout this exercise. They're a standardized
 | `500 Internal Server Error` | Something went wrong on the server | Database error |
 
 When debugging an API issue, the status code is always your first clue.
+
+--- 
+
+### The API Life Cycle Visualized
+
+Here's a visual example of the API life cycle
+
+![api_cycle](./resources/api_cycle.png)
 
 ---
 
