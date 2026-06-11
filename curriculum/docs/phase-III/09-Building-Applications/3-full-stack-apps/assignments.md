@@ -4,8 +4,8 @@ Assignments should be completed from top to bottom as they will raise in difficu
 
 ## Part I
 
-- **Start your app**: Pick your application idea → Open TLDraw → Answer the 8-Question Template and sketch out your user interface with user stories
+- **Send Requests**: Now that you understand your API, it's time to start building your context. What examples would you like to give to Claude Code? What endpoints have some nuances for your application? Most importantly ensure you understand your API.
 
 ## Part II
 
-- **Build & Deploy your App**: Now that we've covered how to build and deploy our applications, it's time for you to try it yourself. Take the planning that you did during `Part I` and turn it into a Front-End app that is live on the web and accessible to the public.
+- **Full-Stack**: Bring your app to live. Give it memory and enjoy your Full-Stack application.

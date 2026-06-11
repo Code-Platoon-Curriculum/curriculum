@@ -86,17 +86,20 @@ The server receives this, validates it, and inserts a new row into the `tasks` t
 A **GET** request is used to retrieve data. It does not modify anything on the server. GET requests have no body — all information is passed through the URL.
 
 **Fetch all tasks:**
-```
+
+```bash
 GET /tasks
 ```
 
 **Fetch a specific task by ID:**
-```
+
+```bash
 GET /tasks?id=eq.3
 ```
 
 **Fetch only incomplete tasks:**
-```
+
+```bash
 GET /tasks?is_complete=eq.false
 ```
 
@@ -186,22 +189,15 @@ Download it at [postman.com](https://www.postman.com) if you haven't already.
 Supabase exposes your database through a RESTful API automatically. Here's how to find your endpoint URLs and credentials:
 
 1. Open your project in the [Supabase Dashboard](https://app.supabase.com)
-2. In the left sidebar, click **API Docs** (or navigate to **Project Settings → API**)
-3. You'll see two critical pieces of information:
-   - **Project URL** — This is your API base URL, formatted like: `https://<your-project-id>.supabase.co`
-   - **API Keys** — You'll see two keys:
-     - `anon` (public) key — used for client-side requests; respects Row Level Security policies
-     - `service_role` key — bypasses all security policies; **never expose this in a frontend app**
+2. In the left sidebar, click **Integrations** >> **Data API**
+3. You'll the **Project URL** — This is your API base URL, formatted like: `https://<your-project-id>.supabase.co/rest/v1` and your `Docs` which will explain your API.
+4. Finally you'll need your project API Keys to add to your headers, go to your project settings and click on `API Keys` to get your *Publishable key*
 
-For this exercise, we'll use the `anon` key.
+For this exercise, we'll use the `Publishable` key.
 
-Your resource endpoints follow this pattern:
-```
-https://<your-project-id>.supabase.co/rest/v1/<table-name>
-```
+Lets try it out by sending a couple of requests to a few resources:
 
-So for your two tables:
-```
+```bash
 https://<your-project-id>.supabase.co/rest/v1/users
 https://<your-project-id>.supabase.co/rest/v1/tasks
 ```
@@ -210,8 +206,8 @@ https://<your-project-id>.supabase.co/rest/v1/tasks
 
 | Header | Value |
 |---|---|
-| `apikey` | Your `anon` key |
-| `Authorization` | `Bearer <your-anon-key>` |
+| `apikey` | Your `publishable` key |
+| `Authorization` | `Bearer <your-publishable-key>` |
 | `Content-Type` | `application/json` (required for POST/PATCH/PUT) |
 
 You can save these as a **Postman Environment** or **Collection Variables** so you don't retype them on every request.
@@ -224,159 +220,6 @@ Work through each of the following requests in Postman. For each one, observe:
 - The **status code** in the response (200, 201, 204, 400, etc.)
 - The **response body** (what data came back, or what error message appeared)
 - What changes (or doesn't change) in your Supabase Table Editor after each request
-
----
-
-##### READ
-
-**Get all users**
-
-```
-Method:  GET
-URL:     https://<project-id>.supabase.co/rest/v1/users
-Headers: apikey: <anon-key>
-         Authorization: Bearer <anon-key>
-```
-
-Expected: `200 OK` with a JSON array of all user rows.
-
----
-
-**Get all tasks**
-
-```
-Method:  GET
-URL:     https://<project-id>.supabase.co/rest/v1/tasks
-Headers: apikey: <anon-key>
-         Authorization: Bearer <anon-key>
-```
-
-Expected: `200 OK` with a JSON array of all task rows.
-
----
-
-**Get a single task by ID**
-
-```
-Method:  GET
-URL:     https://<project-id>.supabase.co/rest/v1/tasks?id=eq.1
-Headers: apikey: <anon-key>
-         Authorization: Bearer <anon-key>
-```
-
-Expected: `200 OK` with a JSON array containing only the matching task.
-
-> 🔍 **Observe:** What happens when you query for an ID that doesn't exist (e.g., `?id=eq.9999`)? Supabase returns `200 OK` with an empty array `[]` — not a 404. This is a common point of confusion. The request succeeded; it just found no matching rows.
-
----
-
-##### CREATE
-
-**Create a new task**
-
-```
-Method:  POST
-URL:     https://<project-id>.supabase.co/rest/v1/tasks
-Headers: apikey: <anon-key>
-         Authorization: Bearer <anon-key>
-         Content-Type: application/json
-Body (raw JSON):
-{
-  "title": "My first API-created task",
-  "is_complete": false,
-  "user_id": 1
-}
-```
-
-Expected: `201 Created` with the newly created task object.
-
-> 💡 **Try this:** Add the header `Prefer: return=representation` to tell Supabase to return the full created record in the response body. Without it, some versions return an empty `201`.
-
----
-
-**Try creating a task with missing required fields**
-
-```
-Method:  POST
-URL:     https://<project-id>.supabase.co/rest/v1/tasks
-Headers: (same as above)
-Body:
-{
-  "is_complete": false
-}
-```
-
-Expected: `400 Bad Request` or a constraint violation error — because `title` is required (assuming your schema enforces a `NOT NULL` constraint).
-
-> 🔍 **Observe:** Read the error message. The API is telling you exactly what went wrong. This is the value of testing bad inputs — you learn what the API enforces so you know what validation your frontend needs to handle.
-
----
-
-##### UPDATE
-
-**Mark a task as complete**
-
-```
-Method:  PATCH
-URL:     https://<project-id>.supabase.co/rest/v1/tasks?id=eq.1
-Headers: apikey: <anon-key>
-         Authorization: Bearer <anon-key>
-         Content-Type: application/json
-Body:
-{
-  "is_complete": true
-}
-```
-
-Expected: `204 No Content` (by default) or the updated record if you include `Prefer: return=representation`.
-
-> 💡 **Verify:** After sending, do a GET request to the same task and confirm `is_complete` is now `true`.
-
----
-
-**Try updating without a filter**
-
-```
-Method:  PATCH
-URL:     https://<project-id>.supabase.co/rest/v1/tasks
-Headers: (same as above)
-Body:
-{
-  "is_complete": true
-}
-```
-
-> 🔍 **Observe:** Supabase blocks this by default and returns an error. This is a safety guard — a PATCH with no filter would update every row in the table. This behavior is intentional and worth understanding.
-
----
-
-##### DELETE
-
-**Delete a specific task**
-
-```
-Method:  DELETE
-URL:     https://<project-id>.supabase.co/rest/v1/tasks?id=eq.1
-Headers: apikey: <anon-key>
-         Authorization: Bearer <anon-key>
-```
-
-Expected: `204 No Content`.
-
-> 💡 **Verify:** Try to GET that task afterward. You should receive an empty array `[]`.
-
----
-
-**Try deleting without a filter**
-
-```
-Method:  DELETE
-URL:     https://<project-id>.supabase.co/rest/v1/tasks
-Headers: apikey: <anon-key>
-         Authorization: Bearer <anon-key>
-```
-
-> 🔍 **Observe:** Like the unfiltered PATCH, Supabase blocks this by default. Understanding why this is blocked — and what would happen if it weren't — reinforces why precise, filtered requests matter.
 
 ---
 
@@ -406,10 +249,3 @@ You've now seen the full picture of how a frontend, an API, and a database work 
 The four CRUD operations (Create, Read, Update, Delete) map directly to HTTP methods (POST, GET, PATCH/PUT, DELETE), and those HTTP methods are the vocabulary your frontend will use to communicate with every backend you'll ever work with.
 
 In the next steps, you'll connect your React frontend to these same Supabase endpoints — so instead of Postman sending the requests, your UI will. The mental model you've built today is exactly what you need to make that connection.
-
-**Key takeaways:**
-- A RESTful API sits between the UI and the database and handles all communication between them
-- CRUD maps to POST, GET, PATCH/PUT, and DELETE
-- Every request needs the right HTTP method, the right URL, the right headers, and (for POST/PATCH/PUT) the right body
-- Status codes tell you whether a request succeeded and why it failed
-- Testing bad inputs is just as important as testing good ones — it reveals what the API enforces and what your frontend needs to handle
