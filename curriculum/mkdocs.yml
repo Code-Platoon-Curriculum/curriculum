@@ -308,10 +308,10 @@ nav:
         - Connecting it All: phase-III/09-Building-Applications/3-full-stack-apps/2-connecting-it-all.md
         - Full Stack Applications - Assignments: phase-III/09-Building-Applications/3-full-stack-apps/assignments.md
       - Authentication:
-        Authentication - Overview: phase-III/09-Building-Applications/4-authentication/README.md
-        How does Authentication Work: phase-III/09-Building-Applications/4-authentication/1-how-authentication-works.md
-        Implementing Supabase Auth: phase-III/09-Building-Applications/4-authentication/2-supabase-auth.md
-        Authentication - Assignments: phase-III/09-Building-Applications/4-authentication/assignments.md
+        - Authentication - Overview: phase-III/09-Building-Applications/4-authentication/README.md
+        - How does Authentication Work: phase-III/09-Building-Applications/4-authentication/1-how-authentication-works.md
+        - Implementing Supabase Auth: phase-III/09-Building-Applications/4-authentication/2-supabase-auth.md
+        - Authentication - Assignments: phase-III/09-Building-Applications/4-authentication/assignments.md
   - Phase IV:
     - Phase IV - Overview: phase-IV/README.md
     - Simple Deployment:
