@@ -312,6 +312,14 @@ nav:
         - How does Authentication Work: phase-III/09-Building-Applications/4-authentication/1-how-authentication-works.md
         - Implementing Supabase Auth: phase-III/09-Building-Applications/4-authentication/2-supabase-auth.md
         - Authentication - Assignments: phase-III/09-Building-Applications/4-authentication/assignments.md
+    - Beyond Building:
+      - Beyond Building - Overview: phase-III/10-Beyond-Building/README.md
+      - 3rd Party APIs:
+        - 3rd Party APIs - Overview: phase-III/10-Beyond-Building/1-3rd_party_apis/README.md
+        - Serverless Functions: phase-III/10-Beyond-Building/1-3rd_party_apis/1-serverless-funcs.md
+        - Connecting an API: phase-III/10-Beyond-Building/1-3rd_party_apis/2-connecting-api.md
+        - 3rd Party APIs - Assignments: phase-III/10-Beyond-Building/1-3rd_party_apis/assignments.md
+
   - Phase IV:
     - Phase IV - Overview: phase-IV/README.md
     - Simple Deployment:
