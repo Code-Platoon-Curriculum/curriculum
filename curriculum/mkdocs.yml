@@ -319,7 +319,11 @@ nav:
         - Serverless Functions: phase-III/10-Beyond-Building/1-3rd_party_apis/1-serverless-funcs.md
         - Connecting an API: phase-III/10-Beyond-Building/1-3rd_party_apis/2-connecting-api.md
         - 3rd Party APIs - Assignments: phase-III/10-Beyond-Building/1-3rd_party_apis/assignments.md
-
+      - Stripe:
+        - Stripe - Overview: phase-III/10-Beyond-Building/2-stripe/README.md
+        - Understanding Stripe: phase-III/10-Beyond-Building/2-stripe/1-understanding-stripe.md
+        - Multi-Agent Architecture: phase-III/10-Beyond-Building/2-stripe/2-multi-agent-arch.md
+        - Stripe - Assignments: phase-III/10-Beyond-Building/2-stripe/assignments.md
   - Phase IV:
     - Phase IV - Overview: phase-IV/README.md
     - Simple Deployment:
