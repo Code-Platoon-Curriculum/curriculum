@@ -324,6 +324,11 @@ nav:
         - Understanding Stripe: phase-III/10-Beyond-Building/2-stripe/1-understanding-stripe.md
         - Multi-Agent Architecture: phase-III/10-Beyond-Building/2-stripe/2-multi-agent-arch.md
         - Stripe - Assignments: phase-III/10-Beyond-Building/2-stripe/assignments.md
+      - DevOps:
+        - DevOps - Overview: phase-III/10-Beyond-Building/3-dev-ops/README.md
+        - Understanding DevOps: phase-III/10-Beyond-Building/3-dev-ops/1-understanding-devops.md
+        - Deploying your Application: phase-III/10-Beyond-Building/3-dev-ops/2-deploying-your-app.md
+        - DevOps - Assignments: phase-III/10-Beyond-Building/3-dev-ops/assignments.md
   - Phase IV:
     - Phase IV - Overview: phase-IV/README.md
     - Simple Deployment:

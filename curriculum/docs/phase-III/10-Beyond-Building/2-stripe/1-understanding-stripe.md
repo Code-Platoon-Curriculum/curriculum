@@ -1,6 +1,6 @@
 # Understanding Stripe
 
-## **<a href="https://docs.google.com/presentation/d/1RtcnTAX1NZqoieTstShMH162DhtXn-S1PAANxecBZXo/edit?usp=drive_link" target="_">LECTURE SLIDE DECK</a>
+## **<a href="https://docs.google.com/presentation/d/1RtcnTAX1NZqoieTstShMH162DhtXn-S1PAANxecBZXo/edit?usp=drive_link" target="_">LECTURE SLIDE DECK</a>**
 
 ## Intro
 
