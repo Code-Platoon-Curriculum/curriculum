@@ -325,10 +325,15 @@ nav:
         - Multi-Agent Architecture: phase-III/10-Beyond-Building/2-stripe/2-multi-agent-arch.md
         - Stripe - Assignments: phase-III/10-Beyond-Building/2-stripe/assignments.md
       - DevOps:
-        - DevOps - Overview: phase-III/10-Beyond-Building/3-dev-ops/README.md
-        - Understanding DevOps: phase-III/10-Beyond-Building/3-dev-ops/1-understanding-devops.md
-        - Deploying your Application: phase-III/10-Beyond-Building/3-dev-ops/2-deploying-your-app.md
-        - DevOps - Assignments: phase-III/10-Beyond-Building/3-dev-ops/assignments.md
+        - DevOps - Overview: phase-III/10-Beyond-Building/3-devops/README.md
+        - Understanding DevOps: phase-III/10-Beyond-Building/3-devops/1-understanding-devops.md
+        - Deploying your Application: phase-III/10-Beyond-Building/3-devops/2-deploying-your-app.md
+        - DevOps - Assignments: phase-III/10-Beyond-Building/3-devops/assignments.md
+      - Security:
+        - Security - Overview: phase-III/10-Beyond-Building/4-security/README.md
+        - OWASP 10: phase-III/10-Beyond-Building/4-security/1-OWASP-10.md
+        - The OWASP Juice Shop: phase-III/10-Beyond-Building/4-security/2-juice-shop.md
+        - Security - Assignments: phase-III/10-Beyond-Building/4-security/assignments.md
   - Phase IV:
     - Phase IV - Overview: phase-IV/README.md
     - Simple Deployment:
